@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Admin{% endblock %}</title>
+        
+        {% block stylesheets %}
+         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+         <link rel="stylesheet" type="text/css" href="{{asset('vendor/bootstrap.min.css')}}"/>
+         <link rel="stylesheet" type="text/css" href="{{asset('vendor/font-awesome.min.css')}}"/>
+         <link rel="stylesheet" type="text/css" href="{{asset('vendor/animate.css')}}"/>
+         
+          {% stylesheets output="css/compiled/main.css" filter='cssrewrite'
+
+            'css/gentelella/custom.css'
+            'css/gentelella/maps/jquery-jvectormap-2.0.3.css'
+            'css/gentelella/icheck/flat/green.css'
+            'css/gentelella/floatexamples.css'
+            'css/gentelella/switchery/switchery.min.css'
+            'js/backend/gentelella/datatables/jquery.dataTables.min.css'
+            'js/backend/gentelella/datatables/buttons.bootstrap.min.css'
+            'js/backend/gentelella/datatables/fixedHeader.bootstrap.min.css'
+            'js/backend/gentelella/datatables/responsive.bootstrap.min.css'
+            'js/backend/gentelella/datatables/scroller.bootstrap.min.css'
+
+            'css/main.css'
+          %}
+         <link rel="stylesheet" href="{{ asset_url }}" />
+         {% endstylesheets %}      
+         {% endblock %}
+         
+    </head>
+    <body class="nav-md">
+        <div class="container body">
+        <div class="main_container">
+        {% block body %}
+             {% block backoffice %}
+
+             {% endblock %}
+             
+        {% endblock %}
+        </div>
+          
+        </div>
+        {% block javascripts %}
+        
+        <script type="text/javascript" src="{{asset('vendor/jquery.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('vendor/bootstrap.min.js')}}"></script>
+        
+        <script type="text/javascript" src="{{asset('js/backend/gentelella/nprogress.js')}}"></script>
+        
+         {% javascripts output="js/compiled/main.js"
+            'js/backend/gentelella/progressbar/bootstrap-progressbar.min.js'
+            'js/backend/gentelella/nicescroll/jquery.nicescroll.min.js'
+            'js/backend/gentelella/icheck/icheck.min.js'
+            'js/backend/gentelella/moment/moment.min.js'
+            'js/backend/gentelella/datepicker/daterangepicker.js'
+            'js/backend/gentelella/chartjs/chart.min.js'
+            'js/backend/gentelella/flot/jquery.flot.js'
+            'js/backend/gentelella/flot/jquery.flot.pie.js'
+            'js/backend/gentelella/flot/jquery.flot.orderBars.js'
+            'js/backend/gentelella/flot/jquery.flot.time.min.js'
+            'js/backend/gentelella/flot/date.js'
+            'js/backend/gentelella/flot/jquery.flot.spline.js'
+            'js/backend/gentelella/flot/jquery.flot.stack.js'
+            'js/backend/gentelella/flot/curvedLines.js'
+            'js/backend/gentelella/flot/jquery.flot.resize.js'
+            'js/backend/gentelella/maps/jquery-jvectormap-2.0.3.min.js'
+            'js/backend/gentelella/maps/gdp-data.js'
+            'js/backend/gentelella/maps/jquery-jvectormap-world-mill-en.js'
+            'js/backend/gentelella/maps/jquery-jvectormap-us-aea-en.js'
+            'js/backend/gentelella/switchery/switchery.min.js'
+            'js/backend/gentelella/notify/pnotify.core.js'
+            'js/backend/gentelella/notify/pnotify.buttons.js'
+            'js/backend/gentelella/notify/pnotify.nonblock.js'
+
+            'js/backend/gentelella/datatables/jquery.dataTables.min.js'
+            'js/backend/gentelella/datatables/dataTables.bootstrap.js'
+            'js/backend/gentelella/datatables/dataTables.buttons.min.js'
+            'js/backend/gentelella/datatables/buttons.bootstrap.min.js'
+            'js/backend/gentelella/datatables/jszip.min.js'
+            'js/backend/gentelella/datatables/pdfmake.min.js'
+            'js/backend/gentelella/datatables/vfs_fonts.js'
+            'js/backend/gentelella/datatables/buttons.html5.min.js'
+            'js/backend/gentelella/datatables/buttons.print.min.js'    
+            'js/backend/gentelella/datatables/dataTables.fixedHeader.min.js'
+            'js/backend/gentelella/datatables/dataTables.keyTable.min.js'
+            'js/backend/gentelella/datatables/dataTables.responsive.min.js'
+            'js/backend/gentelella/datatables/responsive.bootstrap.min.js'
+            'js/backend/gentelella/datatables/dataTables.scroller.min.js'
+
+            'js/backend/gentelella/tags/jquery.tagsinput.min.js'
+
+            'js/backend/gentelella/custom.js'
+        %}
+         <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+         
+        
+        
+        {% endblock %}
+        {% block scriptForm %}
+             {% endblock %}
+    </body>
+</html>
+
