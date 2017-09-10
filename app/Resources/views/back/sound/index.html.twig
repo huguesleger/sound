@@ -1,0 +1,53 @@
+{% extends ':back:templateAdmin.html.twig' %}
+
+  {% block content %}
+    <h1>Sounds list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>morceau</th>
+                <th>Image</th>
+                <th>Annee</th>
+                <th>Auteur</th>
+                <th>Labéliser</th>
+                <th>Publier</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sound in sounds %}
+            <tr>
+                <td><a href="{{ path('sound_show', { 'id': sound.id }) }}">{{ sound.id }}</a></td>
+                <td>{{ sound.titre }}</td>
+                <td>{{ sound.morceau }}</td>
+                <td>{{ sound.description }}</td>
+                <td>{{ sound.image }}</td>
+                <td>{% if sound.annee %}{{ sound.annee|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ sound.auteur }}</td>
+                <td>{{ sound.labeliser }}</td>
+                <td>{% if sound.publier %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('sound_show', { 'id': sound.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('sound_edit', { 'id': sound.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('sound_new') }}">Create a new sound</a>
+        </li>
+    </ul>
+{% endblock %}

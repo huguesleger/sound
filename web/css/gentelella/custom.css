@@ -1652,17 +1652,19 @@ h4.graph_title {
   text-align: right;
   margin-right: 10px;
 }
+
 #sidebar-menu .fa {
-  width: 26px;
+  width: 30px;
   opacity: .99;
   display: inline-block;
   font-family: FontAwesome;
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
+  font-size: 22px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 
 /* *********  /iconts-display  **************************** */
 
@@ -1957,6 +1959,7 @@ span.section {
   border-radius: 0;
   line-height: 30px;
   width: 100%;
+  resize: none;
 }
 .form-horizontal .control-label {
   padding-top: 8px
@@ -1975,7 +1978,7 @@ legend {
   margin-left: 0;
 }
 .form-control-feedback {
-  margin-top: 8px;
+  margin-top: 30px;
   height: 23px;
   color: #bbb;
   line-height: 24px;
@@ -1983,7 +1986,7 @@ legend {
 }
 .form-control-feedback.left {
   border-right: 1px solid #ccc;
-  left: 13px;
+  left: 0px;
 }
 .form-control-feedback.right {
   border-left: 1px solid #ccc;
@@ -1996,6 +1999,7 @@ legend {
   padding-right: 45px;
 }
 .form-group {
+  position: relative;
   margin-bottom: 10px;
 }
 .validate {

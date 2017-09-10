@@ -2,13 +2,19 @@
 
 namespace AppBundle\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\File;
 
 /**
  * Sound
  *
  * @ORM\Table(name="sound")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\SoundRepository")
+ * @UniqueEntity("titre", message="Ce nom existe déjà.")
  */
 class Sound
 {
@@ -24,7 +30,8 @@ class Sound
     /**
      * @var string
      *
-     * @ORM\Column(name="titre", type="string", length=255)
+     * @ORM\Column(name="titre", type="string", length=255, unique=true)
+     * @Assert\NotBlank()
      */
     private $titre;
 
@@ -32,18 +39,35 @@ class Sound
      * @var string
      *
      * @ORM\Column(name="description", type="text")
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 250,
+     *      minMessage = "le texte doit avoir minimum {{ limit }} caratères")
      */
     private $description;
-
     /**
-     * @var string
+     *
+     * @var UploadedFile
+     * @ORM\Column(name="morceau", type="string")
+     * @File(mimeTypes={"audio/mpeg", "audio/mp3"},
+     * maxSize = "2M",
+     * maxSizeMessage = "La taille maximum autorisée est de (2M).") 
+     */
+    private $morceau;
+    
+    
+    /**
+     * @var UploadedFile
      *
      * @ORM\Column(name="image", type="string", length=255)
+     * @File(mimeTypes={"image/jpeg", "image/png"},
+     * maxSize = "800k",
+     * maxSizeMessage = "La taille maximum autorisée est de (800ko).")
      */
     private $image;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      *
      * @ORM\Column(name="annee", type="date")
      */
@@ -62,8 +86,21 @@ class Sound
      * @ORM\Column(name="publier", type="boolean")
      */
     private $publier;
+    
+     /**
+     * @var bool
+     *
+     * @ORM\Column(name="labeliser", type="boolean")
+     */
+    private $labeliser;
 
-
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="non_labeliser", type="boolean")
+     */
+    private $nonLabeliser;
+    
     /**
      * Get id
      *
@@ -121,6 +158,30 @@ class Sound
     {
         return $this->description;
     }
+    
+    /**
+     * Set morceau
+     *
+     * @param string $morceau
+     *
+     * @return Sound
+     */
+    public function setMorceau($morceau) {
+        
+        $this->morceau = $morceau;
+        
+        return $this;
+    }
+    
+     /**
+     * Get morceau
+     *
+     * @return string
+     */
+    public function getMorceau() {
+        
+        return $this->morceau;
+    }
 
     /**
      * Set image
@@ -149,7 +210,7 @@ class Sound
     /**
      * Set annee
      *
-     * @param \DateTime $annee
+     * @param DateTime $annee
      *
      * @return Sound
      */
@@ -163,7 +224,7 @@ class Sound
     /**
      * Get annee
      *
-     * @return \DateTime
+     * @return DateTime
      */
     public function getAnnee()
     {
@@ -216,5 +277,62 @@ class Sound
     public function getPublier()
     {
         return $this->publier;
+    }
+    
+    /**
+     * Set labeliser
+     *
+     * @param boolean $labeliser
+     *
+     * @return Sound
+     */
+     public function setLabeliser($labeliser) {
+         
+        $this->labeliser = $labeliser;
+        
+        return $this;
+    }
+    
+    /**
+     * Get labeliser
+     *
+     * @return bool
+     */
+    public function getLabeliser() {
+        
+        return $this->labeliser;
+    }
+    
+    /**
+     * Set nonLabeliser
+     *
+     * @param boolean $nonLabeliser
+     *
+     * @return Sound
+     */
+     public function setNonLabeliser($nonLabeliser) {
+         
+        $this->nonLabeliser = $nonLabeliser;
+        
+        return $this;
+    }
+    
+    /**
+     * Get nonLabeliser
+     *
+     * @return bool
+     */
+    public function getNonLabeliser() {
+        
+        return $this->nonLabeliser;
+    }
+
+   
+
+   
+
+        
+    public function __toString() {
+        return $this->getTitre();
     }
 }

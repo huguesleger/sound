@@ -1,0 +1,56 @@
+{% extends ':back:templateAdmin.html.twig' %}
+
+  {% block content %}
+    <h1>Sound</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ sound.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ sound.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ sound.description }}</td>
+            </tr>
+             <tr>
+                <th>Morceau</th>
+                <td>{{ sound.morceau }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ sound.image }}</td>
+            </tr>
+            <tr>
+                <th>Annee</th>
+                <td>{% if sound.annee %}{{ sound.annee|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Auteur</th>
+                <td>{{ sound.auteur }}</td>
+            </tr>
+            <tr>
+                <th>Publier</th>
+                <td>{% if sound.publier %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('sound_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('sound_edit', { 'id': sound.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

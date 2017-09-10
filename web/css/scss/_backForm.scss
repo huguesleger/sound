@@ -1,0 +1,54 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 10 sept. 2017, 12:27:12
+    Author     : hugues
+*/
+
+
+
+.input-label {
+    background: #39D2B4;
+    color: #fff;
+    padding: 20px 30px;
+    cursor: pointer;
+}
+
+.fa{
+    margin-right: 10px;
+}
+
+#appbundle_sound_morceau{
+  display: none;
+}
+
+#appbundle_sound_image {
+    display: none;
+}
+
+.default-picture {
+    width: 110px;
+    margin-top: -25px;
+    opacity: 0.6;
+    
+}
+
+#selectImage {
+    max-height: 15em;
+    max-width: 15em;
+    float: right;
+    margin-right: 1em;
+}
+
+.checkbox label, .radio label {
+    padding-left:0px;
+
+}
+
+.title-add {
+    float: right;
+    margin-top: 2px;
+}
