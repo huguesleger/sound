@@ -1,53 +1,181 @@
 {% extends ':back:templateAdmin.html.twig' %}
 
   {% block content %}
-    <h1>Sounds list</h1>
+      
+            {% for message in app.flashes('success') %}
+      <div id="success">
+      </div>
+      {% endfor %}
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Description</th>
-                <th>morceau</th>
-                <th>Image</th>
-                <th>Annee</th>
-                <th>Auteur</th>
-                <th>Labéliser</th>
-                <th>Publier</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for sound in sounds %}
-            <tr>
-                <td><a href="{{ path('sound_show', { 'id': sound.id }) }}">{{ sound.id }}</a></td>
-                <td>{{ sound.titre }}</td>
-                <td>{{ sound.morceau }}</td>
-                <td>{{ sound.description }}</td>
-                <td>{{ sound.image }}</td>
-                <td>{% if sound.annee %}{{ sound.annee|date('Y-m-d') }}{% endif %}</td>
-                <td>{{ sound.auteur }}</td>
-                <td>{{ sound.labeliser }}</td>
-                <td>{% if sound.publier %}Yes{% else %}No{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('sound_show', { 'id': sound.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('sound_edit', { 'id': sound.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+      {% for message in app.flashes('delete') %}
+      <div id="delete">
+      </div>
+      {% endfor %} 
+      
+       <div class="">
+           
+           
+           
+          <div class="page-title">
+            <div class="title_left">
+                <h3>Musique</h3> 
+            </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('sound_new') }}">Create a new sound</a>
-        </li>
-    </ul>
+              <div class="title_right">
+              <a class="btn btn-dark btn-sm title-add-list" href="{{ path('sound_new') }}">Ajouter</a>
+          </div>
+       </div>
+          <div class="clearfix"></div>
+
+ 
+          
+                <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Mes Morceaux</h2>
+                  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                 
+                  <table id="datatable" class="table table-striped projects">
+                    <thead>
+                      <tr>
+                        <th style="width: 1%">#</th>
+                        <th style="width: 12%">Categorie</th>
+                        <th style="width: 20%">Titre</th>
+                        <th>Description</th>
+                        <th>Label</th>
+                        <th>Auteur</th>
+                        <th>Status</th>
+                        <th style="width: 20%">Actions</th>
+                      </tr>
+                    </thead>
+
+
+                    <tbody>
+                        {% for sound in sounds %}
+                      <tr>  
+                           <td> {% set counter = ( counter | default(0) ) + 1 %}
+                           <small> {{ counter }}</small></td>
+                        <td>
+                            <ul class="list-inline">
+                       
+                          </ul></td>
+                        <td><a>{{ sound.titre }}</a></td>
+                        <td>{{ sound.description }}</td>
+                    
+                        <td>{% if sound.labeliser %}<span type="button" class="label label-success">Yes</span>{% else %}<span class="label label-warning">No</span>{% endif %}</td>
+                         <td>{{ sound.auteur }}</td>
+                        <td> {% if sound.publier %}<span type="button" class="label label-success">Publié</span>{% else %}<span class="label label-warning">Brouillon</span>{% endif %}</td>
+                        <td><a href="{{ path('sound_show', { 'id': sound.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
+                          <a href="{{ path('sound_edit', { 'id': sound.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                          <a href="{{ path('sound_delete', { 'id': sound.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                      </tr>
+                       {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+                </div>
+                    
+                   </div>                
 {% endblock %}
+
+{% block scriptForm %}
+{#     <script type="text/javascript" src="{{asset('js/backend/form/form_notification.js')}}"></script>#}
+      <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
+
+{% endblock %}
+
+
+
+{#  {% block content %}
+
+
+       <div class="">
+           
+           
+           
+          <div class="page-title">
+
+            <div class="title_left">
+ 
+      
+                <h3>Burger<a class="btn btn-dark btn-xs title_add" href="{{ path('sound_new') }}">Ajouter</a></h3> 
+               
+            </div>
+
+          </div>
+          <div class="clearfix"></div>
+
+ 
+          
+                <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Mes Burgers</h2>
+                  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                 
+                  <table id="datatable" class="table table-striped projects">
+                    <thead>
+                      <tr>
+                        <th style="width: 1%">#</th>
+                        <th style="width: 12%">Categorie</th>
+                        <th style="width: 20%">Nom</th>
+                        <th>Description</th>
+                        <th>Tarif</th>
+                        <th>Status</th>
+                        <th style="width: 20%">Actions</th>
+                      </tr>
+                    </thead>
+
+
+                    <tbody>
+                        {% for sound in sounds %}
+                    
+                      <tr>  
+                        
+                        <td>
+                            <ul class="list-inline">
+                            <li>
+                              <img src="{{asset('images/record-player.png')}}" class="avatar" alt="Avatar">
+                            
+                            </li>
+                            <li>sans catégorie</li>
+                          </ul></td>
+                        <td><a>{{ sound.titre }}</a></td>
+                        <td>{{ sound.description }}</td>
+                         <td>{{ sound.auteur }}</td>
+                        <td> {% if sound.publier %}<span type="button" class="label label-success">En ligne</span>{% else %}<span class="label label-warning">Brouillon</span>{% endif %}</td>
+                        <td><a href="{{ path('sound_show', { 'id': sound.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
+                          <a href="{{ path('sound_edit', { 'id': sound.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                          <a href="{{ path('sound_delete', { 'id': sound.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                          </td>
+                          <td>yo</td>
+                      </tr>
+                       {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+                </div>
+                    
+                   </div>                
+{% endblock %}
+
+{% block scriptForm %}
+     <script type="text/javascript" src="{{asset('js/backend/form_showList.js')}}"></script>
+
+{% endblock %}#}

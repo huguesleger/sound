@@ -28,6 +28,7 @@ $(function () {
         }
     });
 
+
     $('#menu_toggle').click(function () {
         if ($('body').hasClass('nav-md')) {
             $('body').removeClass('nav-md').addClass('nav-sm');
@@ -47,6 +48,12 @@ $(function () {
         }
     });
 });
+
+
+
+
+
+
 
 /* Sidebar Menu active class */
 $(function () {

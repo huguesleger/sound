@@ -38,11 +38,10 @@ class Sound
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=true)
      * @Assert\Length(
-     *      min = 10,
-     *      max = 250,
-     *      minMessage = "le texte doit avoir minimum {{ limit }} caratères")
+     *  max = 250,
+     *  maxMessage = "le texte doit avoir maximum {{ limit }} caratères")
      */
     private $description;
     /**

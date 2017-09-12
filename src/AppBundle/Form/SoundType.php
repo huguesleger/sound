@@ -4,6 +4,7 @@ namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -25,8 +26,8 @@ class SoundType extends AbstractType
                     'widget' => 'single_text',
                      'html5' => false, 
                    'attr'=>array('placeholder'=>$date ,'class'=>'has-feedback-left')))
-                ->add('morceau')
-                ->add('image')
+                ->add('morceau', FileType::class, array('data_class' => null,'required' => false))
+                ->add('image', FileType::class, array('data_class' => null,'required' => false))
                 ->add('labeliser', null, array('attr'=> array('class'=> 'js-switch')))
                 ->add('nonLabeliser', null, array('attr'=> array('class'=> 'js-switch')))
                 ->add('publier', null, array('attr'=> array('class'=> 'js-switch')));

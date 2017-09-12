@@ -3,9 +3,12 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Sound;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use AppBundle\Form\SoundType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Form;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -26,12 +29,12 @@ class SoundController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $sounds = $em->getRepository('AppBundle:Sound')->findAll();
-
+        
         return $this->render('back/sound/index.html.twig', array(
             'sounds' => $sounds,
+            new JsonResponse($sounds)
         ));
     }
-
     /**
      * Creates a new sound entity.
      *
@@ -46,25 +49,33 @@ class SoundController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
                 if($sound->getMorceau()){
-            $nomDuFichier = $sound .".". $sound->getMorceau()->getClientOriginalExtension();
+                    
+            // recupere le nom du sound, supprime tous les espaces et les remplacent par un "_"
+            $nomDuFichier = str_replace(' ','_',$sound) .".". $sound->getMorceau()->getClientOriginalExtension();
+            // l'enregistre dans le dossier upload/dossier  
             $sound->getMorceau()->move('uploads/music', $nomDuFichier);
             $sound->setMorceau($nomDuFichier);
+            }
             
-            $nomDuFichier = $sound .".". $sound->getImage()->getClientOriginalExtension();
+            
+             if($sound->getImage()){
+            $nomDuFichier = str_replace(' ','_',$sound) .".". $sound->getImage()->getClientOriginalExtension();
             $sound->getImage()->move('uploads/image', $nomDuFichier);
             $sound->setImage($nomDuFichier);
             }
             
-            
+             $this->addFlash('success',
+                             null );
             
             $em = $this->getDoctrine()->getManager();
             $em->persist($sound);
             $em->flush();
 
-            return $this->redirectToRoute('sound_show', array('id' => $sound->getId()));
+            return $this->redirectToRoute('sound_index', array('id' => $sound->getId()));
            
         }
-
+        
+       
         return $this->render('back/sound/new.html.twig', array(
             'sound' => $sound,
             'form' => $form->createView(),
@@ -93,13 +104,51 @@ class SoundController extends Controller
      * @Route("/{id}/edit", name="sound_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Sound $sound)
-    {
+    public function editAction(Request $request, Sound $sound, $id)
+    {    
+        $em = $this->getDoctrine()->getManager();
+        $soundUploaded = $sound->getMorceau();
+        $imageUploaded = $sound->getImage();
+    
         $deleteForm = $this->createDeleteForm($sound);
         $editForm = $this->createForm('AppBundle\Form\SoundType', $sound);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            
+            
+             $this->addFlash('update',
+                             null );
+            
+            $soundNew = $em->find('AppBundle:Sound', $id);
+            $f = $this->createForm(SoundType::class, $soundNew);
+            
+            $f->handleRequest($request);
+            
+            if ($soundNew->getMorceau() == null) { //on change pas de morceau
+                $soundNew->setMorceau($soundUploaded); //On garde celui déja uploader
+                
+             }else{ //sinon on upload a nouveau
+              
+                
+                $nomDuFichier = $sound . '.' . $soundNew->getMorceau()->getClientOriginalExtension();
+                $soundNew->getMorceau()->move('uploads/music', $nomDuFichier);
+                
+                $soundNew->setMorceau($nomDuFichier);
+            }
+            
+            if ($soundNew->getImage() == null) { //on change pas d'images
+                $soundNew->setImage($imageUploaded); //On garde celle déja uploader
+                               
+                
+            }else{ //sinon on upload a nouveau
+              
+                
+                $nomDuFichier = $sound . '.' . $soundNew->getImage()->getClientOriginalExtension();
+                $soundNew->getImage()->move('uploads/image', $nomDuFichier);
+                $soundNew->setImage($nomDuFichier);
+            }
+            
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('sound_edit', array('id' => $sound->getId()));
@@ -137,7 +186,7 @@ class SoundController extends Controller
      *
      * @param Sound $sound The sound entity
      *
-     * @return \Symfony\Component\Form\Form The form
+     * @return Form The form
      */
     private function createDeleteForm(Sound $sound)
     {
@@ -146,5 +195,22 @@ class SoundController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+    
+    /*supprime musique dans la liste*/
+    
+   /**
+    *@Route("/{id}/delete", name="sound_delete")
+    */
+    public function deleteSound($id) {
+        $em = $this->getDoctrine()->getManager();
+        $sound = $em->find('AppBundle:Sound', $id);
+        $this->addFlash(
+        'delete',null);
+        
+        $em->remove($sound);
+        $em->flush();
+        
+       return $this->redirectToRoute('sound_index');
     }
 }

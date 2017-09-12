@@ -1,41 +1,5 @@
 {% extends ':back:templateAdmin.html.twig' %}
 
-{#  {% block content %}
-    <h1>Sound creation</h1>
-
-    {{ form_start(form) }}
-       {{ form_errors(form) }}
-        
-        
-                <div class="row">
-                 <div class="col-md-12">{{form_row(form.annee)}}<span class="fa fa-calendar-o form-control-feedback left"></span></div>
-                
-  <div class="form-upload">
-      
-      <label for="appbundle_sound_morceau" class="input-label">
-          <i class="fa fa-upload"></i>Select audio</label>
-          {{form_row(form.morceau)}}
-          <span id="selectName">Aucun fichier choisi</span>
-  </div>
-                 
-                 <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('sound_index') }}">Back to the list</a>
-        </li>
-        
-    </ul>
-       </div>      
-{% endblock %}
-{% block scriptForm %}
-    <script type="text/javascript" src="{{asset('js/backend/form/form_datepicker.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/backend/form/form_upload.js')}}"></script>
-   
-    {% endblock %}#}
-
-
 {% block content %}
    <div class="row">  
    <div class="col-md-6 col-xs-12">
@@ -49,9 +13,6 @@
                   <br>
                    {{ form_start(form) }}
                     {{ form_errors(form) }}
-                 
-                    
-                     
                            {{ form_row(form.titre) }}
                       
                            {{ form_row(form.description) }}
@@ -60,64 +21,23 @@
 
                     
                            {{ form_row(form.auteur) }}
-
                            
-                       
-                   
-                  {#  <div class="form-group">
-               
-                         <div class="col-md-12 col-sm-9 col-xs-12 ">
-                           <div class="ln_solid"></div>
-                         <a href="{{ path('sound_index') }}">Back to the list</a>
-                         </div>
-                         
-                    </div>#}
-                    
-             
-                     
-                </div>
-              </div>
-
-
-            </div>
-        
-                         
-          <div class="col-md-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Sound upload</h2>
-                 <ul class="nav navbar-right panel_toolbox">
-                    
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  <br>
-                                                <div class="form-upload">
-      
+         <label>Musique</label>             
+        <div class="form-upload">
       <label for="appbundle_sound_morceau" class="input-label">
           <i class="fa fa-upload"></i>Select fichier</label>
           {{form_widget(form.morceau)}}
-          <span id="selectName">Aucun fichier choisi</span>
-          
-  </div>
-         
-                           
-                        
-    
-                </div>
+          <span id="selectName">Aucun fichier choisi</span>      
+         </div>            
               </div>
-
-
-            </div>                 
+            </div>
+   </div>
                          
-                         
+
       <div class="col-md-6 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
-                  <h2>Image upload</h2>
+                  <h2>Vignette</h2>
                  <ul class="nav navbar-right panel_toolbox">
                     
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -127,23 +47,17 @@
                 </div>
                 <div class="x_content">
                   <br>
-                  
-  
-  
+ 
       <label for="appbundle_sound_image" class="input-label">
           <i class="fa fa-upload"></i>Select fichier</label>
           {{form_widget(form.image)}}
      
        
                 <img class="default-picture" id="selectImage" src="{{asset('images/pochette-disc.png')}}" alt="your image" />
-  
-             
-                
-                </div>
+     </div>
             </div>
       </div>
-                
-                
+                         
                 <div class="col-md-6 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
@@ -169,7 +83,7 @@
               </div>
                             
                                    
-                            <div class="form-group">
+                            <div class="form-group btn-right">
                         <button type="submit" class="btn btn-success">Enregistrer</button>
                       </div>
 
@@ -186,9 +100,10 @@
 
 {% block scriptForm %}
    {# <script type="text/javascript" src="{{asset('js/backend/burger.js')}}"></script>#}
-    <script type="text/javascript" src="{{asset('js/backend/form/form_datepicker.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/backend/form/form_upload.js')}}"></script>
+   {# <script type="text/javascript" src="{{asset('js/backend/form/form_datepicker.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/backend/form/form_upload.js')}}"></script>#}
 {#    <script type="text/javascript" src="{{asset('js/backend/form/form_ingredient_burger.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/backend/form/form_preload_img.js')}}"></script>#}
+<script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
    
 {% endblock %}
