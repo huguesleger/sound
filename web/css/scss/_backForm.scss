@@ -57,3 +57,58 @@ and open the template in the editor.
     float: right;
     margin-top: 5px;
 }
+
+
+///select-genre/////////
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #1ABB9C;
+    color: #fff;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    color: #fff;
+
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
+      color: #fff;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: transparent;
+    color: inherit;
+}
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+  background-color: #f6f6f6;
+}
+
+
+//pagination table sound///////
+
+.dataTables_paginate a {
+    background: #394D5F !important;
+    border-color: #394D5F !important;
+}
+
+.pagination>.disabled>a, .pagination>.disabled>a:focus, .pagination>.disabled>a:hover, .pagination>.disabled>span, .pagination>.disabled>span:focus, .pagination>.disabled>span:hover {
+    color: #fff;
+    cursor: not-allowed;
+    background-color: #fff;
+    border-color: #ddd;
+}
+
+//btn ajouter sound///////
+
+.page-title .title_left {
+    position: relative;
+}
+
+.btn-title-left {
+    position: absolute;
+    top: 5px;
+    left: 10em;
+}
+
+

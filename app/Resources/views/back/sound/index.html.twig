@@ -18,12 +18,10 @@
            
           <div class="page-title">
             <div class="title_left">
-                <h3>Musique</h3> 
+                <h3>Musique</h3>
+                <span class="btn-title-left"><a class="btn btn-dark btn-sm" href="{{ path('sound_new') }}">Ajouter</a></span>
             </div>
 
-              <div class="title_right">
-              <a class="btn btn-dark btn-sm title-add-list" href="{{ path('sound_new') }}">Ajouter</a>
-          </div>
        </div>
           <div class="clearfix"></div>
 
@@ -61,18 +59,23 @@
                            <td> {% set counter = ( counter | default(0) ) + 1 %}
                            <small> {{ counter }}</small></td>
                         <td>
+                            {% for sound in sound.genre %}
+                                <span type="button" class="label label-info">{{sound.nom }}</span>
+                             {% endfor %}
                             <ul class="list-inline">
-                       
+                                
                           </ul></td>
-                        <td><a>{{ sound.titre }}</a></td>
+                        <td><a>{{ sound.titre }}</a>
+                        <br />
+                          <small>Créer le {{ sound.date|date ('j/m/y à H:i:s') }}</small></td>
                         <td>{{ sound.description }}</td>
                     
-                        <td>{% if sound.labeliser %}<span type="button" class="label label-success">Yes</span>{% else %}<span class="label label-warning">No</span>{% endif %}</td>
+                        <td>{% if sound.label %}<span type="button" <i class="fa fa-check-circle txt-success" aria-hidden="true"></i></span>{% else %}<span><i class="fa fa-times-circle txt-danger" aria-hidden="true"></i></span>{% endif %}</td>
                          <td>{{ sound.auteur }}</td>
                         <td> {% if sound.publier %}<span type="button" class="label label-success">Publié</span>{% else %}<span class="label label-warning">Brouillon</span>{% endif %}</td>
                         <td><a href="{{ path('sound_show', { 'id': sound.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
                           <a href="{{ path('sound_edit', { 'id': sound.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                          <a href="{{ path('sound_delete', { 'id': sound.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                          <a href="{{ path('sound_delete', { 'id': sound.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a></td>
                       </tr>
                        {% endfor %}
                     </tbody>
@@ -83,7 +86,9 @@
 
                 </div>
                     
-                   </div>                
+                   </div>   
+                       
+                
 {% endblock %}
 
 {% block scriptForm %}

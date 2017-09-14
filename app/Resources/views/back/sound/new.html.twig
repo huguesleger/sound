@@ -21,14 +21,16 @@
 
                     
                            {{ form_row(form.auteur) }}
-                           
-         <label>Musique</label>             
+             
+         <label>Musique</label>
+
         <div class="form-upload">
       <label for="appbundle_sound_morceau" class="input-label">
           <i class="fa fa-upload"></i>Select fichier</label>
           {{form_widget(form.morceau)}}
           <span id="selectName">Aucun fichier choisi</span>      
-         </div>            
+         </div>
+
               </div>
             </div>
    </div>
@@ -72,16 +74,23 @@
                 <div class="x_content">
                   <br>
                   
-                            {{ form_row(form.labeliser) }}
-                            {{ form_row(form.nonLabeliser) }}
-                           
+                           {{ form_row(form.label) }}
+                            {#{{ form_row(form.nonLabeliser) }}#}
+                             {#  {% for sound in sound.link %}
+                            {{ form_row(form.link.nom) }}
+                            {{ form_row(form.link.liens) }}
+                            {% endfor %}#}
+                           {{ form_row(form.link) }}
+                          
+                           {{ form_row(form.genre) }}
+                          
                             <div class="ln_solid"></div>
                                
                             {{ form_row(form.publier) }}
 
                 </div>
               </div>
-                            
+                         
                                    
                             <div class="form-group btn-right">
                         <button type="submit" class="btn btn-success">Enregistrer</button>
@@ -105,5 +114,6 @@
 {#    <script type="text/javascript" src="{{asset('js/backend/form/form_ingredient_burger.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/backend/form/form_preload_img.js')}}"></script>#}
 <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
+
    
 {% endblock %}

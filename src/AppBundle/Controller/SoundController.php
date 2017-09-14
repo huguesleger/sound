@@ -29,9 +29,11 @@ class SoundController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $sounds = $em->getRepository('AppBundle:Sound')->findAll();
+     
         
         return $this->render('back/sound/index.html.twig', array(
             'sounds' => $sounds,
+            'genres' => $this->getDoctrine()->getRepository('AppBundle:Genre')->findAll(),
             new JsonResponse($sounds)
         ));
     }

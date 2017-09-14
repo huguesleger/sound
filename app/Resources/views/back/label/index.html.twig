@@ -1,0 +1,39 @@
+{% extends ':back:templateAdmin.html.twig' %}
+
+  {% block content %}
+    <h1>Labels list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for label in labels %}
+            <tr>
+                <td><a href="{{ path('label_show', { 'id': label.id }) }}">{{ label.id }}</a></td>
+                <td>{{ label.nom }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('label_show', { 'id': label.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('label_edit', { 'id': label.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('label_new') }}">Create a new label</a>
+        </li>
+    </ul>
+{% endblock %}

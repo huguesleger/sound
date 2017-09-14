@@ -28,8 +28,9 @@ class SoundType extends AbstractType
                    'attr'=>array('placeholder'=>$date ,'class'=>'has-feedback-left')))
                 ->add('morceau', FileType::class, array('data_class' => null,'required' => false))
                 ->add('image', FileType::class, array('data_class' => null,'required' => false))
-                ->add('labeliser', null, array('attr'=> array('class'=> 'js-switch')))
-                ->add('nonLabeliser', null, array('attr'=> array('class'=> 'js-switch')))
+                ->add('label')
+                ->add('link',null, array ('label'=>'lien','required' => false))
+                ->add('genre', null, array('attr'=>array('class'=>'select2_multiple')))
                 ->add('publier', null, array('attr'=> array('class'=> 'js-switch')));
     }
     

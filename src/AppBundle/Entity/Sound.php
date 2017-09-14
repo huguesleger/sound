@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\JoinTable;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -86,19 +87,47 @@ class Sound
      */
     private $publier;
     
+    
      /**
-     * @var bool
+     * @var string
      *
-     * @ORM\Column(name="labeliser", type="boolean")
+     * @ORM\ManyToOne(targetEntity = "Label")
+     * @ORM\JoinColumn(name = "fk_label", referencedColumnName = "id")
      */
-    private $labeliser;
-
-    /**
-     * @var bool
+    private $label;
+    
+    
+     /**
+     * @var string
      *
-     * @ORM\Column(name="non_labeliser", type="boolean")
+     * @ORM\Column(name="link", type="string", length=255, nullable=true)
      */
-    private $nonLabeliser;
+    private $link;
+    
+    
+     /**
+     *
+     * @var array
+     * @ORM\ManyToMany(targetEntity = "Genre", cascade={"persist", "remove"})
+     * @JoinTable(name="genre_list")
+     */
+    private $genre;
+    
+    
+    
+     /**
+    *
+    * @var DateTime
+    * @ORM\Column(name="date", type="datetime")
+    */
+    private $date;
+    
+    
+     
+    public function __construct()
+{
+    $this->date = new DateTime();
+}
     
     /**
      * Get id
@@ -278,58 +307,100 @@ class Sound
         return $this->publier;
     }
     
-    /**
-     * Set labeliser
+     /**
+     * Set label
      *
-     * @param boolean $labeliser
+     * @param array $label
      *
      * @return Sound
      */
-     public function setLabeliser($labeliser) {
-         
-        $this->labeliser = $labeliser;
+    public function setLabel($label) {
+        $this->label = $label;
         
         return $this;
     }
     
-    /**
-     * Get labeliser
+     /**
+     * Get label
      *
-     * @return bool
+     * @return array
      */
-    public function getLabeliser() {
-        
-        return $this->labeliser;
+    public function getLabel() {
+        return $this->label;
     }
-    
+
     /**
-     * Set nonLabeliser
+     * Set link
      *
-     * @param boolean $nonLabeliser
+     * @param string $link
      *
      * @return Sound
      */
-     public function setNonLabeliser($nonLabeliser) {
-         
-        $this->nonLabeliser = $nonLabeliser;
+    public function setLink($link) {
+        
+        $this->link = $link;
         
         return $this;
     }
     
-    /**
-     * Get nonLabeliser
+     
+     /**
+     * Get link
      *
-     * @return bool
+     * @return string
      */
-    public function getNonLabeliser() {
+    public function getLink() {
+        return $this->link;
+    }
+
+    /**
+     * Set genre
+     *
+     * @param array $genre
+     *
+     * @return Sound
+     */
+    public function setGenre($genre) {
+        $this->genre = $genre;
         
-        return $this->nonLabeliser;
+        return $this;
+    }
+    
+     /**
+     * Get genre
+     *
+     * @return array
+     */
+    public function getGenre() {
+        return $this->genre;
+    }
+
+    /**
+     * Set date
+     *
+     * @param DateTime $date
+     *
+     * @return Sound
+     */
+     public function setDate(DateTime $date) {
+        $this->date = $date;
+        
+        return $this;
+    }
+    
+    
+    /**
+     * Get date
+     *
+     * @return DateTime
+     */
+    public function getDate() {
+        return $this->date;
     }
 
    
-
-   
-
+    
+    
         
     public function __toString() {
         return $this->getTitre();

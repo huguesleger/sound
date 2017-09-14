@@ -31,8 +31,37 @@
              
               <ul class="nav side-menu">
                 <li><a href="{{path('admin_index')}}"><i class="fa fa-home"></i> Home</a></li>
-                <li><a href=""><i class="fa fa-cube"></i>Catégories</a></li>
-                 <li><a href="{{path('sound_index')}}"><i class="fa icon-cd"></i>Musiques</a></li>
+                <li><a><i class="fa icon-cd"></i>Musiques <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><a href="{{path('sound_index')}}">Toutes la musique</a>
+                    </li>
+                    <li><a href="{{path('sound_new')}}">Ajouter</a>
+                    </li>
+                    <li><a href="{{path('genre_index')}}">Genres musicaux</a>
+                    </li>
+                     <li><a href="{{path('label_index')}}">labels</a>
+                    </li>
+                    
+                  </ul>
+                </li>
+                 <li><a><i class="fa fa-cube"></i> Pages <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><a href="#">Textes</a>
+                    </li>
+                    <li><a href="#">Socials</a>
+                    </li>
+                  </ul>
+                </li>
+                 <li><a><i class="fa fa-picture-o"></i> Slider <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><a href="#">Images</a></li>
+                  </ul>
+                </li>
+                <li><a><i class="fa fa-cog"></i> Options <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><a href="#">Icons</a></li>
+                  </ul>
+                </li>
               </ul>
        
             </div>

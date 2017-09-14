@@ -64,14 +64,58 @@
 
                     
                            {{ form_row(edit_form.auteur) }}
-                           
-                           <label>Musique</label>             
-        <div class="form-upload">
+                           <div class="form-group">
+                           <label>Musique</label>
+                           </div>
+        <div class="form-upload col-md-6">
+            <div class="row">
       <label for="appbundle_sound_morceau" class="input-label">
           <i class="fa fa-upload"></i>Select fichier</label>
           {{form_widget(edit_form.morceau)}}
-          <span id="selectName">{{sound.morceau}}</span>      
+         {# <span id="selectName">{{sound.morceau}}</span>   #}   
          </div>
+         </div>
+                   <audio id="audio">
+	<source src="{{asset('uploads/music/')~sound.morceau}}">
+</audio>
+
+<div class="col-md-6">
+<div class="audio-player">
+
+	<div class="info">
+		<h3> <span id="selectName">{{sound.morceau}}</span></h3>
+		<p id="timeleft">00:00</p>
+		<div class="progressbar_slide">
+			<div class="progressbar_range"></div>
+		</div>
+	</div>
+	<div class="controls">
+		<div class="controls_plays">
+
+			<svg id="prev_btn" viewBox="0 0 24.5 23.6">
+				<polygon points="0,11.8 13.5,0 13.5,10.7 24.5,0 24.5,23.6 13.5,12.9 13.5,23.6 "/>
+			</svg>
+
+			<svg id="plays_btn" viewBox="0 0 24.5 30.9">
+				<g id="play_btn">
+					<path d="M0,30.9L0,0l24.5,15.4L0,30.9z"/>
+				</g>
+				<g id="pause_btn">
+					<rect x="0" y="0" width="8.2" height="30.9"/>
+					<rect x="16.2" y="0" width="8.2" height="30.9"/>
+				</g>
+			</svg>
+
+			<svg id="next_btn" viewBox="0 0 24.5 23.6">
+				<polygon points="25,11.8 11.5,0 11.5,10.7 0.5,0 0.5,23.6 11.5,12.9 11.5,23.6 "/>
+			</svg>
+
+		</div>
+	
+	</div>
+
+</div>
+</div>
                 </div>
               </div>
             </div>
@@ -115,9 +159,11 @@
                 <div class="x_content">
                   <br>
                   
-                            {{ form_row(edit_form.labeliser) }}
-                            {{ form_row(edit_form.nonLabeliser) }}
-                           
+                            {#{{ form_row(edit_form.labeliser) }}
+                            {{ form_row(edit_form.nonLabeliser) }}#}
+                           {{ form_row(edit_form.label) }}
+                            {{ form_row(edit_form.link) }}
+                            {{ form_row(edit_form.genre) }}
                             <div class="ln_solid"></div>
                                
                            {{ form_row(edit_form.publier) }}
@@ -132,8 +178,7 @@
 
 
             </div>
-          
-          
+
        </div>
   {{ form_end(edit_form) }}
 
@@ -143,6 +188,7 @@
 
 {% block scriptForm %}
     <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
+     <script type="text/javascript" src="{{asset('js/backend/playerMusic.js')}}"></script>
 
    
 {% endblock %}

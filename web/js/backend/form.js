@@ -115,10 +115,26 @@ $(function() {
        
         var filename = e.target.value.split('\\').pop();
         $('#selectName').text(filename);
+ 
     });
-        
+    
+    
+    
+    
+ ////////////////////////select genre musique systeme tag////////////////       
+     $(document).ready(function() {
+      $(".select2_group").select2({});
+      $(".select2_multiple").select2({
+//        maximumSelectionLength: 4,
+        placeholder: "With Max Selection limit 4",
+        allowClear: true
+      });
+    });
+   
+
 });
-  
+
+
 ////////////////////////recupere image uploader////////////////         
  function readURL(input) {
         if (input.files && input.files[0]) {
@@ -139,7 +155,7 @@ $(function() {
         readURL(this);
         
     }); 
-    
+   
     
 ////////////////////////compte caractere saisi description////////////////       
     function reste(texte)
@@ -151,3 +167,5 @@ $(function() {
 $(function(){
    $('<div id="caracteres">250 caracatère(s) disponible(s)</div>').insertAfter('#appbundle_sound_description'); 
 });
+
+
