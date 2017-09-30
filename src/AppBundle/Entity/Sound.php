@@ -116,6 +116,14 @@ class Sound
     
     
      /**
+     * @var string
+     *
+     * @ORM\ManyToOne(targetEntity = "Category")
+     * @ORM\JoinColumn(name = "fk_category", referencedColumnName = "id")
+     */
+    private $category;
+    
+     /**
     *
     * @var DateTime
     * @ORM\Column(name="date", type="datetime")
@@ -398,8 +406,31 @@ class Sound
         return $this->date;
     }
 
-   
+     /**
+     * Set category
+     *
+     * @param string $category
+     *
+     * @return Sound
+     */
+    public function setCategory($category) {
+        $this->category = $category;
+        
+        return $this;
+    }
     
+    /**
+     * Get category
+     *
+     * @return string
+     */
+    public function getCategory() {
+        return $this->category;
+    }
+
+    
+
+        
     
         
     public function __toString() {

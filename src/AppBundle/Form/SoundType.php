@@ -29,8 +29,9 @@ class SoundType extends AbstractType
                 ->add('morceau', FileType::class, array('data_class' => null,'required' => false))
                 ->add('image', FileType::class, array('data_class' => null,'required' => false))
                 ->add('label')
-                ->add('link',null, array ('label'=>'lien','required' => false))
+                ->add('link',null, array ('label'=>'Lien','required' => false))
                 ->add('genre', null, array('attr'=>array('class'=>'select2_multiple')))
+                ->add('category', null, array('label'=>'Categorie'))
                 ->add('publier', null, array('attr'=> array('class'=> 'js-switch')));
     }
     
