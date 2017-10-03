@@ -104,6 +104,19 @@ class Sound
      */
     private $link;
     
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="linkSpotify", type="string", length=255, nullable=true)
+     */
+    private $linkSpotify;
+    
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="linkDeezer", type="string", length=255, nullable=true)
+     */
+    private $linkDeezer;
     
      /**
      *
@@ -115,13 +128,7 @@ class Sound
     
     
     
-     /**
-     * @var string
-     *
-     * @ORM\ManyToOne(targetEntity = "Category")
-     * @ORM\JoinColumn(name = "fk_category", referencedColumnName = "id")
-     */
-    private $category;
+   
     
      /**
     *
@@ -406,29 +413,47 @@ class Sound
         return $this->date;
     }
 
-     /**
-     * Set category
-     *
-     * @param string $category
-     *
-     * @return Sound
-     */
-    public function setCategory($category) {
-        $this->category = $category;
-        
-        return $this;
-    }
-    
     /**
-     * Get category
+     * Get linkSpotify
      *
      * @return string
      */
-    public function getCategory() {
-        return $this->category;
+    public function getLinkSpotify() {
+        return $this->linkSpotify;
     }
 
-    
+    /**
+     * Get linkDeezer
+     *
+     * @return string
+     */
+    public function getLinkDeezer() {
+        return $this->linkDeezer;
+    }
+
+    /**
+     * Set linkSpotify
+     *
+     * @param string $linkSpotify
+     *
+     * @return Sound
+     */
+    public function setLinkSpotify($linkSpotify) {
+        $this->linkSpotify = $linkSpotify;
+    }
+
+    /**
+     * Set linkDeezer
+     *
+     * @param string $linkDeezer
+     *
+     * @return Sound
+     */
+    public function setLinkDeezer($linkDeezer) {
+        $this->linkDeezer = $linkDeezer;
+    }
+
+        
 
         
     

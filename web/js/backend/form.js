@@ -119,6 +119,16 @@ $(function() {
     });
     
     
+            
+  ////////////////////////recupere name uploader////////////////       
+         $('#fos_user_profile_form_avatar').on("change", function(e){
+       
+        var filename = e.target.value.split('\\').pop();
+        $('#selectName').text(filename);
+ 
+    });
+    
+    
     
     
  ////////////////////////select genre musique systeme tag////////////////       
@@ -153,6 +163,29 @@ $(function() {
     
     $("#appbundle_sound_image").change(function(){
         readURL(this);
+        
+    });
+    
+    
+    ////////////////////////recupere image uploader////////////////         
+ function readURLProfile(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                
+                $('#selectImage').attr('src', e.target.result);
+                $('#selectImage').removeClass('default-picture');
+                $('#selectImage').addClass('img-circle');
+                
+            },
+             
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#fos_user_profile_form_avatar").change(function(){
+        readURLProfile(this);
         
     }); 
    

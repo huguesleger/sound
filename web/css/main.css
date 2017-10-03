@@ -22,6 +22,9 @@ and open the template in the editor.
 #appbundle_sound_image {
   display: none; }
 
+#fos_user_profile_form_avatar {
+  display: none; }
+
 .default-picture {
   width: 110px;
   margin-top: -25px;
@@ -78,6 +81,9 @@ and open the template in the editor.
   position: absolute;
   top: 5px;
   left: 10em; }
+
+.fos_user_profile_edit, .fos_user_user_show {
+  margin-top: 90px; }
 
 /*
 To change this license header, choose License Headers in Project Properties.

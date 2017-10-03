@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Category
+ * SectionRow
  *
- * @ORM\Table(name="category")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\CategoryRepository")
+ * @ORM\Table(name="section_row")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\SectionRowRepository")
  */
-class Category
+class SectionRow
 {
     /**
      * @var int
@@ -24,9 +24,9 @@ class Category
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="template", type="string", length=255)
      */
-    private $nom;
+    private $template;
 
 
     /**
@@ -39,36 +39,28 @@ class Category
         return $this->id;
     }
 
-    
-
     /**
-     * Set nom
+     * Set template
      *
-     * @param string $nom
+     * @param string $template
      *
-     * @return Category
+     * @return SectionRow
      */
-    public function setNom($nom)
+    public function setTemplate($template)
     {
-        $this->nom = $nom;
+        $this->template = $template;
 
         return $this;
     }
 
     /**
-     * Get nom
+     * Get template
      *
      * @return string
      */
-    public function getNom()
+    public function getTemplate()
     {
-        return $this->nom;
+        return $this->template;
     }
-    
-          
-    public function __toString() {
-        return $this->getNom();
-    }
-    
 }
 

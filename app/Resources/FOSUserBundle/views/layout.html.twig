@@ -1,3 +1,4 @@
+    
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,13 +43,27 @@
 </head>
 
 <body style="background:#F7F7F7;">
-
+<body>
 
     <div id="wrapper">
       
-        {% block content %}
-    {% block fos_user_content %}{% endblock %}
-        {% endblock %}
+           {% if app.request.hasPreviousSession %}
+            {% for type, messages in app.session.flashbag.all() %}
+                {% for message in messages %}
+                    <div class="flash-{{ type }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+        
+
+    {% block fos_user_content %}
+    
+     
+    
+    {% endblock %}
+  
       
           
           
@@ -57,12 +72,13 @@
     </div>
 
 
-           {% block javascripts %}
+          {% block javascripts %}
         <script type="text/javascript" src="{{asset('vendor/jquery.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('vendor/bootstrap.min.js')}}"></script>
          {% endblock %}
 </body>
 
 </html>
+
 
 
