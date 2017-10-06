@@ -45,6 +45,7 @@ class Sound
      *  maxMessage = "le texte doit avoir maximum {{ limit }} caratères")
      */
     private $description;
+    
     /**
      *
      * @var UploadedFile

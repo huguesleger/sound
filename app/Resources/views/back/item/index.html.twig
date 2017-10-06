@@ -1,0 +1,43 @@
+{% extends ':back:templateAdmin.html.twig' %}
+
+  {% block content %}
+    <h1>Items list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Icon</th>
+                <th>Position</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+            <tr>
+                <td><a href="{{ path('item_show', { 'id': item.id }) }}">{{ item.id }}</a></td>
+                <td>{{ item.titre }}</td>
+                <td>{{ item.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('item_show', { 'id': item.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('item_edit', { 'id': item.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('item_new') }}">Create a new item</a>
+        </li>
+    </ul>
+{% endblock %}

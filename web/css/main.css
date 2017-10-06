@@ -30,6 +30,9 @@ and open the template in the editor.
   margin-top: -25px;
   opacity: 0.6; }
 
+.default-avatar {
+  /*    background-image: url('./../../../web/images/user.png');*/ }
+
 #selectImage {
   max-height: 15em;
   max-width: 15em;

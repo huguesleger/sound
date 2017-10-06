@@ -1,0 +1,41 @@
+{% extends ':back:templateAdmin.html.twig' %}
+
+  {% block content %}
+    <h1>Headers list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Image</th>
+                <th>Isdefault</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for header in headers %}
+            <tr>
+                <td><a href="{{ path('header_show', { 'id': header.id }) }}">{{ header.id }}</a></td>
+                <td>{{ header.image }}</td>
+                <td>{% if header.isDefault %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('header_show', { 'id': header.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('header_edit', { 'id': header.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('header_new') }}">Create a new header</a>
+        </li>
+    </ul>
+{% endblock %}

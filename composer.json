@@ -32,6 +32,7 @@
         "symfony/symfony": "3.3.*",
         "symfony/assetic-bundle": "^2.8",
         "friendsofsymfony/user-bundle": "dev-master",
+        "doctrine/doctrine-fixtures-bundle": "^2.3",
         "twig/twig": "^1.0||^2.0"
     },
     "require-dev": {

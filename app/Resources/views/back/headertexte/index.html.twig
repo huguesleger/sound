@@ -1,0 +1,39 @@
+{% extends ':back:templateAdmin.html.twig' %}
+
+  {% block content %}
+    <h1>Headertextes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Texte</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for headerTexte in headerTextes %}
+            <tr>
+                <td><a href="{{ path('headertexte_show', { 'id': headerTexte.id }) }}">{{ headerTexte.id }}</a></td>
+                <td>{{ headerTexte.texte }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('headertexte_show', { 'id': headerTexte.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('headertexte_edit', { 'id': headerTexte.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('headertexte_new') }}">Create a new headerTexte</a>
+        </li>
+    </ul>
+{% endblock %}

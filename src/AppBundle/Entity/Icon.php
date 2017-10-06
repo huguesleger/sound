@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * SectionRow
+ * Icon
  *
- * @ORM\Table(name="section_row")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\SectionRowRepository")
+ * @ORM\Table(name="icon")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\IconRepository")
  */
-class SectionRow
+class Icon
 {
     /**
      * @var int
@@ -24,9 +24,9 @@ class SectionRow
     /**
      * @var string
      *
-     * @ORM\Column(name="template", type="string", length=255)
+     * @ORM\Column(name="nom", type="string", length=255)
      */
-    private $template;
+    private $nom;
 
 
     /**
@@ -40,27 +40,31 @@ class SectionRow
     }
 
     /**
-     * Set template
+     * Set nom
      *
-     * @param string $template
+     * @param string $nom
      *
-     * @return SectionRow
+     * @return Icon
      */
-    public function setTemplate($template)
+    public function setNom($nom)
     {
-        $this->template = $template;
+        $this->nom = $nom;
 
         return $this;
     }
 
     /**
-     * Get template
+     * Get nom
      *
      * @return string
      */
-    public function getTemplate()
+    public function getNom()
     {
-        return $this->template;
+        return $this->nom;
+    }
+    
+    public function __toString() {
+        return $this->getNom();
     }
 }
 

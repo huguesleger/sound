@@ -58,10 +58,14 @@
                 </li>
                  <li><a><i class="fa fa-cube"></i> Pages <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><a href="#">Textes</a>
-                    </li>
-                    <li><a href="#">Socials</a>
-                    </li>
+                    <li><a href="{{path('homepage_index')}}">HomePage</a></li>
+                    <li><a href="#">Sections</a></li> 
+                   {# <li><a href="{{path('style_index')}}">Styles</a></li>#}
+                   {# {#<li><a href="{{path('headerpage_index')}}">headerpagedefault</a></li>#}
+                    <li><a href="{{path('header_index')}}">Header</a></li>
+                    <li><a href="{{path('headertexte_index')}}">Textes Animations</a></li>
+                    <li><a href="{{path('item_index')}}">Items</a></li> 
+                    <li><a href="#">Socials</a></li>
                   </ul>
                 </li>
                  <li><a><i class="fa fa-picture-o"></i> Slider <span class="fa fa-chevron-down"></span></a>

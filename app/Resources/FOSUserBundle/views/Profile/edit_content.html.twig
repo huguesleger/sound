@@ -22,7 +22,7 @@
      
        
                 {#<img id="selectImage" class="img-circle" src="{{asset('uploads/avatar/')~app.user.avatarPath}}" alt="your image" />#}
-                <img class="default-picture" id="selectImage" src="{{asset('images/user.png')}}" alt="your image" />
+                <img class="default-avatar" id="selectImage" src="{{asset('uploads/avatar/')~app.user.avatarPath}}" alt="your image" />
                 
                  {#{{ form_row(form.avatar) }}#}
      <p>taille maximum 128X128px</p>
@@ -36,6 +36,9 @@
      <div class="form-group btn">
                         <button type="submit" class="btn btn-success">{{ 'profile.edit.submit'|trans }}</button>
                       </div>
+                      
+                      
+                     
     
       </div>
     
@@ -45,8 +48,7 @@
   {% endblock fos_user_content %}
 
                 </div>
-      
-     
+
              
     
                          

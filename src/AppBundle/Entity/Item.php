@@ -35,19 +35,20 @@ class Item
      */
     private $description;
 
-    /**
+   
+
+    
+   
+    
+    
+    
+     /**
      * @var string
      *
-     * @ORM\Column(name="icon", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity = "Icon")
+     * @ORM\JoinColumn(name = "fk_icon", referencedColumnName = "id")
      */
     private $icon;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="position", type="string", length=255)
-     */
-    private $position;
 
 
     /**
@@ -108,52 +109,31 @@ class Item
         return $this->description;
     }
 
-    /**
-     * Set icon
-     *
-     * @param string $icon
-     *
-     * @return Item
-     */
-    public function setIcon($icon)
-    {
-        $this->icon = $icon;
+  
+  
 
-        return $this;
-    }
+  
 
-    /**
-     * Get icon
-     *
-     * @return string
-     */
-    public function getIcon()
-    {
+
+
+
+
+
+    
+    public function getIcon() {
         return $this->icon;
     }
 
-    /**
-     * Set position
-     *
-     * @param string $position
-     *
-     * @return Item
-     */
-    public function setPosition($position)
-    {
-        $this->position = $position;
-
-        return $this;
+    public function setIcon($icon) {
+        $this->icon = $icon;
     }
 
-    /**
-     * Get position
-     *
-     * @return string
-     */
-    public function getPosition()
-    {
-        return $this->position;
+public function __toString() {
+        return $this->getTitre();
     }
+
+    
+
+
 }
 

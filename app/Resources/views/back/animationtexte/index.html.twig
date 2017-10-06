@@ -1,0 +1,39 @@
+{% extends ':back:templateAdmin.html.twig' %}
+
+  {% block content %}
+    <h1>Animationtextes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for animationTexte in animationTextes %}
+            <tr>
+                <td><a href="{{ path('animationtexte_show', { 'id': animationTexte.id }) }}">{{ animationTexte.id }}</a></td>
+                <td>{{ animationTexte.nom }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('animationtexte_show', { 'id': animationTexte.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('animationtexte_edit', { 'id': animationTexte.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('animationtexte_new') }}">Create a new animationTexte</a>
+        </li>
+    </ul>
+{% endblock %}

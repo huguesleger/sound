@@ -175,7 +175,7 @@ $(function() {
             reader.onload = function (e) {
                 
                 $('#selectImage').attr('src', e.target.result);
-                $('#selectImage').removeClass('default-picture');
+                $('#selectImage').removeClass('default-avatar');
                 $('#selectImage').addClass('img-circle');
                 
             },
