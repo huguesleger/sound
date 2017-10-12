@@ -70,7 +70,7 @@ class Sound
     /**
      * @var DateTime
      *
-     * @ORM\Column(name="annee", type="date")
+     * @ORM\Column(name="annee", type="date", nullable = true)
      */
     private $annee;
 

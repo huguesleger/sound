@@ -2,15 +2,22 @@
 
   {% block content %}
       
-            {% for message in app.flashes('success') %}
+      {% for message in app.flashes('succes') %}
       <div id="success">
       </div>
       {% endfor %}
-
+      
       {% for message in app.flashes('delete') %}
       <div id="delete">
       </div>
-      {% endfor %} 
+      {% endfor %}
+      
+      {% for message in app.flashes('erreur') %}
+      <div id="error">
+      </div>
+      {% endfor %}
+
+   
       
        <div class="">
            

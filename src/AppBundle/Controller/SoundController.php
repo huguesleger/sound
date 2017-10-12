@@ -51,6 +51,9 @@ class SoundController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+             $this->addFlash('succes',
+                             null );
+             
                 if($sound->getMorceau()){
                     
             // recupere le nom du sound, supprime tous les espaces et les remplacent par un "_"
@@ -67,14 +70,13 @@ class SoundController extends Controller
             $sound->setImage($nomDuFichier);
             }
             
-             $this->addFlash('success',
-                             null );
+            
             
             $em = $this->getDoctrine()->getManager();
             $em->persist($sound);
             $em->flush();
 
-            return $this->redirectToRoute('sound_index', array('id' => $sound->getId()));
+            return $this->redirectToRoute('sound_index');
            
         }
         
@@ -82,6 +84,8 @@ class SoundController extends Controller
         return $this->render('back/sound/new.html.twig', array(
             'sound' => $sound,
             'form' => $form->createView(),
+            $this->addFlash('error',
+                             null )
         ));
     }
 
@@ -119,9 +123,9 @@ class SoundController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             
-            
-             $this->addFlash('update',
+            $this->addFlash('update',
                              null );
+  
             
             $soundNew = $em->find('AppBundle:Sound', $id);
             $f = $this->createForm(SoundType::class, $soundNew);
@@ -161,6 +165,8 @@ class SoundController extends Controller
             'sound' => $sound,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            $this->addFlash('error',
+                             null )
         ));
     }
 
@@ -208,8 +214,9 @@ class SoundController extends Controller
     public function deleteSound($id) {
         $em = $this->getDoctrine()->getManager();
         $sound = $em->find('AppBundle:Sound', $id);
-        $this->addFlash(
-        'delete',null);
+        
+        $this->addFlash('delete',
+                             null );
         
         $em->remove($sound);
         $em->flush();

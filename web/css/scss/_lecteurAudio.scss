@@ -19,24 +19,20 @@ audio{
     position:absolute;
 }
 
-h2{
+/*h2{
     font-size:26px;
 	 margin: 14px 0;
     font-weight:700;
-}
+}*/
 
-h3{
-    font-size:16px;
-    font-weight:400;
-}
 
-p{
+/*p{
     display: inline-block;
     font-size:14px;
     font-weight:400;
     margin-bottom:10px;
     color: grey;
-}
+}*/
 
 .audio-player{
     @include centerer;

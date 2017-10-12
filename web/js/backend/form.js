@@ -51,7 +51,7 @@ $(function() {
         
      ////////////////////////notifaction////////////////     
       $(function() {
-           $('#sucess').append(function(){
+           $('#success').append(function(){
                     
       new PNotify({
           title:"Success",
@@ -108,9 +108,31 @@ $(function() {
       });
 
     });
-        });   
+        });
         
-  ////////////////////////recupere name uploader////////////////       
+        
+        
+        
+           $(function() {
+           $('#error').append(function(){
+                    
+      new PNotify({
+          title:"Error",
+          type: "error",
+          text: "une erreur est survenue",
+        nonblock: {
+          nonblock: true
+        },
+        before_close: function(PNotify) {
+          PNotify.queueRemove();
+          return false;
+        }
+      });
+
+    });
+        }); 
+        
+  ////////////////////////recupere name morceau uploader////////////////       
          $('#appbundle_sound_morceau').on("change", function(e){
        
         var filename = e.target.value.split('\\').pop();
@@ -120,7 +142,7 @@ $(function() {
     
     
             
-  ////////////////////////recupere name uploader////////////////       
+  ////////////////////////recupere name avatar uploader////////////////       
          $('#fos_user_profile_form_avatar').on("change", function(e){
        
         var filename = e.target.value.split('\\').pop();
@@ -130,17 +152,85 @@ $(function() {
     
     
     
+ ////////////////////////select liste texte animation header systeme tag////////////////       
+     $(document).ready(function() {
+      $(".select1_group").select2({});
+      $(".select1_multiple").select2({
+        maximumSelectionLength: 3,
+        placeholder: "Select...",
+        allowClear: true
+      });
+    });
+    
     
  ////////////////////////select genre musique systeme tag////////////////       
      $(document).ready(function() {
       $(".select2_group").select2({});
       $(".select2_multiple").select2({
 //        maximumSelectionLength: 4,
-        placeholder: "With Max Selection limit 4",
+        placeholder: "Select...",
         allowClear: true
       });
     });
    
+
+
+// var selects = $('.form-control');
+// var querysel  = new Object();
+//
+//
+// $("#animateTexte").click(function(){ 
+//    
+//   
+// 
+//       selects.each(function(){
+//             var id  = $(this).attr('id');
+//       var value =  $(this).find("option:selected").text();
+//       querysel = value;
+//        
+// $('#nameAnimate h3').addClass(value);
+//
+//
+//     $("#animateTexte").click(function(){
+//        $("#nameAnimate h3").removeClass(function(n) {
+//        if (n===0){return value;}
+//        else {
+//         
+//        }
+//      
+//        });
+//    }); 
+//    });
+//
+//});   
+
+
+
+
+  function testAnim(x) {
+    $('#animationSandbox').removeClass().addClass(x + ' animated-demo').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+      $(this).removeClass();
+    });
+  };
+
+  $(document).ready(function(){
+    $('.js--triggerAnimation').click(function(e){
+      e.preventDefault();
+      var anim = $('#appbundle_headertexte_animationTexte').find("option:selected").text();
+      testAnim(anim);
+    });
+
+    $('#appbundle_headertexte_animationTexte').change(function(){
+      var anim = $(this).find("option:selected").text();
+      testAnim(anim);
+    });
+  });
+
+
+
+
+
+
 
 });
 
@@ -154,44 +244,26 @@ $(function() {
                 
                 $('#selectImage').attr('src', e.target.result);
                 $('#selectImage').removeClass('default-picture');
-                
+                $('#selectImage').removeClass('default-avatar');
+                $('.fos_user_profile_edit #selectImage').addClass('img-circle');
+
             },
              
             reader.readAsDataURL(input.files[0]);
         }
     }
     
-    $("#appbundle_sound_image").change(function(){
+    $("#appbundle_sound_image, #appbundle_header_image, #fos_user_profile_form_avatar").change(function(){
         readURL(this);
         
     });
     
     
-    ////////////////////////recupere image uploader////////////////         
- function readURLProfile(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            
-            reader.onload = function (e) {
-                
-                $('#selectImage').attr('src', e.target.result);
-                $('#selectImage').removeClass('default-avatar');
-                $('#selectImage').addClass('img-circle');
-                
-            },
-             
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
     
-    $("#fos_user_profile_form_avatar").change(function(){
-        readURLProfile(this);
-        
-    }); 
-   
-    
-////////////////////////compte caractere saisi description////////////////       
-    function reste(texte)
+////////////////////////compte caractere saisi description///////////////
+///  
+
+   function reste(texte)
 {
     var restants = 250-texte.length;
     document.getElementById('caracteres').innerHTML=restants + "&nbsp;caractère(s)&nbsp;disponible(s)";
@@ -202,3 +274,11 @@ $(function(){
 });
 
 
+
+     
+              $(document).ready(function(){
+          
+        $ ( '.carousel' ). carousel ({ interval : 0 });
+    });
+    
+    

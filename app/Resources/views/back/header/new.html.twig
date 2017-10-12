@@ -1,16 +1,78 @@
 {% extends ':back:templateAdmin.html.twig' %}
 
-  {% block content %}
-    <h1>Header creation</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+    {% block content %}
+    <div class="row">  
+        <div class="col-md-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                <h2>Header creation</h2>
+                <a class="btn btn-dark btn-xs back-list" href="{{ path('header_index') }}">Back to the list</a>
+                <div class="clearfix"></div>
+                </div>
+                    <div class="x_content">
+                    <br>
+                    {{ form_start(form) }}
+                    {{ form_errors(form) }}
+                    {#<p>1-sélectionner votre texte pour un slide</p>#}
+                        <div class="form-group">
+                        <label for="appbundle_header_headerTexte">Phrase d'accroche</label>  
+                        {{form_widget(form.headerTexte)}}</div>
+                        <br> 
+                       {#   <p>2-sélectionner votre image pour un slide</p>   #}
+                        <div class="x_title">
+                        <h3>Image</h3>              
+                        <div class="clearfix"></div>
+                        </div>              
+                        <div class="x_content">
+                        <br>
+                        <label for="appbundle_header_image" class="input-label">
+                        <i class="fa fa-upload"></i>Select fichier</label>
+                        
+                        {{form_row(form.image)}} 
+                     
+                        <img class="default-picture" id="selectImage" src="{{asset('images/image_default.png')}}" alt="your image" />
+                        </div>
+                    </div>
+                        
+            </div>
+                        <div class="form-group btn-right">
+                            <button type="submit" class="btn btn-success">Enregistrer</button>
+                         </div>
+        </div>             
+                <div class="col-md-3 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                        <h2>Style</h2>
+                        <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                        <br>    
+                        {{ form_row(form.styleDefault) }}
+                        </div>
+                    </div>              
+                  
+                </div> 
+                    
+                    <div class="col-md-3 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                            <h2>Aide</h2>
+                             <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                        </ul>
+                            <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                            <br>    
+                           wech
+                            </div>
+                        </div>  
+                    </div>   
+    </div>
     {{ form_end(form) }}
+    {% endblock %}
 
-    <ul>
-        <li>
-            <a href="{{ path('header_index') }}">Back to the list</a>
-        </li>
-    </ul>
-{% endblock %}
+    {% block scriptForm %}
+    <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>  
+    {% endblock %}

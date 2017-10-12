@@ -1,0 +1,45 @@
+/////// font import////////////
+
+@font-face {
+    font-family: "Viafont";
+    src: url("../fonts/Viafont.otf");
+}
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900');
+
+//////font type/////////
+
+$font: "Open", Arial, sans-serif;
+$font_extra: "Viafont";
+$font_title: "Raleway";
+
+
+///////Color////////
+
+$bleu_ciel: #4ECDC4; //#2FE2D9 #0FBAB7
+$gris_clair: #ECECEC;
+$bleu_dark: #0F3057;
+$black: #000;
+$white: #fff;
+$gris: #BDC3C7;
+$gris_dark: #6C7A89;
+$rouge: #D64541; //#F64747
+$vert_eau: #26C281;
+$jaune: #F5D76E;
+
+
+//////Bg color type/////////
+
+$bg-primary: $bleu_ciel;
+/*$bg_secondary:;*/
+$bg_background: $gris_clair;
+
+//////Color type texte//////////
+
+$color_txt_light: $gris_clair;
+$color_txt_dark: $gris_dark;
+
+
+
+

@@ -44,16 +44,21 @@ class HeaderTexteController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('succes',
+                             null );
+            
             $em = $this->getDoctrine()->getManager();
             $em->persist($headerTexte);
             $em->flush();
 
-            return $this->redirectToRoute('headertexte_show', array('id' => $headerTexte->getId()));
+            return $this->redirectToRoute('headertexte_index');
         }
 
         return $this->render('back/headertexte/new.html.twig', array(
             'headerTexte' => $headerTexte,
             'form' => $form->createView(),
+             $this->addFlash('error',
+                             null )
         ));
     }
 
@@ -86,6 +91,10 @@ class HeaderTexteController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            
+             $this->addFlash('update',
+                             null );
+            
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('headertexte_edit', array('id' => $headerTexte->getId()));
@@ -95,6 +104,8 @@ class HeaderTexteController extends Controller
             'headerTexte' => $headerTexte,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            $this->addFlash('error',
+                             null )
         ));
     }
 

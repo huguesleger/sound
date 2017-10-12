@@ -53,7 +53,7 @@ class AnimationTexteController extends Controller
 
         return $this->render('back/animationtexte/new.html.twig', array(
             'animationTexte' => $animationTexte,
-            'form' => $form->createView(),
+            'form' => $form->createView(),         
         ));
     }
 
@@ -85,7 +85,7 @@ class AnimationTexteController extends Controller
         $editForm = $this->createForm('AppBundle\Form\AnimationTexteType', $animationTexte);
         $editForm->handleRequest($request);
 
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
+        if ($editForm->isSubmitted() && $editForm->isValid()) {            
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('animationtexte_edit', array('id' => $animationTexte->getId()));

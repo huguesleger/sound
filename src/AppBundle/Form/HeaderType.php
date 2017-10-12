@@ -14,10 +14,13 @@ class HeaderType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('image', FileType::class, array('data_class' => null,'required' => false))
-                ->add('isDefault')
-                ->add('headerTexte');
+        $builder->add('image', FileType::class, array('data_class' => null,'required' => false, 'label'=> false))
+                ->add('styleDefault', null, array('attr'=> array('class'=> 'js-switch')))
+                ->add('headerTexte', null, array('attr'=>array('class'=>'select1_multiple')));
     }
+    
+    
+ 
     
     /**
      * {@inheritdoc}

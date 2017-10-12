@@ -667,6 +667,9 @@ footer {
   padding: 5px 20px 0;
   height: 45px;
   margin: 0 -17px;
+/*  position: absolute;
+  bottom: 0;*/
+/*  width: 100%;*/
 }
 .tile-stats.sparkline {
   padding: 10px;

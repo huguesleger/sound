@@ -13,7 +13,7 @@ class HeaderTexteType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('texte')->add('nomAnimation');
+        $builder->add('texte')->add('animationTexte');
     }
     
     /**

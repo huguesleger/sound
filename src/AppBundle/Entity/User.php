@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  *
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  * @ORM\Table(name="user")
- * @ORM\HasLifecycleCallbacks
+    * @ORM\HasLifecycleCallbacks
  */
 class User extends BaseUser
 {
@@ -31,9 +31,9 @@ class User extends BaseUser
  
     /**
      * @Assert\File(
-     *     maxSize = "5M",
+     *     maxSize = "500k",
      *     mimeTypes = {"image/jpeg", "image/gif", "image/png", "image/tiff"},
-     *     maxSizeMessage = "The maxmimum allowed file size is 5MB.",
+     *     maxSizeMessage = "The maxmimum allowed file size is 500ko.",
      *     mimeTypesMessage = "Only the filetypes image are allowed.")
      */
     protected $avatar;

@@ -8,7 +8,35 @@ and open the template in the editor.
     Author     : hugues
 */
 
+@import "_variable.scss";
 
+//////general////////
+.btn-right {
+    float: right;
+}
+
+.txt-success {
+    color:#5cb85c;
+    
+}
+
+.txt-danger {
+    color:#d43f3a;
+    
+}
+
+///close popup/////////
+.close {
+    opacity: 1;
+}
+
+/// icon nav-left menu/////////
+.fa{
+    margin-right: 10px;
+}
+
+
+/////style btn-upload //////
 
 .input-label {
     background: #39D2B4;
@@ -17,15 +45,22 @@ and open the template in the editor.
     cursor: pointer;
 }
 
-.fa{
-    margin-right: 10px;
+/////// btnactions form /////
+.no-mg-right {
+    margin-right: 0;
 }
 
+
+/////// input type file /////
 #appbundle_sound_morceau{
   display: none;
 }
 
 #appbundle_sound_image {
+    display: none;
+}
+
+#appbundle_header_image {
     display: none;
 }
 
@@ -35,13 +70,15 @@ and open the template in the editor.
 
 .default-picture {
     width: 110px;
-    margin-top: -25px;
-    opacity: 0.6;
-    
+/*    margin-top: -20px;*/
+/*    opacity: 0.6;*/   
 }
 
 .default-avatar {
-/*    background-image: url('./../../../web/images/user.png');*/
+/*  background-image: url('./../../../web/images/user.png');
+  background-repeat: no-repeat;
+  width: 195px;
+  height: 195px;*/
     
 }
 
@@ -52,20 +89,29 @@ and open the template in the editor.
     margin-right: 1em;
 }
 
+#selectName{
+    position: absolute;
+    bottom: 40px;
+    left: 180px;
+}
+
+//////////////
+//////////////////
+
 .checkbox label, .radio label {
     padding-left:0px;
 
 }
 
-.title-add {
+.back-list {
     float: right;
     margin-top: 2px;
 }
 
-.title-add-list {
+/*.title-add-list {
     float: right;
     margin-top: 5px;
-}
+}*/
 
 
 ///select-genre/////////
@@ -121,6 +167,280 @@ and open the template in the editor.
 }
 
 
-.fos_user_profile_edit, .fos_user_user_show {
+/*.fos_user_profile_edit, .fos_user_user_show {
     margin-top: 90px;
+}*/
+
+
+
+///////header style///////////////
+
+.background-pochette {
+    position: relative;
+
 }
+
+.img-pochette-min {
+   position: absolute;
+   width: 286px;
+   height: 285px;
+   left: 25px;
+   top:0;
+   opacity: 0.8;
+   border-top-left-radius: 2px;
+   border-top-right-radius: 2px;
+}
+
+
+.animated-demo {
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.animated-demo.infinite {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+
+.carousel {
+  margin-top: 10%;
+/*  overflow: hidden;*/
+}
+
+.big-carousel {
+   max-height: 490px;
+   overflow: hidden;
+   margin-top: 0;
+}
+
+
+.container-fluid .carousel {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+ .carousel img{
+  overflow-y: hidden;
+}
+
+.carousel-inner>.active {
+   max-height: 490px;
+}
+
+.carousel-control {
+    font-size: 50px;
+    text-shadow: none;
+    width: 5%;
+    margin-right: 20px;
+    margin-left: 20px;
+    z-index: 2;
+    opacity: 1;
+}
+
+/*.txt-intro-anim {
+    padding-left: 20px;
+}*/
+
+.txt-carousel { 
+    font-family: $font_extra;
+    font-size: 35px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.txt-carousel-big { 
+    font-family: $font_extra;
+    font-size: 65px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.edit-carousel{
+    text-align: center;
+    display: block;
+}
+
+.carousel-control.left {
+  background-image: none;
+  background-image:  none;
+  background-image:  none;
+  background-repeat: no-repeat;
+  filter: none;
+  color: #000;
+}
+.carousel-control.right {
+  left: auto;
+  right: 0;
+  background-image:  none;
+  background-image:  none;
+  background-image: none;
+  background-repeat: no-repeat;
+  filter:  none;
+    color: #000;
+}
+
+
+.sr-only-left {
+    position: absolute;
+    font-size: 18px;
+    transform: rotate(-90deg);
+    top: 50%;
+    left: -70px;
+    transition: 0.3s ease-in-out;
+    &::before {
+        content:'';
+        position: absolute;
+        width: 40px;
+        left: 22%;
+        top: 50px;
+        height: 2px;
+        background-color: #f94545;
+        -webkit-animation: rubberBand 3000ms infinite;
+        animation: rubberBand 3000ms infinite;
+        transition: 0.3s ease-in-out;
+        
+    }
+}
+
+.carousel-control:hover .sr-only-left {
+    left: 0;
+    transition: 0.3s ease-in-out;
+}
+
+.carousel-control:hover .sr-only-left:before {
+    top: -20px;
+    transition: 0.3s ease-in-out;
+    
+}
+
+.sr-only-right {
+    position: absolute;
+    font-size: 18px;
+    transform: rotate(-90deg);
+    top: 50%;
+    right: -60px;
+    transition: 0.3s ease-in-out;
+    &::before {
+        content:'';
+        position: absolute;
+        width: 40px;
+        right: 2%;
+        top: -32px;
+        height: 2px;
+        background-color: #f94545;
+/*        transform: rotate(90deg);*/
+         -webkit-animation: rubberBand 3000ms infinite;
+        animation: rubberBand 3000ms infinite;
+        transition: 0.3s ease-in-out;
+    }
+}
+
+.carousel-control:hover .sr-only-right {
+    right: 20px;
+    transition: 0.3s ease-in-out;
+}
+
+.carousel-control:hover .sr-only-right:before {
+    top: 47px;
+    transition: 0.3s ease-in-out;
+    
+}
+
+
+
+.carousel-control .icon-prev,
+.carousel-control .icon-next,
+.carousel-control .fa-angle-left,
+.carousel-control .fa-angle-right {
+  position: absolute;
+  top: 50%;
+  margin-top: -20px;
+  display: inline-block;
+}
+.carousel-control .icon-prev,
+.carousel-control .fa-angle-left {
+  left: 27%;
+  margin-left: -10px;
+}
+.carousel-control .icon-next,
+.carousel-control .fa-angle-right {
+  right: 27%;
+  margin-right: -10px;
+}
+
+.carousel-indicators {
+ display: table-cell;
+ vertical-align: middle;
+ float: none;
+ margin-left: 0;
+ right: 0;
+ left: auto;
+ top: 50%;
+ width: 10%;
+}
+
+.carousel-indicators .active {
+     width: 12px;
+ height: 12px;
+ margin-bottom: 10px;
+    background-color: #000;
+}
+.carousel-indicators li {
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #000;
+}
+
+.big-indic-pos {
+   width: 2%; 
+}
+
+.opaque {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    z-index: 1;
+}
+
+
+
+
+.carousel-caption {
+    top: 45%;
+     bottom: 0; 
+     padding-top: 0; 
+     padding-bottom: 0;
+    text-shadow: none;
+}
+
+
+.nb-img {
+    display: inline-block;
+}
+
+
+.active-header{
+    padding-top: 2px;
+    position: absolute;
+    padding-left: 10px;
+}
+
+.fa-circle {
+  color: #5cb85c;
+  font-size: 18px;
+
+}
+
+.no-activate {
+    color: #d43f3a;
+}
+
+

@@ -1,6 +1,21 @@
 {% extends ':back:templateAdmin.html.twig' %}
 
   {% block content %}
+      
+      {% for message in app.flashes('succes') %}
+      <div id="success">
+      </div>
+      {% endfor %}
+      
+      {% for message in app.flashes('delete') %}
+      <div id="delete">
+      </div>
+      {% endfor %}
+      
+      {% for message in app.flashes('erreur') %}
+      <div id="error">
+      </div>
+      {% endfor %}
     <h1>Headertextes list</h1>
 
     <table>
@@ -36,4 +51,7 @@
             <a href="{{ path('headertexte_new') }}">Create a new headerTexte</a>
         </li>
     </ul>
+{% endblock %}
+{% block scriptForm %}
+    <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
 {% endblock %}

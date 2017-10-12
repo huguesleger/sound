@@ -6,7 +6,7 @@
               <div class="x_panel">
                 <div class="x_title">
                     <h2>Sound creation</h2>
-                    <a class="btn btn-dark btn-xs title-add" href="{{ path('sound_index') }}">Back to the list</a>
+                    <a class="btn btn-dark btn-xs back-list" href="{{ path('sound_index') }}">Back to the list</a>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -27,7 +27,7 @@
         <div class="form-upload">
       <label for="appbundle_sound_morceau" class="input-label">
           <i class="fa fa-upload"></i>Select fichier</label>
-          {{form_widget(form.morceau)}}
+          {{form_row(form.morceau)}}
           <span id="selectName">Aucun fichier choisi</span>      
          </div>
 
@@ -52,10 +52,10 @@
  
       <label for="appbundle_sound_image" class="input-label">
           <i class="fa fa-upload"></i>Select fichier</label>
-          {{form_widget(form.image)}}
+          {{form_row(form.image)}}
      
        
-                <img class="default-picture" id="selectImage" src="{{asset('images/pochette-disc.png')}}" alt="your image" />
+                <img class="default-picture" id="selectImage" src="{{asset('images/image_default.png')}}" alt="your image" />
      </div>
             </div>
       </div>
@@ -88,6 +88,7 @@
                           
                             <div class="ln_solid"></div>
                                
+                            
                             {{ form_row(form.publier) }}
 
                 </div>

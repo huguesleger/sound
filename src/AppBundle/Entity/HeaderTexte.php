@@ -32,9 +32,12 @@ class HeaderTexte
      * @var string
      *
      * @ORM\ManyToOne(targetEntity = "AnimationTexte")
-     * @ORM\JoinColumn(name = "fk_name_animation", referencedColumnName = "id")
+     * @ORM\JoinColumn(name = "fk_animation_texte", referencedColumnName = "id")
      */
-    private $nomAnimation;
+    private $animationTexte;
+    
+    
+  
 
 
     /**
@@ -71,12 +74,12 @@ class HeaderTexte
         return $this->texte;
     }
     
-    public function getNomAnimation() {
-        return $this->nomAnimation;
+    public function getAnimationTexte() {
+        return $this->animationTexte;
     }
 
-    public function setNomAnimation($nomAnimation) {
-        $this->nomAnimation = $nomAnimation;
+    public function setAnimationTexte($animationTexte) {
+        $this->animationTexte = $animationTexte;
     }
 
       public function __toString() {

@@ -1,6 +1,16 @@
 {% extends ':back:templateAdmin.html.twig' %}
 
   {% block content %}
+      
+       {% for message in app.flashes('update') %}
+      <div id="update">
+      </div>
+      {% endfor %}
+      
+      {% for message in app.flashes('erreur') %}
+      <div id="error">
+      </div>
+      {% endfor %}
     <h1>Headertexte edit</h1>
 
     {{ form_start(edit_form) }}
@@ -18,4 +28,7 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
+{% endblock %}
+{% block scriptForm %}
+    <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
 {% endblock %}

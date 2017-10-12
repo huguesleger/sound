@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping\JoinTable;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints\File;
 
+
 /**
  * Header
  *
@@ -29,28 +30,54 @@ class Header
      *
      * @ORM\Column(name="image", type="string", length=255)
      * @File(mimeTypes={"image/jpeg", "image/png"},
-     * maxSize = "800k",
-     * maxSizeMessage = "La taille maximum autorisée est de (800ko).")
+     * maxSize = "1024k",
+     * maxSizeMessage = "La taille maximum autorisée est de (1024ko).")
      */
     private $image;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="isDefault", type="boolean", nullable= true)
+     * @ORM\Column(name="styleDefault", type="boolean", nullable= true)
      */
-    private $isDefault;
+    private $styleDefault;
     
     
-      /**
+     /**
      * @var string
      *
-     * @ORM\ManyToMany(targetEntity = "HeaderTexte", cascade={"persist", "remove"})
+     * @ORM\ManyToMany(targetEntity = "HeaderTexte", cascade={"persist"})
      * @JoinTable(name = "fk_texte_list")
      */
     private $headerTexte;
+    
+    /**
+     * @var string
+     *
+     * @ORM\ManyToMany(targetEntity = "AnimationTexte", cascade={"persist", "remove"})
+     * @JoinTable(name = "fk_animationTexte_list")
+     */
+    private $animationTexte;
 
 
+    public function addApplication(HeaderTexte $animationTexte)
+  {
+    $this->headerTexte[] = $animationTexte;
+
+    // On lie l'annonce à la candidature
+    $animationTexte->setHeaderTexte($this);
+
+    return $this;
+  }
+
+  public function removeApplication(HeaderTexte $animationTexte)
+  {
+    $this->headerTexte->removeElement($animationTexte);
+
+    // Et si notre relation était facultative (nullable=true, ce qui n'est pas notre cas ici attention) :        
+    // $application->setAdvert(null);
+  }
+    
     /**
      * Get id
      *
@@ -86,27 +113,27 @@ class Header
     }
 
     /**
-     * Set isDefault
+     * Set styleDefault
      *
-     * @param boolean $isDefault
+     * @param boolean $styleDefault
      *
      * @return Header
      */
-    public function setIsDefault($isDefault)
+    public function setStyleDefault($styleDefault)
     {
-        $this->isDefault = $isDefault;
+        $this->styleDefault = $styleDefault;
 
         return $this;
     }
 
     /**
-     * Get isDefault
+     * Get styleDefault
      *
      * @return bool
      */
-    public function getIsDefault()
+    public function getStyleDefault()
     {
-        return $this->isDefault;
+        return $this->styleDefault;
     }
     
     public function getHeaderTexte() {
@@ -115,7 +142,22 @@ class Header
 
     public function setHeaderTexte($headerTexte) {
         $this->headerTexte = $headerTexte;
+        
+        return $this;
     }
+    
+    public function __toString() {
+        return $this->getHeaderTexte();
+    }
+
+    public function getAnimationTexte() {
+        return $this->animationTexte;
+    }
+
+    public function setAnimationTexte($animationTexte) {
+        $this->animationTexte = $animationTexte;
+    }
+
 
 
 }

@@ -38,8 +38,13 @@
 
 {% block content %}
     
-          {% for message in app.flashes('update') %}
+      {% for message in app.flashes('update') %}
       <div id="update">
+      </div>
+      {% endfor %}
+      
+      {% for message in app.flashes('erreur') %}
+      <div id="error">
       </div>
       {% endfor %}
     
@@ -49,7 +54,7 @@
               <div class="x_panel">
                 <div class="x_title">
                     <h2>Edit sound</h2>
-                    <a class="btn btn-dark btn-xs title-add" href="{{ path('sound_index') }}">Back to the list</a>
+                    <a class="btn btn-dark btn-xs back-list" href="{{ path('sound_index') }}">Back to the list</a>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -192,6 +197,4 @@
 {% block scriptForm %}
     <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
      <script type="text/javascript" src="{{asset('js/backend/playerMusic.js')}}"></script>
-
-   
 {% endblock %}

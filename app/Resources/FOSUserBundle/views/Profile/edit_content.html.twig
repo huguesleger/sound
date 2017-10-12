@@ -22,8 +22,12 @@
      
        
                 {#<img id="selectImage" class="img-circle" src="{{asset('uploads/avatar/')~app.user.avatarPath}}" alt="your image" />#}
-                <img class="default-avatar" id="selectImage" src="{{asset('uploads/avatar/')~app.user.avatarPath}}" alt="your image" />
-                
+                {% if app.user.avatarPath == false  %}
+                <img class="default-avatar" id="selectImage" src="{{asset('images/user.png')}}" alt="your image" />
+                  {% else %}
+                      
+                        <img class="default-avatar" id="selectImage" src="{{asset('uploads/avatar/')~app.user.avatarPath}}" alt="your image" />
+                       {% endif%}
                  {#{{ form_row(form.avatar) }}#}
      <p>taille maximum 128X128px</p>
      </div>

@@ -17,13 +17,13 @@
 
       {% for header in headers %}
           
-          {% if header.isDefault != null %}
+          {% if header.styleDefault != null %}
                  {{ header.image }}
           
           
             {% for headerTexte in headerTextes %}
            <div>{{ headerTexte.texte }}</div>
-           <div>{{  headerTexte.nomAnimation }}</div>
+           <div>{{  headerTexte.animationTexte }}</div>
                 
 
              {% endfor %}

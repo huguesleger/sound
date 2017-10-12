@@ -13,4 +13,21 @@
             <a href="{{ path('headertexte_index') }}">Back to the list</a>
         </li>
     </ul>
+            
+          {#   <div>
+                 <span id="nameAnimate">
+                     <h3 class="animate-demo ">Animation demo</h3></span>
+                <div id="animateTexte"class="btn btn-primary">Animer</div>
+            </div> #}
+            
+            <div class="wrap">
+   <span id="animationSandbox" style="display: block;" class=""><h1 class="site__title mega">Animation Demo</h1></span>
+  </div>
+        
+   <button class="btn btn-primary js--triggerAnimation">Animer</button>         
 {% endblock %}
+
+ {% block scriptForm %}
+    <script type="text/javascript" src="{{asset('vendor/wow.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>  
+    {% endblock %}
