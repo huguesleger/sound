@@ -41,38 +41,51 @@
              
               <ul class="nav side-menu">
                 <li><a href="{{path('admin_index')}}"><i class="fa fa-home"></i> Home</a></li>
+                <li><a><i class="fa fa-cube"></i>Rubriques <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><a href="{{path('label_index')}}">Labels</a>
+                    </li>
+                    <li><a href="{{path('genre_index')}}">Genres musicaux</a>
+                    </li>
+                    <li><a href="{{path('sectionname_index')}}">Titres sections</a>
+                    </li>
+                    <li><a href="#">Réseaux sociaux</a></li>
+                   
+                    
+                  </ul>
+                </li>
                 <li><a><i class="fa icon-cd"></i>Musiques <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="{{path('sound_index')}}">Toutes la musique</a>
                     </li>
                     <li><a href="{{path('sound_new')}}">Ajouter</a>
                     </li>
-                     </li>
+
                    
-                    <li><a href="{{path('genre_index')}}">Genres musicaux</a>
+                   {# <li><a href="{{path('genre_index')}}">Genres musicaux</a>
                     </li>
                      <li><a href="{{path('label_index')}}">Labels</a>
-                    </li>
+                    </li>#}
                     
                   </ul>
                 </li>
-                 <li><a><i class="fa fa-cube"></i> Pages <span class="fa fa-chevron-down"></span></a>
+                 <li><a><i class="fa fa-laptop"></i> Homepage <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><a href="{{path('homepage_index')}}">HomePage</a></li>
-                    <li><a href="#">Sections</a></li> 
+                   {# <li><a href="{{path('homepage_index')}}">HomePage</a></li>#}
+                    <li><a href="{{path('section_index')}}">Mes Sections</a></li> 
                    {# <li><a href="{{path('style_index')}}">Styles</a></li>#}
                    {# {#<li><a href="{{path('headerpage_index')}}">headerpagedefault</a></li>#}
                     {#<li><a href="{{path('header_index')}}">Header</a></li>#}
                     {#<li><a href="{{path('headertexte_index')}}">Textes Animations</a></li>#}
-                    <li><a href="{{path('item_index')}}">Items</a></li> 
-                    <li><a href="#">Socials</a></li>
+                    {#<li><a href="{{path('item_index')}}">Items</a></li> #}
+                    {#<li><a href="#">Socials</a></li>#}
                   </ul>
                 </li>
                  <li><a><i class="fa fa-picture-o"></i> Header <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     
                     <li><a href="{{path('header_index')}}">Style</a></li>
-                    <li><a href="{{path('headertexte_index')}}">Animation texte</a></li>
+                    <li><a href="{{path('headertexte_index')}}">Texte d'intro</a></li>
                   </ul>
                 </li>
                 

@@ -1,0 +1,42 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block body %}
+
+
+<div id="hola">
+<div id="svg">  
+</div>
+</div>
+    
+
+        <nav class="navbar navbar-default">
+            <div class="logo">
+        <a class="icon-logo" href=#"><i class="fa fa-grav" aria-hidden="true"></i></a>
+        <a class="navbar-brand" href="#"><span class="name-light">Thomas</span> Brazz</a>       
+    </div>
+        
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Productions</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+            </nav>
+
+    
+    <!--------------------------
+    | Page Content Here |
+    -------------------------->
+  {% block content %}  
+  {% endblock %}     
+    <!--------------------------
+    | End Content Here |
+    -------------------------->
+    <div class="border">
+        <div class="top"></div>
+        <div class="right"></div>
+        <div class="left"></div>
+        <div class="bottom"></div>
+    </div>
+    
+{% endblock %}    
+    

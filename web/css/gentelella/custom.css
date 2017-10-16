@@ -218,7 +218,7 @@ body.nav-md .container.body .right_col {
 /**  ------------------------------------------  **/
 
 .blue {
-  color: #3498DB;
+  color: #5bc0de;
 }
 .purple {
   color: #9B59B6;
@@ -324,7 +324,7 @@ body {
   padding: 10px 0;
 }
 .page-title .title_left {
-  width: 45%;
+/*  width: 45%;*/
   float: left;
   display: block;
 }
@@ -1116,7 +1116,7 @@ table.jambo_table tbody tr.selected td {
   float: left;
 }
 .dataTables_filter {
-  width: 50%;
+/*  width: 50%;*/
   float: right;
   text-align: right;
 }

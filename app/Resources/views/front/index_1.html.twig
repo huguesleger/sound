@@ -1,0 +1,47 @@
+{% extends '::base.html.twig' %}
+
+ {% block stylesheets %}
+     
+      {{ parent() }}
+        
+         {% stylesheets output="css/compiled/main.css"
+
+        
+        
+         filter='cssrewrite' %}
+         <link rel="stylesheet" href="{{ asset_url }}" />
+         {% endstylesheets %}
+         {% endblock %}
+
+  {% block body %}
+
+      {% for header in headers %}
+          
+          {% if header.styleDefault != null %}
+                 {{ header.image }}
+          
+          
+            {% for headerTexte in headerTextes %}
+           <div>{{ headerTexte.texte }}</div>
+           <div>{{  headerTexte.animationTexte }}</div>
+                
+
+             {% endfor %}
+              {% else %}
+                  carousel
+                  {% endif %}
+                  
+       
+       {% endfor %}
+       
+ 
+       
+       
+       
+     
+             
+   {% endblock %}
+   
+    {% block javascripts %}
+         {{ parent() }}
+         {% endblock %}

@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Item
+ * Service
  *
- * @ORM\Table(name="item")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ItemRepository")
+ * @ORM\Table(name="service")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ServiceRepository")
  */
-class Item
+class Service
 {
     /**
      * @var int
@@ -31,16 +31,25 @@ class Item
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="description", type="text")
      */
     private $description;
 
-   
-
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="publier", type="boolean")
+     */
+    private $publier;
     
-   
     
-    
+     /**
+     *
+     * @var string
+     * @ORM\ManyToOne(targetEntity = "SectionName")
+     * @ORM\JoinColumn(name="fk_name", referencedColumnName = "id")
+     */
+    private $name;
     
      /**
      * @var string
@@ -62,11 +71,35 @@ class Item
     }
 
     /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Service
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
      * Set titre
      *
      * @param string $titre
      *
-     * @return Item
+     * @return Service
      */
     public function setTitre($titre)
     {
@@ -90,7 +123,7 @@ class Item
      *
      * @param string $description
      *
-     * @return Item
+     * @return Service
      */
     public function setDescription($description)
     {
@@ -109,30 +142,58 @@ class Item
         return $this->description;
     }
 
-  
-  
+   
 
-  
+    /**
+     * Set publier
+     *
+     * @param boolean $publier
+     *
+     * @return Service
+     */
+    public function setPublier($publier)
+    {
+        $this->publier = $publier;
 
+        return $this;
+    }
 
-
-
-
-
+    /**
+     * Get publier
+     *
+     * @return bool
+     */
+    public function getPublier()
+    {
+        return $this->publier;
+    }
     
+     /**
+     * Set icon
+     *
+     * @param boolean $icon
+     *
+     * @return Service
+     */
+    public function setIcon($icon) {
+        $this->icon = $icon;
+        
+        return $this;
+    }
+    
+    
+     /**
+     * Get icon
+     *
+     * @return string
+     */
     public function getIcon() {
         return $this->icon;
     }
 
-    public function setIcon($icon) {
-        $this->icon = $icon;
-    }
-
-public function __toString() {
-        return $this->getTitre();
-    }
-
     
+    
+   
 
 
 }

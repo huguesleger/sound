@@ -1,43 +1,29 @@
 {% extends ':back:templateAdmin.html.twig' %}
-{#
-  {% block content %}
+
+{#  {% block content %}
       
-      {% for message in app.flashes('succes') %}
-      <div id="success">
-      </div>
-      {% endfor %}
-      
-      {% for message in app.flashes('delete') %}
-      <div id="delete">
-      </div>
-      {% endfor %}
-      
-      {% for message in app.flashes('erreur') %}
-      <div id="error">
-      </div>
-      {% endfor %}
-    <h1>Headertextes list</h1>
+    <h1>Sectionnames list</h1>
 
     <table>
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Texte</th>
+                <th>Name</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for headerTexte in headerTextes %}
+        {% for sectionName in sectionNames %}
             <tr>
-                <td><a href="{{ path('headertexte_show', { 'id': headerTexte.id }) }}">{{ headerTexte.id }}</a></td>
-                <td>{{ headerTexte.texte }}</td>
+                <td><a href="{{ path('sectionname_show', { 'id': sectionName.id }) }}">{{ sectionName.id }}</a></td>
+                <td>{{ sectionName.name }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('headertexte_show', { 'id': headerTexte.id }) }}">show</a>
+                            <a href="{{ path('sectionname_show', { 'id': sectionName.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('headertexte_edit', { 'id': headerTexte.id }) }}">edit</a>
+                            <a href="{{ path('sectionname_edit', { 'id': sectionName.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -48,13 +34,11 @@
 
     <ul>
         <li>
-            <a href="{{ path('headertexte_new') }}">Create a new headerTexte</a>
+            <a href="{{ path('sectionname_new') }}">Create a new sectionName</a>
         </li>
     </ul>
-{% endblock %}
-{% block scriptForm %}
-    <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
 {% endblock %}#}
+
 
 {% block content %}
       
@@ -64,7 +48,7 @@
            
           <div class="page-title">
             <div class="title_left">
-                <h3>Texte d'intro</h3>
+                <h3>Nom Section</h3>
                  </div>
                 <span class="btn-title-left col-md-2"><a class="btn btn-dark btn-sm" href="{{ path('sectionname_new') }}">Ajouter</a></span>
            
@@ -79,7 +63,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
-                  <h2>Mes textes</h2>
+                  <h2>Mes noms de section</h2>
                   
                   <div class="clearfix"></div>
                 </div>
@@ -90,26 +74,24 @@
                       <tr>
                         <th style="width: 5%">#</th>
                         {#<th style="width: 12%">Icon</th>#}
-                        <th style="width: 20%">Texte</th>
-                        <th style="width: 20%">Animation</th>
+                        <th style="width: 30%">Nom</th>
                         <th style="width: 20%">Actions</th>
                       </tr>
                     </thead>
 
 
                     <tbody>
-                        {% for headerTexte in headerTextes %}
+                        {% for sectionName in sectionNames %}
                       <tr>  
                            <td> {% set counter = ( counter | default(0) ) + 1 %}
                            <small> {{ counter }}</small></td>
                        {#<td><i class="fa fa-list" aria-hidden="true"></i></td>#}
-                        <td><a>{{ headerTexte.texte }}</a>
+                        <td><a>{{ sectionName.name }}</a>
                         <br />
                           <small>Créer le {#{{ sound.date|date ('j/m/y à H:i:s') }}#}</small></td>
-                        <td>{{ headerTexte.animationTexte}}</td>
-                        <td><a href="{{ path('headertexte_show', { 'id': headerTexte.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
-                          <a href="{{ path('headertexte_edit', { 'id': headerTexte.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                          <a href="{{ path('headertexte_delete', { 'id': headerTexte.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a></td>
+                        <td><a href="{{ path('sectionname_show', { 'id': sectionName.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
+                          <a href="{{ path('sectionname_edit', { 'id': sectionName.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                          <a href="{{ path('sectionname_delete', { 'id': sectionName.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a></td>
                       </tr>
                        {% endfor %}
                     </tbody>

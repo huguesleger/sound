@@ -51,32 +51,26 @@ class Header
      */
     private $headerTexte;
     
-    /**
-     * @var string
-     *
-     * @ORM\ManyToMany(targetEntity = "AnimationTexte", cascade={"persist", "remove"})
-     * @JoinTable(name = "fk_animationTexte_list")
-     */
-    private $animationTexte;
+  
 
 
-    public function addApplication(HeaderTexte $animationTexte)
-  {
-    $this->headerTexte[] = $animationTexte;
-
-    // On lie l'annonce à la candidature
-    $animationTexte->setHeaderTexte($this);
-
-    return $this;
-  }
-
-  public function removeApplication(HeaderTexte $animationTexte)
-  {
-    $this->headerTexte->removeElement($animationTexte);
-
-    // Et si notre relation était facultative (nullable=true, ce qui n'est pas notre cas ici attention) :        
-    // $application->setAdvert(null);
-  }
+//    public function addApplication(HeaderTexte $animationTexte)
+//  {
+//    $this->headerTexte[] = $animationTexte;
+//
+//    // On lie l'annonce à la candidature
+//    $animationTexte->setHeaderTexte($this);
+//
+//    return $this;
+//  }
+//
+//  public function removeApplication(HeaderTexte $animationTexte)
+//  {
+//    $this->headerTexte->removeElement($animationTexte);
+//
+//    // Et si notre relation était facultative (nullable=true, ce qui n'est pas notre cas ici attention) :        
+//    // $application->setAdvert(null);
+//  }
     
     /**
      * Get id
@@ -150,13 +144,6 @@ class Header
         return $this->getHeaderTexte();
     }
 
-    public function getAnimationTexte() {
-        return $this->animationTexte;
-    }
-
-    public function setAnimationTexte($animationTexte) {
-        $this->animationTexte = $animationTexte;
-    }
 
 
 

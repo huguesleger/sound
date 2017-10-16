@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+{#        <meta name= "author"  content="Hugues LEGER">#}
+        <title>{% block title %}Hello!{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+         <link rel="stylesheet" type="text/css" href="{{asset('vendor/bootstrap.min.css')}}"/>
+         <link rel="stylesheet" type="text/css" href="{{asset('vendor/font-awesome.min.css')}}"/>
+         <link rel="stylesheet" type="text/css" href="{{asset('vendor/animate.css')}}"/>
+         {% stylesheets output="css/compiled/main.css" filter='cssrewrite'
+
+            'css/main.css'
+          %}
+         <link rel="stylesheet" href="{{ asset_url }}" />
+         {% endstylesheets %}      
+         {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+        {% endblock %}
+        
+        
+        {% block javascripts %}
+        <script type="text/javascript" src="{{asset('vendor/jquery.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('vendor/velocity.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('vendor/dynamics.min.js')}}"></script>
+         {% javascripts output="js/compiled/main.js"
+
+         'js/front/main.js'
+
+        %}
+         <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% endblock %}
+        {% block scriptForm %}{% endblock %}
+    </body>
+</html>

@@ -1,0 +1,43 @@
+{% extends ':back:templateAdmin.html.twig' %}
+
+  {% block content %}
+    <h1>Service creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" />
+        
+        <div id="iconService"><img src="#"</div>
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('service_index') }}">Back to the list</a>
+        </li>
+    </ul>
+            
+    <div class="bs-docs-section">
+          <h1 id="glyphicons" class="page-header">Icons disponibles</h1>
+             <h2 id="glyphicons-glyphs">icons style 1</h2>
+                    <div class="bs-glyphicons">
+                      <ul class="bs-glyphicons-list">
+                           {% for icon in icons %}
+                        <li>
+                          <span class="glyphicon"><img src="{{asset('images/item/')~icon.nom~'.png'}}"</span>
+                          <span class="glyphicon-class">{{ icon.nom }}</span>
+                        </li>
+                         {% endfor %}
+                      </ul>
+                    </div>
+
+    </div>  
+                         
+                             
+                             
+{% endblock %}
+
+
+
+{% block scriptForm %}
+<script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>  
+{% endblock %}

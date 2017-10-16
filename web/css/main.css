@@ -2,19 +2,198 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900");
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; }
+
+body {
+  line-height: 1;
+  margin: 0;
+  padding: 0; }
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block; }
+
+a:focus {
+  outline: none; }
+
+a:active,
+a:hover {
+  outline: 0; }
+
+a img {
+  border: 0; }
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline; }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+[hidden],
+template {
+  display: none; }
+
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+b,
+strong {
+  font-weight: bold; }
+
+dfn {
+  font-style: italic; }
+
+small {
+  font-size: 80%; }
+
+sub,
+sup {
+  font-size: 75%;
+  height: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  bottom: 1ex; }
+
+sub {
+  top: .5ex; }
+
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic; }
+
+pre {
+  overflow: auto; }
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0; }
+
+button {
+  overflow: visible; }
+
+button,
+select {
+  text-transform: none; }
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer; }
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; }
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+button[disabled],
+html input[disabled] {
+  cursor: default; }
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+button,
+input {
+  line-height: normal;
+  *overflow: visible; }
+
+input[type="checkbox"],
+input[type="radio"] {
+  padding: 0; }
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+legend {
+  border: 0;
+  padding: 0; }
+
+textarea {
+  overflow: auto; }
+
+optgroup {
+  font-weight: bold; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+td,
+th {
+  padding: 0; }
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden; }
+
+.clearfix {
+  display: inline-block; }
+
+.clearfix {
+  display: block; }
+
+.clear {
+  zoom: 1; }
+  .clear:before, .clear:after {
+    display: table;
+    content: ""; }
+  .clear:after {
+    clear: both; }
+
+.break {
+  word-break: break-word;
+  word-wrap: break-word; }
+
+.none {
+  display: none; }
+
 @font-face {
   font-family: "Viafont";
   src: url("../fonts/Viafont.otf"); }
 /*$bg_secondary:;*/
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 10 sept. 2017, 12:27:12
-    Author     : hugues
-*/
 @font-face {
   font-family: "Viafont";
   src: url("../fonts/Viafont.otf"); }
@@ -28,11 +207,17 @@ and open the template in the editor.
 .txt-danger {
   color: #d43f3a; }
 
+.txt-bold {
+  font-weight: 900; }
+
 .close {
   opacity: 1; }
 
 .fa {
   margin-right: 10px; }
+
+.icon-section {
+  font-size: 18px; }
 
 .input-label {
   background: #39D2B4;
@@ -72,11 +257,11 @@ and open the template in the editor.
   float: right;
   margin-right: 1em; }
 
-#selectName {
-  position: absolute;
-  bottom: 40px;
-  left: 180px; }
-
+/*#selectName{
+    position: absolute;
+    bottom: 40px;
+    left: 180px;
+}*/
 .checkbox label, .radio label {
   padding-left: 0px; }
 
@@ -119,9 +304,9 @@ and open the template in the editor.
   position: relative; }
 
 .btn-title-left {
-  position: absolute;
+  /*    position: absolute;*/
   top: 5px;
-  left: 10em; }
+  /*    left: 10em;*/ }
 
 /*.fos_user_profile_edit, .fos_user_user_show {
     margin-top: 90px;
@@ -345,19 +530,156 @@ and open the template in the editor.
 .no-activate {
   color: #d43f3a; }
 
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 11 sept. 2017, 17:54:31
-    Author     : hugues
-*/
-/*@font-face {
-    font-family: "Viafont";
-    src: url("../fonts/Viafont.otf");
-}*/
+.btn-section-add {
+  padding-bottom: 15px; }
+  .btn-section-add .fa {
+    padding-left: 10px; }
+  .btn-section-add h2 {
+    text-transform: capitalize; }
+
+.glyphicon img {
+  width: 50px; }
+
+.bs-glyphicons .glyphicon {
+  font-size: 12px; }
+
+.name-section-create {
+  border-bottom: 2px solid;
+  padding-bottom: 5px; }
+
+.col-md-4 .btn-title-left {
+  left: 13em; }
+
+@font-face {
+  font-family: "Viafont";
+  src: url("../fonts/Viafont.otf"); }
+/*$bg_secondary:;*/
+body {
+  font-family: "Open", Arial, sans-serif;
+  /*    background-color: $gris_clair;*/ }
+
+.logo {
+  position: fixed;
+  z-index: 101;
+  display: inline-block;
+  left: 40px;
+  font-size: 16px;
+  font-weight: 900; }
+
+.navbar {
+  margin-bottom: 0;
+  border: 0;
+  border-radius: 0; }
+
+.navbar-right {
+  margin-right: 0; }
+
+.navbar-default {
+  font-family: "Raleway";
+  z-index: 102;
+  background-color: transparent;
+  border-color: transparent; }
+  .navbar-default .navbar-brand {
+    color: #0F3057; }
+
+.navbar-default .navbar-nav > li > a {
+  color: #0F3057; }
+
+.navbar-default .nav {
+  position: fixed;
+  right: 40px; }
+
+.navbar-brand {
+  padding: 15px 10px; }
+
+.icon-logo {
+  float: left;
+  margin-top: 16px;
+  margin-left: 15px;
+  color: #0F3057; }
+  .icon-logo .fa {
+    margin-right: 0; }
+
+.name-light {
+  font-weight: 100; }
+
+.border > * {
+  position: fixed;
+  z-index: 100;
+  background: #fff;
+  height: 20px;
+  width: 20px;
+  pointer-events: none;
+  transition: transform 500ms ease-in-out 0ms;
+  transform-origin: center center;
+  transform: translate(0, 0) scale(1); }
+  .border > *.top {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 55px;
+    transform-origin: top center; }
+  .border > *.bottom {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 55px;
+    transform-origin: bottom center; }
+  .border > *.right {
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 55px;
+    transform-origin: right center; }
+  .border > *.left {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 55px;
+    transform-origin: left center; }
+
+.app {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transform-origin: center 50vh;
+  transition: transform 0.5 ease-in-out 0ms;
+  pointer-events: none;
+  min-height: 100vh; }
+
+.page-container {
+  position: relative;
+  background: #f8f8f8;
+  overflow: hidden;
+  -webkit-transition: -webkit-transform 500ms cubic-bezier(1, 0, 0, 1) 0ms;
+  -moz-transition: -moz-transform 500ms cubic-bezier(1, 0, 0, 1) 0ms;
+  transition: transform 500ms cubic-bezier(1, 0, 0, 1) 0ms;
+  pointer-events: all;
+  min-height: 100vh; }
+
+.header {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #f8f8f8; }
+
+.wech {
+  position: relative;
+  height: 40vh; }
+
+#hola {
+  width: 100%;
+  height: 100vh;
+  background-color: #4ECDC4;
+  position: fixed;
+  z-index: 110; }
+
+#bg-header {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background-color: #4ECDC4; }
+
 /*
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates

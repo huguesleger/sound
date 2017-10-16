@@ -34,8 +34,8 @@
                 {% endfor %}
                 <div class="title_left">
                 <h3>Header</h3>
+                <span class="btn-title-left"><a class="btn btn-dark btn-sm" href="{{ path('header_new') }}">Ajouter</a></span>
                 </div>
-                 <span class="btn-title-left col-md-2"><a class="btn btn-dark btn-sm" href="{{ path('header_new') }}">Ajouter</a></span>
             </div>
             <div class="clearfix"></div>
             <div class="row">
@@ -91,7 +91,7 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">                               
                         <div class="x_title">
-                        <h2>Style Slider |</h2>
+                        <h2>Style Carousel |</h2>
                         {% for header in headers %}
                         <h2><small>{% if header.styleDefault == null %} {% set counter = ( counter | default(0) ) + 1 %}
                         <i class="fa fa-circle animated infinite pulse" aria-hidden="true"></i>Slide {{ counter }} activer

@@ -1,0 +1,163 @@
+@import "_variable.scss";
+
+
+body {
+    font-family: $font;
+/*    background-color: $gris_clair;*/
+}
+
+
+.logo {
+    position: fixed;
+    z-index: 101;
+    display: inline-block;
+    left: 40px;
+    font-size:  16px;
+    font-weight: 900;
+}
+
+.navbar{
+    margin-bottom: 0;
+    border: 0;
+    border-radius: 0;
+}
+.navbar-right{
+ margin-right: 0;   
+}
+
+.navbar-default {
+    font-family: $font_title;
+    z-index: 102;
+    background-color: transparent;
+    border-color: transparent;
+    .navbar-brand {
+     color: $bleu_dark;  
+    }
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: $bleu_dark;
+}
+
+
+.navbar-default .nav {
+    position: fixed;
+    right: 40px;
+}
+
+.navbar-brand {
+    padding: 15px 10px;
+}
+
+.icon-logo{
+    float: left;
+    margin-top: 16px;
+    margin-left: 15px;
+    color: $bleu_dark;
+    .fa{
+        margin-right: 0;
+    }
+}
+
+.name-light {
+    font-weight: 100;
+}
+
+
+/////////border fix//////////
+
+.border > * {
+	position:fixed;
+	z-index: 100;
+	background: $white;
+	height:20px;
+	width:20px;
+	pointer-events:none;
+	transition:(transform 500ms ease-in-out 0ms);
+	transform-origin:(center center);
+	transform:(translate(0,0) scale(1));
+	&.top {
+		top:0;
+		left:0;
+		width:100%;
+                height: 55px;
+		transform-origin:(top center);
+	}
+
+	&.bottom {
+		bottom:0;
+		left:0;
+		width:100%;
+                height: 55px;
+		transform-origin:(bottom center);
+	}
+
+	&.right {
+		top:0;
+		right:0;
+		height:100%;
+                width: 55px;
+		transform-origin:(right center);	
+	}
+
+	&.left {
+		top:0;
+		left:0;
+		height:100%;
+                width: 55px;
+		transform-origin: (left center);
+	}
+
+}
+
+
+.app{
+    position: relative;
+	z-index:1;
+	overflow:hidden;
+	transform-origin:(center 50vh);
+	transition:(transform 0.5 ease-in-out 0ms);
+	pointer-events:none;
+	min-height:100vh;
+}
+
+
+.page-container {
+    position: relative;
+    background: #f8f8f8;
+    overflow: hidden;
+    -webkit-transition: -webkit-transform 500ms cubic-bezier(1, 0, 0, 1) 0ms;
+    -moz-transition: -moz-transform 500ms cubic-bezier(1, 0, 0, 1) 0ms;
+    transition: transform 500ms cubic-bezier(1, 0, 0, 1) 0ms;
+    pointer-events: all;
+    min-height: 100vh;
+}
+
+.header{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: $gris_clair;
+}
+
+
+.wech {
+    position: relative;
+    height: 40vh;
+}
+
+#hola{
+    width: 100%;
+    height: 100vh;
+    background-color: $bg_primary;
+    position: fixed;
+    z-index: 110;
+}
+
+#bg-header {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background-color: $bg_primary;
+}
+
