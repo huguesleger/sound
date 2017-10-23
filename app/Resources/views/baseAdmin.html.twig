@@ -12,7 +12,7 @@
          <link rel="stylesheet" type="text/css" href="{{asset('vendor/animate.css')}}"/>
          <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
          
-          {% stylesheets output="css/compiled/main-back.css" filter='cssrewrite'
+          {% stylesheets filter='cssrewrite'
 
             'css/gentelella/custom.css'
             'css/gentelella/maps/jquery-jvectormap-2.0.3.css'
@@ -39,7 +39,7 @@
         <div class="main_container">
         {% block body %}
              {% block backoffice %}
-
+                 
              {% endblock %}
              
         {% endblock %}

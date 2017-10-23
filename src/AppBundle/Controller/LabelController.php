@@ -3,9 +3,13 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Label;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Form;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Label controller.
@@ -34,7 +38,7 @@ class LabelController extends Controller
     /**
      * Creates a new label entity.
      *
-     * @Route("/new", name="label_new")
+     * @Route("/", name="label_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -44,16 +48,21 @@ class LabelController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+             $this->addFlash('succes',
+                             null );
             $em = $this->getDoctrine()->getManager();
             $em->persist($label);
             $em->flush();
-
-            return $this->redirectToRoute('label_show', array('id' => $label->getId()));
+           $response = new Response();
+            $response->headers->set('Content-Type', 'application/json');
+            return $this->redirectToRoute('label_index',array( new JsonResponse($response)));
         }
 
         return $this->render('back/label/new.html.twig', array(
             'label' => $label,
             'form' => $form->createView(),
+             $this->addFlash('error',
+                             null ),
         ));
     }
 
@@ -86,7 +95,11 @@ class LabelController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+           
+           $this->addFlash('update',
+                             null );
             $this->getDoctrine()->getManager()->flush();
+      
 
             return $this->redirectToRoute('label_edit', array('id' => $label->getId()));
         }
@@ -95,6 +108,8 @@ class LabelController extends Controller
             'label' => $label,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            $this->addFlash('error',
+                             null ),
         ));
     }
 
@@ -123,7 +138,7 @@ class LabelController extends Controller
      *
      * @param Label $label The label entity
      *
-     * @return \Symfony\Component\Form\Form The form
+     * @return Form The form
      */
     private function createDeleteForm(Label $label)
     {
@@ -132,5 +147,22 @@ class LabelController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+    
+     /**
+    * delete a label list
+    * @Route("/{id}/delete", name="label_delete")
+    */
+    public function deletelabelList($id) {
+        $em = $this->getDoctrine()->getManager();
+        $label = $em->find('AppBundle:Label', $id);
+        
+        $this->addFlash('delete',
+                             null );
+        
+        $em->remove($label);
+        $em->flush();
+        
+       return $this->redirectToRoute('label_index');
     }
 }

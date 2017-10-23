@@ -1,6 +1,3 @@
-var windowHeight;
-var windowWidth;
-
 
 $(window).load(function(){
             setTimeout(function(){
@@ -15,7 +12,7 @@ $(window).load(function(){
                     $('#bg-header').show;
                     $('#bg-header').velocity({
 //                    translateX: "-40%",
-                    width: "60%",
+                    width: "70%",
                     right: "0",
                    
                     opacity : 1
@@ -38,21 +35,110 @@ $(window).load(function(){
 ////////// largeur contenu moins la tailles des borders//////////
 $(window).resize(function(){
   var content = null;
-  var windowWidth = $(window).innerWidth();  
-  var borderLeft = $('.left').innerWidth();
-  var borderRight = $('.right').innerWidth();
-  var content = windowWidth - (borderLeft + borderRight);
+  var windowWidth = $(window).innerWidth();
+  var windowHeight = $(window).innerHeight(); 
+//  var borderLeft = $('.frame-left').innerWidth();
+//  var borderRight = $('.frame-right').innerWidth();
+//  var content = windowWidth - (borderLeft + borderRight); 
   
-  $('.app').css({width:content, left:"55px"});
+   if(windowWidth < 1200){
+    $('.app').css({width:"100%"});
+//    $('.header').css('height','auto');
 
-    
-////////// hauteur du header/////////
-var windowHeight = $(window).innerHeight(); 
-$('.header').css('height',windowHeight);
-    
-    
-    
-    
+    } else {
+    $('.app').css({width:windowWidth});
+    ////////// hauteur de la fenetre window/////////
+    $('.header').css('height',windowHeight);
+  }
 });
 
 
+$(document).ready(function(){
+    
+    
+   /////////////////////////////////////////
+   /////////////nav-mobile///////////////
+   
+   var windowWidth = $(window).innerWidth();
+   
+    if(windowWidth < 768){
+        $('.main-icon').click(function(){
+        $('.menu-type').toggleClass('open');
+        $('.navbar-brand').addClass('white');
+        $('#content').toggleClass('push-content');
+              
+    $this = $(this);
+    if($this.hasClass('is-open')){
+	$this.removeClass('is-open , is-open-color');
+//        $('body').css('overflowY','visible');
+        $('#colorLogo').find("path").attr('fill','#000');
+        $('.main-content').show();
+        $('.menu-tint').hide(410);
+        $('.nav-mobile').hide();
+    }else{
+        $this.addClass('is-open is-open-color');
+        $('.nav-mobile').show().addClass('open');
+        }
+        });
+    }
+    
+    
+    
+////////////////////////////////
+//////////////////////////////
+
+
+
+});
+
+/////////ajoute section avec big phrase
+// en dessous du header version mobile
+
+ $(document).ready(function(){   
+   var windowWidth = $(window).innerWidth();
+   if(windowWidth >= 768 ){
+         $('#BigPhrase').hide(); 
+    
+   }else  {
+       $( "#BigPhrase" ).show();
+      
+   }
+});
+
+
+
+
+ $(window).resize(function(){   
+   var windowWidth = $(window).innerWidth();
+   if(windowWidth >= 768 ){
+         $('#BigPhrase').hide(); 
+    
+   }else  {
+       $( "#BigPhrase" ).show();
+      
+   }
+});
+
+
+/// class texte position mobile//
+///////////////////////////////////////
+
+$(document).ready(function(){
+   var windowWidth = $(window).innerWidth();
+   if(windowWidth >= 768 ){
+          $('#Txt p').removeClass('txt-txt');
+          $('#Txt p').addClass('txt-center');
+    
+   }else  {
+       $('#Txt p').removeClass('txt-center');
+          $('#Txt p').addClass('txt-txt');
+      
+   } 
+   
+   
+    
+});
+    $(document).ready(function(){
+          
+        $ ( '.carousel' ). carousel ({ interval : 0 });
+    });

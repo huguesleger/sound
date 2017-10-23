@@ -205,12 +205,12 @@ class SoundController extends Controller
         ;
     }
     
-    /*supprime musique dans la liste*/
-    
+  
    /**
-    *@Route("/{id}/delete", name="sound_delete")
+    * delete a sound list
+    * @Route("/{id}/delete", name="sound_delete")
     */
-    public function deleteSound($id) {
+    public function deleteSoundList($id) {
         $em = $this->getDoctrine()->getManager();
         $sound = $em->find('AppBundle:Sound', $id);
         

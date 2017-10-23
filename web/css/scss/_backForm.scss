@@ -1,5 +1,6 @@
 @import "_variable.scss";
 
+
 //////general////////
 .btn-right {
     float: right;
@@ -34,6 +35,9 @@
     font-size: 18px;
 }
 
+.label-genre {
+    background-color: #1ABB9C;
+}
 
 
 /////style btn-upload //////
@@ -207,11 +211,11 @@
 
 .carousel {
   margin-top: 10%;
-/*  overflow: hidden;*/
+  overflow: hidden;
 }
 
 .big-carousel {
-   max-height: 490px;
+   max-height: 690px;
    overflow: hidden;
    margin-top: 0;
 }
@@ -226,8 +230,20 @@
   overflow-y: hidden;
 }
 
+
 .carousel-inner>.active {
-   max-height: 490px;
+    max-height: 690px;
+   width: 100%;
+}
+
+.carousel-inner>.active>.txt-carousel {
+    max-height: 690px;
+}
+
+
+.carousel-inner {
+   max-height: 690px;
+   width: 100%;
 }
 
 .carousel-control {
@@ -240,19 +256,21 @@
     opacity: 1;
 }
 
-/*.txt-intro-anim {
+.txt-intro-anim {
     padding-left: 20px;
-}*/
+}
+
+
 
 .txt-carousel { 
-    font-family: $font_extra;
+    font-family: "Viafont";
     font-size: 35px;
     text-align: center;
     padding-top: 20px;
 }
 
 .txt-carousel-big { 
-    font-family: $font_extra;
+    font-family: "Viafont";
     font-size: 65px;
     text-align: center;
     padding-top: 20px;
@@ -331,7 +349,7 @@
         top: -32px;
         height: 2px;
         background-color: #f94545;
-/*        transform: rotate(90deg);*/
+        transform: rotate(90deg);
          -webkit-animation: rubberBand 3000ms infinite;
         animation: rubberBand 3000ms infinite;
         transition: 0.3s ease-in-out;
@@ -378,7 +396,7 @@
  margin-left: 0;
  right: 0;
  left: auto;
- top: 50%;
+ top: 30%;
  width: 10%;
 }
 
@@ -397,7 +415,8 @@
 }
 
 .big-indic-pos {
-   width: 2%; 
+   width: 2%;
+   top: 50%;
 }
 
 .opaque {
@@ -478,5 +497,4 @@
 .col-md-4 .btn-title-left {
     left: 13em;
 }
-
 

@@ -45,6 +45,8 @@ class ServiceController extends Controller
         $form->handleRequest($request);
         $em = $this->getDoctrine()->getManager();
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('succes',
+                             null );
             $em = $this->getDoctrine()->getManager();
             $em->persist($service);
             $em->flush();
@@ -56,6 +58,8 @@ class ServiceController extends Controller
             'service' => $service,
             'form' => $form->createView(),
              'icons' => $icons,
+            $this->addFlash('error',
+                             null ),
         ));
     }
 
@@ -88,6 +92,8 @@ class ServiceController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+             $this->addFlash('update',
+                             null );
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('service_edit', array('id' => $service->getId()));
@@ -97,6 +103,8 @@ class ServiceController extends Controller
             'service' => $service,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+             $this->addFlash('error',
+                             null ),
         ));
     }
 
@@ -135,4 +143,22 @@ class ServiceController extends Controller
             ->getForm()
         ;
     }
+    
+    /**
+    * delete a service list
+    * @Route("/{id}/delete", name="service_delete")
+    */
+    public function deleteServiceList($id) {
+        $em = $this->getDoctrine()->getManager();
+        $service = $em->find('AppBundle:Service', $id);
+        
+        $this->addFlash('delete',
+                             null );
+        
+        $em->remove($service);
+        $em->flush();
+        
+       return $this->redirectToRoute('section_index');
+    }
+    
 }

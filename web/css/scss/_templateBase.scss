@@ -1,5 +1,10 @@
 @import "_variable.scss";
 
+@font-face {
+    font-family: "Viafont";
+    src: url("../../../fonts/Viafont.otf");
+}
+
 
 body {
     font-family: $font;
@@ -7,64 +12,9 @@ body {
 }
 
 
-.logo {
-    position: fixed;
-    z-index: 101;
-    display: inline-block;
-    left: 40px;
-    font-size:  16px;
-    font-weight: 900;
-}
+/////////structure//////////
 
-.navbar{
-    margin-bottom: 0;
-    border: 0;
-    border-radius: 0;
-}
-.navbar-right{
- margin-right: 0;   
-}
-
-.navbar-default {
-    font-family: $font_title;
-    z-index: 102;
-    background-color: transparent;
-    border-color: transparent;
-    .navbar-brand {
-     color: $bleu_dark;  
-    }
-}
-
-.navbar-default .navbar-nav>li>a {
-    color: $bleu_dark;
-}
-
-
-.navbar-default .nav {
-    position: fixed;
-    right: 40px;
-}
-
-.navbar-brand {
-    padding: 15px 10px;
-}
-
-.icon-logo{
-    float: left;
-    margin-top: 16px;
-    margin-left: 15px;
-    color: $bleu_dark;
-    .fa{
-        margin-right: 0;
-    }
-}
-
-.name-light {
-    font-weight: 100;
-}
-
-
-/////////border fix//////////
+@media screen and(min-width: 768px){
 
 .border > * {
 	position:fixed;
@@ -76,37 +26,56 @@ body {
 	transition:(transform 500ms ease-in-out 0ms);
 	transform-origin:(center center);
 	transform:(translate(0,0) scale(1));
-	&.top {
+	&.frame-top {
 		top:0;
 		left:0;
 		width:100%;
-                height: 55px;
 		transform-origin:(top center);
 	}
 
-	&.bottom {
+	&.frame-bottom {
 		bottom:0;
 		left:0;
 		width:100%;
-                height: 55px;
 		transform-origin:(bottom center);
 	}
 
-	&.right {
+	&.frame-right {
 		top:0;
 		right:0;
 		height:100%;
-                width: 55px;
 		transform-origin:(right center);	
 	}
 
-	&.left {
+	&.frame-left {
 		top:0;
 		left:0;
 		height:100%;
-                width: 55px;
 		transform-origin: (left center);
 	}
+
+}
+
+.app{
+    position: relative;
+	z-index:1;
+	overflow:hidden;
+	transform-origin:(center 50vh);
+	transition:(transform 0.5 ease-in-out 0ms);
+	min-height:100vh;
+       
+}
+
+.page-container {
+    position: relative;
+    background: $color_background;
+/*    overflow: hidden;*/
+    -webkit-transition: -webkit-transform 500ms cubic-bezier(1, 0, 0, 1) 0ms;
+    -moz-transition: -moz-transform 500ms cubic-bezier(1, 0, 0, 1) 0ms;
+    transition: transform 500ms cubic-bezier(1, 0, 0, 1) 0ms;
+    pointer-events: all;
+    min-height: 100vh;
+}
 
 }
 
@@ -117,47 +86,142 @@ body {
 	overflow:hidden;
 	transform-origin:(center 50vh);
 	transition:(transform 0.5 ease-in-out 0ms);
-	pointer-events:none;
-	min-height:100vh;
+	min-height:100vh;       
+}
+
+.container-front {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media screen and (min-width: 768px){
+    .container-front {
+        width: 630px;
+    }
+   .frame-left, .frame-right {
+        width: 40px;
+    }
+    .frame-top, .frame-bottom {
+        height: 40px;
+    }
+/*    .app {
+        margin-left: 40px;
+    }*/
+
+}
+
+@media screen and (min-width: 992px){
+    .container-front {
+        width: 810px;
+    }
+    .frame-left, .frame-right {
+        width: 45px;
+    }
+    .frame-top, .frame-bottom {
+        height: 45px;
+    }
+/*    .app {
+        margin-left: 45px;
+    }*/
+}
+
+@media screen and (min-width: 1200px){
+    .frame-left, .frame-right {
+        width: 55px;
+    }
+    .frame-top, .frame-bottom {
+        height: 55px;
+    }
+/*    .app {
+        margin-left: 55px;
+    }*/
 }
 
 
-.page-container {
-    position: relative;
-    background: #f8f8f8;
-    overflow: hidden;
-    -webkit-transition: -webkit-transform 500ms cubic-bezier(1, 0, 0, 1) 0ms;
-    -moz-transition: -moz-transform 500ms cubic-bezier(1, 0, 0, 1) 0ms;
-    transition: transform 500ms cubic-bezier(1, 0, 0, 1) 0ms;
-    pointer-events: all;
-    min-height: 100vh;
-}
-
-.header{
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background-color: $gris_clair;
-}
+///////////////////////////
+////////////////////////////
 
 
-.wech {
-    position: relative;
-    height: 40vh;
-}
-
+/////// preload////////
 #hola{
     width: 100%;
     height: 100vh;
-    background-color: $bg_primary;
+    background-color: $color_primary;
     position: fixed;
     z-index: 110;
 }
 
-#bg-header {
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    background-color: $bg_primary;
+
+
+/////////// style type /////////
+
+.txt-center{
+    text-align: center;
 }
 
+.txt-txt{
+    text-align: justify;
+}
+
+
+.title-section {
+    font-family: $font_title;
+    color: $color_secondary;
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 30px;
+    h2{
+        font-weight: bold;
+}
+}
+
+.wave-title {
+    width: 70px;   
+    fill: $color_secondary;      
+}
+
+@media screen and(max-width: 767px){ 
+    #Present > .wave-title {
+        display: none;
+    } 
+}
+
+
+
+.txt-section {
+    color: $color_secondary;
+    font-size: 16px;
+    line-height: 2em;
+}
+
+@media screen and(min-width: 768px){
+.line {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: -30px;
+}
+
+.line-intro {
+    width: 2px;
+    height: 70px;
+    background-color: $color_secondary;
+    z-index: 100;
+    -webkit-animation: rubberBand 3000ms infinite;
+    animation: rubberBand 3000ms infinite; 
+}
+}
+
+
+
+.dark-txt {
+    color: $color_secondary;
+}
+
+.bg-section {
+    background-color: $color_background;
+}

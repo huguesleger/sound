@@ -276,5 +276,31 @@ $(function(){
           
         $ ( '.carousel' ). carousel ({ interval : 0 });
     });
+
+
+
+   $(document).ready(function(){
+$('#AddLabel').click(function(){
+    $('#Label').modal({
+        show:true  
+    });   
+});
+    });
     
+       $(document).ready(function(){
+$('#AddGenre').click(function(){
+    $('#Genre').modal({
+        show:true  
+    });   
+});
+    });
     
+         $(document).ready(function(){
+$('#AddSectionName').click(function(){
+    $('#SectionName').modal({
+        show:true  
+    });   
+});
+    });
+
+

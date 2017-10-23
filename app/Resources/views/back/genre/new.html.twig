@@ -1,7 +1,7 @@
-{% extends ':back:templateAdmin.html.twig' %}
+{#{% extends ':back:templateAdmin.html.twig' %}#}
 
   {% block content %}
-    <h1>Genre creation</h1>
+   {# <h1>Genre creation</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
@@ -12,5 +12,33 @@
         <li>
             <a href="{{ path('genre_index') }}">Back to the list</a>
         </li>
-    </ul>
+    </ul>#}
+           {{ form_start(form) }}
+                    {{ form_errors(form) }}
+  <div class="x_content">
+  <div class="modal fade bs-example-modal-lg" id="Genre" tabindex="-1" role="dialog" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+
+                      <div class="modal-header">
+                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Genre creation</h4>
+                      </div>
+                      <div class="modal-body">
+                
+                       {{ form_row(form.nom) }}
+                      </div>
+                      <div class="modal-footer">
+                      <button type="submit" class="btn btn-success">Enregistrer</button>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                      </div>
+ {{ form_end(form) }}
 {% endblock %}
+{#{% block scriptForm %}
+<script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
+{% endblock %}#}
+

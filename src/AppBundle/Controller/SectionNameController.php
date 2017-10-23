@@ -3,9 +3,13 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\SectionName;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Form;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Sectionname controller.
@@ -34,7 +38,7 @@ class SectionNameController extends Controller
     /**
      * Creates a new sectionName entity.
      *
-     * @Route("/new", name="sectionname_new")
+     * @Route("/", name="sectionname_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -44,16 +48,21 @@ class SectionNameController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('succes',
+                             null );
             $em = $this->getDoctrine()->getManager();
             $em->persist($sectionName);
             $em->flush();
-
-            return $this->redirectToRoute('sectionname_show', array('id' => $sectionName->getId()));
+            $response = new Response();
+            $response->headers->set('Content-Type', 'application/json');
+            return $this->redirectToRoute('sectionname_index',array( new JsonResponse($response)));
         }
 
         return $this->render('back/sectionname/new.html.twig', array(
             'sectionName' => $sectionName,
             'form' => $form->createView(),
+             $this->addFlash('error',
+                             null ),
         ));
     }
 
@@ -86,6 +95,8 @@ class SectionNameController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $this->addFlash('update',
+                             null );
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('sectionname_edit', array('id' => $sectionName->getId()));
@@ -95,6 +106,8 @@ class SectionNameController extends Controller
             'sectionName' => $sectionName,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            $this->addFlash('error',
+                             null ),
         ));
     }
 
@@ -123,7 +136,7 @@ class SectionNameController extends Controller
      *
      * @param SectionName $sectionName The sectionName entity
      *
-     * @return \Symfony\Component\Form\Form The form
+     * @return Form The form
      */
     private function createDeleteForm(SectionName $sectionName)
     {
@@ -132,5 +145,22 @@ class SectionNameController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+    
+    /**
+    * delete a section name list
+    * @Route("/{id}/delete", name="sectionname_delete")
+    */
+    public function deleteSectionNameList($id) {
+        $em = $this->getDoctrine()->getManager();
+        $sectionname = $em->find('AppBundle:SectionName', $id);
+        
+        $this->addFlash('delete',
+                             null );
+        
+        $em->remove($sectionname);
+        $em->flush();
+        
+       return $this->redirectToRoute('sectionname_index');
     }
 }

@@ -38,5 +38,21 @@ class SectionController extends Controller {
     }
     
    
+//    /**
+//    * delete a service list
+//    * @Route("/{id}/delete", name="service_delete")
+//    */
+//    public function deleteServiceList($id) {
+//        $em = $this->getDoctrine()->getManager();
+//        $service = $em->find('AppBundle:Service', $id);
+//        
+//        $this->addFlash('delete',
+//                             null );
+//        
+//        $em->remove($service);
+//        $em->flush();
+//        
+//       return $this->redirectToRoute('section_index');
+//    }
    
 }

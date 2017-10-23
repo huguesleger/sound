@@ -128,10 +128,10 @@
                   </li>
                    {# <li><a href="{{ path('fos_user_profile_edit') }}">  Edit</a>
                   </li>#}
-                  <li>
+                 {# <li>
                     <a href="javascript:;">Help</a>
-                  </li>
-                  <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                  </li>#}
+                  <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out pull-right"></i> Déconnexion</a>
                   </li>
                 </ul>
               </li>
@@ -193,16 +193,35 @@
 
  <div class="right_col" role="main">
  
-                {% for message in app.flashes('success') %}
+                {% for message in app.flashes('update') %}
                     <div id="update">
                     </div>
                 {% endfor %}
-       
+                
+                {% for message in app.flashes('succes') %}
+                <div id="success">
+                </div>
+                {% endfor %}
+             
+             {% for message in app.flashes('delete') %}
+             <div id="delete">
+                 </div>
+             {% endfor %}
+      
+            {% for message in app.flashes('erreur') %}
+            <div id="error">
+            </div>
+            {% endfor %}
+             
+             
  {% block content %}
           
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
+      
+        
+        
           {% endblock %}
      {% block footer %}
         <footer>
@@ -217,3 +236,8 @@
  </div>
 
   {% endblock %}
+{% block scriptForm %}
+{#     <script type="text/javascript" src="{{asset('js/backend/form/form_notification.js')}}"></script>#}
+      <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
+
+{% endblock %}

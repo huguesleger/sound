@@ -2,17 +2,157 @@
 
   {% block content %}
       <div class="app"> 
-    {% block header %}  
+    {% block header %}
+        
+        <div id="header-mobile">
+              <img src="{{asset('images/header_phone.jpg')}}" class="img-responsive">
+            </div> 
         <div class="header">
-       <header id="bg-header"></header>
-        </div>
+   
+                {% for header in headers %}
+                {% if header.styleDefault !=null %}
+                    <header class="header-default">
+                    <div id="bg-header">
+              
+                   
+                       
+                      
+                            <div class="col-md-4 col-sm-3 col-xs-12 profile_left">
+                                <div class="background-pochette">
+                                <img src="{{asset('images/pochette_background_min.png')}}" alt="your image" />  
+                                </div>
+                                <img src="{{asset('uploads/header/')~header.image}}" class="img-pochette-min" alt="your image" />
+                            </div>
+                            <div class="col-md-6 col-sm-3 col-xs-12">                         
+                                <div id="carousel-example-generic" class="carousel slide"data-wow-duration="1500ms" data-ride="carousel">                                                
+                                    <ol class="carousel-indicators">
+                                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                    </ol>
+                                    <!-- Wrapper for slides -->
+                                    <div class="carousel-inner" role="listbox">                           
+                                    {% for header in header.headerTexte[0:] %}                                 
+                                        <div class="item{%if loop.index == 1%} active {%endif%}">                          
+                                        <h3 class="txt-carousel animated-demo {{ header.animationTexte}}">{{ header.texte }}</h3>
+                                                       
+                                        </div>
+                                    {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        
+                                                     
+             
+                                    </div>
+                    </header>
+                {% else %}  
+                {% endif %}  
+                {% endfor %}
+                
+                   <header class="header-slider">
+                                <div id="carousel-example-generic-3" class="carousel slide big-carousel" data-ride="carousel">
+                                <!-- Indicators -->
+                                    <ol class="carousel-indicators indicator-front big-indic-pos">
+                                    <li data-target="#carousel-example-generic-3" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel-example-generic-3" data-slide-to="1"></li>
+                                    <li data-target="#carousel-example-generic-3" data-slide-to="2"></li>
+                                    </ol>
+                                <!-- Wrapper for slides -->
+                                    <div class="carousel-inner" role="listbox">
+                                    {% for header in headers %}
+                                    {% if header.styleDefault ==null and  header.image [0:] %} 
+                                        <div class="item{%if loop.index == 1%} active {%endif%}">
+                                          <div class="opaque"></div> 
+                                        <img src="{{asset('uploads/header/')~header.image}}">
+                                        {% for header in header.headerTexte%}
+                                        <div class="carousel-caption">          
+                                        <h3 class="txt-carousel-big animated-demo {{ header.animationTexte}}">{{ header.texte }}</h3>
+                                    
+                                        </div>
+                                        </div>
+                                    {% endfor %}
+                                    {% endif %}         
+                                    {% endfor %}    
+                                    </div>
+                                </div> 
+                   </header>
+             
+    </div>
+                                    
+        <div class="line">
+                     <span class="line-intro"></span>
+                 </div>
     {% endblock %}
+    
+    <!--------------------------
+    |phrase intro mobile|
+    -------------------------->
+   
+    <div id="BigPhrase">
+        <div class="anim-hello">
+        <h1 class="hello">hell<span class="dark-txt" id="Letter">o<span class="min-wave">  
+         <svg xmlns="http://www.w3.org/2000/svg" class="wave-o" viewBox="0 0 238 29">
+        <path d="M1382.78,3879.29c-20.73,15.59-38.41,15.59-59.15,0-13.52-10.17-25.06-10.17-38.57,0-20.54,15.44-37.29,15.44-57.83,0-13.67-10.28-22.9-10.28-36.58,0l-5.64-7.54c16.62-12.5,30.59-13,47.87,0,16.29,12.25,28.31,13.7,46.54,0,17.28-13,33.34-12.42,49.86,0,16.95,12.75,30.25,13.25,47.86,0,17.29-13,28.59-13,45.87,0l-5.64,7.54C1403.48,3868.84,1396.68,3868.84,1382.78,3879.29Z" transform="translate(-1185 -3862)"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="wave-o-bottom" viewBox="0 0 238 29">
+        <path d="M1382.78,3879.29c-20.73,15.59-38.41,15.59-59.15,0-13.52-10.17-25.06-10.17-38.57,0-20.54,15.44-37.29,15.44-57.83,0-13.67-10.28-22.9-10.28-36.58,0l-5.64-7.54c16.62-12.5,30.59-13,47.87,0,16.29,12.25,28.31,13.7,46.54,0,17.28-13,33.34-12.42,49.86,0,16.95,12.75,30.25,13.25,47.86,0,17.29-13,28.59-13,45.87,0l-5.64,7.54C1403.48,3868.84,1396.68,3868.84,1382.78,3879.29Z" transform="translate(-1185 -3862)"/>
+        </svg>
+          </span></span>
+          </h1>
+
+        </div>
+        <div class="txt-hello">
+       <p class="first-anim-txt">I'M</p>
+       <p class="second-anim-txt dark-txt">music</p>
+       <p class="last-anim-txt">composer</p>
+        <svg xmlns="http://www.w3.org/2000/svg" class="wave-anim wave-title" viewBox="0 0 238 29">
+        <path d="M1382.78,3879.29c-20.73,15.59-38.41,15.59-59.15,0-13.52-10.17-25.06-10.17-38.57,0-20.54,15.44-37.29,15.44-57.83,0-13.67-10.28-22.9-10.28-36.58,0l-5.64-7.54c16.62-12.5,30.59-13,47.87,0,16.29,12.25,28.31,13.7,46.54,0,17.28-13,33.34-12.42,49.86,0,16.95,12.75,30.25,13.25,47.86,0,17.29-13,28.59-13,45.87,0l-5.64,7.54C1403.48,3868.84,1396.68,3868.84,1382.78,3879.29Z" transform="translate(-1185 -3862)"/>
+        </svg>
+       </div>
+    </div>
+
     
     {% block sections %}  
         
          {#   <div class="wech">
                 <h1>hello</h1>
             </div>#}
+         <div class="page-container">
+             {% block present %}
+             
+         <section class="container-front bg-section"> 
+             {% for present in presents %}
+               <div class="title-section" id="Present">  
+              <h2> {{present.name}}</h2>
+              <svg xmlns="http://www.w3.org/2000/svg" class="wave-title" viewBox="0 0 238 29">
+            <path d="M1382.78,3879.29c-20.73,15.59-38.41,15.59-59.15,0-13.52-10.17-25.06-10.17-38.57,0-20.54,15.44-37.29,15.44-57.83,0-13.67-10.28-22.9-10.28-36.58,0l-5.64-7.54c16.62-12.5,30.59-13,47.87,0,16.29,12.25,28.31,13.7,46.54,0,17.28-13,33.34-12.42,49.86,0,16.95,12.75,30.25,13.25,47.86,0,17.29-13,28.59-13,45.87,0l-5.64,7.54C1403.48,3868.84,1396.68,3868.84,1382.78,3879.29Z" transform="translate(-1185 -3862)"/>
+            </svg>
+               </div>
+              <!------- separate-section-present-mobile------->
+               <div class="line-present">
+                     <span class="line-vertical"></span>
+                 </div>
+              <!-----------------------
+              ------------------------->
+              <div class="img-present">
+                {% if present.image !=null%}
+                    <div class="img-round">
+                  <img src="{{asset('uploads/image/'~present.image)}}" alt="{{present.name}}"></>
+                      </div>
+                  {% else %}
+                  <div class="img-round">
+                  <img src="{{asset('images/pochette-disc.png')}}" alt="icon">
+                    </div>
+                  {% endif %}
+              </div>
+              <div class="txt-section present" id="Txt">
+             <p class="txt-center"> {{present.texte}}</p>
+              </div>
+              {% endfor %}  
+         </section>
+           {% endblock %}
+         </div>
     {% endblock %}
       
       </div>

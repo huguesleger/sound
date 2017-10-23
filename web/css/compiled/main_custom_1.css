@@ -218,7 +218,7 @@ body.nav-md .container.body .right_col {
 /**  ------------------------------------------  **/
 
 .blue {
-  color: #3498DB;
+  color: #5bc0de;
 }
 .purple {
   color: #9B59B6;
@@ -324,7 +324,7 @@ body {
   padding: 10px 0;
 }
 .page-title .title_left {
-  width: 45%;
+/*  width: 45%;*/
   float: left;
   display: block;
 }
@@ -667,6 +667,9 @@ footer {
   padding: 5px 20px 0;
   height: 45px;
   margin: 0 -17px;
+/*  position: absolute;
+  bottom: 0;*/
+/*  width: 100%;*/
 }
 .tile-stats.sparkline {
   padding: 10px;
@@ -1113,7 +1116,7 @@ table.jambo_table tbody tr.selected td {
   float: left;
 }
 .dataTables_filter {
-  width: 50%;
+/*  width: 50%;*/
   float: right;
   text-align: right;
 }
@@ -1652,17 +1655,19 @@ h4.graph_title {
   text-align: right;
   margin-right: 10px;
 }
+
 #sidebar-menu .fa {
-  width: 26px;
+  width: 30px;
   opacity: .99;
   display: inline-block;
   font-family: FontAwesome;
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
+  font-size: 22px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 
 /* *********  /iconts-display  **************************** */
 
@@ -1957,6 +1962,7 @@ span.section {
   border-radius: 0;
   line-height: 30px;
   width: 100%;
+  resize: none;
 }
 .form-horizontal .control-label {
   padding-top: 8px
@@ -1975,7 +1981,7 @@ legend {
   margin-left: 0;
 }
 .form-control-feedback {
-  margin-top: 8px;
+  margin-top: 30px;
   height: 23px;
   color: #bbb;
   line-height: 24px;
@@ -1983,7 +1989,7 @@ legend {
 }
 .form-control-feedback.left {
   border-right: 1px solid #ccc;
-  left: 13px;
+  left: 0px;
 }
 .form-control-feedback.right {
   border-left: 1px solid #ccc;
@@ -1996,6 +2002,7 @@ legend {
   padding-right: 45px;
 }
 .form-group {
+  position: relative;
   margin-bottom: 10px;
 }
 .validate {
@@ -4808,7 +4815,7 @@ a:hover {
 }
 .login_content {
   margin: 0 auto;
-  padding: 25px 0 0;
+  padding: 45px 0 0;
   position: relative;
   text-align: center;
   text-shadow: 0 1px 0 #fff;
@@ -4985,7 +4992,7 @@ header {
   pointer-events: none;
 }
 #nprogress .bar {
-  background: #29d;
+  background: #39D2B4;
   position: fixed;
   z-index: 1031;
   top: 0;
@@ -5002,7 +5009,7 @@ header {
   right: 0px;
   width: 100px;
   height: 100%;
-  box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+  box-shadow: 0 0 10px #39D2B4, 0 0 5px #39D2B4;
   opacity: 1.0;
   -webkit-transform: rotate(3deg) translate(0px, -4px);
   -ms-transform: rotate(3deg) translate(0px, -4px);
@@ -5023,8 +5030,8 @@ header {
   height: 18px;
   box-sizing: border-box;
   border: solid 2px transparent;
-  border-top-color: #29d;
-  border-left-color: #29d;
+  border-top-color: #39D2B4;
+  border-left-color: #39D2B4;
   border-radius: 50%;
   -webkit-animation: nprogress-spinner 400ms linear infinite;
   animation: nprogress-spinner 400ms linear infinite;

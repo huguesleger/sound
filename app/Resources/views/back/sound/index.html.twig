@@ -2,7 +2,7 @@
 
   {% block content %}
       
-      {% for message in app.flashes('succes') %}
+{#      {% for message in app.flashes('succes') %}
       <div id="success">
       </div>
       {% endfor %}
@@ -15,7 +15,7 @@
       {% for message in app.flashes('erreur') %}
       <div id="error">
       </div>
-      {% endfor %}
+      {% endfor %}#}
 
    
       
@@ -66,12 +66,11 @@
                            <td> {% set counter = ( counter | default(0) ) + 1 %}
                            <small> {{ counter }}</small></td>
                         <td>
+                            
                             {% for sound in sound.genre %}
-                                <span type="button" class="label label-info">{{sound.nom }}</span>
-                             {% endfor %}
-                            <ul class="list-inline">
-                                
-                          </ul></td>
+                           <span type="button" class="label label-genre">{{sound.nom }}</span>
+                                  {% endfor %}
+                         </td>
                         <td><a>{{ sound.titre }}</a>
                         <br />
                           <small>Créer le {{ sound.date|date ('j/m/y à H:i:s') }}</small></td>

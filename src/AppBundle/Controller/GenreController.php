@@ -3,9 +3,13 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Genre;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Form;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Genre controller.
@@ -34,7 +38,7 @@ class GenreController extends Controller
     /**
      * Creates a new genre entity.
      *
-     * @Route("/new", name="genre_new")
+     * @Route("/", name="genre_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -44,11 +48,14 @@ class GenreController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('succes',
+                             null );
             $em = $this->getDoctrine()->getManager();
             $em->persist($genre);
             $em->flush();
-
-            return $this->redirectToRoute('genre_show', array('id' => $genre->getId()));
+            $response = new Response();
+            $response->headers->set('Content-Type', 'application/json');
+            return $this->redirectToRoute('genre_index',array( new JsonResponse($response)));
         }
 
         return $this->render('back/genre/new.html.twig', array(
@@ -86,6 +93,8 @@ class GenreController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+             $this->addFlash('update',
+                             null );
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('genre_edit', array('id' => $genre->getId()));
@@ -95,6 +104,8 @@ class GenreController extends Controller
             'genre' => $genre,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+             $this->addFlash('error',
+                             null )
         ));
     }
 
@@ -123,7 +134,7 @@ class GenreController extends Controller
      *
      * @param Genre $genre The genre entity
      *
-     * @return \Symfony\Component\Form\Form The form
+     * @return Form The form
      */
     private function createDeleteForm(Genre $genre)
     {
@@ -132,5 +143,22 @@ class GenreController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+    
+    /**
+    * delete a genre list
+    * @Route("/{id}/delete", name="genre_delete")
+    */
+    public function deleteGenreList($id) {
+        $em = $this->getDoctrine()->getManager();
+        $genre = $em->find('AppBundle:Genre', $id);
+        
+        $this->addFlash('delete',
+                             null );
+        
+        $em->remove($genre);
+        $em->flush();
+        
+       return $this->redirectToRoute('genre_index');
     }
 }

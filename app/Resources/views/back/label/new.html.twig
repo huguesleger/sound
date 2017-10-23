@@ -1,6 +1,6 @@
-{% extends ':back:templateAdmin.html.twig' %}
 
-  {% block content %}
+
+{#  {% block content %}
     <h1>Label creation</h1>
 
     {{ form_start(form) }}
@@ -13,4 +13,62 @@
             <a href="{{ path('label_index') }}">Back to the list</a>
         </li>
     </ul>
+{% endblock %}#}
+
+
+{% block content %}
+{#   <div class="row">  
+   <div class="col-md-6 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                    <h2>Label creation</h2>
+                    <a class="btn btn-dark btn-xs back-list" href="{{ path('label_index') }}">Back to the list</a>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <br>
+                   {{ form_start(form) }}
+                    {{ form_errors(form) }}
+                           {{ form_row(form.nom) }}
+                           <div class="form-group btn-right">
+                        <button type="submit" class="btn btn-success">Enregistrer</button>
+                      </div>
+                           
+                    
+              </div>
+               
+            </div>
+                 
+   </div>
+       </div>#}
+ {{ form_start(form) }}
+                    {{ form_errors(form) }}
+ <div class="x_content">
+  <div class="modal fade bs-example-modal-lg" id="Label" tabindex="-1" role="dialog" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Label creation</h4>
+                      </div>
+                      <div class="modal-body">
+                       {{ form_row(form.nom) }}
+                      </div>
+                      <div class="modal-footer">
+                      <button type="submit" class="btn btn-success">Enregistrer</button>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                      </div>
+ {{ form_end(form) }}
+
+    
+
 {% endblock %}
+
+{#{% block scriptForm %}
+<script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
+{% endblock %}#}

@@ -4,6 +4,8 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints\File;
 
 /**
  * Present
@@ -31,9 +33,12 @@ class Present
     private $texte;
 
     /**
-     * @var string
+     * @var UploadedFile
      *
-     * @ORM\Column(name="image", type="string", length=255)
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     * @File(mimeTypes={"image/jpeg", "image/png"},
+     * maxSize = "800k",
+     * maxSizeMessage = "La taille maximum autorisée est de (800ko).")
      */
     private $image;
     
@@ -157,9 +162,9 @@ class Present
     }
 
         
-    public function __toString() {
-        return $this->getName();
-    }
+//    public function __toString() {
+//        return $this->getName();
+//    }
 
 
     

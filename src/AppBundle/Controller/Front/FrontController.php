@@ -26,10 +26,12 @@ class FrontController  extends Controller {
 
         $headers = $em->getRepository('AppBundle:Header')->findAll();
         $headerTextes = $em->getRepository('AppBundle:HeaderTexte')->findAll();
+        $presents = $em->getRepository('AppBundle:Present')->findByPublier(1);
 
         return $this->render('front/index.html.twig', array(
             'headers' => $headers,
             'headerTextes' => $headerTextes,
+            'presents'=> $presents,
         ));
      
    

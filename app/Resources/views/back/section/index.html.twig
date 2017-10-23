@@ -92,7 +92,7 @@
                 </div>
                 <div class="x_content">
                  
-                  <table id="datatable" class="table table-striped projects">
+                  <table class="table table-striped projects">
                     <thead>
                       <tr>
                         <th style="width: 1%">#</th>
@@ -112,10 +112,13 @@
                            <td class="icon-section">{% if present.name !=  null %}<i class="fa fa-grav blue" aria-hidden="true"></i>
                               {% else%}<i class="fa fa-exclamation-circle red" aria-hidden="true"></i> 
                               {% endif %}</td>
-                        <td>{% if present.name !=  null %}{{present.name }}{% else%}pas de section{% endif %}</td>
-                        <td><a>{{ present.image }}</a>
-                        <br />
-                         {# <small>Créer le {{ sound.date|date ('j/m/y à H:i:s') }}</small></td>#}
+                        <td>{% if present.name ==  true %}{{present.name }}{% else%}pas de section{% endif %} <br/>
+                          <small>Créer le </small></td>
+                        {% if present.image !=null %}
+                        <td><img src="{{asset('uploads/image/')~present.image}}" class="avatar"</td>
+                       {% else %}
+                        <td><img src="{{asset('images/pochette-disc.png')}}" class="avatar"</td>
+                        {% endif %}
                         <td>{{ present.texte }}</td>
                     
                         <td>{% if present.publier %}<span type="button" class="label label-success">Publié</span>{% else %}<span class="label label-warning">Brouillon</span>{% endif %}</td>

@@ -12,7 +12,7 @@
          <link rel="stylesheet" type="text/css" href="{{asset('vendor/bootstrap.min.css')}}"/>
          <link rel="stylesheet" type="text/css" href="{{asset('vendor/font-awesome.min.css')}}"/>
          <link rel="stylesheet" type="text/css" href="{{asset('vendor/animate.css')}}"/>
-         {% stylesheets output="css/compiled/main.css" filter='cssrewrite'
+         {% stylesheets filter='cssrewrite'
 
             'css/main.css'
           %}
@@ -27,6 +27,7 @@
         
         {% block javascripts %}
         <script type="text/javascript" src="{{asset('vendor/jquery.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('vendor/bootstrap.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('vendor/velocity.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('vendor/dynamics.min.js')}}"></script>
          {% javascripts output="js/compiled/main.js"
