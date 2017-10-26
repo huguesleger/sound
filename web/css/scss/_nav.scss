@@ -142,8 +142,10 @@
 }
 
 .navbar-default {
+    opacity: 0;
     font-family: $font_title;
     z-index: 102;
+    transition: opacity .5s ease-in-out;
     background-color: transparent;
     border-color: transparent;
     .navbar-brand {

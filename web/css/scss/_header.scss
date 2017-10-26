@@ -1,11 +1,20 @@
 @import "_variable.scss";
-@media screen and(min-width: 1200px){
+
 .header {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: auto;
     background-color: $white;
 }
+
+
+@media screen and(min-width: 1200px){
+/*.header {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-color: $white;
+}*/
 
 #bg-header {
     width: 100%;
@@ -16,15 +25,14 @@
 #header-mobile {
   display: none;
 }
+
+.caption-front {
+    top: 30%;
+}
+
 }
 
 @media screen and(max-width: 767px){
-.header {
-    position: relative;
-    width: 100%;
-    height: auto;
-    background-color: $white;
-}
 
 #bg-header {
    display: none;
@@ -40,21 +48,255 @@
   #header-mobile {
   display: none;
 }  
-.header {
-    position: relative;
-    width: 100%;
-    height: 50vh;
-    background-color: $white;
-}
+
 
 #bg-header {
     width: 100%;
-    height: 50vh;
+    height: 40vh;
     position: absolute;
     background-color: $color_primary;
 }
 }
 
-.indicator-front {
-    right: 50px;
+
+#headerSlider {
+    height :auto !important;
+    opacity: 0;
 }
+
+.pochette-disc {
+    position: absolute;
+    top: 30%;
+}
+
+@media screen and(min-width: 768px){
+.pochette-disc {
+    left: 4%;
+}
+}
+
+@media screen and(min-width: 1024px){
+.pochette-disc {
+    left: 8%;
+}
+}
+
+
+@media screen and(min-width: 1200px){
+.pochette-disc {
+    left: 5%;
+}
+}
+
+.anim-hello-header {
+    -webkit-animation: bounceInRight 2000ms ease-in-out;
+    animation: bounceInRight 2000ms ease-in-out; 
+}
+
+.first-anim-txt-header {
+    -webkit-animation: fadeIn 2000ms ease-in-out;
+    animation: fadeIn 2000ms ease-in-out; 
+}
+
+.second-anim-txt-header {
+    -webkit-animation: bounceInRight 1000ms ease-in-out;
+    animation: bounceInRight 1000ms ease-in-out;  
+}
+
+.last-anim-txt-header {
+   -webkit-animation: fadeInUp 1500ms ease-in-out;
+    animation: fadeInUp 1500ms ease-in-out;   
+}
+
+
+.pochette-disc {
+    -webkit-animation: fadeIn 800ms ease-in-out;
+    animation: fadeIn 800ms ease-in-out;
+    z-index: 10;
+}
+
+/// position txt-slider style default
+.slide-txt {
+    margin-top: 30%;
+}
+@media screen and(min-width: 768px){
+.pochette-size {
+    width: 45.6%;
+}
+}
+
+
+@media screen and(min-width: 1200px){
+.pochette-size {
+    width: 100%;  
+}
+}
+
+.background-pochette-front {
+    position: relative;
+    z-index: 1;
+}
+
+@media screen and(min-width: 768px){
+.img-pochette-front {
+    position: absolute;
+    width: 28%;
+    left: 1.6%;
+    z-index: 2;
+    top: 0;
+    opacity: 0.8;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+}
+
+
+
+@media screen and(min-width: 1200px){
+.img-pochette-front {
+    position: absolute;
+    width: 61.3%;
+    left: 3.1%;
+    z-index: 2;
+    top: 0;
+    opacity: 0.8;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+}
+
+////////// anim texte-intro//////
+////////////////////////////////
+
+#animTexteIntro {
+    position: absolute;
+    width: 100%;
+    text-align: left;
+    font-family: "Viafont";
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.remove-anim {
+    -webkit-animation: fadeOutUp 600ms ease-in-out;
+    animation: fadeOutUp 600ms ease-in-out ;
+    opacity: 0;
+}
+@media screen and(min-width: 768px){
+#animTexteIntro {
+    margin-top: 14%;
+}
+
+.hello-header {
+    font-size: 4em;
+    color: #fff;
+    margin-left: 35.5%;
+}
+
+.txt-hello-header {
+    width: 100%;
+    text-align: left;
+    font-size: 2em;
+    position: absolute;
+    left: 36%;
+    line-height: 0.7em;
+    color: #fff;
+}
+
+.min-wave-header {
+    position: absolute;
+    width: 70%;
+    top: 16px;
+    left: 25px;
+}
+.wave-header {
+    width: 70px;   
+    fill: #fff;      
+}
+
+}
+
+@media screen and(min-width: 1024px){
+
+.hello-header {
+    font-size: 5em;
+    color: #fff;
+    margin-left: 35.5%;
+}
+
+.txt-hello-header {
+    width: 100%;
+    text-align: left;
+    font-size: 3em;
+    position: absolute;
+    left: 36%;
+    line-height: 0.7em;
+    color: #fff;
+}
+
+.min-wave-header {
+    position: absolute;
+    width: 70%;
+    top: 22px;
+    left: 30px;
+}
+
+.wave-header {
+    width: 120px;   
+    fill: #fff;      
+}
+}
+
+@media screen and(min-width: 1200px){
+#animTexteIntro {
+    padding-bottom: 40px;
+    margin-top: 18%;
+}
+
+.hello-header {
+    font-size: 7em;
+    color: #fff;
+    margin-left: 37.5%;
+    padding-bottom: 30px;
+}
+
+.txt-hello-header {
+    width: 100%;
+    text-align: left;
+    font-size: 5em;
+    position: absolute;
+    left: 38%;
+    line-height: 0.8em;
+    color: #fff;
+}
+
+.min-wave-header {
+    position: absolute;
+    width: 70%;
+    top: 30px;
+    left: 40px;
+}
+.wave-header {
+    width: 200px;   
+    fill: #fff;      
+}
+
+}
+
+
+
+.wave-o-header {  
+    fill: #fff;
+    position: absolute;
+    -webkit-animation: rubberBand 3000ms infinite;
+    animation: rubberBand 3000ms infinite; 
+}
+
+.wave-o-bottom-header {  
+    fill: #fff;    
+    top: 7px;
+    position: absolute;
+    -webkit-animation: rubberBand 3000ms infinite;
+    animation: rubberBand 3000ms infinite; 
+}
+
+

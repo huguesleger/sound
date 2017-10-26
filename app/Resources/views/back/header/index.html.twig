@@ -65,11 +65,14 @@
                                 <img src="{{asset('uploads/header/')~header.image}}" class="img-pochette-min" alt="your image" />
                             </div>
                             <div class="col-md-6 col-sm-3 col-xs-12">                         
-                                <div id="carousel-example-generic" class="carousel slide"data-wow-duration="1500ms" data-ride="carousel">                                                
-                                    <ol class="carousel-indicators">
-                                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">                                                
+                                    <ol class="carousel-indicators indicator-back">
+                                     {% for header in headers %}
+                                    {% if header.styleDefault ==null and  header.image [0:] %}
+                                        {% set counter = ( counter | default(0) ) + 1 %}
+                                    <li data-target="#carousel-example-generic" data-slide-to="{{ counter-1 }}" class="{%if loop.index == 1%} active {%endif%}"></li>
+                                    {% endif %} 
+                                     {% endfor %}
                                     </ol>
                                     <!-- Wrapper for slides -->
                                     <div class="carousel-inner" role="listbox">                           
@@ -117,12 +120,15 @@
                         </div>
                         <div class="x_content">                            
                             <div class="col-md-12">
-                                <div id="carousel-example-generic-2" class="carousel slide big-carousel" data-ride="carousel">
+                                <div id="carousel-example-generic-3" class="carousel slide big-carousel" data-ride="carousel">
                                 <!-- Indicators -->
                                     <ol class="carousel-indicators big-indic-pos">
-                                    <li data-target="#carousel-example-generic-2" data-slide-to="0" class="active"></li>
-                                    <li data-target="#carousel-example-generic-2" data-slide-to="1"></li>
-                                    <li data-target="#carousel-example-generic-2" data-slide-to="2"></li>
+                                     {% for header in headers %}
+                                    {% if header.styleDefault ==null and  header.image [0:] %}
+                                        {% set counter = ( counter | default(0) ) + 1 %}
+                                    <li data-target="#carousel-example-generic-3" data-slide-to="{{ counter-1 }}" class="{%if loop.index == 1%} active {%endif%}"></li>
+                                    {% endif %} 
+                                     {% endfor %}
                                     </ol>
                                 <!-- Wrapper for slides -->
                                     <div class="carousel-inner" role="listbox">
@@ -133,7 +139,7 @@
                                         <img src="{{asset('uploads/header/')~header.image}}">
                                         {% for header in header.headerTexte%}
                                         <div class="carousel-caption">          
-                                        <h3 class="txt-carousel-big animated-demo {{ header.animationTexte}}">{{ header.texte }}</h3>
+                                        <h3 class="txt-carousel animated-demo {{ header.animationTexte}}">{{ header.texte }}</h3>
                                         <a class="btn btn-info btn-sm animated-demo fadeIn" href="{{ path('headertexte_edit', { 'id': header.id }) }}">Edit texte</a>
                                         </div>
                                         </div>

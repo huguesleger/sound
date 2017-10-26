@@ -2,9 +2,11 @@
 
 
 
-
+@media screen and(min-width: 768px) and (max-width: 1200px){
 .present {
-    
+    padding-left: 30px;
+    padding-right: 30px;
+}
 }
 
 .img-present {
@@ -35,6 +37,7 @@
     font-family: "Viafont";
     padding-top: 30px;
     padding-bottom: 30px;
+    min-height: 50vh;
     
 }
 
@@ -63,7 +66,7 @@
 }
 
 
-.hello {
+.hello-mobile {
     font-size: 5em;
     color: $color_primary;
 }

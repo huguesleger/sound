@@ -9,10 +9,13 @@
 body {
     font-family: $font;
 /*    background-color: $gris_clair;*/
+    width: 100%;
 }
 
 
 /////////structure//////////
+
+
 
 @media screen and(min-width: 768px){
 
@@ -23,35 +26,30 @@ body {
 	height:20px;
 	width:20px;
 	pointer-events:none;
-	transition:(transform 500ms ease-in-out 0ms);
-	transform-origin:(center center);
-	transform:(translate(0,0) scale(1));
+       
+        
 	&.frame-top {
 		top:0;
 		left:0;
 		width:100%;
-		transform-origin:(top center);
 	}
 
 	&.frame-bottom {
 		bottom:0;
 		left:0;
 		width:100%;
-		transform-origin:(bottom center);
 	}
 
 	&.frame-right {
 		top:0;
 		right:0;
-		height:100%;
-		transform-origin:(right center);	
+		height:100%;	
 	}
 
 	&.frame-left {
 		top:0;
 		left:0;
 		height:100%;
-		transform-origin: (left center);
 	}
 
 }
@@ -60,8 +58,6 @@ body {
     position: relative;
 	z-index:1;
 	overflow:hidden;
-	transform-origin:(center 50vh);
-	transition:(transform 0.5 ease-in-out 0ms);
 	min-height:100vh;
        
 }
@@ -70,9 +66,9 @@ body {
     position: relative;
     background: $color_background;
 /*    overflow: hidden;*/
-    -webkit-transition: -webkit-transform 500ms cubic-bezier(1, 0, 0, 1) 0ms;
+/*    -webkit-transition: -webkit-transform 500ms cubic-bezier(1, 0, 0, 1) 0ms;
     -moz-transition: -moz-transform 500ms cubic-bezier(1, 0, 0, 1) 0ms;
-    transition: transform 500ms cubic-bezier(1, 0, 0, 1) 0ms;
+    transition: transform 500ms cubic-bezier(1, 0, 0, 1) 0ms;*/
     pointer-events: all;
     min-height: 100vh;
 }
@@ -84,27 +80,33 @@ body {
     position: relative;
 	z-index:1;
 	overflow:hidden;
-	transform-origin:(center 50vh);
-	transition:(transform 0.5 ease-in-out 0ms);
 	min-height:100vh;       
 }
 
-.container-front {
+/*.container-front {
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
-}
+}*/
 
 @media screen and (min-width: 768px){
-    .container-front {
+/*    .container-front {
         width: 630px;
-    }
+    }*/
    .frame-left, .frame-right {
-        width: 40px;
+        width: 0;
+        &.visible-x{
+         width: 40px;
+        transition: width .5s .2s ease;
+        }
     }
     .frame-top, .frame-bottom {
-        height: 40px;
+        height: 0px;
+         &.visible-y{
+          height: 40px;
+         transition: height .5s .2s ease;
+        }
     }
 /*    .app {
         margin-left: 40px;
@@ -113,27 +115,44 @@ body {
 }
 
 @media screen and (min-width: 992px){
-    .container-front {
+/*    .container-front {
         width: 810px;
-    }
-    .frame-left, .frame-right {
-        width: 45px;
+    }*/
+   .frame-left, .frame-right {
+        width: 0;
+        &.visible-x{
+         width: 45px;
+        transition: width .5s .2s ease;
+        }
     }
     .frame-top, .frame-bottom {
-        height: 45px;
+        height: 0px;
+         &.visible-y{
+          height: 45px;
+         transition: height .5s .2s ease;
+        }
     }
 /*    .app {
         margin-left: 45px;
     }*/
-}
+} 
 
 @media screen and (min-width: 1200px){
     .frame-left, .frame-right {
-        width: 55px;
+        width: 0;
+        &.visible-x{
+         width: 55px;
+        transition: width .5s .2s ease;
+        }
     }
     .frame-top, .frame-bottom {
-        height: 55px;
+        height: 0px;
+         &.visible-y{
+          height: 55px;
+         transition: height .5s .2s ease;
+        }
     }
+
 /*    .app {
         margin-left: 55px;
     }*/
@@ -163,6 +182,10 @@ body {
 
 .txt-txt{
     text-align: justify;
+}
+
+.txt-white {
+    color: #fff;
 }
 
 
