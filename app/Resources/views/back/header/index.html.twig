@@ -67,11 +67,9 @@
                             <div class="col-md-6 col-sm-3 col-xs-12">                         
                                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">                                                
                                     <ol class="carousel-indicators indicator-back">
-                                     {% for header in headers %}
-                                    {% if header.styleDefault ==null and  header.image [0:] %}
+                                     {% for header in header.headerTexte [0:] %}
                                         {% set counter = ( counter | default(0) ) + 1 %}
                                     <li data-target="#carousel-example-generic" data-slide-to="{{ counter-1 }}" class="{%if loop.index == 1%} active {%endif%}"></li>
-                                    {% endif %} 
                                      {% endfor %}
                                     </ol>
                                     <!-- Wrapper for slides -->

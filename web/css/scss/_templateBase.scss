@@ -196,6 +196,7 @@ body {
     text-align: center;
     text-transform: uppercase;
     padding-top: 30px;
+    padding-bottom: 30px;
     h2{
         font-weight: bold;
 }
@@ -248,3 +249,12 @@ body {
 .bg-section {
     background-color: $color_background;
 }
+
+.bg-section-white {
+    background-color: $white;
+}
+
+.padd-b-md {
+    padding-bottom: 50px;
+}
+

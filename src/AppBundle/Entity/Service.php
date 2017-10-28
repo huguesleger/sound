@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -59,6 +60,18 @@ class Service
      */
     private $icon;
 
+    
+    /**
+    *
+    * @var DateTime
+    * @ORM\Column(name="date", type="datetime")
+    */
+    private $date;
+    
+       public function __construct()
+{
+    $this->date = new DateTime();
+}
 
     /**
      * Get id
@@ -192,6 +205,28 @@ class Service
     }
 
     
+     /**
+     * Set date
+     *
+     * @param DateTime $date
+     *
+     * @return Service
+     */
+     public function setDate(DateTime $date) {
+        $this->date = $date;
+        
+        return $this;
+    }
+    
+    
+    /**
+     * Get date
+     *
+     * @return DateTime
+     */
+    public function getDate() {
+        return $this->date;
+    }
     
    
 

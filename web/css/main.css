@@ -631,7 +631,8 @@ body {
   letter-spacing: 0.1em;
   text-align: center;
   text-transform: uppercase;
-  padding-top: 30px; }
+  padding-top: 30px;
+  padding-bottom: 30px; }
   .title-section h2 {
     font-weight: bold; }
 
@@ -667,6 +668,12 @@ body {
 
 .bg-section {
   background-color: #F5F5F5; }
+
+.bg-section-white {
+  background-color: #fff; }
+
+.padd-b-md {
+  padding-bottom: 50px; }
 
 .carousel {
   margin-top: 10%;
@@ -716,14 +723,16 @@ body {
   font-family: "Viafont";
   font-size: 2.5em;
   text-align: center;
-  padding-top: 20px; }
+  padding-top: 20px;
+  max-width: 60%;
+  margin-left: 25%; }
 
 @media screen and (min-width: 1024px) {
   .txt-carousel {
     font-size: 4em; } }
 @media screen and (min-width: 1200px) {
   .txt-carousel {
-    font-size: 6em; } }
+    font-size: 4.5em; } }
 .edit-carousel {
   text-align: center;
   display: block; }
@@ -827,7 +836,7 @@ body {
   margin-left: 0;
   right: 20px;
   left: auto;
-  top: 30%;
+  top: 60%;
   width: 6%; }
 
 .indicator-back {
@@ -845,7 +854,8 @@ body {
   width: 10px;
   height: 10px;
   margin-bottom: 10px;
-  border: 1px solid #000; }
+  border: 1px solid #000;
+  text-indent: 0; }
 
 #carousel-example-generic-3 .carousel-indicators .active {
   width: 12px;
@@ -865,6 +875,13 @@ body {
   height: 12px;
   margin-bottom: 10px;
   background-color: #fff; }
+  #carousel-example-generic-1 .carousel-indicators .active .number-slide {
+    opacity: 1; }
+
+.number-pos {
+  position: absolute;
+  bottom: 10vh;
+  transform: rotate(-90deg); }
 
 #carousel-example-generic-1 .carousel-indicators li {
   display: block;
@@ -872,6 +889,22 @@ body {
   height: 10px;
   margin-bottom: 10px;
   border: 1px solid #fff; }
+  #carousel-example-generic-1 .carousel-indicators li .number-slide {
+    position: absolute;
+    right: 0;
+    top: -5px;
+    opacity: 0;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 100; }
+    #carousel-example-generic-1 .carousel-indicators li .number-slide:after {
+      position: absolute;
+      content: '';
+      width: 45px;
+      height: 2px;
+      left: 30px;
+      top: 8px;
+      background-color: #fff; }
 
 .big-indic-pos {
   width: 2%;
@@ -978,14 +1011,19 @@ body {
   z-index: 10; }
 
 .slide-txt {
-  margin-top: 30%; }
+  margin-top: 25%;
+  min-height: 20vh;
+  display: none; }
 
+@media screen and (min-width: 1200px) {
+  .slide-txt {
+    margin-top: 30%; } }
 @media screen and (min-width: 768px) {
   .pochette-size {
     width: 45.6%; } }
 @media screen and (min-width: 1200px) {
   .pochette-size {
-    width: 100%; } }
+    width: 90%; } }
 .background-pochette-front {
   position: relative;
   z-index: 1; }
@@ -1003,7 +1041,7 @@ body {
 @media screen and (min-width: 1200px) {
   .img-pochette-front {
     position: absolute;
-    width: 61.3%;
+    width: 55%;
     left: 3.1%;
     z-index: 2;
     top: 0;
@@ -1017,11 +1055,6 @@ body {
   font-family: "Viafont";
   padding-top: 30px;
   padding-bottom: 30px; }
-
-.remove-anim {
-  -webkit-animation: fadeOutUp 600ms ease-in-out;
-  animation: fadeOutUp 600ms ease-in-out;
-  opacity: 0; }
 
 @media screen and (min-width: 768px) {
   #animTexteIntro {
@@ -1267,6 +1300,9 @@ body {
 .name-light {
   font-weight: 100; }
 
+@media screen and (min-width: 1200px) {
+  .present {
+    padding-bottom: 90px; } }
 @media screen and (min-width: 768px) and (max-width: 1200px) {
   .present {
     padding-left: 30px;
@@ -1274,7 +1310,7 @@ body {
 .img-present {
   display: flex;
   justify-content: center;
-  padding: 30px 0 50px; }
+  padding-bottom: 50px; }
 
 .img-round {
   border-radius: 50%;
@@ -1363,5 +1399,37 @@ body {
     width: 2px;
     height: 70px;
     background-color: #112233; } }
+.services {
+  padding-top: 70px; }
+
+.item-icon-center {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px; }
+
+.item-service {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.item-content {
+  line-height: 1.3em;
+  padding-left: 15px;
+  padding-right: 15px; }
+  .item-content p {
+    color: #B8B8B8;
+    text-align: justify; }
+
+.title-item {
+  text-align: center;
+  text-transform: uppercase;
+  color: #4ECDC4;
+  font-family: "Raleway";
+  font-weight: 600; }
+
+.item-icon {
+  width: 60px;
+  height: 60px; }
 
 /*# sourceMappingURL=main.css.map */

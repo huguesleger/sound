@@ -22,7 +22,7 @@ $(window).load(function(){
                         $('.frame-left, .frame-right').addClass('visible-x');
                         $('.frame-top, .frame-bottom').addClass('visible-y');
                         $('#bg-header').velocity({
-                    width: "70%",
+                    width: "75%",
                     right: "0",
                     opacity : 1
                 }, {
@@ -36,15 +36,20 @@ $(window).load(function(){
                         $('.anim-hello').show();
                         $('.txt-hello').show();
                         ///////////////
+
 //                        $('.carousel-indicators').show();
                       
                         $(window).on('scroll', function(){
-	if( $(window).scrollTop()> 35 ){
+	if( $(window).scrollTop()> 15 ){
+            
             $('#animTexteIntro').hide();
+            $('.slide-txt').show();
             $('.carousel-inner').show();
             $('#navSlider').show();
 	} else {
 		$('#animTexteIntro').show();
+               
+                $('.slide-txt').hide();
                  $('.carousel-inner').hide();
                  $('#navSlider').hide();
 	}
@@ -121,7 +126,7 @@ $(document).ready(function(){
 if ($('#headerDefault').hasClass('active')){
     $('#headerSlider').remove();
     if (windowWidth >1200){
-         $('.header').css('height',windowHeight - titleHeightPresent); 
+         $('.header').css('height',windowHeight - titleHeightPresent +12+"px"); 
     } else if (windowWidth <1200) {
       $('.header').css('height','40vh');   
     }
@@ -139,12 +144,7 @@ if($('#header-mobile').hasClass('active')){
     $('#header-mobile').removeClass('active');
 }
 
-///// cache phrase d'intro au click indicators carousel
-//$('.carousel-indicators li').click(function(){
-//   $('.carousel-indicators li:nth-child(1)').addClass('active');
-//   $('#animTexteIntro').addClass('remove-anim'); 
-//   $('.carousel-inner').css('opacity','1'); 
-//});
+
 
 
 
@@ -169,7 +169,7 @@ if($('#header-mobile').hasClass('active')){
 ///////////////////////////////////////
 
 
-   if(windowWidth >= 768 ){
+   if(windowWidth >= 1024 ){
           $('#Txt p').removeClass('txt-txt');
           $('#Txt p').addClass('txt-center');
     
@@ -226,7 +226,7 @@ if($('#header-mobile').hasClass('active')){
       
    }
 
-   if(windowWidth >= 768 ){
+   if(windowWidth >= 1024 ){
           $('#Txt p').removeClass('txt-txt');
           $('#Txt p').addClass('txt-center');
     

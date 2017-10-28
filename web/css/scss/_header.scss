@@ -117,7 +117,17 @@
 
 /// position txt-slider style default
 .slide-txt {
+    margin-top: 25%;
+    min-height: 20vh;
+    display: none;
+}
+
+
+
+@media screen and(min-width: 1200px){
+.slide-txt {
     margin-top: 30%;
+}
 }
 @media screen and(min-width: 768px){
 .pochette-size {
@@ -128,7 +138,7 @@
 
 @media screen and(min-width: 1200px){
 .pochette-size {
-    width: 100%;  
+    width: 90%;  
 }
 }
 
@@ -155,7 +165,7 @@
 @media screen and(min-width: 1200px){
 .img-pochette-front {
     position: absolute;
-    width: 61.3%;
+    width: 55%;
     left: 3.1%;
     z-index: 2;
     top: 0;
@@ -175,11 +185,6 @@
     font-family: "Viafont";
     padding-top: 30px;
     padding-bottom: 30px;
-}
-.remove-anim {
-    -webkit-animation: fadeOutUp 600ms ease-in-out;
-    animation: fadeOutUp 600ms ease-in-out ;
-    opacity: 0;
 }
 @media screen and(min-width: 768px){
 #animTexteIntro {
