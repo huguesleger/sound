@@ -1,0 +1,36 @@
+{% extends ':back:templateAdmin.html.twig' %}
+
+  {% block content %}
+    <h1>Social</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ social.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ social.nom }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ social.url }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('social_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('social_edit', { 'id': social.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends ':back:templateAdmin.html.twig' %}
+
+  {% block content %}
+    <h1>Promotion</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ promotion.id }}</td>
+            </tr>
+            <tr>
+                <th>Texte</th>
+                <td>{{ promotion.texte }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ promotion.image }}</td>
+            </tr>
+            <tr>
+                <th>Publier</th>
+                <td>{% if promotion.publier %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('promotion_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('promotion_edit', { 'id': promotion.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -336,6 +336,15 @@ th {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite; }
 
+.thumbnail {
+  height: auto; }
+
+.thumbnail .image {
+  height: auto; }
+
+.caption {
+  background: transparent; }
+
 .nb-img {
   display: inline-block; }
 
@@ -841,7 +850,8 @@ body {
 
 .indicator-back {
   width: 2%;
-  right: 0; }
+  right: 0;
+  top: 30%; }
 
 .carousel-indicators .active {
   width: 12px;

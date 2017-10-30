@@ -23,9 +23,9 @@ class SectionController extends Controller {
     public function IndexAction(){
         
         $em = $this->getDoctrine()->getManager();
-
         $presents = $em->getRepository('AppBundle:Present')->findAll();
         $services = $em->getRepository('AppBundle:Service')->findAll();
+        $promotions = $em->getRepository('AppBundle:Promotion')->findAll();
         $sectionNames = $em->getRepository('AppBundle:SectionName')->findAll();
      
         
@@ -33,6 +33,7 @@ class SectionController extends Controller {
             'presents' => $presents,
             'services' => $services,
             'sectionNames' => $sectionNames,
+            'promotions'=> $promotions,
         ));
         
     }

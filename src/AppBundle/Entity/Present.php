@@ -2,17 +2,18 @@
 
 namespace AppBundle\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints\File;
+
 
 /**
  * Present
  *
  * @ORM\Table(name="present")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PresentRepository")
- * @UniqueEntity("publier", message="Une  section avec ce titre est déjà publiée.")
  */
 class Present
 {
@@ -46,7 +47,7 @@ class Present
     /**
      *
      * @var bool
-     * @ORM\Column(name="publier", type="boolean", unique=true)
+     * @ORM\Column(name="publier", type="boolean")
      */
     private $publier;
     
@@ -54,11 +55,25 @@ class Present
      *
      * @var string
      * @ORM\ManyToOne(targetEntity = "SectionName")
-     * @ORM\JoinColumn(name="fk_section_name", referencedColumnName = "id", nullable=true)
+     * @ORM\JoinColumn(name="fk_section_name", referencedColumnName = "id")
+     * @Assert\NotBlank()
+     *  
      */
     private $name;
 
 
+     /**
+    *
+    * @var DateTime
+    * @ORM\Column(name="date", type="datetime")
+    */
+    private $date;
+    
+       public function __construct()
+    {
+        $this->date = new DateTime();
+    }
+    
     /**
      * Get id
      *
@@ -166,7 +181,28 @@ class Present
 //        return $this->getName();
 //    }
 
-
+    /**
+     * Set date
+     *
+     * @param DateTime $date
+     *
+     * @return Present
+     */
+     public function setDate(DateTime $date) {
+        $this->date = $date;
+        
+        return $this;
+    }
+    
+    
+    /**
+     * Get date
+     *
+     * @return DateTime
+     */
+    public function getDate() {
+        return $this->date;
+    }
     
 
 }

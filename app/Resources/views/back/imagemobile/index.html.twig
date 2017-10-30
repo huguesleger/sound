@@ -1,0 +1,122 @@
+{% extends ':back:templateAdmin.html.twig' %}
+
+  {% block content %}
+{#    <h1>Imagemobiles list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for imageMobile in imageMobiles %}
+            <tr>
+                <td><a href="{{ path('imagemobile_show', { 'id': imageMobile.id }) }}">{{ imageMobile.id }}</a></td>
+                <td>{{ imageMobile.image }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('imagemobile_show', { 'id': imageMobile.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('imagemobile_edit', { 'id': imageMobile.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('imagemobile_new') }}">Create a new imageMobile</a>
+        </li>
+    </ul>#}
+
+         <div class="">
+               {% for imageMobile in imageMobiles[0:] %}
+                   {% if loop.index >=2 and imageMobile.publier == true %}
+                        <div class="col-md-12">
+                <div class="alert alert-warning  alert-dismissible fade in" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                  </button>
+                  <strong>Attention !</strong> vous avez plusieurs images en statut publier. Seule la plus récente est en ligne.
+                </div>
+                    </div>
+                        {% else %}
+                        {% endif %}
+                         {% endfor %}
+          <div class="page-title">
+            <div class="title_left">
+                <h3>Image Mobile</h3>
+            </div>
+                <span class="btn-title-left col-md-2">
+                    <a class="btn btn-dark btn-sm" href="{{ path('imagemobile_new') }}">Ajouter</a></span>
+
+       </div>
+          <div class="clearfix"></div>
+
+                <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Mes images</h2>
+                  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                 <div class="row">
+                   {% for imageMobile in imageMobiles %}
+                       {#<img src="{{asset('uploads/header/')~ imageMobile.image}}" class="col-md-8 col-md-offset-2 img-responsive" alt="{{ imageMobile.image }}" />#}
+                      {# <div class="col-md-8 col-md-offset-2">
+                       <div class="thumbnail">
+                        <div class="image view view-first">
+                          <img src="{{asset('uploads/header/')~ imageMobile.image}}" class="img-responsive" alt="{{ imageMobile.image }}"/>
+                          <div class="mask">
+                            <div class="tools tools-bottom">
+                              <a href="#"><i class="fa fa-link"></i></a>
+                              <a href="#"><i class="fa fa-pencil"></i></a>
+                              <a href="#"><i class="fa fa-times"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="caption">
+                          <p>{{ imageMobile.image }}</p>
+                        </div>
+                      </div>
+                       </div>#}
+                        <div class="col-sm-6 col-md-8 col-md-offset-2">
+                          <div class="thumbnail">
+                            <img src="{{asset('uploads/header/')~ imageMobile.image}}" class="img-responsive">
+                            <div class="caption">
+                              <label>{{ imageMobile.image }}</label>
+                              <p>Créer le {{ imageMobile.date|date ('j/m/y à H:i:s') }}</p>
+                              {% if imageMobile.publier == true %}
+                               <span type="button" class="label label-success">Publié</span>
+                              {% else %}
+                                  <span class="label label-warning">Brouillon</span>
+                              {% endif %}
+                              <p class="btn-right"><a href="{{ path('imagemobile_edit', { 'id': imageMobile.id }) }}" class="btn btn-info btn"><i class="fa fa-pencil"></i> Edit </a>
+                                 <a href="{{ path('imagemobile_delete', { 'id': imageMobile.id }) }}" class="btn btn-danger btn"><i class="fa fa-trash-o"></i> Delete </a></p>
+                            </div>
+                          </div>
+                        </div>
+                   {% endfor %}
+                </div>
+                </div>
+              </div>
+            </div>
+
+                </div>
+                    
+                   </div>   
+                       
+
+
+
+{% endblock %}

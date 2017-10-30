@@ -3285,7 +3285,7 @@ html > body > .ui-pnotify {
 }
 .alert-danger, .alert-error {
   color: #E9EDEF;
-  background-color: rgba(231, 76, 60, 0.88);
+  background-color: rgba(231, 76, 60, 0.88)!important;
   border-color: rgba(231, 76, 60, 0.88);
 }
 .alert-dark, .btn-dark {

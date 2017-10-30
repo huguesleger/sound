@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use DateTime;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -49,6 +50,7 @@ class Service
      * @var string
      * @ORM\ManyToOne(targetEntity = "SectionName")
      * @ORM\JoinColumn(name="fk_name", referencedColumnName = "id")
+     * @Assert\NotBlank()
      */
     private $name;
     

@@ -50,9 +50,18 @@
             <div class="title_left">
                 <h3>Nom Section</h3>
                  </div>
-               <span class="btn-title-left col-md-2">
-                   <a class="btn btn-dark btn-sm" id="AddSectionName">Ajouter</a>{{ render(controller('AppBundle:SectionName:new')) }}</span>
-           
+              
+                  
+                      {% for sectionName in sectionNames %}
+                          {% if loop.index is divisible by(2) and loop.length < 3 %}
+                               <span class="btn-title-left col-md-2">
+                   <a class="btn btn-dark btn-sm" id="AddSectionName">Ajouter</a>
+                   {{ render(controller('AppBundle:SectionName:new')) }}</span>
+                   {% else %}
+                        
+                       {% endif %}
+                        {% endfor %}
+                    
 
        </div>
           <div class="clearfix"></div>

@@ -5,7 +5,9 @@
     {% block header %}
         
         <div id="header-mobile">
-              <img src="{{asset('images/header_phone.jpg')}}" class="img-responsive">
+            {% for imageMobile in imageMobiles %}
+              <img src="{{asset('uploads/header/')~ imageMobile.image}}" class="img-responsive" alt="{{imageMobile.image}}">
+                   {% endfor %}
             </div> 
         <header class="header">
    

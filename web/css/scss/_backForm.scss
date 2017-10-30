@@ -209,9 +209,20 @@
     animation-iteration-count: infinite;
 }
 
+//////img header mobile/////////
+/////////////////////////////
 
+.thumbnail {
+    height: auto;
+}
 
+.thumbnail .image {
+    height: auto;
+}
 
+.caption {
+    background: transparent;
+}
 
 .nb-img {
     display: inline-block;

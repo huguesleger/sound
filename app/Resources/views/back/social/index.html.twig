@@ -1,0 +1,41 @@
+{% extends ':back:templateAdmin.html.twig' %}
+
+  {% block content %}
+    <h1>Socials list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Url</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for social in socials %}
+            <tr>
+                <td><a href="{{ path('social_show', { 'id': social.id }) }}">{{ social.id }}</a></td>
+                <td>{{ social.nom }}</td>
+                <td>{{ social.url }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('social_show', { 'id': social.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('social_edit', { 'id': social.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('social_new') }}">Create a new social</a>
+        </li>
+    </ul>
+{% endblock %}
