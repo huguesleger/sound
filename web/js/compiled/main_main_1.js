@@ -165,7 +165,7 @@ if($('#header-mobile').hasClass('active')){
 
 
 
-/// class texte position mobile//
+/// class texte present position mobile//
 ///////////////////////////////////////
 
 
@@ -196,7 +196,18 @@ if($('#header-mobile').hasClass('active')){
          }
   /////////////////////////////////
   /////////////////////////////////
+  
+//           if(windowWidth <= 768 ){
+//         $('#Promo').addClass('title-promo-mobile'); 
+//    
+//   }else  {
+//       $('#Promo').removeClass('title-promo-mobile'); 
+//      
+//   }
+//         
     });
+    
+    
     
     
         $(window).resize(function(){ 

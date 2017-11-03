@@ -42,6 +42,19 @@
                         {% else %}
                         {% endif %}
                          {% endfor %}
+          
+         {% for promotion in promotions[0:]  %}
+                    {% if loop.index >= 2 and promotion.publier == true %}
+                        <div class="col-md-12">
+                <div class="alert alert-warning  alert-dismissible fade in" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                  </button>
+                  <strong>Attention !</strong> vous avez plusieurs sections promotion en statut publier. Seule la plus récente est en ligne.
+                </div>
+                    </div>
+                        {% else %}
+                        {% endif %}
+                         {% endfor %}
        <div class="">
            
            
@@ -154,16 +167,17 @@
                            
                          {% for promotion in promotions  %}
                       <tr>  
-                           <td class="icon-section"><i class="fa fa-th blue" aria-hidden="true"></i></td>
-                        <td>{{promotion.nom }}<br />
+                            {% if loop.index >= 2 and promotion.publier >=2 %}<tr class="alert-dark">{% else %}<tr> {% endif %}  
+                           <td class="icon-section"><i class=" {% if loop.index >= 2 and promotion.publier >=2 %}fa fa-th white {% else %}fa fa-th blue{% endif %}" aria-hidden="true"></i></td>
+                        <td>{{promotion.name }}<br />
                          <small>Créer le {{ promotion.date|date ('j/m/y à H:i:s') }}</small></td>
                         <td><img src="{{asset('uploads/image/')~promotion.image}}" class="avatar"></td>
                         <td>{{ promotion.texte }}</td>
                     
-                        <td> {% if service.publier %}<span type="button" class="label label-success">Publié</span>{% else %}<span class="label label-warning">Brouillon</span>{% endif %}</td>
-                        <td><a href="{{ path('service_show', { 'id': service.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
-                          <a href="{{ path('service_edit', { 'id': service.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                          <a href="{{ path('service_delete', { 'id': service.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a></td>
+                        <td> {% if promotion.publier %}<span type="button" class="label label-success">Publié</span>{% else %}<span class="label label-warning">Brouillon</span>{% endif %}</td>
+                        <td><a href="{{ path('promotion_show', { 'id': promotion.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
+                          <a href="{{ path('promotion_edit', { 'id': promotion.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                          <a href="{{ path('promotion_delete', { 'id': promotion.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a></td>
                       </tr>
                        {% endfor %}
                     </tbody>

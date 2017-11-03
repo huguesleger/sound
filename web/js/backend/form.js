@@ -304,3 +304,11 @@ $('#AddSectionName').click(function(){
     });
 
 
+   $(document).ready(function(){
+$('#AddSocial').click(function(){
+    $('#Social').modal({
+        show:true  
+    });   
+});
+    });
+    

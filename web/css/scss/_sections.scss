@@ -7,13 +7,6 @@
 }
 }
 
-@media screen and(min-width: 768px) and (max-width: 1200px){
-.present {
-    padding-left: 30px;
-    padding-right: 30px;
-}
-}
-
 
 .img-present {
     display: flex;
@@ -178,3 +171,119 @@
     width: 60px;
     height: 60px;
 }
+
+/////////////////////////
+/////////////////////////
+
+////////promotion/////////////
+
+@media screen and (min-width: 1200px){
+.title-promo {
+    text-align: right;
+    position: relative;
+    padding-right: 0;
+    padding-bottom: 60px;
+    
+}
+}
+
+
+@media screen and(min-width: 1200px){ 
+.wave-promo {
+    width: 200px;
+    fill: $color_primary;
+    position: absolute;
+    top: 55px;
+    right: -210px;
+}
+}
+
+
+@media screen and(min-width: 1200px){
+.promotion {
+    display: flex;
+    direction: rtl;
+}
+.img-promo-divide{
+    width: 50%;
+}
+
+.txt-promo-divide {
+    direction: ltr;
+    padding-left: 95px;
+}
+.content-divide {
+    width: 50%;
+    padding-top: 50px;
+    padding-right: 70px;
+    padding-left: 40px;
+}
+}
+
+@media screen and(max-width: 1200px){
+.img-promo {
+  position: relative;
+}
+}
+
+/*
+.content-left {
+    min-height: 20vh;
+    width: 50%;
+}
+
+.content-right {
+    min-height: 20vh;
+    width: 50%;
+}*/
+
+
+.txt-promo{
+    line-height: 2em;
+    text-align: justify;
+    font-size: 16px;
+    padding-top: 20px;
+    padding-bottom: 20px;  
+}
+
+.icon-content {
+  padding-top: 30px;
+  direction: initial;
+  padding-left: 95px;
+}  
+
+
+.icon-promo {
+ width: 90px;
+ margin-right: 20px
+}
+
+/*.content-promo {
+    max-width: 100%;
+    padding-right: 15px;
+    padding-left:  15px;
+    
+}*/
+
+/*.link-promo {
+    float: left;
+}
+
+.deezer {
+    width: 25px;
+    padding-top: 2px;
+}
+
+.icon-promo {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.pos-icon {
+    max-width: 150px;
+    margin-left: 30px;
+}*/
+
+
+

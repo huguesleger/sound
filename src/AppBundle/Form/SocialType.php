@@ -13,7 +13,10 @@ class SocialType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('url');
+        $builder
+                ->add('nom',null, array('attr'=> array(
+                      'placeholder' => 'ex: facebook...')))
+                ->add('url');
     }
     
     /**

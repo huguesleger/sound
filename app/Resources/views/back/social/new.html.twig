@@ -1,7 +1,7 @@
-{% extends ':back:templateAdmin.html.twig' %}
+{#{% extends ':back:templateAdmin.html.twig' %}#}
 
   {% block content %}
-    <h1>Social creation</h1>
+{#    <h1>Social creation</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
@@ -12,5 +12,30 @@
         <li>
             <a href="{{ path('social_index') }}">Back to the list</a>
         </li>
-    </ul>
+    </ul>#}
+
+ {{ form_start(form) }}
+                    {{ form_errors(form) }}
+ <div class="x_content">
+  <div class="modal fade bs-example-modal-lg" id="Social" tabindex="-1" role="dialog" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title" id="myModalSocial">Social creation</h4>
+                      </div>
+                      <div class="modal-body">
+                       {{ form_widget(form) }}
+                      </div>
+                      <div class="modal-footer">
+                      <button type="submit" class="btn btn-success">Enregistrer</button>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                      </div>
+ {{ form_end(form) }}
+
 {% endblock %}

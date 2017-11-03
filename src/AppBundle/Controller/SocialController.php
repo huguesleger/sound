@@ -3,9 +3,13 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Social;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Form;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Social controller.
@@ -34,7 +38,7 @@ class SocialController extends Controller
     /**
      * Creates a new social entity.
      *
-     * @Route("/new", name="social_new")
+     * @Route("/", name="social_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -44,16 +48,21 @@ class SocialController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('succes',
+                             null );
             $em = $this->getDoctrine()->getManager();
             $em->persist($social);
             $em->flush();
-
-            return $this->redirectToRoute('social_show', array('id' => $social->getId()));
+            $response = new Response();
+            $response->headers->set('Content-Type', 'application/json');
+            return $this->redirectToRoute('social_index',array( new JsonResponse($response)));
         }
 
         return $this->render('back/social/new.html.twig', array(
             'social' => $social,
             'form' => $form->createView(),
+            $this->addFlash('error',
+                             null ),
         ));
     }
 
@@ -81,20 +90,26 @@ class SocialController extends Controller
      */
     public function editAction(Request $request, Social $social)
     {
+        
         $deleteForm = $this->createDeleteForm($social);
         $editForm = $this->createForm('AppBundle\Form\SocialType', $social);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+             $this->addFlash('update',
+                             null );
 
+            $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('social_edit', array('id' => $social->getId()));
+
         }
 
         return $this->render('back/social/edit.html.twig', array(
             'social' => $social,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            $this->addFlash('error',
+                             null ),
         ));
     }
 
@@ -123,7 +138,7 @@ class SocialController extends Controller
      *
      * @param Social $social The social entity
      *
-     * @return \Symfony\Component\Form\Form The form
+     * @return Form The form
      */
     private function createDeleteForm(Social $social)
     {

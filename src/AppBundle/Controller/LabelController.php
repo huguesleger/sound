@@ -53,7 +53,7 @@ class LabelController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($label);
             $em->flush();
-           $response = new Response();
+            $response = new Response();
             $response->headers->set('Content-Type', 'application/json');
             return $this->redirectToRoute('label_index',array( new JsonResponse($response)));
         }

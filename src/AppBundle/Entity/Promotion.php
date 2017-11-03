@@ -36,7 +36,7 @@ class Promotion
      * @var UploadedFile
      *
      * @ORM\Column(name="image", type="string", length=255, nullable=true)
-     * @File(mimeTypes={"ismage/jpeg", "image/png"},
+     * @File(mimeTypes={"image/jpeg", "image/png"},
      * maxSize = "800k",
      * maxSizeMessage = "La taille maximum autorisée est de (800ko).")
      */
@@ -46,7 +46,7 @@ class Promotion
       /**
      *
      * @var bool
-     * @ORM\Column(name="publier", type="boolean", unique=true)
+     * @ORM\Column(name="publier", type="boolean")
      */
     private $publier;
     

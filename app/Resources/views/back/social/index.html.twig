@@ -1,7 +1,7 @@
 {% extends ':back:templateAdmin.html.twig' %}
 
   {% block content %}
-    <h1>Socials list</h1>
+  {#  <h1>Socials list</h1>
 
     <table>
         <thead>
@@ -37,5 +37,78 @@
         <li>
             <a href="{{ path('social_new') }}">Create a new social</a>
         </li>
-    </ul>
+    </ul>#}
+  
+  
+    <div class="">
+           
+           
+           
+          <div class="page-title">
+            <div class="title_left">
+                <h3>Réseaux sociaux</h3>
+            </div>
+               <span class="btn-title-left col-md-2">
+                   <a class="btn btn-dark btn-sm" id="AddSocial">Ajouter</a>{{ render(controller('AppBundle:Social:new')) }}</span>
+
+       </div>
+          <div class="clearfix"></div>
+
+ 
+          
+                <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Mes réseaux</h2>
+                  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                 
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th style="width: 5%">#</th>
+                        {#<th style="width: 12%">Icon</th>#}
+                        <th style="width: 12%">Icon</th>
+                        <th style="width: 12%">Social</th>
+                         <th style="width: 20%">Url</th>
+                        <th style="width: 20%">Actions</th>
+                      </tr>
+                    </thead>
+
+
+                    <tbody>
+                        {% for social in socials %}
+                      <tr>  
+                           <td> {% set counter = ( counter | default(0) ) + 1 %}
+                           <small> {{ counter }}</small></td>
+                       {#<td><i class="fa fa-list" aria-hidden="true"></i></td>#}
+                            <td><i class="fa fa-{{ social.nom }} social-round" aria-hidden="true"></i></td>
+                           <td>{{ social.nom }}</td>
+                           <td>{{ social.url }}</td>
+                        <td><a href="{{ path('social_edit', { 'id': social.id }) }}"  class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                         
+                          <a href="{{ path('social_delete', { 'id': social.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a></td>
+                      </tr>
+                       {% endfor %}
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>
+            </div>
+
+                </div>
+                    
+                   </div>  
+  
+  
+  
+{% endblock %}
+
+{% block scriptForm %}
+      <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
 {% endblock %}

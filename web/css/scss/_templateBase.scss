@@ -8,7 +8,7 @@
 
 body {
     font-family: $font;
-/*    background-color: $gris_clair;*/
+/*    background-color: $color_background;*/
     width: 100%;
 }
 
@@ -64,7 +64,7 @@ body {
 
 .page-container {
     position: relative;
-    background: $color_background;
+   background: $color_background;
 /*    overflow: hidden;*/
 /*    -webkit-transition: -webkit-transform 500ms cubic-bezier(1, 0, 0, 1) 0ms;
     -moz-transition: -moz-transform 500ms cubic-bezier(1, 0, 0, 1) 0ms;
@@ -202,10 +202,12 @@ body {
 }
 }
 
+
 .wave-title {
     width: 70px;   
     fill: $color_secondary;      
 }
+
 
 @media screen and(max-width: 767px){ 
     #Present > .wave-title {
@@ -258,3 +260,32 @@ body {
     padding-bottom: 50px;
 }
 
+@media screen and(min-width: 768px) and (max-width: 1200px){
+.padd-section {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+}
+
+
+////////social-icon///////
+
+.social-round {
+    
+    border: 1px solid $color_primary;
+    background-color: transparent;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    border-radius: 50%;
+    color: $color_primary;
+    font-size: 15px;
+    padding-top: 5px;
+    transition: 0.4s;
+    &:hover {
+        background-color: $color_primary;
+        transition: 0.4s;
+       
+        color: $white;
+    }
+}

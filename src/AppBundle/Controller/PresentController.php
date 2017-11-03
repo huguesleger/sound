@@ -42,6 +42,10 @@ class PresentController extends Controller
      */
     public function newAction(Request $request)
     {
+        
+        $em = $this->getDoctrine()->getManager();
+        $sectionNames = $em->getRepository('AppBundle:SectionName')->findAll();
+        
         $present = new Present();
         $form = $this->createForm('AppBundle\Form\PresentType', $present);
         $form->handleRequest($request);
@@ -60,7 +64,8 @@ class PresentController extends Controller
             $em->persist($present);
             $em->flush();
 
-            return $this->redirectToRoute('section_index');
+            return $this->redirectToRoute('section_index', array
+                                          ('sectionNames'=>$sectionNames));
         }
 
         return $this->render('back/present/new.html.twig', array(
