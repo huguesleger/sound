@@ -623,7 +623,7 @@ body {
   height: 100vh;
   background-color: #4ECDC4;
   position: fixed;
-  z-index: 110; }
+  z-index: 200; }
 
 .txt-center {
   text-align: center; }
@@ -698,12 +698,95 @@ body {
   color: #4ECDC4;
   font-size: 15px;
   padding-top: 5px;
-  transition: 0.4s; }
+  transition: 0.3s; }
   .social-round:hover {
     background-color: #4ECDC4;
-    transition: 0.4s;
+    transition: 0.3s;
     color: #fff; }
 
+.social-round-dark {
+  border: 1px solid #112233;
+  color: #112233; }
+  .social-round-dark:hover {
+    background-color: #112233;
+    color: #fff; }
+
+@media screen and (max-width: 768px) {
+  .footer {
+    height: 20vh;
+    padding: 20px 15px; } }
+@media screen and (min-width: 768px) {
+  .footer {
+    height: 20vh;
+    padding: 50px 15px; } }
+.footer {
+  color: #888888; }
+
+@media screen and (min-width: 1024px) {
+  .credit {
+    display: flex;
+    justify-content: space-between; } }
+.social-icon {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0; }
+
+.social-icon li {
+  padding: 0 5px; }
+
+.social-icon li .fa {
+  margin-right: 0; }
+
+@media screen and (max-width: 768px) {
+  .dev {
+    padding: 10px 0; } }
+@media screen and (max-width: 1024px) {
+  .copy, .dev {
+    text-align: center; } }
+.dev {
+  font-size: 10px;
+  padding-top: 5px; }
+
+.author {
+  color: #112233;
+  transition: 0.3s ease-in-out; }
+  .author:hover {
+    color: #888888;
+    transition: 0.3s ease-in-out;
+    text-decoration: none; }
+
+.email {
+  font-family: "Raleway";
+  font-size: 20px;
+  font-weight: 900;
+  color: #112233;
+  transition: 0.3s ease-in-out;
+  position: relative; }
+  .email:hover {
+    color: #888888;
+    transition: 0.3s ease-in-out;
+    text-decoration: none; }
+
+.wave-footer {
+  width: 40px;
+  fill: #112233;
+  position: absolute;
+  left: -50px;
+  top: 10px; }
+
+@media screen and (min-width: 768px) {
+  .footer .credit {
+    padding-left: 40px;
+    padding-right: 40px; } }
+@media screen and (min-width: 992px) {
+  .footer .credit {
+    padding-left: 45px;
+    padding-right: 45px; } }
+@media screen and (min-width: 1200px) {
+  .footer .credit {
+    padding-left: 55px;
+    padding-right: 55px; } }
 .carousel {
   margin-top: 10%;
   overflow: hidden; }
@@ -1032,8 +1115,8 @@ body {
   animation: bounceInRight 1000ms ease-in-out; }
 
 .last-anim-txt-header {
-  -webkit-animation: fadeInUp 1500ms ease-in-out;
-  animation: fadeInUp 1500ms ease-in-out; }
+  -webkit-animation: fadeInUp 800ms ease-in-out;
+  animation: fadeInUp 800ms ease-in-out; }
 
 .pochette-disc {
   -webkit-animation: fadeIn 800ms ease-in-out;
@@ -1044,6 +1127,14 @@ body {
   margin-top: 25%;
   min-height: 20vh;
   display: none; }
+
+.name {
+  font-family: "Raleway";
+  font-size: 15px;
+  margin-top: -30px;
+  padding-left: 3px;
+  -webkit-animation: fadeIn 1500ms ease-in-out;
+  animation: fadeIn 1500ms ease-in-out; }
 
 @media screen and (min-width: 1200px) {
   .slide-txt {
@@ -1508,14 +1599,51 @@ body {
   padding-top: 20px;
   padding-bottom: 20px; }
 
-.icon-content {
-  padding-top: 30px;
-  direction: initial;
-  padding-left: 95px; }
-
+@media screen and (min-width: 1200px) {
+  .icon-content {
+    padding-top: 30px;
+    direction: initial;
+    padding-left: 95px; } }
+@media screen and (max-width: 1200px) {
+  .icon-content {
+    display: none; } }
 .icon-promo {
   width: 90px;
   margin-right: 20px; }
+
+@media screen and (max-width: 767px) {
+  .icon-round-promo {
+    display: none; } }
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .icon-round-promo {
+    margin-left: 15px;
+    padding-right: 15px;
+    direction: initial;
+    margin-top: 40px;
+    text-align: right; }
+    .icon-round-promo small {
+      padding-right: 20px; } }
+@media screen and (min-width: 1024px) {
+  .icon-round-promo {
+    margin-left: 15px;
+    direction: initial;
+    margin-top: 40px;
+    text-align: right; }
+    .icon-round-promo small {
+      padding-right: 20px; } }
+.icon-round-promo {
+  padding-bottom: 15px; }
+
+.icon-round-promo .fa {
+  font-size: 25px;
+  color: #112233;
+  margin-right: 20px; }
+
+.deezer {
+  width: 23px;
+  height: 23px;
+  margin-right: 20px;
+  margin-top: -10px; }
 
 /*.content-promo {
     max-width: 100%;

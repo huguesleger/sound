@@ -197,14 +197,42 @@ if($('#header-mobile').hasClass('active')){
   /////////////////////////////////
   /////////////////////////////////
   
-//           if(windowWidth <= 768 ){
-//         $('#Promo').addClass('title-promo-mobile'); 
-//    
-//   }else  {
-//       $('#Promo').removeClass('title-promo-mobile'); 
-//      
-//   }
-//         
+        ///////////footer/////////////
+           if(windowWidth < 1024 ){      
+            $('.email').hide();
+            $('.social-icon').insertBefore('.copy');
+        }else  {
+            $('.email').show();
+            $('.social-icon').insertAfter('.email');
+        }
+ 
+ 
+        
+
+    // on va recuperer la hauteur de la div promotion
+    // quand je deppasse la section promotion
+    // je declanche la function au scroll
+    //qui affiche la div footer
+    
+    
+    
+//    if ( $(window).scrollTop() <=(promo)){
+//        $('.credit').removeClass('visible');
+//    } else {
+//        $('.credit').addClass('visible');
+//    }
+
+//    $(window).on('scroll', function(){
+//        var promo = $('.page-container').outerHeight() - $('.footer').outerHeight() +250 ;
+//
+//	if( $(document).scrollTop()> promo ){
+//		 $('.footer').addClass('visible');
+//	} else {
+//		$('.footer').removeClass('visible');
+//	}
+//
+//});
+
     });
     
     
@@ -269,6 +297,15 @@ if($('#header-mobile').hasClass('active')){
     $('#header-mobile').removeClass('active');
 }
 
+
+        ///////////footer/////////////
+           if(windowWidth < 1024 ){      
+            $('.email').hide();
+            $('.social-icon').insertBefore('.copy');
+        }else  {
+            $('.email').show();
+            $('.social-icon').insertAfter('.email');
+        }
   
 });
    

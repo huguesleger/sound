@@ -104,8 +104,8 @@
 }
 
 .last-anim-txt-header {
-   -webkit-animation: fadeInUp 1500ms ease-in-out;
-    animation: fadeInUp 1500ms ease-in-out;   
+   -webkit-animation: fadeInUp 800ms ease-in-out;
+    animation: fadeInUp 800ms ease-in-out;   
 }
 
 
@@ -122,7 +122,14 @@
     display: none;
 }
 
-
+.name {
+    font-family: $font_title;
+    font-size: 15px;
+    margin-top: -30px;
+    padding-left: 3px;
+    -webkit-animation: fadeIn 1500ms ease-in-out;
+    animation: fadeIn 1500ms ease-in-out;   
+}
 
 @media screen and(min-width: 1200px){
 .slide-txt {

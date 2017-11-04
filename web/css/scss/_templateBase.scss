@@ -169,7 +169,7 @@ body {
     height: 100vh;
     background-color: $color_primary;
     position: fixed;
-    z-index: 110;
+    z-index: 200;
 }
 
 
@@ -268,7 +268,6 @@ body {
 }
 
 
-////////social-icon///////
 
 .social-round {
     
@@ -281,11 +280,140 @@ body {
     color: $color_primary;
     font-size: 15px;
     padding-top: 5px;
-    transition: 0.4s;
+    transition: 0.3s;
     &:hover {
         background-color: $color_primary;
-        transition: 0.4s;
+        transition: 0.3s;
        
         color: $white;
     }
+}
+.social-round-dark {
+    border: 1px solid $color_secondary;
+     color: $color_secondary;
+     &:hover {
+        background-color: $color_secondary;
+        color: $white;
+    }
+}
+
+@media screen and(max-width: 768px) {
+.footer {
+    height: 20vh;
+    padding: 20px 15px;
+}
+}
+
+
+@media screen and(min-width: 768px) {
+.footer {
+    height: 20vh;
+    padding: 50px 15px;
+}
+}
+
+.footer {
+    color: #888888;
+}
+
+@media screen and(min-width: 1024px) {
+.credit {
+   display: flex;
+   justify-content: space-between;
+   
+}
+}
+
+.credit  {
+    
+}
+
+.social-icon {
+ list-style: none;
+ display: flex;
+ justify-content: center;
+ padding: 0;
+}
+
+
+.social-icon li {
+    padding: 0 5px;
+}
+
+
+
+.social-icon li .fa {
+    margin-right: 0;
+}
+
+@media screen and(max-width: 768px) {
+.dev {
+    padding: 10px 0; 
+}
+}
+
+@media screen and(max-width: 1024px) {
+.copy, .dev {
+  text-align: center;
+}
+}
+
+.dev {
+ font-size: 10px;
+ padding-top: 5px;
+}
+.author{
+  color: $color_secondary;
+  transition: 0.3s ease-in-out;
+  &:hover {
+    color: #888888;
+        transition: 0.3s ease-in-out;
+        text-decoration: none;   
+  }
+}
+
+.email {
+    font-family: $font_title;
+    font-size: 20px;
+    font-weight: 900;
+    color: $color_secondary;
+    transition: 0.3s ease-in-out;
+    position: relative;
+    &:hover {
+        color: #888888;
+        transition: 0.3s ease-in-out;
+        text-decoration: none;
+    }
+    
+}
+
+.wave-footer {
+    width: 40px;   
+    fill: $color_secondary;
+    position: absolute;
+    left: -50px;
+    top: 10px;
+}
+
+
+@media screen and(min-width: 768px) {
+.footer .credit {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+}
+
+
+@media screen and(min-width: 992px) {
+.footer .credit {
+  padding-left: 45px;
+  padding-right: 45px;
+}
+}
+
+@media screen and(min-width: 1200px){
+.footer .credit {
+  padding-left: 55px;
+  padding-right: 55px;
+}
 }

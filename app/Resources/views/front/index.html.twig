@@ -39,9 +39,10 @@
 
                                 </div>
                                 <div class="txt-hello-header">
-                               <p class="first-anim-txt-header">i'm</p>
-                               <p class="second-anim-txt-header dark-txt">music</p>
-                               <p class="last-anim-txt-header">composer</p>
+                               <p class="first-anim-txt-header">welcome</p>
+                               <p class="second-anim-txt-header dark-txt">to</p>
+                               <p class="last-anim-txt-header">emp</p>
+                               <p class="name">easy music project</p>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="wave-anim wave-header" viewBox="0 0 238 29">
                                 <path d="M1382.78,3879.29c-20.73,15.59-38.41,15.59-59.15,0-13.52-10.17-25.06-10.17-38.57,0-20.54,15.44-37.29,15.44-57.83,0-13.67-10.28-22.9-10.28-36.58,0l-5.64-7.54c16.62-12.5,30.59-13,47.87,0,16.29,12.25,28.31,13.7,46.54,0,17.28-13,33.34-12.42,49.86,0,16.95,12.75,30.25,13.25,47.86,0,17.29-13,28.59-13,45.87,0l-5.64,7.54C1403.48,3868.84,1396.68,3868.84,1382.78,3879.29Z" transform="translate(-1185 -3862)"/>
                                 </svg>
@@ -140,9 +141,9 @@
 
         </div>
         <div class="txt-hello">
-       <p class="first-anim-txt">I'M</p>
-       <p class="second-anim-txt dark-txt">music</p>
-       <p class="last-anim-txt">composer</p>
+       <p class="first-anim-txt">welcome</p>
+       <p class="second-anim-txt dark-txt">to</p>
+       <p class="last-anim-txt">emp</p>
         <svg xmlns="http://www.w3.org/2000/svg" class="wave-anim wave-title" viewBox="0 0 238 29">
         <path d="M1382.78,3879.29c-20.73,15.59-38.41,15.59-59.15,0-13.52-10.17-25.06-10.17-38.57,0-20.54,15.44-37.29,15.44-57.83,0-13.67-10.28-22.9-10.28-36.58,0l-5.64-7.54c16.62-12.5,30.59-13,47.87,0,16.29,12.25,28.31,13.7,46.54,0,17.28-13,33.34-12.42,49.86,0,16.95,12.75,30.25,13.25,47.86,0,17.29-13,28.59-13,45.87,0l-5.64,7.54C1403.48,3868.84,1396.68,3868.84,1382.78,3879.29Z" transform="translate(-1185 -3862)"/>
         </svg>
@@ -224,28 +225,34 @@
             {% endblock %}
             
             {% block promotions %}
-                <section class="padd-b-md">
+                <section class="promo">
                     {% for promotion in promotions %}
                         <div class="bg-section promotion">
                         <div class="img-promo img-promo-divide">
                            <img src="{{asset('uploads/image/')~promotion.image}}" class="img-responsive" alt="{{promotion.image}}"> 
                         </div>
                         <div class="container content-divide">
-                             <div class="col-md-6 icon-content">
+                             <div class="col-lg-6 icon-content">
                                 <img src="{{asset('images/people.png')}}" class="icon-promo" alt="">
                                 <img src="{{asset('images/computer.png')}}" class="icon-promo" alt=""> 
                             </div>
-                        <div class="col-md-6 title-section title-promo" id="Promo">  
+                        <div class="col-lg-6 title-section title-promo" id="Promo">  
                                 <h2>{{promotion.name}}</h2>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="wave-title wave-promo" viewBox="0 0 238 29">
                                 <path d="M1382.78,3879.29c-20.73,15.59-38.41,15.59-59.15,0-13.52-10.17-25.06-10.17-38.57,0-20.54,15.44-37.29,15.44-57.83,0-13.67-10.28-22.9-10.28-36.58,0l-5.64-7.54c16.62-12.5,30.59-13,47.87,0,16.29,12.25,28.31,13.7,46.54,0,17.28-13,33.34-12.42,49.86,0,16.95,12.75,30.25,13.25,47.86,0,17.29-13,28.59-13,45.87,0l-5.64,7.54C1403.48,3868.84,1396.68,3868.84,1382.78,3879.29Z" transform="translate(-1185 -3862)"/>
                                 </svg>
                             </div>
-                                <div class="">
+                            <div class="">
                             <p class="txt-promo txt-promo-divide padd-section">{{promotion.texte}}</p>
-                                </div>
+                            </div>
+                            <div class="icon-round-promo">
+                                <small> Retrouvez mes productions sur toute les plateformes</small>
+                                <i class="fa fa-apple" aria-hidden="true"></i>
+                                <i class="fa fa-spotify" aria-hidden="true"></i>
+                                 <img src="{{asset('images/deezer-logo.png')}}" class="deezer" alt=""> 
+                            </div>
                            
-                         
+                                
                       
                        </div>
                         </div>
