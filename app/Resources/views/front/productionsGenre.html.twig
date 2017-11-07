@@ -1,0 +1,19 @@
+{% extends ':front:templateFront.html.twig' %}
+
+
+  {% block content %}
+      <div class="container">
+    {% for sound in sounds %}            
+  {% if not sound.genre.empty and sound.publier == true %}
+   
+
+      <p> {{ sound.titre }}</p>
+
+       {% if not loop.last %}, {% endif %}
+  {% endif %}
+  {% endfor %}
+
+
+
+      </div>
+  {% endblock %}

@@ -114,6 +114,29 @@ $(document).ready(function(){
         });
     }
     
+    //////////////////////////////////////////
+    //////nav desktop genres sound////////////
+    
+      if(windowWidth > 767){
+        $('.main-icon-genre').click(function(){
+        $('.menu-type').toggleClass('open');
+        $('.navbar-brand').addClass('white');
+        $('#content').toggleClass('push-content');
+              
+    $this = $(this);
+    if($this.hasClass('is-open')){
+	$this.removeClass('is-open , is-open-color');
+//        $('body').css('overflowY','visible');
+        $('#colorLogo').find("path").attr('fill','#000');
+        $('.main-content').show();
+        $('.menu-tint').hide(410);
+
+    }else{
+        $this.addClass('is-open is-open-color');
+        }
+        });
+    }
+    
     
     
 ////////////////////////////////

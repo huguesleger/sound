@@ -29,7 +29,6 @@ class Genre
     private $nom;
 
 
-  
     
     /**
      * Get id
@@ -65,6 +64,7 @@ class Genre
         return $this->nom;
     }
     
+        
     
     public function __toString() {
         return $this->getNom();

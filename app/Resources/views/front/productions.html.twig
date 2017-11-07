@@ -1,0 +1,58 @@
+{% extends ':front:templateFront.html.twig' %}
+
+
+  {% block content %}
+         <body class="productions">
+
+          <div class="app">
+              <div class="container-prod">
+              {% block search %}
+                  <div class="searching">
+                      <div class="search col-lg-2 col-md-4 col-sm-5">
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Search for...">
+                          <span class="input-group-btn">
+                            <button class="btn btn-search " type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                          </span>
+                        </div><!-- /input-group -->
+                      </div>
+                      <div class="genres-mobile">
+                          <ul>
+                               <li><i class="fa fa-home" aria-hidden="true"></i></li>
+                              {% for genre in genres %}                                  
+                              <li><a class="" href="{{ path('productionslist', { 'id': genre.id }) }}">{{genre.nom}}</a></li>
+                              {% endfor %}
+                          </ul>
+                      </div>
+                      <div class="genres col-lg-3 col-lg-offset-3 col-md-5 col-sm-7">
+                          <h3 class="title-rubrique">productions<span class="genres-rubrique">genres musicaux</span></h3>
+                          
+                         <div class="main-icon-genre" id="">
+                            <span class="hamb-genre"></span>
+                         </div>
+                      </div>
+                      
+                  </div>
+
+              {% endblock %}
+              
+              {% block productions %}
+                  
+                  {% for sound in sounds %}
+                      {{ sound.titre }}
+                      {{ sound.description }}
+                      {{ sound.titre }}
+                      {{ sound.auteur }}
+                      {{ sound.label }}
+                      {{ sound.image }}
+                      {{ sound.morceau }}
+                      {{ sound.annee|date ('j/m/y à H:i:s') }}
+                      {{ sound.link }}
+                      {{ sound.linkSpotify }}
+                      {{ sound.linkDeezer }}
+                  {% endfor %}
+                  
+              {% endblock %}
+          </div>
+          </div>
+          {% endblock %}

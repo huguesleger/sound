@@ -17,14 +17,14 @@
                 <div class="navbar-header">
              
             <div class="logo">
-        <a class="icon-logo" href=#"><i class="fa fa-grav" aria-hidden="true"></i></a>
-        <a class="navbar-brand" href="#"><span class="name-light">Easy</span> Music Project</a>       
+        <a class="icon-logo" href="{{ path('home') }}"><i class="fa fa-grav" aria-hidden="true"></i></a>
+        <a class="navbar-brand" href="{{ path('home') }}"><span class="name-light">Easy</span> Music Project</a>       
     </div>
                 </div>
          <div class="bg-nav-mobile nav-mobile" id="">
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Productions</a></li>
+            <li><a href="{{ path('home') }}">Home</a></li>
+            <li><a href="{{ path('productions') }}">Productions</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
          </div>
