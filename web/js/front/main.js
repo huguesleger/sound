@@ -143,7 +143,6 @@ $(document).ready(function(){
 //////////////////////////////
 
 
-
 ///////// hauteur du header selon et style et device
 
 if ($('#headerDefault').hasClass('active')){

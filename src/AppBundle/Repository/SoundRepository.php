@@ -32,9 +32,24 @@ class SoundRepository extends EntityRepository
     ;
   
   }
+  
+  public function findSoundBytitre($motcle){
+      
+     $qb = $this->createQueryBuilder('s');
 
+    $qb
+      ->where('s.titre like :titre')
+      ->setParameter('titre', $motcle.'%')     
+      ->orWhere('s.auteur Like :auteur')
+      ->setParameter('auteur', $motcle.'%')
+            ;
+     
+     return $qb
+      ->getQuery()
+      ->getResult()
+    ;
+  }
 
-    
     
 }
 

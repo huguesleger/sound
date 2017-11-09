@@ -7,20 +7,26 @@
           <div class="app">
               <div class="container-prod">
               {% block search %}
+                 {#{{ render(controller("AppBundle:Front:recherche")) }}#}
+             {#    {{ render(controller('AppBundle:Recherche:recherche')) }}#}
                   <div class="searching">
                       <div class="search col-lg-2 col-md-4 col-sm-5">
+                            
+                            <form class="" method="post" action="{{ path('productionsrecherche')}}">
                         <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Search for...">
+                          <input type="search" class="form-control" placeholder="Search for..." name="motcle">
                           <span class="input-group-btn">
-                            <button class="btn btn-search " type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                              <button class="btn btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
                           </span>
                         </div><!-- /input-group -->
+                         </form>
+                          
                       </div>
                       <div class="genres-mobile">
                           <ul>
                                <li><i class="fa fa-home" aria-hidden="true"></i></li>
                               {% for genre in genres %}                                  
-                              <li><a class="" href="{{ path('productionslist', { 'id': genre.id }) }}">{{genre.nom}}</a></li>
+                              <li><a class="" href="{{ path('productionsgenre', { 'id': genre.id }) }}">{{genre.nom}}</a></li>
                               {% endfor %}
                           </ul>
                       </div>
@@ -37,10 +43,13 @@
               {% endblock %}
               
               {% block productions %}
-                  
-                  {% for sound in sounds %}
-                      {{ sound.titre }}
-                      {{ sound.description }}
+                  {% for sound in pagination %}
+
+                    {# {% if sound.publier == true %}#}
+                      <p>{{ sound.titre }}</p>
+                      <p>{{ sound.label }}</p>
+                     
+                   {#   {{ sound.description }}
                       {{ sound.titre }}
                       {{ sound.auteur }}
                       {{ sound.label }}
@@ -49,9 +58,14 @@
                       {{ sound.annee|date ('j/m/y à H:i:s') }}
                       {{ sound.link }}
                       {{ sound.linkSpotify }}
-                      {{ sound.linkDeezer }}
+                      {{ sound.linkDeezer }}#}
+                    
+                        
+                   {#{% endif %}#}
+                   
+                       
                   {% endfor %}
-                  
+                   <div class="navigation">{{ knp_pagination_render(pagination) }}</div>
               {% endblock %}
           </div>
           </div>
