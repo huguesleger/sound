@@ -4,6 +4,7 @@
 
 namespace AppBundle\Controller\Front;
 
+
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -49,16 +50,17 @@ class FrontController  extends Controller {
     }
     
     /**
-     * @Route("/productions", name= "productions");
+     * @Route("/productions/{page}", name= "productions", requirements={"page" = "\d+"}, defaults={"page" = 1});
      * @Template(":front:productions.html.twig");
      */
-    public function productions(Request $request){
+    public function productions(Request $request, $page = 1){
         
        $em = $this->getDoctrine()->getManager();
        $sounds= $em->getRepository('AppBundle:Sound')->findByPublier(1,array('date'=>'DESC'));
-       $pagination = $this->get('knp_paginator')->paginate($sounds,
-                  $request->query->get('page', 1)/*le numéro de la page à afficher*/,
+       $pagination = $this->get('knp_paginator')->paginate($sounds, 
+       $request->query->get('page', $page)/*le numéro de la page à afficher*/,
           4/*nbre d'éléments par page*/);
+       
        $genres = $em->getRepository('AppBundle:Genre')->findAll();
        $labels = $em->getRepository('AppBundle:Label')->findAll();
        $socials = $em->getRepository('AppBundle:Social')->findAll();
