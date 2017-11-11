@@ -2,10 +2,14 @@
 
 
   {% block content %}
+      
+
+      
+      
          <body class="productions">
 
           <div class="app">
-              <div class="container-prod">
+              <div class="container-prod mg-top" id="prod">
               {% block search %}
                  {#{{ render(controller("AppBundle:Front:recherche")) }}#}
              {#    {{ render(controller('AppBundle:Recherche:recherche')) }}#}
@@ -14,7 +18,7 @@
                             
                             <form class="" method="post" action="{{ path('productionsrecherche')}}">
                         <div class="input-group">
-                          <input type="search" class="form-control" placeholder="Search for..." name="motcle">
+                          <input type="search" class="form-control" placeholder="Rechercher un titre, artiste ..." name="motcle">
                           <span class="input-group-btn">
                               <button class="btn btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
                           </span>
@@ -26,29 +30,55 @@
                           <ul>
                                <li><i class="fa fa-home" aria-hidden="true"></i></li>
                               {% for genre in genres %}                                  
-                              <li><a class="" href="{{ path('productionsgenre', { 'id': genre.id }) }}">{{genre.nom}}</a></li>
+                              <li><a class="" href="{{ path('productionsgenre', { 'nom': genre.nom }) }}">{{genre.nom}}</a></li>
                               {% endfor %}
                           </ul>
                       </div>
                       <div class="genres col-lg-3 col-lg-offset-3 col-md-5 col-sm-7">
-                          <h3 class="title-rubrique">productions<span class="genres-rubrique">genres musicaux</span></h3>
+                          <h3 class="title-rubrique">catégories<span class="genres-rubrique">genres musicaux</span></h3>
                           
                          <div class="main-icon-genre" id="">
                             <span class="hamb-genre"></span>
                          </div>
                       </div>
+                       
                       
                   </div>
+                          <div class="wraper">
+                              <div class="container nav-genres">
+                                  <ul class="">
+                                      <li><a class="nav-style-genres" href="{{ path('productions')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+                                      {% for genre in genres %}
+                                        <li><a class="nav-style-genres" href="{{ path('productionsgenre', { 'nom': genre.nom }) }}">{{genre.nom}}</a></li>
+                                       {% endfor %}
+                                  </ul>
+                                  
+                              </div>
+                          </div> 
 
               {% endblock %}
               
               {% block productions %}
+                  <div class="push-prod">
+                   <div class="title-section">
+                       {% for production in productions %}
+                    <h2>{{ production.titre }}</h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="wave-title" viewBox="0 0 238 29">
+                    <path d="M1382.78,3879.29c-20.73,15.59-38.41,15.59-59.15,0-13.52-10.17-25.06-10.17-38.57,0-20.54,15.44-37.29,15.44-57.83,0-13.67-10.28-22.9-10.28-36.58,0l-5.64-7.54c16.62-12.5,30.59-13,47.87,0,16.29,12.25,28.31,13.7,46.54,0,17.28-13,33.34-12.42,49.86,0,16.95,12.75,30.25,13.25,47.86,0,17.29-13,28.59-13,45.87,0l-5.64,7.54C1403.48,3868.84,1396.68,3868.84,1382.78,3879.29Z" transform="translate(-1185 -3862)"/>
+                    </svg>
+                    </div>
+                    <div class="container txt-section intro-production">
+                        <p class="txt-center">{{ production.texte }}</p>
+                    {% endfor %}
+                  </div> 
+                  
+                  <div id="searching">
+                      <div class="container">
                   {% for sound in pagination %}
-
-                    {# {% if sound.publier == true %}#}
+                     
                       <p>{{ sound.titre }}</p>
                       <p>{{ sound.label }}</p>
-                     
+                   
                    {#   {{ sound.description }}
                       {{ sound.titre }}
                       {{ sound.auteur }}
@@ -59,13 +89,16 @@
                       {{ sound.link }}
                       {{ sound.linkSpotify }}
                       {{ sound.linkDeezer }}#}
-                    
-                        
-                   {#{% endif %}#}
+               
                    
-                       
+
                   {% endfor %}
-                   <div class="navigation">{{ knp_pagination_render(pagination) }}</div>
+                  </div>
+                  </div>
+                   
+
+                   <div class="navigation txt-center">{{ knp_pagination_render(pagination) }}</div>
+                  </div>
               {% endblock %}
           </div>
           </div>

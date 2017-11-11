@@ -1,0 +1,43 @@
+{% extends ':back:templateAdmin.html.twig' %}
+
+  {% block content %}
+    <h1>Productions list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Texte</th>
+                <th>Publier</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for production in productions %}
+            <tr>
+                <td><a href="{{ path('production_show', { 'id': production.id }) }}">{{ production.id }}</a></td>
+                <td>{{ production.titre }}</td>
+                <td>{{ production.texte }}</td>
+                <td> {% if production.publier %}<span type="button" class="label label-success">Publié</span>{% else %}<span class="label label-warning">Brouillon</span>{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('production_show', { 'id': production.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('production_edit', { 'id': production.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('production_new') }}">Create a new production</a>
+        </li>
+    </ul>
+{% endblock %}

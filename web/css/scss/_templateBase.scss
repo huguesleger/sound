@@ -108,6 +108,14 @@ body {
          transition: height .5s .2s ease;
         }
     }
+    
+        .bl, .br {
+        width: 40px;
+    }
+    
+    .bt, .bb {
+        height: 40px;
+    } 
 /*    .app {
         margin-left: 40px;
     }*/
@@ -132,6 +140,14 @@ body {
          transition: height .5s .2s ease;
         }
     }
+    
+        .bl, .br {
+        width: 45px;
+    }
+    
+    .bt, .bb {
+        height: 45px;
+    } 
 /*    .app {
         margin-left: 45px;
     }*/
@@ -152,7 +168,15 @@ body {
          transition: height .5s .2s ease;
         }
     }
-
+    
+    .bl, .br {
+        width: 55px;
+    }
+    
+    .bt, .bb {
+        height: 55px;
+    } 
+  
 /*    .app {
         margin-left: 55px;
     }*/
@@ -168,8 +192,9 @@ body {
     width: 100%;
     height: 100vh;
     background-color: $color_primary;
-    position: fixed;
+    position: absolute;
     z-index: 200;
+    top: 0;
 }
 
 
@@ -258,6 +283,10 @@ body {
 
 .padd-b-md {
     padding-bottom: 50px;
+}
+
+.mg-top {
+    margin-top: 50px;
 }
 
 @media screen and(min-width: 768px) and (max-width: 1200px){

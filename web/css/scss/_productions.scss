@@ -7,7 +7,7 @@
     position: absolute;
     transition: transform 0.5s;
     cursor: pointer;
-    right: 0 !important;
+    right: 15px !important;
     top: -5px;
   
    .hamb-genre{
@@ -64,19 +64,13 @@
                width: 40px;
                left: 0;
                transform: translateY(0) rotate(45deg);
-               background: -webkit-linear-gradient(left, #f94545, #ff8668); /* For Safari 5.1 to 6.0 */
-               background: -o-linear-gradient(right,  #f94545, #ff8668); /* For Opera 11.1 to 12.0 */
-               background: -moz-linear-gradient(right,  #f94545, #ff8668); /* For Firefox 3.6 to 15 */
-               background: linear-gradient(to right,  #f94545, #ff8668); /* Standard syntax */
+               background: $color_primary;
             }
             .hamb-genre::after{
                 width: 40px;
                 left: 0;
                 transform: translateY(0) rotate(-45deg);
-                background: -webkit-linear-gradient(left, #f94545, #ff8668); /* For Safari 5.1 to 6.0 */
-                background: -o-linear-gradient(right,  #f94545, #ff8668); /* For Opera 11.1 to 12.0 */
-                background: -moz-linear-gradient(right,  #f94545, #ff8668); /* For Firefox 3.6 to 15 */
-                background: linear-gradient(to right,  #f94545, #ff8668); /* Standard syntax */
+                background: $color_primary;
             }
             &:hover{
               transition: 0.7s;
@@ -92,6 +86,11 @@
 }
 
 }
+
+
+
+
+
 
 ///////////
 ////////////
@@ -152,6 +151,7 @@
 }
 }
 
+
 @media screen and(max-width: 767px){
 .genres {
     display: none;
@@ -162,34 +162,153 @@
 .genres {
     padding-right: 50px;
     padding-top: 7px;
-    color: $color_secondary
+    z-index: 2;
+    color: $color_secondary;
+    transition: color 0.3s ease-in-out;
+    &.genres-open{
+       color: $color_primary;
+       transition: color 0.3s ease-in-out; 
+    }
 }
+
+
 }
+
+///////// nav genre desk////////
+////////////////////////////////
+@media screen and(min-width: 768px){
+.wraper {
+    width: 100%;
+    height: 0;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: height 0.4s ease-in-out;
+    &.wraper-open {
+        height: 35vh;
+        transition: height 0.4s ease-in-out;
+        
+    }
+    
+}
+
+.nav-genres {
+    text-align: center;
+    top: 0;
+    position: relative;
+    transition: top 0.5s ease-in-out;
+    text-transform: uppercase;
+    
+    
+    ul{
+      list-style: none;
+      padding: 0; 
+    }
+    li {
+        display: inline-block;
+        opacity: 0;
+        padding: 0 15px;
+        transition: 0.3s ease-in-out;
+        color: $color_secondary;
+    }
+    .fa {
+        margin-right: 0;
+        font-size: 18px;
+    }
+}
+
+.nav-style-genres {
+    color: $color_secondary;
+    font-family: $font_title;
+    font-weight: 800;
+    padding-bottom: 6px;
+    border-bottom: 4px solid transparent;
+    transition: border 0.3s ease-in-out;
+    &:hover {
+        text-decoration: none;
+        color: $color_secondary;
+        border-bottom: 4px solid $color_primary;
+        transition: border 0.3s ease-in-out;
+    }
+}
+
+.wraper-open .nav-genres {
+    top: 60%;
+    transition: top 0.5s ease-in-out;
+}
+
+.wraper-open .nav-genres li {
+    opacity: 1;
+    transition: 0.3s ease-in-out;
+}
+
+.push-prod {
+    margin-top: 0;
+    transition: 0.3s ease-in-out;
+    &.push-down {
+      margin-top: 10%;
+    transition: 0.3s ease-in-out;  
+    }
+}
+
+}
+
+/////////////////////////////////
 
 .title-rubrique{
      margin: 0;
-     font-family: "Viafont";
+     font-family: $font_title;
+     text-transform: uppercase;
+     font-size: 20px;
+     font-weight: 900;
       &:after {
           position: absolute;
           content:'';
           width: 2px;
           height: 22px;
           margin-left: 10px;
-          background-color: $color_secondary
+          background-color: $color_secondary;
+          transition: background 0.3s ease-in-out; 
       }
+}
+
+.genres-open .title-rubrique::after {
+    background: $color_primary;
+    transition: background 0.3s ease-in-out; 
+}
+
+@media screen and(min-width: 768px){
+ .title-rubrique{
+       padding-left: 35px;
+ }
+}
+
+@media screen and(min-width: 1024px){
+ .title-rubrique{
+       padding-left: 20px;
+ }
+}
+
+@media screen and(min-width: 1200px){
+ .title-rubrique{
+       padding-left: 60px;
+ }
 }
 
 .genres-rubrique {
     position: absolute;
     font-family: "Open sans", sans-serif;
     font-size: 14px;
-    padding-top: 2px;
+    padding-top: 4px;
     padding-left: 25px;
+    font-weight: 200;
+    text-transform: capitalize;
     
 }
 
 .searching {
-    padding-top: 30px;
+    padding-top: 60px;
 }
 
 @media screen and(min-width: 768px){
@@ -202,10 +321,6 @@
 .search {
 
 }
-
-
-
-
 
 
 .form-control {
@@ -222,5 +337,9 @@
     .fa {
         margin:0;
     }
+}
+
+.intro-production {
+    max-width: 40%;
 }
 

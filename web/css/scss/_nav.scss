@@ -142,6 +142,8 @@
 }
 
 .navbar-default {
+    position: absolute;
+    width: 100%;
     opacity: 0;
     font-family: $font_title;
     z-index: 102;

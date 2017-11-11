@@ -57,11 +57,13 @@ class FrontController  extends Controller {
         
        $em = $this->getDoctrine()->getManager();
        $sounds= $em->getRepository('AppBundle:Sound')->findByPublier(1,array('date'=>'DESC'));
+       // je recupere paginator
        $pagination = $this->get('knp_paginator')->paginate($sounds, 
        $request->query->get('page', $page)/*le numéro de la page à afficher*/,
           4/*nbre d'éléments par page*/);
        
        $genres = $em->getRepository('AppBundle:Genre')->findAll();
+       $productions = $em->getRepository('AppBundle:Production')->findByPublier(1);
        $labels = $em->getRepository('AppBundle:Label')->findAll();
        $socials = $em->getRepository('AppBundle:Social')->findAll();
        
@@ -71,6 +73,7 @@ class FrontController  extends Controller {
             'genres'=> $genres,
             'labels'=> $labels,
             'socials'=> $socials,
+            'productions'=> $productions,
             
         ));
         
@@ -78,16 +81,17 @@ class FrontController  extends Controller {
     }
   
      /**
-     * @Route("/productions/genre/{id}", name= "productionsgenre");
+     * @Route("/productions/{nom}/{page}", name= "productionsgenre");
      */
-    public function genreProductions(Request $request,$id){
+    public function genreProductions(Request $request, $page = 1){
         
        $em = $this->getDoctrine()->getManager();
-       $genres = $em->getRepository('AppBundle:Genre')->findById($id);
+       $genres = $em->getRepository('AppBundle:Genre')->findAll();
        // ici on recupere tous les sons par genre
        $sounds = $em->getRepository('AppBundle:Sound')->getSoundsWithGenre($genres);
+        // je recupere paginator
          $pagination = $this->get('knp_paginator')->paginate($sounds,
-                  $request->query->get('page', 1)/*le numéro de la page à afficher*/,
+                  $request->query->get('page', $page)/*le numéro de la page à afficher*/,
           4/*nbre d'éléments par page*/);
        $socials = $em->getRepository('AppBundle:Social')->findAll();
        
@@ -100,14 +104,21 @@ class FrontController  extends Controller {
     }  
     
      /**
-     * @Route("/productions/recherche", name= "productionsrecherche");
+     * @Route("/productions/recherche/{page}", name= "productionsrecherche");
      */
-    public function soundRecherche(Request $request) {
+    public function soundRecherche(Request $request, $page = 1) {
         
        
         $em = $this->getDoctrine()->getManager();
+        
+        
+        
         $motcle = $request->get('motcle');
         $sounds = $em->getRepository('AppBundle:Sound')->findSoundBytitre($motcle);
+         // je recupere paginator
+        $pagination = $this->get('knp_paginator')->paginate($sounds,
+                  $request->query->get('page', $page)/*le numéro de la page à afficher*/,
+          4/*nbre d'éléments par page*/);
         $genres = $em->getRepository('AppBundle:Genre')->findAll();
         $socials = $em->getRepository('AppBundle:Social')->findAll();
         
@@ -116,6 +127,7 @@ class FrontController  extends Controller {
         return $this->render('front/productions.html.twig', array(
             'sounds' => $sounds,
             'genres'=> $genres,
+            'pagination'=> $pagination,
             'socials'=> $socials,
         ));
     } 
