@@ -446,3 +446,18 @@ body {
   padding-right: 55px;
 }
 }
+
+@media screen and(max-width: 768px){
+.background-mobile {
+    width: 100%;
+    margin: 0;
+}
+}
+
+
+@media screen and(max-width: 768px){
+.color-white {
+    background-color: #fff;
+}
+}
+

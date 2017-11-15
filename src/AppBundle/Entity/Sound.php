@@ -41,7 +41,7 @@ class Sound
      *
      * @ORM\Column(name="description", type="text", nullable=true)
      * @Assert\Length(
-     *  max = 250,
+     *  max = 320,
      *  maxMessage = "le texte doit avoir maximum {{ limit }} caratères")
      */
     private $description;

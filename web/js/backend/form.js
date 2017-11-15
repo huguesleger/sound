@@ -261,12 +261,12 @@ $(function() {
 
    function reste(texte)
 {
-    var restants = 250-texte.length;
+    var restants = 320-texte.length;
     document.getElementById('caracteres').innerHTML=restants + "&nbsp;caractère(s)&nbsp;disponible(s)";
 }
 
 $(function(){
-   $('<div id="caracteres">250 caracatère(s) disponible(s)</div>').insertAfter('#appbundle_sound_description'); 
+   $('<div id="caracteres">320 caracatère(s) disponible(s)</div>').insertAfter('#appbundle_sound_description'); 
 });
 
 

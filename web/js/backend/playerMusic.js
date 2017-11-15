@@ -7,7 +7,6 @@
 $(document).ready(function(){
 // var for audio content
 
-
 var audio = document.getElementById('audio');
 
 

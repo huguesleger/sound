@@ -19,7 +19,7 @@ class SoundType extends AbstractType
                 ->add('auteur')
                 ->add('description',null, array('attr'=> array(
                       'placeholder' => 'description du morceau en quelques lignes ...',
-                      'rows'=>3,
+                      'rows'=>6,
                       'onkeyup'=>'reste(this.value);')))
                 ->add('annee', null, array(
                     'widget' => 'single_text',

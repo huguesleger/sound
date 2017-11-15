@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -27,7 +28,24 @@ class Genre
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
+    
+    
 
+    
+    
+     /**
+    *
+    * @var DateTime
+    * @ORM\Column(name="date", type="datetime")
+    */
+    private $date;
+    
+    
+     
+    public function __construct()
+{
+    $this->date = new DateTime();
+}
 
     
     /**
@@ -64,7 +82,31 @@ class Genre
         return $this->nom;
     }
     
+    
+     /**
+     * Set date
+     *
+     * @param DateTime $date
+     *
+     * @return Genre
+     */
+     public function setDate(DateTime $date) {
+        $this->date = $date;
         
+        return $this;
+    }
+    
+    
+    /**
+     * Get date
+     *
+     * @return DateTime
+     */
+    public function getDate() {
+        return $this->date;
+    }
+    
+
     
     public function __toString() {
         return $this->getNom();

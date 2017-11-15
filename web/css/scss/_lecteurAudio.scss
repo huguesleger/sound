@@ -34,7 +34,7 @@ audio{
     color: grey;
 }*/
 
-.audio-player{
+.audio-player-admin{
     @include centerer;
     display:flex;
     flex-direction: column;
@@ -143,7 +143,7 @@ audio{
     background:$base-clr;
     height:6px;
 }
-.progressbar_range{
+ .progressbar_range{
     width:0;
     background:#394D5F;
     height:6px;
