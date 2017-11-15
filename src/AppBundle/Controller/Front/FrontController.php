@@ -119,10 +119,10 @@ class FrontController  extends Controller {
      /**
      * @Route("/productions/{nom}/{page}", name= "productionsgenre");
      */
-    public function genreProductions(Request $request, $page = 1){
+    public function genreProductions(Request $request,$nom, $page = 1){
         
        $em = $this->getDoctrine()->getManager();
-       $genres = $em->getRepository('AppBundle:Genre')->findAll();
+       $genres = $em->getRepository('AppBundle:Genre')->findByNom($nom);
        // ici on recupere tous les sons par genre
        $sounds = $em->getRepository('AppBundle:Sound')->getSoundsWithGenre($genres);
         // je recupere paginator

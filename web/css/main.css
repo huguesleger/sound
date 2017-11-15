@@ -1361,6 +1361,10 @@ body {
     width: 2px;
     height: 70px;
     background-color: #112233; } }
+@media screen and (max-width: 768px) {
+  #service .container {
+    padding-left: 0;
+    padding-right: 0; } }
 .services {
   padding-top: 70px; }
 

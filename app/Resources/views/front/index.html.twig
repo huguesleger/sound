@@ -200,7 +200,8 @@
            {% endblock %}
            
             {% block services %}
-                <section class="bg-section-white padd-b-md">
+                
+                <section class="bg-section-white padd-b-md" id="service">
                      <div class="title-section services"> 
                   {% for service in services [0:] %}       
                 {%if loop.index == 1%}<h2>{{service.name}}</h2>{% endif %}
@@ -211,6 +212,7 @@
                      </div>
                         <div class="container">
                             {% for service in services %}
+                                 <div class="background-mobile{% if loop.index is divisible by(2)%} {% else %} color-white{% endif %}">
                                 <div class="{% if loop.length == 4 %}col-md-6 col-sm-6 col-xs-12 {% elseif loop.length == 2 %}col-md-6 col-sm-6 col-xs-12{% else %}col-md-4 col-sm-6 col-xs-12{% endif %}{% if loop.index is divisible by(2) %} bg-item-mobile {% else%}{% endif %} ">
                                     <div class="item-service">
                                     <div class="item-icon-center">
@@ -222,7 +224,7 @@
                                     </div>
                                     </div>
                                 </div>
-
+                                     </div>
                               {% endfor %} 
                         </div>
                  
