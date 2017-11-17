@@ -138,6 +138,20 @@ class FrontController  extends Controller {
             'socials'=> $socials,
             
         ));
-    }  
+    }
+    
+     /**
+     * @Route("/contact", name= "contact");
+     */
+    public function contact(){
+        
+        $em = $this->getDoctrine()->getManager();
+        $socials = $em->getRepository('AppBundle:Social')->findAll();
+        
+        return $this->render('front/contact.html.twig',array(
+            'socials'=> $socials,
+        ));
+    } 
 
 }
+

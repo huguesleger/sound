@@ -13,12 +13,7 @@
          <link rel="stylesheet" type="text/css" href="{{asset('vendor/font-awesome.min.css')}}"/>
           <link rel="stylesheet" type="text/css" href="{{asset('vendor/vynil-embedded.css')}}"/>
          <link rel="stylesheet" type="text/css" href="{{asset('vendor/animate.css')}}"/>
-         {% stylesheets filter='cssrewrite'
-
-            'css/main.css'
-          %}
-         <link rel="stylesheet" href="{{ asset_url }}" />
-         {% endstylesheets %}      
+          <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}"/>
          {% endblock %}
     </head>
     <body>
@@ -31,13 +26,7 @@
         <script type="text/javascript" src="{{asset('vendor/bootstrap.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('vendor/velocity.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('vendor/dynamics.min.js')}}"></script>
-         {% javascripts output="js/compiled/main.js"
-
-         'js/front/main.js'
-
-        %}
-         <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
+        <script type="text/javascript" src="{{asset( 'js/front/main.js')}}"></script>
         {% endblock %}
         {% block scriptForm %}{% endblock %}
     </body>
