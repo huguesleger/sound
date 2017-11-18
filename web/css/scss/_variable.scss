@@ -4,10 +4,15 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900');
 
+@font-face {
+    font-family: "Viafont";
+    src: url("../fonts/Viafont.otf");
+}
+
 //////font type/////////
 
 $font: "Open", Arial, sans-serif;
-
+$font_extra: "Viafont";
 $font_title: "Raleway";
 
 

@@ -2,12 +2,13 @@
 
 
   {% block content %}
+      
 
-    {% for sound in pagination %}            
-  {% if not sound.genre.empty and sound.publier == true %}
-   
-     <body class="productions">
-     <div class="app">
+      
+      
+         <body class="productions">
+
+          <div class="app">
               <div class="container-prod mg-top" id="prod">
               {% block search %}
                  {#{{ render(controller("AppBundle:Front:recherche")) }}#}
@@ -25,21 +26,21 @@
                          </form>
                           
                       </div>
-                     {# <div class="genres-mobile">
+                      <div class="genres-mobile">
                           <ul>
                                <li><i class="fa fa-home" aria-hidden="true"></i></li>
                               {% for genre in genres %}                                  
-                              <li><a class="" href="{{ path('productions') }}">{{genre.nom}}</a></li>
+                              <li><a class="" href="{{ path('productionsgenre', { 'nom': genre.nom }) }}">{{genre.nom}}</a></li>
                               {% endfor %}
                           </ul>
-                      </div>#}
+                      </div>
                       <div class="genres col-lg-3 col-lg-offset-3 col-md-5 col-sm-7">
                           
                           <h3 class="title-rubrique"><a class="nav-style-genres" href="{{ path('productions')}}"><i class="fa fa-home" aria-hidden="true"></i></a>catégories<span class="genres-rubrique">genres musicaux</span></h3>
                           
-                        {# <div class="main-icon-genre" id="">
+                         <div class="main-icon-genre" id="">
                             <span class="hamb-genre"></span>
-                         </div>#}
+                         </div>
                       </div>
                        
                       
@@ -68,10 +69,6 @@
               
               {% block productions %}
                   <div class="push-prod">
-                   <div class="title-section">
-        
-                  </div> 
-                  
                   <div id="searching">
                       <div class="container sound">
                   {% for sound in pagination %}
@@ -173,12 +170,14 @@
               {% endblock %}
           </div>
           </div>
+          {% endblock %}
+          {% block scriptForm %}
 
-       {% if not loop.last %}, {% endif %}
-  {% endif %}
-  {% endfor %}
-   <div class="navigation">{{ knp_pagination_render(pagination) }}</div>
-
-
-
-  {% endblock %}
+<script type="text/javascript" src="{{asset('js/front/player.js')}}"></script>
+{#<script>
+    $( function()
+    {
+        $( 'audio' ).audioPlayer();
+    });
+</script>#}
+ {% endblock %}

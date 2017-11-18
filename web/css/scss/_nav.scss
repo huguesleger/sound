@@ -3,6 +3,9 @@
 /////////////nav-mobile/////////////
 /////////////////////////////////////
 
+
+
+
 @media screen and(max-width: 767px){
 .main-icon{
   width: 45px;
@@ -121,10 +124,9 @@
 }
 
 
-.nav-mobile {
-    display: none;
+
 }
-}
+
 
 /////////////end-nav-mobile/////////////
 /////////////////////////////////////
@@ -141,9 +143,19 @@
  margin-right: 0;   
 }
 
+@media screen and(max-width:768px){
+    .navbar-default {
+        background-color: #fff;
+        .navbar-brand {
+     color: $color_secondary;  
+    }
+    }   
+}
+
+@media screen and(min-width:768px){
 .navbar-default {
-    position: absolute;
-    width: 100%;
+/*    position: absolute;
+    width: 100%;*/
     opacity: 0;
     font-family: $font_title;
     z-index: 102;
@@ -151,18 +163,29 @@
     background-color: transparent;
     border-color: transparent;
     .navbar-brand {
-     color: $color_secondary;  
+     color: $color_secondary;
+     &:hover {
+         color: $color_secondary;
+     }
     }
+}
 }
 
 .navbar-default .navbar-nav>li>a {
     color: $color_secondary;
+    border-bottom: 4px solid transparent;
+    transition: border 0.3s ease-in-out;
+    &:hover {
+        color: $color_secondary;
+        border-bottom: 4px solid $color_primary;
+        transition: border 0.3s ease-in-out;
+    }
 }
 
 
 .navbar-default .nav {
     position: fixed;
-    right: 40px;
+    right: 55px;
 /*    background-color: $white;*/
 }
 
@@ -181,7 +204,7 @@
     position: fixed;
     z-index: 101;
     display: inline-block;
-    left: 40px;
+    left: 55px;
     font-size:  16px;
 }
 .navbar>.navbar-brand, .navbar>.container-fluid .navbar-brand {

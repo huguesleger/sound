@@ -102,16 +102,14 @@ class FrontController  extends Controller {
           4/*nbre d'éléments par page*/);
         $genres = $em->getRepository('AppBundle:Genre')->findAll();
         $socials = $em->getRepository('AppBundle:Social')->findAll();
-        $productions = $em->getRepository('AppBundle:Production')->findByPublier(1);
         
         
 
-        return $this->render('front/productions.html.twig', array(
+        return $this->render('front/productionsRecherche.html.twig', array(
             'sounds' => $sounds,
             'genres'=> $genres,
             'pagination'=> $pagination,
             'socials'=> $socials,
-            'productions'=> $productions,
         ));
     }
     
@@ -132,13 +130,15 @@ class FrontController  extends Controller {
        $socials = $em->getRepository('AppBundle:Social')->findAll();
        
        return $this->render('front/productionsGenre.html.twig', array(
-            'genres' => $genres,
+            'genres'=> $genres,
             'sounds'=> $sounds,
             'pagination'=> $pagination,
             'socials'=> $socials,
             
         ));
     }
+    
+   
     
      /**
      * @Route("/contact", name= "contact");

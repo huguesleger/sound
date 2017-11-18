@@ -17,16 +17,9 @@
          <link rel="stylesheet" type="text/css" href="{{asset('vendor/bootstrap.min.css')}}"/>
          <link rel="stylesheet" type="text/css" href="{{asset('vendor/font-awesome.min.css')}}"/>
          <link rel="stylesheet" type="text/css" href="{{asset('vendor/animate.css')}}"/>
-         
-         {% stylesheets output="css/compiled/main.css"
-
-            'css/gentelella/custom.css'
-            'css/gentelella/icheck/flat/green.css'
-
-            'css/main.css'
-         filter='cssrewrite' %}
-         <link rel="stylesheet" href="{{ asset_url }}" />
-         {% endstylesheets %}
+         <link rel="stylesheet" type="text/css" href="{{asset('css/gentelella/custom.css')}}"/>
+         <link rel="stylesheet" type="text/css" href="{{asset('css/gentelella/icheck/flat/green.css')}}"/>
+         <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}"/>
          {% endblock %}
   
 

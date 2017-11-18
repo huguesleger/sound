@@ -1,11 +1,4 @@
 
-
-@font-face {
-    font-family: "Viafont";
-    src: url("../fonts/Viafont.otf");
-}
-
-
 body {
     font-family: $font;
 /*    background-color: $color_background;*/
@@ -336,20 +329,20 @@ body {
 
 @media screen and(min-width: 768px) {
 .footer {
-    height: 20vh;
+/*    height: 20vh;*/
     padding: 50px 15px;
 }
 }
 
 .footer {
     color: #888888;
+    background-color: #fff;
 }
 
 @media screen and(min-width: 1024px) {
 .credit {
    display: flex;
-   justify-content: space-between;
-   
+   justify-content: space-between;  
 }
 }
 
