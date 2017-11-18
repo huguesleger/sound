@@ -115,7 +115,7 @@ $(document).ready(function(){
         $('#prod').append('<div id="NoResult"><div class="no-result"><p>Aucun résultat</p> <svg xmlns="http://www.w3.org/2000/svg" class="wave-title" viewBox="0 0 238 29"><path d="M1382.78,3879.29c-20.73,15.59-38.41,15.59-59.15,0-13.52-10.17-25.06-10.17-38.57,0-20.54,15.44-37.29,15.44-57.83,0-13.67-10.28-22.9-10.28-36.58,0l-5.64-7.54c16.62-12.5,30.59-13,47.87,0,16.29,12.25,28.31,13.7,46.54,0,17.28-13,33.34-12.42,49.86,0,16.95,12.75,30.25,13.25,47.86,0,17.29-13,28.59-13,45.87,0l-5.64,7.54C1403.48,3868.84,1396.68,3868.84,1382.78,3879.29Z" transform="translate(-1185 -3862)"/></svg><p class="no-result-lite">pour cette recherche <br> <i class="fa fa-circle fa-pulse" aria-hidden="true"></i><i class="fa fa-circle fa-pulse" aria-hidden="true"></i><i class="fa fa-circle fa-pulse" aria-hidden="true"></i></p></div></div>');
             $('.no-result').css({
         top: ($(window).height() - $('.no-result').outerHeight()) / 2,
-         right: ($(window).width() - $('.no-result').outerWidth()) / 2,
+         right: ($(window).width() - $('.no-result').outerWidth()) / 2
     });
     } else {
        $('#prod').remove('.no-result'); 
@@ -128,7 +128,6 @@ $(document).ready(function(){
     if(windowWidth <= 767){
         $('.main-icon').click(function(){
         $('.menu-type').toggleClass('open');
-        $('.navbar-brand').addClass('white');
         $('#content').toggleClass('push-content');
               
     $this = $(this);
@@ -138,12 +137,19 @@ $(document).ready(function(){
         $('#colorLogo').find("path").attr('fill','#000');
         $('.main-content').show();
         $('.menu-tint').hide(410);
-        $('.nav-mobile').hide();
+        $('.nav-mobile').removeClass('open');
+        $('body').css('overflow','visible');
     }else{
         $this.addClass('is-open is-open-color');
-        $('.nav-mobile').show().addClass('open');
+        $('.nav-mobile').addClass('open');
+        $('body').css('overflow','hidden');
         }
         });
+        
+         $('.navbar-right').css({
+        top: ($(window).height() - $('.navbar-right').outerHeight()) / 2
+//        right: ($(window).width() - $('.navbar-right').outerWidth()) / 2
+    });
     }
     
     //////////////////////////////////////////

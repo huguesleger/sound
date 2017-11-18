@@ -25,26 +25,26 @@
                          </form>
                           
                       </div>
-                     {# <div class="genres-mobile">
+                      <div class="genres-mobile">
                           <ul>
-                               <li><i class="fa fa-home" aria-hidden="true"></i></li>
+                               <li><a class="" href="{{ path('productions') }}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
                               {% for genre in genres %}                                  
-                              <li><a class="" href="{{ path('productions') }}">{{genre.nom}}</a></li>
-                              {% endfor %}
+                              <li>{{genre.nom}}</li>
+                              
                           </ul>
-                      </div>#}
+                      </div>
                       <div class="genres col-lg-3 col-lg-offset-3 col-md-5 col-sm-7">
                           
-                          <h3 class="title-rubrique"><a class="nav-style-genres" href="{{ path('productions')}}"><i class="fa fa-home" aria-hidden="true"></i></a>catégories<span class="genres-rubrique">genres musicaux</span></h3>
+                          <h3 class="title-rubrique"><a class="nav-style-genres" href="{{ path('productions')}}"><i class="fa fa-home" aria-hidden="true"></i></a>catégorie<span class="genres-rubrique">{{genre.nom}}</span></h3>
                           
                         {# <div class="main-icon-genre" id="">
                             <span class="hamb-genre"></span>
                          </div>#}
                       </div>
-                       
+                       {% endfor %}
                       
                   </div>
-                          <div class="wraper">
+                         {# <div class="wraper">
                               <div class="container nav-genres">
                                   <ul class="">
                                       
@@ -62,7 +62,7 @@
                                   </ul>
                                   
                               </div>
-                          </div> 
+                          </div> #}
 
               {% endblock %}
               

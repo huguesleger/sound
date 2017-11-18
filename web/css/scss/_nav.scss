@@ -24,7 +24,7 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 30px;
+      width: 25px;
       height: 2px;
       background-color: $color_secondary;
       transform: translateX(-50%) translateY(-50%);
@@ -34,18 +34,18 @@
           display: block;
           position: absolute;
           top: 0;
-          left: -10px;
-          width: 40px;
+          left: 0px;
+          width: 25px;
           height: 2px;
           background-color: $color_secondary;
-          transform: translateY(-8px);
+          transform: translateY(-5px);
           transition: transform 0.3s;
         }
         
         &::after{
-            width: 20px;
-            left: 10px;
-          transform: translateY(8px);
+            width: 25px;
+            left: 0px;
+          transform: translateY(5px);
         }
     }
 
@@ -56,11 +56,11 @@
           }
 
              .hamb::before{
-              transform: translateY(-8px);
+              transform: translateY(-5px);
             }
 
            .hamb::after{
-              transform: translateY(8px);
+              transform: translateY(5px);
             }    
         }
 
@@ -70,22 +70,16 @@
               background: transparent !important;
             }
              .hamb::before{
-               width: 40px;
+               width: 25px;
                left: 0;
                transform: translateY(0) rotate(45deg);
-               background: -webkit-linear-gradient(left, #f94545, #ff8668); /* For Safari 5.1 to 6.0 */
-               background: -o-linear-gradient(right,  #f94545, #ff8668); /* For Opera 11.1 to 12.0 */
-               background: -moz-linear-gradient(right,  #f94545, #ff8668); /* For Firefox 3.6 to 15 */
-               background: linear-gradient(to right,  #f94545, #ff8668); /* Standard syntax */
+               background: #fff; 
             }
             .hamb::after{
-                width: 40px;
+                width: 25px;
                 left: 0;
                 transform: translateY(0) rotate(-45deg);
-                background: -webkit-linear-gradient(left, #f94545, #ff8668); /* For Safari 5.1 to 6.0 */
-                background: -o-linear-gradient(right,  #f94545, #ff8668); /* For Opera 11.1 to 12.0 */
-                background: -moz-linear-gradient(right,  #f94545, #ff8668); /* For Firefox 3.6 to 15 */
-                background: linear-gradient(to right,  #f94545, #ff8668); /* Standard syntax */
+                background: #fff;
             }
             &:hover{
               transition: 0.7s;
@@ -112,17 +106,32 @@
     background: -o-linear-gradient(30deg, #4B217F, #130C1C);
     background: -moz-linear-gradient(30deg, #4B217F, #130C1C);
     background: linear-gradient(30deg, #4B217F, #130C1C);*/
-    background-color: $color_primary;
-    transition: all 0.9s cubic-bezier(0.77, 0.06, 0.28, 0.85);
+    background: $color_primary;
+    transition: all 0.9s ease-in-out;
     opacity: 0;
     visibility: hidden; 
     
     &.open{
-        opacity: 1;
+        opacity: 0.95;
         visibility: visible;
+        transition: all 0.9s ease-in-out;
+  
+        
     }
 }
 
+/*.nav-mobile {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.9s cubic-bezier(0.77, 0.06, 0.28, 0.85);
+    &.open{
+        opacity: 0.95;
+        visibility: visible;
+        transition: all 0.9s cubic-bezier(0.77, 0.06, 0.28, 0.85);
+
+        
+    }
+}   */
 
 
 }
@@ -139,9 +148,20 @@
     max-height: 55px;
     min-height: 40px;
 }
+@media screen and(min-width:768px){
 .navbar-right{
  margin-right: 0;   
 }
+}
+
+@media screen and(max-width:767px){
+.navbar-right{
+ position: absolute;
+ width: 100%;
+ left: 0;
+}
+}
+
 
 @media screen and(max-width:768px){
     .navbar-default {
@@ -170,7 +190,7 @@
     }
 }
 }
-
+@media screen and(min-width: 768px){
 .navbar-default .navbar-nav>li>a {
     color: $color_secondary;
     border-bottom: 4px solid transparent;
@@ -181,12 +201,38 @@
         transition: border 0.3s ease-in-out;
     }
 }
+}
 
+@media screen and(max-width: 767px){
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+    font-family: $font_title;
+    font-size: 30px;
+    font-weight: 900;
+    text-align: center;
+    transition:  0.3s ease-in-out;
+    padding: 15px;
+    &:hover {
+        color: $color_secondary;
+        transition:  0.3s ease-in-out;
+    }
+}
+}
 
+@media screen and(min-width: 768px){
 .navbar-default .nav {
     position: fixed;
     right: 55px;
 /*    background-color: $white;*/
+}
+}
+
+@media screen and(max-width: 767px){
+.navbar-default .nav {
+    text-align: center;
+    margin:0;
+/*    background-color: $white;*/
+}
 }
 
 
@@ -198,6 +244,7 @@
 .logo {
  font-weight: 900;   
 }
+
 
 @media screen and(min-width: 768px){
 .logo {

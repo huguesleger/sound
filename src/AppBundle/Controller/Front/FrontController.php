@@ -4,7 +4,6 @@
 
 namespace AppBundle\Controller\Front;
 
-
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -112,7 +111,7 @@ class FrontController  extends Controller {
             'socials'=> $socials,
         ));
     }
-    
+
     
      /**
      * @Route("/productions/{nom}/{page}", name= "productionsgenre");
@@ -137,6 +136,9 @@ class FrontController  extends Controller {
             
         ));
     }
+    
+        
+
     
    
     
