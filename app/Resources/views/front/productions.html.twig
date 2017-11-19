@@ -28,9 +28,9 @@
                       </div>
                       <div class="genres-mobile">
                           <ul>
-                               <li><i class="fa fa-home" aria-hidden="true"></i></li>
+                               <li><a class="nav-style-genres" href="{{ path('productions')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
                               {% for genre in genres %}                                  
-                              <li><a class="" href="{{ path('productionsgenre', { 'nom': genre.nom }) }}">{{genre.nom}}</a></li>
+                              <li><a class="nav-style-genres" href="{{ path('productionsgenre', { 'nom': genre.nom }) }}">{{genre.nom}}</a></li>
                               {% endfor %}
                           </ul>
                       </div>

@@ -3,6 +3,12 @@ body {
     font-family: $font;
 /*    background-color: $color_background;*/
     width: 100%;
+   
+}
+
+.home-page {
+   overflow:hidden;
+    position: fixed;  
 }
 
 
@@ -185,10 +191,10 @@ body {
 /////// preload////////
 #hola{
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: $color_primary;
     position: absolute;
-    z-index: 200;
+    z-index: 250;
     top: 0;
 }
 
@@ -230,7 +236,8 @@ body {
 
 .wave-nav {
     width: 70px;   
-    fill: #fff;      
+    fill: #fff;
+    padding-top: 20px;
 }
 
 
@@ -461,3 +468,74 @@ body {
 }
 }
 
+
+/////// to top btn ////////////////
+
+.btn-top {
+    transition: 0.2s ease-in-out;
+}
+
+.btn-top:hover {
+    color:$color_secondary;
+    transition: 0.2s ease-in-out;
+}
+
+@media screen and(min-width: 1024px){
+    .btn-top {
+    position: fixed;
+    bottom: 100px;
+    right: 40px;
+    padding-top: 4px;
+    padding-left: 15px;
+    width: 50px;
+    height: 90px;
+    cursor: pointer;
+    font-size: 30px;
+    color: $color_primary;
+    text-decoration: none;
+    transition: 0.2s ease-out;
+    opacity: 0;
+    z-index: 100;
+    }
+    
+    .txt-scroll {
+        transform: rotate(90deg);
+        color: $color_secondary;
+        position: absolute;
+        z-index: 10000;
+        top: 50px;
+        right: 20px;
+        font-size: 10px;
+    }    
+}
+
+.btn-top.show {
+    opacity: 1;
+}
+
+@media screen and (max-width: 1023px){
+    .to-top {
+        text-align: center;
+        height: 100%;
+        .fa {
+            margin-right: 0;
+        }
+    }
+  
+    .txt-scroll {
+        transform: rotate(90deg);
+        color: $color_secondary;
+        font-size: 10px;
+    }    
+    
+.btn-top {
+cursor: pointer;
+font-size: 30px;
+color: $color_primary;
+text-decoration: none;
+transition: 0.2s ease-out;
+&:hover{
+    color: $color_secondary;
+}
+}
+}

@@ -179,6 +179,26 @@
 }
 }
 
+@media screen and(max-width: 768px){
+  .nav-style-genres {
+    color: $color_secondary;
+    font-family: $font_title;
+    font-weight: 800;
+    padding-bottom: 6px;
+    border-bottom: 4px solid transparent;
+    transition: border 0.3s ease-in-out;
+    &:hover {
+        text-decoration: none;
+        color: $color_secondary;
+        border-bottom: 4px solid $color_primary;
+        transition: border 0.3s ease-in-out;
+    }
+    .fa {
+        margin-right: 0;
+    }
+}  
+}
+
 ///////// nav genre desk////////
 ////////////////////////////////
 @media screen and(min-width: 768px){
@@ -318,20 +338,15 @@
     
 }
 
-.searching {
-    padding-top: 20px;
-}
 
 @media screen and(min-width: 768px){
 .searching {
     display: flex;
     justify-content: space-between;
+    padding-top: 20px;
 }
 }
 
-.search {
-
-}
 
 
 .form-control {

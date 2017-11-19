@@ -65,6 +65,12 @@ display: none;
     margin-left: 25%;
 }
 
+.txt-style-slide {
+    position: fixed;
+    margin-left: 0;
+    width: 100%;
+}
+
 @media screen and(min-width: 1024px) {
 .txt-carousel { 
     font-size: 4em;
@@ -194,7 +200,21 @@ display: none;
 
 
 
+@media screen and(min-width: 768px){
+.carousel-indicators {
+ display: table-cell;
+ vertical-align: middle;
+ float: none;
+ margin-left: 0;
+ right: 30px;
+ left: auto;
+ top: 45%;
+ bottom: 40px;
+ width: 6%;
+}
+}
 
+@media screen and(min-width: 1200px){
 .carousel-indicators {
  display: table-cell;
  vertical-align: middle;
@@ -204,6 +224,8 @@ display: none;
  left: auto;
  top: 60%;
  width: 6%;
+ bottom: 20px;
+}
 }
 
 .indicator-back {
