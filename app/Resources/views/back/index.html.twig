@@ -2,5 +2,7 @@
 
 
   {% block content %}
-      <p>hello</p>
+      {% for sound in sounds %} 
+          <p>{{sound.titre}} <span>{{sound.stat}}</span></p> 
+      {% endfor %} 
    {% endblock %}

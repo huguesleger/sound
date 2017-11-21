@@ -25,5 +25,13 @@ class AdminController extends Controller {
      */ 
     public function homeAdmin(){
         
+         $em = $this->getDoctrine()->getManager();
+
+        $sounds = $em->getRepository('AppBundle:Sound')->findByPublier(1,array('date'=>'DESC'));
+
+        return $this->render('back/index.html.twig', array(
+            'sounds' => $sounds,
+        ));
+        
     }
 }

@@ -128,7 +128,12 @@ class Sound
     private $genre;
     
     
-    
+    /**
+     *
+     * @var type int
+     * @ORM\Column(name="stat", type="integer")
+     */
+    private $stat;
    
     
     /**
@@ -143,6 +148,7 @@ class Sound
     public function __construct()
 {
     $this->date = new DateTime();
+    $this->stat = 0;
 }
     
     /**
@@ -454,9 +460,27 @@ class Sound
         $this->linkDeezer = $linkDeezer;
     }
 
-        
+     /**
+     * Get stat
+     *
+     * @return int
+     */    
+    public function getStat() {
+        return $this->stat;
+    }
+    
+    /**
+     * Set stat
+     *
+     * @param string $stat
+     *
+     * @return Sound
+     */
+    public function setStat(type $stat) {
+        $this->stat = $stat;
+    }
 
-        
+            
     
         
     public function __toString() {

@@ -124,39 +124,35 @@ $(document).ready(function(){
        $('#prod').remove('.no-result'); 
     }
     
+      });
    /////////////////////////////////////////
    /////////////nav-mobile///////////////
    
+   $(document).ready(function(){
    
-    if(windowWidth < 767){
+
         $('.main-icon').click(function(){
-        $('.menu-type').toggleClass('open');
-        $('#content').toggleClass('push-content');
-              
+        $('.bg-nav-mobile').toggleClass('open');
+        $('body').css({overflow: 'hidden',position:'fixed'});      
     $this = $(this);
     if($this.hasClass('is-open')){
-	$this.removeClass('is-open , is-open-color');
-//        $('body').css('overflowY','visible');
-        $('#colorLogo').find("path").attr('fill','#000');
-        $('.main-content').show();
-        $('.menu-tint').hide(410);
-        $('.nav-mobile').removeClass('open');
-        $('body').css({overflow: 'visible',position:'initial'});
+	$this.removeClass('is-open is-open-color');
     }else{
         $this.addClass('is-open is-open-color');
-        $('.nav-mobile').addClass('open');
-        $('body').css({overflow: 'hidden',position:'fixed'});
-        }
-        });
-        
-         $('.navbar-right').css({
+             $('.navbar-right').css({
         top: ($(window).height() - $('.navbar-right').outerHeight()) / 2
-//        right: ($(window).width() - $('.navbar-right').outerWidth()) / 2
     });
-    }
+        }
+        
+    });
+    
+         
+   });
     
     //////////////////////////////////////////
     //////nav desktop genres sound////////////
+    
+       $(document).ready(function(){
     
       if(windowWidth >= 768){
         $('.main-icon-genre').click(function(){
@@ -180,8 +176,12 @@ $(document).ready(function(){
         });
     }
     
+       });
     ///////////////////go to top scroll///////////////////////
     /////////////////////////////////////////////////////////
+    
+     $(document).ready(function(){
+    
     
     if ($('#back-to-top').length) {
     var scrollTrigger = 500, // px
@@ -204,6 +204,7 @@ $(document).ready(function(){
         }, 700);
     });
 }
+     });
     
 ////////////////////////////////
 //////////////////////////////
@@ -214,6 +215,7 @@ $(document).ready(function(){
 //   $('.frame-top, .frame-bottom').addClass('visible-y'); 
 //};
 
+ $(document).ready(function(){
 
 ///////// hauteur du header selon style et device
 
@@ -240,7 +242,7 @@ if($('#header-mobile').hasClass('active')){
 
 
 
-
+ });
 
 
 
@@ -248,6 +250,7 @@ if($('#header-mobile').hasClass('active')){
 /////////ajoute section avec big phrase
 // en dessous du header version mobile
 
+ $(document).ready(function(){
   
    if(windowWidth >= 768 ){
          $('#BigPhrase').hide(); 
@@ -257,11 +260,12 @@ if($('#header-mobile').hasClass('active')){
       
    }
 
-
+ });
 
 /// class texte present position mobile//
 ///////////////////////////////////////
 
+ $(document).ready(function(){
 
    if(windowWidth >= 1024 ){
           $('#Txt p').removeClass('txt-txt');
@@ -272,10 +276,10 @@ if($('#header-mobile').hasClass('active')){
           $('#Txt p').addClass('txt-txt');
       
    } 
-   
+ });
    
 
-  
+   $(document).ready(function(){
   ////////cache Header Style en version mobile  
    if(windowWidth <768){
              $('#headerSlider').hide();
@@ -300,7 +304,7 @@ if($('#header-mobile').hasClass('active')){
             $('.social-icon').insertAfter('.email');
         }
  
- 
+   });
         
 
     // on va recuperer la hauteur de la div promotion
@@ -327,7 +331,9 @@ if($('#header-mobile').hasClass('active')){
 //
 //});
 
+     $(document).ready(function(){
 
+    
     if(windowWidth < 768){
         $('#subContact').addClass('text-center');
         $('#btnSubContact').css('float','none');
@@ -336,9 +342,16 @@ if($('#header-mobile').hasClass('active')){
         $('#btnSubContact').css('float','right');
     }
 
+     });
+
+    /////je declanche l'ecouteur quand je clique sur le btn
+    /// je stock le resultat dans une variable
+    /// tant que je click sur le bouton je rajoute 1 et j'affiche le resultat
+    
 
 
-    });
+
+  
     
     
     
@@ -348,9 +361,6 @@ if($('#header-mobile').hasClass('active')){
         var windowWidth = $(window).innerWidth();
         var windowHeight = $(window).innerHeight(); 
         var titleHeightPresent = $('#Present').innerHeight();
-        
-        
-      
         
         
         

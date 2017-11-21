@@ -137,8 +137,17 @@ class FrontController  extends Controller {
         ));
     }
     
-        
-
+     /**
+     * @Route("/productions", name= "compteur");
+     */
+    public function compteurPlay($id) {
+       $em = $this->getDoctrine()->getManager();
+       $sounds = $em->find('AppBundle:Sound', $id);
+       
+        return $this->render('front/productions.html.twig', array(
+            new JsonResponse($sounds)
+        ));
+    }
     
    
     
@@ -153,7 +162,8 @@ class FrontController  extends Controller {
         return $this->render('front/contact.html.twig',array(
             'socials'=> $socials,
         ));
-    } 
+    }
+    
 
 }
 
