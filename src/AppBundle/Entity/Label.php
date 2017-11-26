@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -29,6 +30,17 @@ class Label
     private $nom;
 
    
+    /**
+    *
+    * @var DateTime
+    * @ORM\Column(name="date", type="datetime")
+    */
+    private $date;
+    
+       public function __construct()
+    {
+        $this->date = new DateTime();
+    }
     
     /**
      * Get id
@@ -68,6 +80,28 @@ class Label
         return $this->nom;
     }
     
+    /**
+     * Set date
+     *
+     * @param DateTime $date
+     *
+     * @return Label
+     */
+     public function setDate(DateTime $date) {
+        $this->date = $date;
+        
+        return $this;
+    }
+    
+    
+    /**
+     * Get date
+     *
+     * @return DateTime
+     */
+    public function getDate() {
+        return $this->date;
+    }
     
       public function __toString() {
         return $this->getNom();

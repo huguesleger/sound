@@ -16,7 +16,7 @@ class SoundType extends AbstractType
     {
         $date = date('Y-m-d');
         $builder->add('titre')
-                ->add('auteur')
+                ->add('auteur',null,array('label'=>'Artist'))
                 ->add('description',null, array('attr'=> array(
                       'placeholder' => 'description du morceau en quelques lignes ...',
                       'rows'=>6,

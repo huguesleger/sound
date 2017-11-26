@@ -236,7 +236,8 @@
                     {% for promotion in promotions %}
                         <div class="bg-section promotion">
                         <div class="img-promo img-promo-divide">
-                           <img src="{{asset('uploads/image/')~promotion.image}}" class="img-responsive" alt="{{promotion.image}}"> 
+                           {% if promotion.image != null %}<img src="{{asset('uploads/image/')~promotion.image}}"class="img-responsive" alt="{{promotion.image}}">
+                            {% else %}<img src="{{asset('images/turntable-default.jpg')}}" class="img-responsive" alt="platine-vinyle"{% endif %}> 
                         </div>
                         <div class="container content-divide">
                              <div class="col-lg-6 icon-content">

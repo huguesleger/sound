@@ -49,6 +49,7 @@ audio.addEventListener("timeupdate", function() {
 });
 
 
+
 // count function for timeleft
 
 audio.addEventListener("timeupdate", function() {
@@ -65,6 +66,8 @@ audio.addEventListener("timeupdate", function() {
     m = m < 10 ? "0"+m : m;
     
     $('#timeleft').text("-"+m+":"+s);
+    $('#timeSound').text(duration);
+    
     
 });
 

@@ -11,7 +11,18 @@ namespace AppBundle\Repository;
 class GenreRepository extends \Doctrine\ORM\EntityRepository
 {
     
-
+  public function getNbGenre() {
+  
+        return $this->createQueryBuilder('g')
+  
+                        ->select('COUNT(g)')
+                        
+                
+                        ->getQuery()
+  
+                        ->getSingleScalarResult();
+  
+    }
 
     
 }

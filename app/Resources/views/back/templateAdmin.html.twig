@@ -9,7 +9,7 @@
         <div class="left_col scroll-view">
 
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
+            <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Tableau de bord</span></a>
           </div>
           <div class="clearfix"></div>
 
@@ -94,7 +94,7 @@
                 
                 <li><a><i class="fa fa-cog"></i> Options <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><a href="#">Icons</a></li>
+                    {#<li><a href="{{path('aide')}}">Aide</a></li>#}
                   </ul>
                 </li>
               </ul>
@@ -205,6 +205,7 @@
                 <div id="success">
                 </div>
                 {% endfor %}
+                
              
              {% for message in app.flashes('delete') %}
              <div id="delete">
@@ -229,8 +230,7 @@
      {% block footer %}
         <footer>
           <div class="copyright-info col-md-10">
-            <p class="pull-right">Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>  
-            </p>
+            <p class="pull-right">Easy Music Project - &copy 2017  Tous droits réservés</p>
           </div>
           <div class="clearfix"></div>
         </footer>

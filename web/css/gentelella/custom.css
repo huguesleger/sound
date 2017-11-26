@@ -5078,7 +5078,7 @@ header {
   display: inline-block;
   width: 20px;
   height: 20px;
-  background-image: url("../images/icons.png");
+/*  background-image: url("../images/icons.png");*/
   vertical-align: middle;
 }
 .icon-move {

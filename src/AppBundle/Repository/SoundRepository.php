@@ -41,16 +41,82 @@ class SoundRepository extends EntityRepository
       ->where('s.titre like :titre')
       ->setParameter('titre', $motcle.'%')     
       ->orWhere('s.auteur Like :auteur')
-      ->setParameter('auteur', $motcle.'%')
-            ;
+      ->setParameter('auteur', $motcle.'%');
      
      return $qb
       ->getQuery()
-      ->getResult()
-    ;
+      ->getResult();
   }
   
+  public function getNb() {
+      
+        $qb = $this->createQueryBuilder('s');
+  
 
+        $qb
+                        ->select('COUNT(s)')
+                        ->where('s.publier = 1');
+                        
+                        return $qb
+                        ->getQuery()
+                        ->getSingleScalarResult();
+  
+    }
     
+    
+      public function getNbLabel() {
+  
+          
+         $qb = $this->createQueryBuilder('s');
+         
+         $qb
+                        ->select('COUNT(s)')
+                        ->where('s.label = s.label');
+
+                  return $qb
+                        ->getQuery()
+  
+                        ->getSingleScalarResult();
+  
+    }
+    
+         public function getNbTotal() {
+  
+         $qb = $this->createQueryBuilder('s');
+         $qb
+                        ->select('COUNT(s)');
+
+                         return $qb
+                        ->getQuery()
+  
+                        ->getSingleScalarResult();
+  
+    }
+    
+    public function getNbBrouillon() {
+  
+         $qb = $this->createQueryBuilder('s');
+         $qb
+                        ->select('COUNT(s)')
+                        ->where('s.publier = 0');
+         return $qb
+                        ->getQuery()
+  
+                        ->getSingleScalarResult();
+  
+    }
+    
+    public function getNbStat(){
+        $qb = $this->createQueryBuilder('s');
+        
+        $qb
+                ->select('MAX(s.stat) AS maxStat'); 
+                
+        return $qb
+                ->getQuery()
+                ->getSingleScalarResult();
+    }
 }
+
+
 

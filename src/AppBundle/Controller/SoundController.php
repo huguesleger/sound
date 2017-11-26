@@ -224,7 +224,27 @@ class SoundController extends Controller
     }
     
 
+     /**
+     * @Route("/admin/publier/{id}", name="publier_sound")
+     */
+     public function publierSound($id){
+        $em = $this->getDoctrine()->getEntityManager();
+        $sound = $em->find('AppBundle:Sound', $id);
+        $this->createForm(SoundType::class, $sound);
+        
+        if($sound->getPublier() == 0) {
+             $sound->setPublier(1);
+        }else {
+              $sound->setPublier(0);
+        }
 
+          
+         $em->merge($sound);
+         $em->flush();
+          $this->addFlash('update',
+                             null );
+         return $this->redirectToRoute('sound_show', array('id' => $sound->getId()));
+     }
     
   
 }

@@ -102,7 +102,7 @@
                     <ul class="audio-players">
                     <li>
                       <div class="audio-player js-audio-player">
-                        <button class="audio-player__control js-control">
+                        <button class="audio-player__control js-control" id="{{sound.id}}">
                            
                           <div class="audio-player__control-icon"></div>
                           <div class="audio-player__control-icon2"></div>
@@ -111,7 +111,7 @@
 
                                 
                         {#<h4 class="audio-player__title">Audio Clip One</h4>#}
-                        <audio preload="auto" id="audio">
+                        <audio preload="auto" id="audio {{sound.id}}">
                           <source src="{{asset('uploads/music/')~sound.morceau}}"/>
                         </audio><img class="audio-player__cover" src="{{asset('uploads/image/')~sound.image}}"/>
                       </div>
@@ -174,7 +174,7 @@
           </div>
           </div>
 
-       {% if not loop.last %}, {% endif %}
+      {# {% if not loop.last %}, {% endif %}#}
   {% endif %}
   {% endfor %}
    <div class="navigation">{{ knp_pagination_render(pagination) }}</div>
@@ -182,3 +182,7 @@
 
 
   {% endblock %}
+          {% block scriptForm %}
+
+<script type="text/javascript" src="{{asset('js/front/player.js')}}"></script>
+ {% endblock %}

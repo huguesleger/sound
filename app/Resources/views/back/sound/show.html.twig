@@ -1,7 +1,7 @@
 {% extends ':back:templateAdmin.html.twig' %}
 
   {% block content %}
-    <h1>Sound</h1>
+   {# <h1>Sound</h1>
 
     <table>
         <tbody>
@@ -52,5 +52,150 @@
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
-    </ul>
+    </ul>#}
+   <div class="row">
+   <div class="col-md-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Détail morceau</h2>
+                   <a class="btn btn-dark btn-xs back-list" href="{{ path('sound_index') }}">Back to the list</a>
+                  <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+
+                  <div class="col-md-7 col-sm-9 col-xs-12">
+                      <div class="col-md-4">
+                      <img src="{{asset('uploads/image/')~sound.image}}"class="audio-player"/>
+                      </div>
+                    
+                   <audio id="audio">
+                    <source src="{{asset('uploads/music/')~sound.morceau}}">
+                    </audio>
+                    <div class="col-md-6">
+    <div class="audio-player-admin show-sound">
+
+            <div class="info">
+                    <h3> <span id="selectName">{{sound.morceau}}</span></h3>
+                    <p id="timeleft">00:00</p>
+                    <div class="progressbar_slide">
+                            <div class="progressbar_range"></div>
+                    </div>
+            </div>
+            <div class="controls">
+                    <div class="controls_plays">
+
+                            <svg id="prev_btn" viewBox="0 0 24.5 23.6">
+                                    <polygon points="0,11.8 13.5,0 13.5,10.7 24.5,0 24.5,23.6 13.5,12.9 13.5,23.6 "/>
+                            </svg>
+
+                            <svg id="plays_btn" viewBox="0 0 24.5 30.9">
+                                    <g id="play_btn">
+                                            <path d="M0,30.9L0,0l24.5,15.4L0,30.9z"/>
+                                    </g>
+                                    <g id="pause_btn">
+                                            <rect x="0" y="0" width="8.2" height="30.9"/>
+                                            <rect x="16.2" y="0" width="8.2" height="30.9"/>
+                                    </g>
+                            </svg>
+
+                            <svg id="next_btn" viewBox="0 0 24.5 23.6">
+                                    <polygon points="25,11.8 11.5,0 11.5,10.7 0.5,0 0.5,23.6 11.5,12.9 11.5,23.6 "/>
+                            </svg>
+
+                    </div>
+
+            </div>
+
+    </div>
+
+
+                  </div>
+                    
+                    <div class="col-md-12">
+                        <div class="ln_solid"></div>
+                        {% for sound in sound.genre %}
+                            <h2>Genre(s) Associé(s)</h2>
+                           <span type="button" class="label label-genre">{{sound.nom }}</span>
+                                  {% endfor %}
+                    </div>
+                  </div>
+
+                  <!-- start project-detail sidebar -->
+                  <div class="col-md-5 col-sm-3 col-xs-12">
+
+                    <section class="panel">
+
+                      <div class="x_title">
+                        <h2>Description du morceau</h2>
+                        <div class="clearfix"></div>
+                      </div>
+                      <div class="panel-body">
+                        <h3 class="green"><i class="fa icon-cd"></i>{{ sound.titre }}</h3>
+
+                        <p>{{ sound.description }}</p>
+                        <br>
+
+                        <div class="project_detail">
+                          <p class="title">Artist</p>
+                          <p>{{ sound.auteur }}</p>
+                            <p class="title">Année du morceau</p>
+                          <p>{{ sound.annee|date ('Y') }}</p>
+                           {% if sound.label != null %}
+                          <p class="title">Label Compagnie</p>
+                          <p>{{ sound.label }}</p>
+                          {% endif %}
+                        </div>
+
+                        <br>
+                        <h5>Morceau info</h5>
+                        <ul class="list-unstyled project_files">
+                          <li><i class="fa fa-calendar-o"></i>crée le {{ sound.date|date ('j/m/y à H:i:s')  }}</a>
+                          </li>
+                           {% if sound.link != null %}
+                           <li><i class="fa fa-link"></i>soundcloud: {{ sound.link }}
+                          </li>
+                          {% endif %}
+                          {% if sound.linkSpotify != null %}
+                           <li><i class="fa fa-link"></i>spotify: {{ sound.linkSpotify }}
+                          </li>
+                          {% endif %}
+                           {% if sound.linkDeezer != null %}
+                           <li><i class="fa fa-link"></i>deezer: {{ sound.linkDeezer }}
+                          </li>
+                          {% endif %}
+                            <li><i class="fa fa-volume-up"></i>{{ sound.stat }} écoute(s)</a>
+                          </li>
+                          <li><i class="fa fa-file-audio-o"></i>{{ sound.morceau }}</a>
+                          </li>
+                          <li><i class="fa fa-picture-o"></i>{{ sound.image }}</a>
+                          </li>
+                        </ul>
+                        <br>
+
+                        <div class="mtop20">
+                            {% if sound.publier == 0%}
+                          <a href="{{path("publier_sound",{"id":sound.id})}}" class="btn btn-sm btn-success">Publier</a>
+                          {% else %}
+                           <a href="{{path("publier_sound",{"id":sound.id})}}" class="btn btn-sm btn-warning">Brouillon</a>   
+                          {% endif %}
+                          <a href="{{ path('sound_edit', { 'id': sound.id }) }}" class="btn btn-sm btn-info">Editer</a>
+                          <a href="{{ path('sound_delete', { 'id': sound.id }) }}" class="btn btn-sm btn-danger">Supprimer</a>
+                        </div>
+                      </div>
+
+                    </section>
+
+                  </div>
+                  <!-- end project-detail sidebar -->
+
+                </div>
+              </div>
+            </div>
+       </div>
+{% endblock %}
+{% block scriptForm %}
+<script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/backend/playerMusic.js')}}"></script>
+   
 {% endblock %}

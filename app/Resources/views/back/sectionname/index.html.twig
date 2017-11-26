@@ -98,7 +98,7 @@
                        {#<td><i class="fa fa-list" aria-hidden="true"></i></td>#}
                         <td><a>{{ sectionName.name }}</a>
                         <br />
-                          <small>Créer le {#{{ sound.date|date ('j/m/y à H:i:s') }}#}</small></td>
+                          <small>Créer le {{ sectionName.date|date ('j/m/y à H:i:s') }}</small></td>
                         {#<td><a href="{{ path('sectionname_show', { 'id': sectionName.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>#}
                         <td><a href="{{ path('sectionname_edit', { 'id': sectionName.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
                           <a href="{{ path('sectionname_delete', { 'id': sectionName.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a></td>

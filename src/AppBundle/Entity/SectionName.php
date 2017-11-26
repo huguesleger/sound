@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -30,6 +31,18 @@ class SectionName
      */
     private $name;
 
+    
+    /**
+    *
+    * @var DateTime
+    * @ORM\Column(name="date", type="datetime")
+    */
+    private $date;
+    
+       public function __construct()
+    {
+        $this->date = new DateTime();
+    }
 
     /**
      * Get id
@@ -63,6 +76,29 @@ class SectionName
     public function getName()
     {
         return $this->name;
+    }
+    
+    /**
+     * Set date
+     *
+     * @param DateTime $date
+     *
+     * @return SectionName
+     */
+     public function setDate(DateTime $date) {
+        $this->date = $date;
+        
+        return $this;
+    }
+    
+    
+    /**
+     * Get date
+     *
+     * @return DateTime
+     */
+    public function getDate() {
+        return $this->date;
     }
     
       public function __toString() {

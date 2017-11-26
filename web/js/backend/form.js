@@ -112,7 +112,6 @@ $(function() {
         
         
         
-        
            $(function() {
            $('#error').append(function(){
                     
@@ -152,15 +151,15 @@ $(function() {
     
     
     
- ////////////////////////select liste texte animation header systeme tag////////////////       
-     $(document).ready(function() {
-      $(".select1_group").select2({});
-      $(".select1_multiple").select2({
-        maximumSelectionLength: 3,
-        placeholder: "Select...",
-        allowClear: true
-      });
-    });
+// ////////////////////////select liste texte animation header systeme tag////////////////       
+//     $(document).ready(function() {
+//      $(".select1_group").select2({});
+//      $(".select1_multiple").select2({
+//        maximumSelectionLength: 3,
+//        placeholder: "Select...",
+//        allowClear: true
+//      });
+//    });
     
     
  ////////////////////////select genre musique systeme tag////////////////       
@@ -172,8 +171,21 @@ $(function() {
         allowClear: true
       });
     });
+    
    
-
+$(document).ready(function(){        
+$('.count').each(function () {
+    $(this).prop('Counter',-1).animate({
+        Counter: $(this).text()
+    }, {
+        duration: 4000,
+        easing: 'swing',
+        step: function (now) {
+            $(this).text(Math.ceil(now));
+        }
+    });
+});
+});
 
 // var selects = $('.form-control');
 // var querysel  = new Object();
@@ -312,3 +324,23 @@ $('#AddSocial').click(function(){
 });
     });
     
+    
+
+    $(function() {
+      $('.chart').easyPieChart({
+        easing: 'easeOutElastic',
+        delay: 3000,
+        barColor: '#26B99A',
+        trackColor: '#fff',
+        scaleColor: false,
+        lineWidth: 20,
+        trackWidth: 16,
+        lineCap: 'butt',
+        onStep: function(from, to, percent) {
+          $(this.el).find('.percent').text(Math.round(percent));
+        }
+      });
+
+    });
+  
+   

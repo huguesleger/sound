@@ -13,7 +13,9 @@ class HeaderTexteType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('texte')->add('animationTexte');
+        $builder
+                ->add('texte')
+                ->add('animationTexte');
     }
     
     /**

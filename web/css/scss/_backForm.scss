@@ -64,6 +64,10 @@
     display: none;
 }
 
+#appbundle_present_image {
+    display: none;
+}
+
 #appbundle_header_image {
     display: none;
 }
@@ -176,7 +180,9 @@
     margin-top: 90px;
 }*/
 
-
+.form-control-feedback.left {
+    top: 6px;
+}
 
 ///////header style///////////////
 
@@ -282,3 +288,42 @@
     left: 13em;
 }
 
+
+.count-sound {
+    position: absolute;
+}
+
+
+.mn {
+    position: absolute;
+    top: 45px;
+    left: 10px;
+}
+
+.alert-dark, .btn-dark {
+    color: #E9EDEF;
+    background-color: rgba(52, 73, 94, 0.88) !important;
+    border-color: rgba(52, 73, 94, 0.88);
+}
+
+
+
+//////////////home/////////////////////
+
+.chart {
+    .fa {
+        margin-right: 0;
+    }
+    .percent {
+        margin-right: 3px;
+    }
+}
+
+.name_title {
+        text-align: center;
+        text-transform: capitalize;
+    }
+
+.percent:after {
+    display: none;
+}

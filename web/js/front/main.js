@@ -146,6 +146,7 @@ $(document).ready(function(){
         
     });
     
+   
          
    });
     
@@ -344,15 +345,25 @@ if($('#header-mobile').hasClass('active')){
 
      });
 
-    /////je declanche l'ecouteur quand je clique sur le btn
-    /// je stock le resultat dans une variable
-    /// tant que je click sur le bouton je rajoute 1 et j'affiche le resultat
     
 
+//////////////stat sound//////////////////////
+    $(document).ready(function(){
+     
+    $('button').one('click',function (){
+        var id = this.id;
+        $.ajax({
+            url:"updateStat/"+id,
+            type:"POST",
+            data: id,
+            success:function (data){
+                console.log(data);
+            }
+            
+        });
+    });
 
-
-  
-    
+    });
     
     
     
@@ -363,7 +374,9 @@ if($('#header-mobile').hasClass('active')){
         var titleHeightPresent = $('#Present').innerHeight();
         
         
-        
+          if(windowWidth >= 768){
+     $('.navbar-right').css('top','0');
+     }
         
         
    

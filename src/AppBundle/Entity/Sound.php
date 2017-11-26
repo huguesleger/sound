@@ -130,10 +130,13 @@ class Sound
     
     /**
      *
-     * @var type int
+     * @var int
      * @ORM\Column(name="stat", type="integer")
      */
     private $stat;
+    
+    
+
    
     
     /**
@@ -463,7 +466,7 @@ class Sound
      /**
      * Get stat
      *
-     * @return int
+     * @return integer
      */    
     public function getStat() {
         return $this->stat;
@@ -472,15 +475,17 @@ class Sound
     /**
      * Set stat
      *
-     * @param string $stat
+     * @param integer $stat
      *
      * @return Sound
      */
-    public function setStat(type $stat) {
+    public function setStat($stat) {
         $this->stat = $stat;
     }
 
-            
+
+
+    
     
         
     public function __toString() {

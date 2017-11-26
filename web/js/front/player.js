@@ -19,7 +19,7 @@ player.each(function(index) {
     playback($this, $this.find('audio'));
     $this.find('.audio-player__control-icon').toggleClass('animate-audio1 ');
     $this.find('.audio-player__control-icon2').toggleClass('animate-audio2 ');
-   
+
    
    
    
@@ -31,6 +31,7 @@ player.each(function(index) {
     resetPlayback();
      $this.find('.audio-player__control-icon').removeClass('animate-audio1 ');
      $this.find('.audio-player__control-icon2').removeClass('animate-audio2 ');
+
   });
   
 
@@ -47,12 +48,16 @@ function playback(player, audio) {
     audio[0].play();
     audio.animate({ volume: 1 }, fadeDuration);
     player.addClass(playbackClass);
+    
+
   } else {
     audio.animate({ volume: 0 }, fadeDuration, function() {
       audio[0].pause();
+
     });
     player.removeClass(playbackClass);
-  }
+    
+  } 
   
 }
 
@@ -63,9 +68,11 @@ function resetPlayback(id) {
     if ($this.attr('id') !== id) {
       $this.find('audio').animate({ volume: 0 }, fadeDuration, function() {
         $(this)[0].pause();
+        
       });
       $this.removeClass(playbackClass);
     }
+    
   }); 
   
 }

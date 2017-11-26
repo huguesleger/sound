@@ -4,9 +4,11 @@
 
 namespace AppBundle\Controller\Front;
 
+
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 
@@ -80,6 +82,37 @@ class FrontController  extends Controller {
         
         
     }
+    
+        /**
+        * @Route("/updateStat/{id}", name= "update_stat");
+        */
+        public function updateStat($id){
+         $em = $this->getDoctrine()->getManager();
+         $sound = $em->find('AppBundle:Sound', $id);
+         $incr = $sound->getStat();
+         $sound->setStat($incr+1);
+
+         $em->persist($sound);
+         $em->flush();
+            
+         return  new JsonResponse('ok');
+    }
+    
+        /**
+        * @Route("/productions/updateStat/{id}", name= "update_stat_page");
+        */
+        public function updateStatPage($id){
+         $em = $this->getDoctrine()->getManager();
+         $sound = $em->find('AppBundle:Sound', $id);
+         $incr = $sound->getStat();
+         $sound->setStat($incr+1);
+
+         $em->persist($sound);
+         $em->flush();
+            
+         return  new JsonResponse('ok');
+    }
+    
   
    
     
@@ -137,18 +170,10 @@ class FrontController  extends Controller {
         ));
     }
     
-     /**
-     * @Route("/productions", name= "compteur");
-     */
-    public function compteurPlay($id) {
-       $em = $this->getDoctrine()->getManager();
-       $sounds = $em->find('AppBundle:Sound', $id);
-       
-        return $this->render('front/productions.html.twig', array(
-            new JsonResponse($sounds)
-        ));
-    }
-    
+
+        
+
+   
    
     
      /**
