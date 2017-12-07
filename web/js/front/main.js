@@ -133,12 +133,14 @@ $(document).ready(function(){
 
         $('.main-icon').click(function(){
         $('.bg-nav-mobile').toggleClass('open');
-        $('body').css({overflow: 'hidden',position:'fixed'});      
+           
     $this = $(this);
     if($this.hasClass('is-open')){
 	$this.removeClass('is-open is-open-color');
+         $('body').css({overflow: 'visible',position:'static'});      
     }else{
         $this.addClass('is-open is-open-color');
+         $('body').css({overflow: 'hidden',position:'fixed'});  
              $('.navbar-right').css({
         top: ($(window).height() - $('.navbar-right').outerHeight()) / 2
     });
@@ -223,8 +225,10 @@ $(document).ready(function(){
 if ($('#headerDefault').hasClass('active')){
     $('#headerSlider').remove();
     if (windowWidth >1200){
-         $('.header').css('height',windowHeight - titleHeightPresent + 50+"px"); 
-    } else if (windowWidth <1200) {
+      $('.header').css('height',windowHeight - titleHeightPresent + 50+"px"); 
+    } else if (windowWidth <1024){
+      $('.header').css('height','400px'); 
+    } else if (windowWidth >=1024 && windowWidth < 1200) {
       $('.header').css('height','500px');   
     }
 } else {
@@ -244,8 +248,6 @@ if($('#header-mobile').hasClass('active')){
 
 
  });
-
-
 
 
 /////////ajoute section avec big phrase
@@ -415,9 +417,11 @@ if($('#header-mobile').hasClass('active')){
    if ($('#headerDefault').hasClass('active')){
     $('#headerSlider').remove();
     if (windowWidth >1200){
-         $('.header').css('height',windowHeight - titleHeightPresent + 50+"px"); 
-    } else if (windowWidth <1200) {
-      $('.header').css('height','500px');    
+      $('.header').css('height',windowHeight - titleHeightPresent + 50+"px"); 
+    } else if (windowWidth <1024){
+      $('.header').css('height','400px'); 
+    } else if (windowWidth >=1024 && windowWidth < 1200) {
+      $('.header').css('height','500px');   
     }
 } else {
      $('#headerDefault').removeClass('active');

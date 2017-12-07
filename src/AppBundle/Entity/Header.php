@@ -28,7 +28,7 @@ class Header
    /**
      * @var UploadedFile
      *
-     * @ORM\Column(name="image", type="string", length=255)
+     * @ORM\Column(name="image", type="string", length=255, nullable= true)
      * @File(mimeTypes={"image/jpeg", "image/png"},
      * maxSize = "1024k",
      * maxSizeMessage = "La taille maximum autorisée est de (1024ko).")

@@ -49,7 +49,7 @@
                     <thead>
                       <tr>
                         <th style="width: 1%">#</th>
-                        <th style="width: 12%">Categorie</th>
+                        <th style="width: 12%">Genre</th>
                         <th style="width: 20%">Titre</th>
                         <th>Description</th>
                         <th>Label</th>
@@ -68,8 +68,8 @@
                         <td>
                             
                             {% for sound in sound.genre %}
-                           <span type="button" class="label label-genre">{{sound.nom }}</span>
-                                  {% endfor %}
+                              <span type="button" class="label label-genre">{{sound.nom }}</span>
+                           {% endfor %}
                          </td>
                         <td><a>{{ sound.titre }}</a>
                         <br />

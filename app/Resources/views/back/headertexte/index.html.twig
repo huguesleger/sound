@@ -66,12 +66,8 @@
             <div class="title_left">
                 <h3>Texte d'intro</h3>
                  </div>
-               {% for headerTexte in headerTextes %}
-                          {% if loop.index is divisible by(2) and loop.length < 3 %}
                 <span class="btn-title-left col-md-2"><a class="btn btn-dark btn-sm" href="{{ path('headertexte_new') }}">Ajouter</a></span>
-                 {% else %}
-                       {% endif %}
-                        {% endfor %}
+     
 
        </div>
           <div class="clearfix"></div>

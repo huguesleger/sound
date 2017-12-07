@@ -2,7 +2,7 @@
 
     {% block content %}
         
-        {% for message in app.flashes('succes') %}
+{#        {% for message in app.flashes('succes') %}
       <div id="success">
       </div>
       {% endfor %}
@@ -15,28 +15,26 @@
       {% for message in app.flashes('erreur') %}
       <div id="error">
       </div>
-      {% endfor %}
+      {% endfor %}#}
         
         <div class="">
             <div class="page-title">
                 {% for header in headers %}
                 {% if header.styleDefault !=null %}
-                <div class="row">
-                    <div class="col-md-12">
-                <div class="alert alert-warning  alert-dismissible fade in" role="alert">
+                <div class="info-header">
+                <div class="alert alert-success  alert-dismissible fade in" role="alert">
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
                   </button>
                   <strong>Supprimer !</strong> le header par defaut avant de créer le slider.
                 </div>
-                    </div>
                 </div>
                 {% endif %}
                 {% endfor %}
                 <div class="title_left">
-                <h3>Header</h3>
-                <span class="btn-title-left"><a class="btn btn-dark btn-sm" href="{{ path('header_new') }}">Ajouter</a></span>
+                    <h3>Header</h3>
                 </div>
-            </div>
+                <span class="btn-title-left col-md-2"><a class="btn btn-dark btn-sm" href="{{ path('header_new') }}">Ajouter</a></span>
+                </div>
             <div class="clearfix"></div>
             <div class="row">
                 {% for header in headers %}

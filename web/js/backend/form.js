@@ -261,7 +261,7 @@ $('.count').each(function () {
         }
     }
     
-    $("#appbundle_sound_image, #appbundle_header_image, #fos_user_profile_form_avatar").change(function(){
+    $("#appbundle_sound_image,#appbundle_present_image, #appbundle_header_image, #fos_user_profile_form_avatar").change(function(){
         readURL(this);
         
     });
@@ -326,21 +326,21 @@ $('#AddSocial').click(function(){
     
     
 
-    $(function() {
-      $('.chart').easyPieChart({
-        easing: 'easeOutElastic',
-        delay: 3000,
-        barColor: '#26B99A',
-        trackColor: '#fff',
-        scaleColor: false,
-        lineWidth: 20,
-        trackWidth: 16,
-        lineCap: 'butt',
-        onStep: function(from, to, percent) {
-          $(this.el).find('.percent').text(Math.round(percent));
-        }
-      });
-
-    });
+//    $(function() {
+//      $('.chart').easyPieChart({
+//        easing: 'easeOutElastic',
+//        delay: 3000,
+//        barColor: '#26B99A',
+//        trackColor: '#fff',
+//        scaleColor: false,
+//        lineWidth: 20,
+//        trackWidth: 16,
+//        lineCap: 'butt',
+//        onStep: function(from, to, percent) {
+//          $(this.el).find('.percent').text(Math.round(percent));
+//        }
+//      });
+//
+//    });
   
    

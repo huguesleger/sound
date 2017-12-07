@@ -26,7 +26,7 @@
    <div class="col-md-6 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
-                    <h2>Edit Presentation</h2>
+                    <h2>Section édition</h2>
                     <a class="btn btn-dark btn-xs back-list" href="{{ path('section_index') }}">Back to the list</a>
                   <div class="clearfix"></div>
                 </div>
@@ -34,7 +34,7 @@
                   <br>
                    {{ form_start(edit_form) }}
                     
-                   
+                           {{ form_row(edit_form.name) }}
                            {{ form_row(edit_form.texte) }}
                            
                           
@@ -46,12 +46,7 @@
       <div class="col-md-6 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
-                  <h2>Image upload</h2>
-                 <ul class="nav navbar-right panel_toolbox">
-                    
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                  </ul>
+                  <h2>Image</h2>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -74,19 +69,10 @@
               <div class="x_panel">
                 <div class="x_title">
                   <h2>Options</h2>
-                 <ul class="nav navbar-right panel_toolbox">
-                    
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                  </ul>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                  <br>
-
-                            {{ form_row(edit_form.name) }}
-                            <div class="ln_solid"></div>
-                               
+                  <br>   
                            {{ form_row(edit_form.publier) }}
 
                 </div>

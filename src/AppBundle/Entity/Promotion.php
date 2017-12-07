@@ -54,7 +54,7 @@ class Promotion
      *
      * @var string
      * @ORM\ManyToOne(targetEntity = "SectionName")
-     * @ORM\JoinColumn(name="fk_section_name", referencedColumnName = "id")
+     * @ORM\JoinColumn(name="fk_section_name", referencedColumnName = "id",onDelete="SET NULL")
      * @Assert\NotBlank()
      */
     private $name;

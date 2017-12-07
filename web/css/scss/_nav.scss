@@ -327,8 +327,9 @@
     margin-top: 10px;
     margin-left: 15px;
     color: $color_secondary;
-    .fa{
-        margin-right: 0;
+    span img{
+        width: 17px;
+        height: 19px;
     }
 }
 }
@@ -336,11 +337,12 @@
 @media screen and(min-width: 1024px){
 .icon-logo{
     float: left;
-    margin-top: 16px;
+    margin-top: 12px;
     margin-left: 15px;
     color: $color_secondary;
-    .fa{
-        margin-right: 0;
+       span img{
+        width: 24px;
+        height: 28px;
     }
 }
 }

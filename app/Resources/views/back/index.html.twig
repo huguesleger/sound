@@ -72,8 +72,8 @@
               </div>
             </div>          
                 </div>
-                
-            <div class="col-md-6 col-sm-12 col-xs-12">
+
+                                <div class="col-md-6 col-sm-12 col-xs-12">
             <div class="x_panel tile">
               <div class="x_title">
                 <h2>Stats</h2>
@@ -145,7 +145,8 @@
                             
               </div>
             </div>        
-          </div>
+          </div>   
+
       </div>                
                 
          
@@ -175,7 +176,7 @@
             </div>          
                 </div>#}
                     
-                 <div class="col-md-5 col-sm-6 col-xs-12">
+                 <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="x_panel tile">
               <div class="x_title">
                 <h2>Ajouts récents</h2>
@@ -224,6 +225,7 @@
               </div>
             </div>          
                 </div> #} 
+              
               <div class="col-md-3 col-sm-6 col-xs-12">
                       <div class="x_panel ui-ribbon-container fixed_height_390">
                         <div class="x_title">
@@ -232,75 +234,46 @@
                         </div>
                         <div class="x_content">
 
-                          <div style="text-align: center; margin-bottom: 17px">
-                            <span class="chart" data-percent="{% if nbStat > 2 %}{{nbStat }}{% else %}{% endif %}">
-                            <span class="percent">{% if nbStat > 2 %}{{nbStat }}{% else %}{% endif %}</span><i class="fa fa-volume-up" aria-hidden="true"></i>
+{#                          <div style="text-align: center; margin-bottom: 17px">
+                            <span class="chart" data-percent="{% if nbStat >=1  %}{{nbStat }}{% else %}{% endif %}">
+                            <span class="percent">{% if nbStat >= 1 %}{{nbStat }}{% else %}{% endif %}</span><i class="fa fa-volume-up" aria-hidden="true"></i>
                             <canvas height="95" width="95"></canvas></span>
-                          </div>
+                          </div>#}
+                 <div class="widget_summary">
 
-                          <h2 class="name_title"> {% if nbStat <= 2 %}Aucune donnée{% endif %}</h2>
-                          <p>{% for sound in sounds %}{% if sound.stat == nbStat and nbStat > 2 %}<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>le morceau {{sound.titre }} à était écouté {{nbStat }} fois {% endif %}{% endfor %}</p>
+                  <div class="col-md-9"> 
+                    <div class="progress">
+                      <div class="{% if nbStat >=50 %}progress-bar bg-hulk{% else %}progress-bar bg-green{% endif %}" id="" role="progressbar" data-transitiongoal="{% if nbStat >=1  %}{{nbStat }}{% else %}{% endif %}" aria-valuemax="100">
+                        <span class="sr-only"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-1">
+                      <span class="count">{% if nbStat >=1  %}{{nbStat }}{% else %}{% endif %}</span>
+                  </div>
+                    <div class="col-md-1">
+                      <i class="fa fa-volume-up" aria-hidden="true"></i>
+                  </div>
+                </div>
+
+                          <h2 class="name_title"> {% if nbStat == 0 %}Aucune donnée{% endif %}</h2>
+                          <p class="text-center">{% for sound in stats %}{% if sound.stat == nbStat and nbStat >= 1 %}<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>le morceau {{sound.titre }} à était écouté {{nbStat }} fois {% endif %}{% endfor %}</p>
 
                           <div class="divider"></div>
-                          
-                          <p> {% for sound in sounds %}{% if sound.stat == nbStat and nbStat > 2 %}<i class="fa fa-file-audio-o" aria-hidden="true"></i>{{sound.morceau }}{% endif %}{% endfor %}</p>
-                          <p> {% for sound in sounds %}{% if sound.stat == nbStat and nbStat > 2 %}<i class="fa fa-user-o" aria-hidden="true"></i>Artist: {{sound.auteur }}{% endif %}{% endfor %}</p>
-                          <p> {% for sound in sounds %}{% if sound.stat == nbStat and nbStat > 2 %}<i class="fa fa-calendar-o" aria-hidden="true"></i>Crée le: {{sound.date|date ('j/m/y')}}{% endif %}{% endfor %}</p>
-                          <p> {% for sound in sounds %}{% if sound.stat == nbStat and sound.label !=null and nbStat > 2 %}<i class="fa fa-diamond" aria-hidden="true"></i>Label: {{sound.label }}{% endif %}{% endfor %}</p>
-                          <p> {% for sound in sounds %}{% if sound.stat == nbStat and nbStat > 2 %} {% for sound in sound.genre %}<i class="fa icon-cd" aria-hidden="true"></i>Genre: {{sound.nom }}{% endfor %}{% endif %}{% endfor %}</p>
+                          <br>
+                          <h5>Infos</h5>
+                          <br>
+                          <p> {% for sound in stats %}{% if sound.stat == nbStat and nbStat > 1 %}<i class="fa fa-file-audio-o" aria-hidden="true"></i>{{sound.morceau }}{% endif %}{% endfor %}</p>
+                          <p> {% for sound in stats %}{% if sound.stat == nbStat and nbStat > 1 %}<i class="fa fa-user-o" aria-hidden="true"></i>Artist: {{sound.auteur }}{% endif %}{% endfor %}</p>
+                          <p> {% for sound in stats %}{% if sound.stat == nbStat and nbStat > 1 %}<i class="fa fa-calendar-o" aria-hidden="true"></i>Crée le: {{sound.date|date ('j/m/y')}}{% endif %}{% endfor %}</p>
+                          <p> {% for sound in stats %}{% if sound.stat == nbStat and sound.label !=null and nbStat > 1 %}<i class="fa fa-diamond" aria-hidden="true"></i>Label: {{sound.label }}{% endif %}{% endfor %}</p>
+                          <p> {% for sound in stats %}{% if sound.stat == nbStat and nbStat > 1 %} {% for sound in sound.genre %}<i class="fa icon-cd" aria-hidden="true"></i>Genre: {{sound.nom }}{% endfor %}{% endif %}{% endfor %}</p>
                           
                         </div>
                       </div>
                     </div>
               
-               <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="x_panel tile">
-              <div class="x_title">
-                <h2>Besoin d'aide ?</h2>
-               
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                {#<h4>Besoin d'aide ?</h4>#}
-                <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
-                    <div class="panel">
-                      <a class="panel-heading collapsed" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                        <h4 class="panel-title"><i class="fa fa-cube"></i>Rubriques</h4>
-                      </a>
-                      <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
-                        <div class="panel-body">
-                        <p>ddgf</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="panel">
-                      <a class="panel-heading" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                        <h4 class="panel-title"><i class="fa icon-cd"></i>Musiques</h4>
-                      </a>
-                      <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="true" style="">
-                        <div class="panel-body">
-                        <p></p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="panel">
-                      <a class="panel-heading collapsed" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        <h4 class="panel-title"><i class="fa fa-desktop"></i>Home page</h4>
-                      </a>
-                      <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
-                        <div class="panel-body">
-                           <p></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                
-            
-
-              </div>
-            </div>          
-                </div>
-                 
+              
                     
                     
                     </div>

@@ -37,11 +37,13 @@ class AdminController extends Controller {
          $nbTotal = $locationRepo->getNbTotal();
          
         $sounds = $em->getRepository('AppBundle:Sound')->findByPublier(1,array('date'=>'DESC'),6);
+        $stats  = $em->getRepository('AppBundle:Sound')->findByPublier(1,array('date'=>'DESC'),3);
         $genre = $em->getRepository('AppBundle:Genre')->findAll();
         
         return $this->render('back/index.html.twig', array(
             'sounds' => $sounds,
-           'genre'=> $genre,
+            'stats' => $stats,
+            'genre'=> $genre,
             'nb' => $nb,
             'nbStat'=> $nbStat,
             'nbGenre' => $nbGenre,
@@ -112,4 +114,12 @@ class AdminController extends Controller {
 //            
 //        ));
 //    }
+    
+     /**
+     * @Route("/admin/ressources", name= "ressources");
+     */    
+    public function ressources(){
+           return $this->render('back/ressources.html.twig');
+            
+    }
 }

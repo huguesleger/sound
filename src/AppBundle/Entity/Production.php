@@ -24,14 +24,14 @@ class Production
     /**
      * @var string
      *
-     * @ORM\Column(name="titre", type="string", length=255)
+     * @ORM\Column(name="titre", type="string", length=255, nullable=true)
      */
     private $titre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="texte", type="text")
+     * @ORM\Column(name="texte", type="text", nullable=true)
      */
     private $texte;
     

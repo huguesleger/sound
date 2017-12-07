@@ -153,15 +153,15 @@
                           <li><i class="fa fa-calendar-o"></i>crée le {{ sound.date|date ('j/m/y à H:i:s')  }}</a>
                           </li>
                            {% if sound.link != null %}
-                           <li><i class="fa fa-link"></i>soundcloud: {{ sound.link }}
+                           <li><i class="fa fa-link"></i>soundcloud: <a href="http://{{ sound.link }}" target="blank">{{ sound.link }}</a>
                           </li>
                           {% endif %}
                           {% if sound.linkSpotify != null %}
-                           <li><i class="fa fa-link"></i>spotify: {{ sound.linkSpotify }}
+                              <li><i class="fa fa-link"></i>spotify: <a href="http://{{ sound.linkSpotify }}" target="blank">{{ sound.linkSpotify }}</a>
                           </li>
                           {% endif %}
                            {% if sound.linkDeezer != null %}
-                           <li><i class="fa fa-link"></i>deezer: {{ sound.linkDeezer }}
+                               <li><i class="fa fa-link"></i>deezer: <a href="http://{{ sound.linkDeezer }}" target="blank">{{ sound.linkDeezer }}</a>
                           </li>
                           {% endif %}
                             <li><i class="fa fa-volume-up"></i>{{ sound.stat }} écoute(s)</a>

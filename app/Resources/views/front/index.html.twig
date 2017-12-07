@@ -17,15 +17,18 @@
         <header class="header">
    
                 {% for header in headers %}
-                {% if header.styleDefault !=null %}
+                {% if header.styleDefault != null %}
                     <div id="headerDefault" class="active">
                             <div class="pochette-disc">
                  
                                 <div class="background-pochette-front">
                                 <img src="{{asset('images/pochette_front.png')}}" class="pochette-size" alt="your image" />  
                                 </div>
+                                {% if header.image != null %}
                                 <img src="{{asset('uploads/header/')~header.image}}" class="img-pochette-front" alt="your image" />
-                            
+                                {% else %}
+                                 <img src="{{asset('images/pochette-logo.jpg')}}" class="img-pochette-front" alt="your image" />  
+                                  {% endif %}
                             </div>
                             <div id="bg-header">
                              <!---anim texte intro---->
@@ -91,7 +94,7 @@
                                 <!-- Indicators -->
                                     <ol class="carousel-indicators indicator-front big-indic-pos">
                                           {% for header in headers %}
-                                    {% if header.styleDefault ==null and  header.image [0:] %}
+                                    {% if header.styleDefault == null and  header.image [0:] %}
                                         {% set counter = ( counter | default(0) ) + 1 %}
                                     <li data-target="#carousel-example-generic-3" data-slide-to="{{ counter-1 }}" class="{%if loop.index == 1%} active {%endif%}"></li>
                                     {% endif %} 
@@ -102,7 +105,7 @@
                                 <!-- Wrapper for slides -->
                                     <div class="carousel-inner" role="listbox">
                                     {% for header in headers %}
-                                    {% if header.styleDefault ==null and  header.image [0:] %} 
+                                    {% if header.styleDefault == null and  header.image [0:] %} 
                                         <div class="item{%if loop.index == 1%} active {%endif%}">
                                           <div class="opaque"></div> 
                                         <img src="{{asset('uploads/header/')~header.image}}" class="img-carousel"  alt="{{header.image}}">
@@ -182,7 +185,7 @@
               <!-----------------------
               ------------------------->
               <div class="img-present">
-                {% if present.image !=null%}
+                {% if present.image != null%}
                     <div class="img-round">
                   <img src="{{asset('uploads/image/'~present.image)}}" alt="{{present.name}}"></>
                       </div>

@@ -32,11 +32,11 @@
 
          {% for present in presents[0:]  %}
                     {% if loop.index >= 2 and present.publier == true %}
-                        <div class="col-md-12">
-                <div class="alert alert-warning  alert-dismissible fade in" role="alert">
+                        <div class="info-header">
+                <div class="alert alert-success  alert-dismissible fade in" role="alert">
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
                   </button>
-                  <strong>Attention !</strong> vous avez plusieurs sections présentation en statut publier. Seule la plus récente est en ligne.
+                  <strong>Attention !</strong> vous avez plusieurs sections présentation en statut publié. Seule la plus récente est en ligne.
                 </div>
                     </div>
                         {% else %}
@@ -110,17 +110,22 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
-                  <h2>Mes Sections</h2>
-                  
+                  {% for sectionName in sectionNames %}
+                  {% set counter = ( counter | default(0) ) + 1 %}
+                  {% if sectionName and counter == 1%}   
+                  <h2>Section {{sectionName.name }}</h2>
+                  {% endif %}
+                  {% endfor %}
                   <div class="clearfix"></div>
                 </div>
+                  
                 <div class="x_content">
                  
                   <table class="table table-striped projects">
                     <thead>
                       <tr>
                         <th style="width: 1%">#</th>
-                        <th style="width: 12%">Section</th>
+                        <th style="width: 12%">Nom</th>
                         <th style="width: 20%">Image</th>
                         <th>Description</th>
                         <th>Status</th>
@@ -134,7 +139,7 @@
 
                             {% if loop.index >= 2 and present.publier >=2 %}<tr class="alert-dark">{% else %}<tr> {% endif %}  
                            <td class="icon-section"><i class=" {% if loop.index >= 2 and present.publier >=2 %}fa fa-grav white {% else %}fa fa-grav blue{% endif %}" aria-hidden="true"></i></td>
-                        <td>{{present.name }}<br/>
+                        <td>{% if present.name != null %}{{present.name }}{% else %}Aucune section{% endif %}<br/>
                           <small>Créer le {{ present.date|date ('j/m/y à H:i:s') }}</small></td>
                         {% if present.image !=null %}
                         <td><img src="{{asset('uploads/image/')~present.image}}" class="avatar"></td>
@@ -149,11 +154,48 @@
                           <a href="{{ path('present_delete', { 'id': present.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a></td>
                       </tr>
                        {% endfor %}
+                        
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+                </div>
+
+                <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  {% for sectionName in sectionNames %}
+                  {% set counter = ( counter | default(0) ) + 1 %}
+                  {% if sectionName and counter == 2%}   
+                  <h2>Section {{sectionName.name }}</h2>
+                  {% endif %}
+                  {% endfor %}
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                 
+                  <table class="table table-striped projects">
+                    <thead>
+                      <tr>
+                        <th style="width: 1%">#</th>
+                        <th style="width: 12%">Nom</th>
+                        <th style="width: 20%">Image</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th style="width: 20%">Actions</th>
+                      </tr>
+                    </thead>
+
+
+                    <tbody>
                        
                         {% for service in services  %}
                       <tr>  
                            <td class="icon-section"><i class="fa fa-th blue" aria-hidden="true"></i></td>
-                        <td>{{service.name }}<br/>
+                        <td>{% if service.name != null %}{{service.name }}{% else %}Aucune section{% endif %}<br/>
                           <small>Créer le {{ service.date|date ('j/m/y à H:i:s') }}</small></td>
  
                         <td><img src="{{asset('images/item/')~service.icon~'.png'}}" class="avatar"><small class="col-md-6">{{service.icon}}</small></td>
@@ -166,11 +208,48 @@
                       </tr>
                        {% endfor %}
                            
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+                </div>
+                       
+                <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  {% for sectionName in sectionNames %}
+                  {% set counter = ( counter | default(0) ) + 1 %}
+                  {% if sectionName and counter == 3 %}   
+                  <h2>Section {{sectionName.name }}</h2>
+                  {% endif %}
+                  {% endfor %}
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                 
+                  <table class="table table-striped projects">
+                    <thead>
+                      <tr>
+                        <th style="width: 1%">#</th>
+                        <th style="width: 12%">Nom</th>
+                        <th style="width: 20%">Image</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th style="width: 20%">Actions</th>
+                      </tr>
+                    </thead>
+
+
+                    <tbody>
+  
                          {% for promotion in promotions  %}
                       <tr>  
                             {% if loop.index >= 2 and promotion.publier >=2 %}<tr class="alert-dark">{% else %}{% endif %}  
-                           <td class="icon-section"><i class=" {% if loop.index >= 2 and promotion.publier >=2 %}fa fa-th white {% else %}fa fa-th blue{% endif %}" aria-hidden="true"></i></td>
-                        <td>{{promotion.name }}<br />
+                           <td class="icon-section"><i class=" {% if loop.index >= 2 and promotion.publier >=2 %}fa fa-info-circle white {% else %}fa fa-info-circle blue{% endif %}" aria-hidden="true"></i></td>
+                        <td>{% if promotion.name != null %}{{promotion.name }}{% else %}Aucune section{% endif %} <br />
                          <small>Créer le {{ promotion.date|date ('j/m/y à H:i:s') }}</small></td>
                                               
                         <td>{% if promotion.image != null %}<img src="{{asset('uploads/image/')~promotion.image}}" class="avatar">
@@ -189,8 +268,9 @@
               </div>
             </div>
 
-                </div>
-                   
+                </div>                       
+                       
+                    
                    </div>   
                        
                 

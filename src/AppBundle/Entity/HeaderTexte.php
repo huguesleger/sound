@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -37,6 +38,19 @@ class HeaderTexte
     private $animationTexte;
     
     
+        /**
+    *
+    * @var DateTime
+    * @ORM\Column(name="date", type="datetime")
+    */
+    private $date;
+    
+    
+     
+    public function __construct()
+{
+    $this->date = new DateTime();
+}
   
 
 
@@ -81,6 +95,32 @@ class HeaderTexte
     public function setAnimationTexte($animationTexte) {
         $this->animationTexte = $animationTexte;
     }
+    
+    
+        /**
+     * Set date
+     *
+     * @param DateTime $date
+     *
+     * @return HeaderTexte
+     */
+     public function setDate(DateTime $date) {
+        $this->date = $date;
+        
+        return $this;
+    }
+    
+    
+    /**
+     * Get date
+     *
+     * @return DateTime
+     */
+    public function getDate() {
+        return $this->date;
+    }
+
+    
 
       public function __toString() {
         return $this->getTexte();

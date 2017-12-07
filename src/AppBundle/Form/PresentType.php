@@ -15,12 +15,12 @@ class PresentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('texte',null, array('attr'=> array(
-                      'placeholder' => 'présentez-vous ...',
+                      'placeholder' => 'votre présentation ...',
                       'rows'=>6,
                       'onkeyup'=>'reste(this.value);')))
                 ->add('image', FileType::class, array('data_class' => null,'required' => false, 'label'=>false))
                 ->add('publier', null, array('attr'=> array('class'=> 'js-switch')))
-                ->add('name');
+                ->add('name',null, array('label'=>'Nom de la section'));
     }
     
     /**

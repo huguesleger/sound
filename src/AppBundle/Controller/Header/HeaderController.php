@@ -177,9 +177,12 @@ class HeaderController extends Controller
         ;
     }
     
+
+    
+    
      /*supprime header/default ou header/carousel  dans la rubrique header*/
     
-   /**
+    /**
     *@Route("/{id}/delete", name="header_delete")
     */
     public function deleteHeader($id) {
@@ -195,6 +198,7 @@ class HeaderController extends Controller
        return $this->redirectToRoute('header_index');
     }
     
-    
+
+
     
 }

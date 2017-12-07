@@ -14,8 +14,8 @@ class ProductionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-                ->add('titre')
-                ->add('texte')
+                ->add('titre',null, array('data_class' => null,'required' => false))
+                ->add('texte',null, array('data_class' => null,'required' => false))
                 ->add('publier', null, array('attr'=> array('class'=> 'js-switch')));
     }
     
