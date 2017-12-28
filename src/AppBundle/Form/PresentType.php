@@ -17,7 +17,7 @@ class PresentType extends AbstractType
         $builder->add('texte',null, array('attr'=> array(
                       'placeholder' => 'votre présentation ...',
                       'rows'=>6,
-                      'onkeyup'=>'reste(this.value);')))
+                      'onkeyup'=>'saisiePresent(this.value);')))
                 ->add('image', FileType::class, array('data_class' => null,'required' => false, 'label'=>false))
                 ->add('publier', null, array('attr'=> array('class'=> 'js-switch')))
                 ->add('name',null, array('label'=>'Nom de la section'));

@@ -210,4 +210,27 @@ class PresentController extends Controller
 //         return $this->redirectToRoute('section_index');
 //        
 //     }
+    
+    
+         /**
+     * @Route("/admin/publier/{id}", name="publier_present")
+     */
+     public function publierPresent($id){
+        $em = $this->getDoctrine()->getEntityManager();
+        $present = $em->find('AppBundle:Present', $id);
+        $this->createForm(presentType::class, $present);
+        
+        if($present->getPublier() == 0) {
+             $present->setPublier(1);
+        }else {
+              $present->setPublier(0);
+        }
+
+          
+         $em->merge($present);
+         $em->flush();
+          $this->addFlash('update',
+                             null );
+         return $this->redirectToRoute('present_show', array('id' => $present->getId()));
+     }
 }

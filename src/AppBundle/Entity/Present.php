@@ -30,6 +30,9 @@ class Present
      * @var string
      *
      * @ORM\Column(name="texte", type="text")
+     * @Assert\Length(
+     *  max = 600,
+     *  maxMessage = "le texte doit avoir maximum {{ limit }} caratères")
      */
     private $texte;
 

@@ -17,6 +17,11 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
             
+            remember_me:
+                secret:   '%secret%'
+                lifetime: 18000
+                path:     /
+            
         
             
         main:
@@ -33,7 +38,7 @@ security:
                 
             logout:
                 path:       fos_user_security_logout
-                target:     /
+                target:     /admin
             
             
 

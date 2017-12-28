@@ -15,10 +15,13 @@ class ServiceType extends AbstractType
     {
         $builder
                 ->add('titre')
-                ->add('description')
+                ->add('description',null, array('attr'=> array(
+                      'placeholder' => 'votre description ...',
+                      'rows'=>4,
+                    'onkeyup'=>'saisie(this.value);')))
                 ->add('icon')
-                ->add('publier')
-                ->add('name');
+                ->add('publier', null, array('attr'=> array('class'=> 'js-switch')))
+                ->add('name',null, array('label'=>'Nom de la section'));
     }
     
     /**

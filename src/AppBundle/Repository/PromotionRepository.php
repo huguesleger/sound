@@ -10,4 +10,18 @@ namespace AppBundle\Repository;
  */
 class PromotionRepository extends \Doctrine\ORM\EntityRepository
 {
+         public function getNbPublish() {
+      
+        $qb = $this->createQueryBuilder('p');
+  
+
+        $qb
+                        ->select('COUNT(p)')
+                        ->where('p.publier = 1');
+                        
+                        return $qb
+                        ->getQuery()
+                        ->getSingleScalarResult();
+  
+    } 
 }

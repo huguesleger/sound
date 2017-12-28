@@ -1,7 +1,7 @@
 {% extends ':back:templateAdmin.html.twig' %}
 
   {% block content %}
-    <h1>Section 3 creation</h1>
+{#    <h1>Section 3 creation</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
@@ -12,5 +12,63 @@
         <li>
             <a href="{{ path('section_index') }}">Back to the list</a>
         </li>
-    </ul>
+    </ul>#}
+
+ <div class="row">  
+   <div class="col-md-6 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                 <h2>Section création</h2>   
+                    <a class="btn btn-dark btn-xs back-list" href="{{ path('section_index') }}">Back to the list</a>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <br>
+                    {{ form_start(form) }}
+                    {{ form_errors(form) }}
+                     
+                    {{ form_row(form.name) }}
+                    {{ form_row(form.texte) }}
+                    <div class="ln_solid"></div>
+                    {{ form_row(form.publier) }}
+
+              </div>
+                <div class="form-group btn-right">
+                <button type="submit" class="btn btn-success">Enregistrer</button>
+                </div> 
+           
+
+
+            </div>
+   </div>
+                         
+
+      <div class="col-md-6 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Image</h2>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <br>
+ 
+      <label for="appbundle_promotion_image" class="input-label">
+          <i class="fa fa-upload"></i>Select fichier</label>
+          {{form_row(form.image)}}
+     
+       
+                <img class="default-picture" id="selectImage" src="{{asset('images/image_default.png')}}" alt="your image" />
+     </div>
+            </div>
+      </div>
+                         
+
+          
+          
+       </div>
+ {{ form_end(form) }}
+ 
+{% endblock %}
+{% block scriptForm %}
+<script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
 {% endblock %}

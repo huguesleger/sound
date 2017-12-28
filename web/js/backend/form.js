@@ -172,7 +172,7 @@ $(function() {
       });
     });
     
-   
+// anim chiffre page index
 $(document).ready(function(){        
 $('.count').each(function () {
     $(this).prop('Counter',-1).animate({
@@ -218,12 +218,14 @@ $('.count').each(function () {
 
 
 
-
+// animate css
   function testAnim(x) {
     $('#animationSandbox').removeClass().addClass(x + ' animated-demo').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
       $(this).removeClass();
     });
   };
+  
+  
 
   $(document).ready(function(){
     $('.js--triggerAnimation').click(function(e){
@@ -261,14 +263,14 @@ $('.count').each(function () {
         }
     }
     
-    $("#appbundle_sound_image,#appbundle_present_image, #appbundle_header_image, #fos_user_profile_form_avatar").change(function(){
+    $("#appbundle_sound_image,#appbundle_present_image, #appbundle_header_image, #appbundle_promotion_image, #fos_user_profile_form_avatar").change(function(){
         readURL(this);
         
     });
     
     
     
-////////////////////////compte caractere saisi description///////////////
+////////////////////////compte caractere saisi description sound///////////////
 ///  
 
    function reste(texte)
@@ -281,6 +283,44 @@ $(function(){
    $('<div id="caracteres">320 caracatère(s) disponible(s)</div>').insertAfter('#appbundle_sound_description'); 
 });
 
+////////////////////////compte caractere saisi description service///////////////
+///  
+
+   function saisie(textes)
+{
+    var restants = 220-textes.length;
+    document.getElementById('write').innerHTML=restants + "&nbsp;caractère(s)&nbsp;disponible(s)";
+}
+
+$(function(){
+   $('<div id="write">220 caracatère(s) disponible(s)</div>').insertAfter('#appbundle_service_description'); 
+});
+
+////////////////////////compte caractere saisi texte promotion///////////////
+///  
+
+   function saisiePromo(textes)
+{
+    var restants = 865-textes.length;
+    document.getElementById('write').innerHTML=restants + "&nbsp;caractère(s)&nbsp;disponible(s)";
+}
+
+$(function(){
+   $('<div id="write">865 caracatère(s) disponible(s)</div>').insertAfter('#appbundle_promotion_texte'); 
+});
+
+////////////////////////compte caractere saisi texte presentation///////////////
+///  
+
+   function saisiePresent(textes)
+{
+    var restants = 600-textes.length;
+    document.getElementById('write').innerHTML=restants + "&nbsp;caractère(s)&nbsp;disponible(s)";
+}
+
+$(function(){
+   $('<div id="write">600 caracatère(s) disponible(s)</div>').insertAfter('#appbundle_present_texte'); 
+});
 
 
      
@@ -343,4 +383,76 @@ $('#AddSocial').click(function(){
 //
 //    });
   
-   
+  
+  ///////fix info top alert section///////////////
+
+    $(document).ready(function(){
+         var present = $('#info-present .info-header').length;
+         var promo = $('#info-promo .info-header').length;
+         var header = $('.page-title .info-header').length;
+         
+         if(present == 1 && promo == 1){
+                $('#info-present .info-header').addClass('is-active');
+                $('#info-promo .info-header').addClass('is-active');
+                $('.container').css('margin-top','100px');
+                
+                
+                $('#info-present .close').click(function(){
+                $('#info-present .info-header').removeClass('is-active');
+                $('.container').animate({
+                marginTop: "0"
+              }, 300, function() {
+                // Animation complete.
+              });  
+                });
+                
+                $('#info-promo .close').click(function(){
+                $('#info-promo .info-header').removeClass('is-active');
+                $('.container').animate({
+                marginTop: "50px"
+              }, 300, function() {
+                // Animation complete.
+              });    
+                }); 
+                
+         } else if (present == 0 && promo == 1)  {
+                $('.alert-promo').css('margin-top','0');
+                $('#info-promo .info-header').addClass('is-active');
+                $('.container').css('margin-top','50px');
+                
+                
+                $('#info-promo .close').click(function(){
+                $('#info-promo .info-header').removeClass('is-active');
+                $('.container').animate({
+                marginTop: "0"
+              }, 300, function() {
+                // Animation complete.
+              });    
+                }); 
+         } else if (present == 1 && promo == 0)  {
+                $('#info-present .info-header').addClass('is-active');
+                $('.container').css('margin-top','50px');
+                
+                
+                $('#info-present .close').click(function(){
+                $('#info-present .info-header').removeClass('is-active');
+                $('.container').animate({
+                marginTop: "0"
+              }, 300, function() {
+                // Animation complete.
+              });  
+                });
+         } else if (header == 1 ) {
+             $('.container').css('margin-top','50px');
+             $('.page-title .close').click(function(){
+                $('.container').animate({
+                marginTop: "0"
+              }, 300, function() {
+                // Animation complete.
+              });    
+                }); 
+         }        
+ 
+      });
+      
+

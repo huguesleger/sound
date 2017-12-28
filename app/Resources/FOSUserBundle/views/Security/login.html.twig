@@ -5,15 +5,15 @@
 {% block fos_user_content %}
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}    
+        {% endif %} 
     <div id="login" class="animate form">
         <section class="login_content">
-     <form action="{{ path("fos_user_security_check") }}" method="post">
+     <form action="{{ path("fos_user_security_check") }}" method="POST">
            {% if csrf_token %}
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
     {% endif %}
     
-            <h1>Login Form</h1>
+    <h1><img src="{{asset ('images/big-logo.png')}}" class="logo-connect"/></h1>
             <div>
               <input type="text" class="form-control" placeholder="{{ 'security.login.username'|trans }}" id="username" name="_username" value="{{ last_username }}" required="" />
             </div>
@@ -21,22 +21,20 @@
               <input type="password" class="form-control" placeholder="{{ 'security.login.password'|trans }}"  id="password" name="_password" required="" />
             </div>
             <div>
+             <p class="remember"><label for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever"> Se souvenir de moi</label></p>
               <input type="submit" class="btn btn-dark submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />  
               {#<a class="btn btn-default submit" href="index.html">Log in</a>#}
-              <a class="reset_pass" href="{{ path("fos_user_resetting_request") }}">Lost your password?</a>
+              
             </div>
             <div class="clearfix"></div>
             <div class="separator">
 
-             {# <p class="change_link">New to site?
-              <a href="{{ path("fos_user_registration_register") }}" class="to_register"> Create Account </a>
-              </p>#}
+              <a href="{{ path("fos_user_resetting_request") }}" class="to_register">Mot de passe oublié ?</a>
               <div class="clearfix"></div>
               <br />
               <div>
-                <h1><i class="fa fa-paw" style="font-size: 26px;"></i> Gentelella Alela!</h1>
-
-                <p>©2015 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+{#                <h1><i class="fa fa-paw" style="font-size: 26px;"></i> Gentelella Alela!</h1>#}
+                <p><i class="fa fa-reply" aria-hidden="true"></i><a href="{{ path("home") }}">Retour au site</a></p>
               </div>
             </div>
           </form>
@@ -44,7 +42,6 @@
         </section>
         <!-- content -->
       </div>
-      
        
     {% endblock fos_user_content %}
  {% endblock %}

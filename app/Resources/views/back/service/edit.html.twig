@@ -1,6 +1,6 @@
 {% extends ':back:templateAdmin.html.twig' %}
 
-  {% block content %}
+{#  {% block content %}
     <h1>Service edit</h1>
 
     {{ form_start(edit_form) }}
@@ -18,4 +18,74 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
+{% endblock %}#}
+
+
+  {% block content %}   
+
+<div class="row">  
+   <div class="col-md-6 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Section édition</h2> 
+                    <a class="btn btn-dark btn-xs back-list" href="{{ path('section_index') }}">Back to the list</a>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <br>
+                    {{ form_start(edit_form) }}
+                     
+                    {{ form_row(edit_form.name) }}
+                    {{ form_row(edit_form.titre) }}
+                    {{ form_row(edit_form.description) }}
+                    {{ form_row(edit_form.icon) }}
+                    <div class="ln_solid"></div>
+                    {{ form_row(edit_form.publier) }}
+                     
+           
+
+              </div>
+                      <div class="form-group btn-right">
+                        <button type="submit" class="btn btn-success">Mettre à jour</button>
+                      </div>
+            </div>
+   </div>
+ 
+              <div class="col-md-6 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                 <h2>Icon disponible</h2>   
+ 
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+    <div class="bs-docs-section">
+                    <div class="bs-glyphicons">
+                      <ul class="bs-glyphicons-list">
+                           {% for icon in icons %}
+                        <li>
+                          <span class="glyphicon"><img src="{{asset('images/item/')~icon.nom~'.png'}}"></span>
+                          <span class="glyphicon-class">{{ icon.nom }}</span>
+                        </li>
+                         {% endfor %}
+                      </ul>
+                    </div>
+
+    </div> 
+              </div>
+            </div>
+   </div>
+
+                         
+          
+          
+       </div>
+ {{ form_end(edit_form) }}
+                             
+{% endblock %}
+
+
+
+{% block scriptForm %}
+<script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>  
 {% endblock %}

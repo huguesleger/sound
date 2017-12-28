@@ -15,9 +15,12 @@ class PromotionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-                ->add('texte')
+                ->add('texte',null, array('attr'=> array(
+                      'placeholder' => 'votre texte ...',
+                      'rows'=>9,
+                    'onkeyup'=>'saisiePromo(this.value);')))
                 ->add('image', FileType::class, array('data_class' => null,'required' => false, 'label'=>false))
-                ->add('publier')
+                ->add('publier', null, array('attr'=> array('class'=> 'js-switch')))
                 ->add('name');
     }
     

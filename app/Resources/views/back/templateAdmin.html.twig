@@ -25,7 +25,7 @@
                  
             </div>
             <div class="profile_info">
-              <span>Welcome,</span>
+              <span>Bonjour,</span>
               <h2>{{ app.user.username }} </h2>
               
             </div>
@@ -47,7 +47,7 @@
                     </li>
                     <li><a href="{{path('genre_index')}}">Genres musicaux</a>
                     </li>
-                    <li><a href="{{path('sectionname_index')}}">Titres sections</a>
+                    <li><a href="{{path('sectionname_index')}}">Noms des sections</a>
                     </li>
                     
                    
@@ -72,7 +72,7 @@
                  <li><a><i class="fa fa-laptop"></i> Pages <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                    {# <li><a href="{{path('homepage_index')}}">HomePage</a></li>#}
-                    <li><a href="{{path('section_index')}}">Mes Sections</a></li>
+                    <li><a href="{{path('section_index')}}">Home page</a></li>
                     <li><a href="{{path('production_index')}}">Production</a></li>
                    {# <li><a href="{{path('style_index')}}">Styles</a></li>#}
                    {# {#<li><a href="{{path('headerpage_index')}}">headerpagedefault</a></li>#}
@@ -80,7 +80,7 @@
                     {#<li><a href="{{path('headertexte_index')}}">Textes Animations</a></li>#}
                     {#<li><a href="{{path('item_index')}}">Items</a></li> #}
                     {#<li><a href="#">Socials</a></li>#}
-                    <li><a href="{{path('social_index')}}">Réseaux sociaux</a></li>
+                    
                   </ul>
                 </li>
                  <li><a><i class="fa fa-picture-o"></i> Header <span class="fa fa-chevron-down"></span></a>
@@ -94,6 +94,7 @@
                 
                 <li><a><i class="fa fa-cog"></i> Options <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
+                    <li><a href="{{path('social_index')}}">Réseaux sociaux</a></li>  
                     <li><a href="{{path('ressources')}}">Ressources</a></li>
                   </ul>
                 </li>
@@ -230,7 +231,7 @@
      {% block footer %}
         <footer>
           <div class="copyright-info col-md-10">
-            <p class="pull-right">Easy Music Project - &copy 2017  Tous droits réservés</p>
+            <p class="pull-right">Easy Music Project - &copy {{ "now"|date('Y')}} Tous droits réservés</p>
           </div>
           <div class="clearfix"></div>
         </footer>

@@ -89,6 +89,7 @@ class ServiceController extends Controller
     {
         $deleteForm = $this->createDeleteForm($service);
         $editForm = $this->createForm('AppBundle\Form\ServiceType', $service);
+        $em = $this->getDoctrine()->getManager();
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -98,9 +99,10 @@ class ServiceController extends Controller
 
             return $this->redirectToRoute('service_edit', array('id' => $service->getId()));
         }
-
+         $icons = $em->getRepository('AppBundle:Icon')->findAll();
         return $this->render('back/service/edit.html.twig', array(
             'service' => $service,
+             'icons' => $icons,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
              $this->addFlash('error',

@@ -206,12 +206,20 @@ body {
     text-align: center;
 }
 
+.text-left {
+    text-align: left !important;
+}
+
 .txt-txt{
     text-align: justify;
 }
 
 .txt-white {
     color: #fff;
+}
+
+.right-pos {
+    float: right;
 }
 
 
@@ -239,6 +247,8 @@ body {
     fill: #fff;
     padding-top: 20px;
 }
+
+
 
 
 @media screen and(max-width: 767px){ 
@@ -298,6 +308,10 @@ body {
 
 .mg-top {
     margin-top: 50px;
+}
+
+.mg-top-sm {
+    margin-top: 20px;
 }
 
 @media screen and(min-width: 768px) and (max-width: 1200px){

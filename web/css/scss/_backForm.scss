@@ -76,6 +76,10 @@
     display: none;
 }
 
+#appbundle_promotion_image  {
+    display: none;
+}
+
 .default-picture {
     width: 110px;
 /*    margin-top: -20px;*/
@@ -186,12 +190,16 @@
 
 ///////header style///////////////
 
+
+
+
 .info-header {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    margin-bottom: 25px;           
+    margin-bottom: 25px;
+    z-index: 10;
 }
 
 .info-header .alert {
@@ -326,7 +334,9 @@
     border-color: rgba(52, 73, 94, 0.88);
 }
 
-
+.alert-promo {
+    margin-top: 53px;
+}
 
 //////////////home/////////////////////
 
@@ -352,4 +362,47 @@
     background: #2ecc40 !important;
     border: 1px solid #2ecc40 !important;
     color: #fff;
+}
+
+/////////formulaire connexion/////////////
+
+  #login {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.logo-connect {
+    width: 30%;
+}
+
+.login_content form input[type="text"], .login_content form input[type="email"], .login_content form input[type="password"] {
+    border-radius: 0;
+}
+
+.login_content form input[type="text"]:focus, .login_content form input[type="email"]:focus, .login_content form input[type="password"]:focus {
+  -webkit-box-shadow: 0 0 2px  $color_primary inset;
+  -moz-box-shadow: 0 0 2px  $color_primary inset;
+  -ms-box-shadow: 0 0 2px  $color_primary inset;
+  -o-box-shadow: 0 0 2px  $color_primary inset;
+  box-shadow: 0 0 2px  $color_primary inset;
+  background-color: #fff;
+  border: 1px solid $color_primary;
+  outline: none;
+}
+
+
+
+.login_content img {
+    margin-top: -40px;
+}
+
+.remember {
+    float: left;
+    padding-top: 5px;
+}
+
+.login_content form input[type="submit"], #content form .submit {
+    float:right;
+    margin-left: 0;
+    margin-right: 0;
 }

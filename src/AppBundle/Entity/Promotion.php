@@ -29,6 +29,9 @@ class Promotion
      * @var string
      *
      * @ORM\Column(name="texte", type="text")
+     * @Assert\Length(
+     *  max = 865,
+     *  maxMessage = "le texte doit avoir maximum {{ limit }} caratères")
      */
     private $texte;
 

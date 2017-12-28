@@ -1,7 +1,7 @@
 {% extends ':back:templateAdmin.html.twig' %}
 
   {% block content %}
-    <h1>Service</h1>
+{#    <h1>Service</h1>
 
     <table>
         <tbody>
@@ -39,5 +39,71 @@
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
-    </ul>
+    </ul>#}
+
+ <div class="row">
+   <div class="col-md-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Section détail</h2>
+                   <a class="btn btn-dark btn-xs back-list" href="{{ path('section_index') }}">Back to the list</a>
+                  <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+
+                  <!-- start project-detail sidebar -->
+                  <div class="col-md-5 col-sm-3 col-xs-12">
+
+                    <section class="panel">
+
+                      <div class="panel-body">
+                        <h3 class="green"><i class="fa fa-grav"></i>{{ service.name }}</h3>
+
+                        
+                        <br>
+                        
+                    
+                <img src="{{asset('images/item/')~service.icon~'.png'}}" class="item-icon img-responsive">
+                <h4 class="title-item text-left">{{service.titre}}</h4>
+                <p>{{service.description}}</p>
+       
+                        <br>
+                        <h5>Info</h5>
+                        <ul class="list-unstyled project_files">
+                          <li><i class="fa fa-calendar-o"></i>crée le {{ service.date|date ('j/m/y à H:i:s')  }}</a>
+                          </li>
+                          <li><i class="fa fa-picture-o"></i>{{service.icon~'.png' }}
+                          </li>
+                          <li>{% if service.publier %}<i class="fa fa-check-square-o"></i>Publier: oui{% else %}<i class="fa fa-square-o"></i>Publier: non{% endif %}
+                          </li>
+                        </ul>
+                        <br>
+
+                        <div class="mtop20">
+                         {% if service.publier == 0%}
+{#                          <a href="{{path("publier_service",{"id":service.id})}}" class="btn btn-sm btn-success">Publier</a>#}
+                          {% else %}
+                          {# <a href="{{path("publier_service",{"id":service.id})}}" class="btn btn-sm btn-warning">Brouillon</a>   #}
+                          {% endif %}
+                          <a href="{{ path('service_edit', { 'id': service.id }) }}" class="btn btn-sm btn-info">Editer</a>
+                          <a href="{{ path('service_delete', { 'id': service.id }) }}" class="btn btn-sm btn-danger">Supprimer</a>
+                        </div>
+                      </div>
+
+                    </section>
+
+                  </div>
+                        
+
+
+       
+                  <!-- end project-detail sidebar -->
+
+                </div>
+              </div>
+            </div>
+       </div>
+
 {% endblock %}
+

@@ -1,7 +1,7 @@
 {% extends ':back:templateAdmin.html.twig' %}
 
   {% block content %}
-    <h1>Promotion</h1>
+{#    <h1>Promotion</h1>
 
     <table>
         <tbody>
@@ -36,5 +36,74 @@
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
-    </ul>
+    </ul>#}
+<div class="row">
+   <div class="col-md-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Section détail</h2>
+                   <a class="btn btn-dark btn-xs back-list" href="{{ path('section_index') }}">Back to the list</a>
+                  <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+
+                  <!-- start project-detail sidebar -->
+                  <div class="col-md-5 col-sm-3 col-xs-12">
+
+                    <section class="panel">
+
+                      <div class="panel-body">
+                        <h3 class="green"><i class="fa fa-info-circle"></i>{{ promotion.name }}</h3>
+                        <br>
+                        <p>{{ promotion.texte }}</p>
+                        <br>
+                        
+                    {% if promotion.image != null%}
+                         <p>Votre image</p>
+                        <br>
+                         <div class="col-md-12 padd-b-md">
+                  <img src="{{asset('uploads/image/'~promotion.image)}}"class="img-responsive"/>
+                  
+                         </div>
+                  {% else %}
+                      <p>Image par defaut</p>
+                  <img src="{{asset('images/turntable-default.jpg')}}" class="img-responsive">
+                  {% endif %}
+                        <br>
+                        <h5>Info</h5>
+                        <ul class="list-unstyled project_files">
+                          <li><i class="fa fa-calendar-o"></i>crée le {{ promotion.date|date ('j/m/y à H:i:s')  }}</a>
+                          </li>
+                          <li><i class="fa fa-picture-o"></i>{% if promotion.image != null%}{{ promotion.image }} {% else %}turntable-default.jpg{% endif %}
+                          </li>
+                          <li>{% if promotion.publier %}<i class="fa fa-check-square-o"></i>Publier: oui{% else %}<i class="fa fa-square-o"></i>Publier: non{% endif %}
+                          </li>
+                        </ul>
+                        <br>
+
+                        <div class="mtop20">
+                         {% if promotion.publier == 0%}
+                        {#  <a href="{{path("publier_promotion",{"id":promotion.id})}}" class="btn btn-sm btn-success">Publier</a>#}
+                          {% else %}
+                          {# <a href="{{path("publier_promotion",{"id":promotion.id})}}" class="btn btn-sm btn-warning">Brouillon</a> #}  
+                          {% endif %}
+                          <a href="{{ path('promotion_edit', { 'id': promotion.id }) }}" class="btn btn-sm btn-info">Editer</a>
+                          <a href="{{ path('promotion_delete', { 'id': promotion.id }) }}" class="btn btn-sm btn-danger">Supprimer</a>
+                        </div>
+                      </div>
+
+                    </section>
+
+                  </div>
+                        
+
+
+       
+                  <!-- end project-detail sidebar -->
+
+                </div>
+              </div>
+            </div>
+       </div>
 {% endblock %}

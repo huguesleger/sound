@@ -34,6 +34,9 @@ class Service
      * @var string
      *
      * @ORM\Column(name="description", type="text")
+     * @Assert\Length(
+     *  max = 220,
+     *  maxMessage = "le texte doit avoir maximum {{ limit }} caratères")
      */
     private $description;
 

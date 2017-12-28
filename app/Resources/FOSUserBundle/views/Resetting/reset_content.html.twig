@@ -1,0 +1,27 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends 'FOSUserBundle::layout.html.twig' %}
+ {% block content %}
+{% block fos_user_content %}
+{#{{ form_start(form, { 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': { 'class': 'fos_user_resetting_reset' } }) }}
+    {{ form_widget(form) }}
+    <div>
+        <input type="submit" value="{{ 'resetting.reset.submit'|trans }}" />
+    </div>
+{{ form_end(form) }}#}
+
+    <div id="login" class="animate form">
+        <section class="login_content">
+ <img src="{{asset ('images/big-logo.png')}}" class="logo-connect"/>    
+{{ form_start(form, { 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': { 'class': 'fos_user_resetting_reset' } }) }}
+    {{ form_widget(form) }}
+    <div>
+        <input type="submit" class="btn btn-dark col-md-12" value="{{ 'resetting.reset.submit'|trans }}" />
+    </div>
+{{ form_end(form) }}
+        <!-- form -->
+        </section>
+        <!-- content -->
+      </div>
+
+ {% endblock fos_user_content %}
+ {% endblock %}

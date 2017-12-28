@@ -31,7 +31,9 @@
   {% block content %}
 
          {% for present in presents[0:]  %}
-                    {% if loop.index >= 2 and present.publier == true %}
+                    {#{% if loop.index >= 2 and present.publier == true %}#}
+                    {% if nb >= 2 and loop.index == 1 %}
+                        <div id="info-present">
                         <div class="info-header">
                 <div class="alert alert-success  alert-dismissible fade in" role="alert">
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
@@ -39,19 +41,22 @@
                   <strong>Attention !</strong> vous avez plusieurs sections présentation en statut publié. Seule la plus récente est en ligne.
                 </div>
                     </div>
+                        </div>
                         {% else %}
                         {% endif %}
                          {% endfor %}
           
          {% for promotion in promotions[0:]  %}
-                    {% if loop.index >= 2 and promotion.publier == true %}
-                        <div class="col-md-12">
-                <div class="alert alert-warning  alert-dismissible fade in" role="alert">
+                    {% if nbPromo >= 2 and loop.index == 1   %}
+                        <div id="info-promo">
+                        <div class="info-header">
+                <div class="alert alert-promo alert-success  alert-dismissible fade in" role="alert">
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
                   </button>
                   <strong>Attention !</strong> vous avez plusieurs sections promotion en statut publier. Seule la plus récente est en ligne.
                 </div>
                     </div>
+                        </div>
                         {% else %}
                         {% endif %}
                          {% endfor %}
@@ -137,8 +142,8 @@
                     <tbody>
                         {% for present in presents[0:]  %}
 
-                            {% if loop.index >= 2 and present.publier >=2 %}<tr class="alert-dark">{% else %}<tr> {% endif %}  
-                           <td class="icon-section"><i class=" {% if loop.index >= 2 and present.publier >=2 %}fa fa-grav white {% else %}fa fa-grav blue{% endif %}" aria-hidden="true"></i></td>
+                            {% if nb >= 2 and present.publier == true %}<tr class="alert-dark">{% else %}<tr> {% endif %}  
+                           <td class="icon-section"><i class=" {% if nb >= 2 and  present.publier == true  %}fa fa-grav white {% else %}fa fa-grav blue{% endif %}" aria-hidden="true"></i></td>
                         <td>{% if present.name != null %}{{present.name }}{% else %}Aucune section{% endif %}<br/>
                           <small>Créer le {{ present.date|date ('j/m/y à H:i:s') }}</small></td>
                         {% if present.image !=null %}
@@ -245,10 +250,10 @@
 
                     <tbody>
   
-                         {% for promotion in promotions  %}
+                         {% for promotion in promotions[0:]  %}
                       <tr>  
-                            {% if loop.index >= 2 and promotion.publier >=2 %}<tr class="alert-dark">{% else %}{% endif %}  
-                           <td class="icon-section"><i class=" {% if loop.index >= 2 and promotion.publier >=2 %}fa fa-info-circle white {% else %}fa fa-info-circle blue{% endif %}" aria-hidden="true"></i></td>
+                            {% if nbPromo >= 2 and  promotion.publier == true  %}<tr class="alert-dark">{% else %}{% endif %}  
+                           <td class="icon-section"><i class=" {% if nbPromo >= 2 and  promotion.publier == true   %}fa fa-info-circle white {% else %}fa fa-info-circle blue{% endif %}" aria-hidden="true"></i></td>
                         <td>{% if promotion.name != null %}{{promotion.name }}{% else %}Aucune section{% endif %} <br />
                          <small>Créer le {{ promotion.date|date ('j/m/y à H:i:s') }}</small></td>
                                               

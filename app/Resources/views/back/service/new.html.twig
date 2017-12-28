@@ -1,7 +1,7 @@
 {% extends ':back:templateAdmin.html.twig' %}
 
   {% block content %}
-    <h1>Section 2 creation</h1>
+{#    <h1>Section 2 creation</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
@@ -30,8 +30,67 @@
                     </div>
 
     </div>  
+               #}          
+ 
+<div class="row">  
+   <div class="col-md-6 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                 <h2>Section création</h2>   
+                    <a class="btn btn-dark btn-xs back-list" href="{{ path('section_index') }}">Back to the list</a>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <br>
+                    {{ form_start(form) }}
+                    {{ form_errors(form) }}
+                     
+                    {{ form_row(form.name) }}
+                    {{ form_row(form.titre) }}
+                    {{ form_row(form.description) }}
+                    {{ form_row(form.icon) }}
+                    <div class="ln_solid"></div>
+                    {{ form_row(form.publier) }}
+                     
+           
+
+              </div>
+                    <div class="form-group btn-right">
+                        <button type="submit" class="btn btn-success">Enregistrer</button>
+                    </div>
+            </div>
+   </div>
+ 
+                       <div class="col-md-6 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                 <h2>Icon disponible</h2>   
+ 
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+    <div class="bs-docs-section">
+                    <div class="bs-glyphicons">
+                      <ul class="bs-glyphicons-list">
+                           {% for icon in icons %}
+                        <li>
+                          <span class="glyphicon"><img src="{{asset('images/item/')~icon.nom~'.png'}}"></span>
+                          <span class="glyphicon-class">{{ icon.nom }}</span>
+                        </li>
+                         {% endfor %}
+                      </ul>
+                    </div>
+
+    </div> 
+              </div>
+            </div>
+   </div>
+
                          
-                             
+          
+          
+       </div>
+ {{ form_end(form) }}
                              
 {% endblock %}
 

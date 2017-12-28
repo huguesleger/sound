@@ -1,7 +1,7 @@
 {% extends ':back:templateAdmin.html.twig' %}
 
   {% block content %}
-    <h1>Promotion edit</h1>
+ {#   <h1>Promotion edit</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
@@ -17,5 +17,63 @@
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
-    </ul>
+    </ul>#}
+ <div class="row">  
+   <div class="col-md-6 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                    <h2>Section édition</h2>
+                    <a class="btn btn-dark btn-xs back-list" href="{{ path('section_index') }}">Back to the list</a>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <br>
+                   {{ form_start(edit_form) }}
+                    
+                           {{ form_row(edit_form.name) }}
+                           {{ form_row(edit_form.texte) }}
+                                                <div class="ln_solid"></div>
+                    {{ form_row(edit_form.publier) }}
+
+              </div>
+                <div class="form-group btn-right">
+                <button type="submit" class="btn btn-success">Enregistrer</button>
+                </div>
+              </div>
+            </div>
+     
+             
+      <div class="col-md-6 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Image</h2>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <br>
+ 
+      <label for="appbundle_present_image" class="input-label">
+          <i class="fa fa-upload"></i>Select fichier</label>
+          {{form_widget(edit_form.image)}}
+     
+                {% if promotion.image != null%}
+                <img id="selectImage" src="{{asset('uploads/image/')~promotion.image}}" alt="your image" />
+                {% else %}
+                 <img class="default-picture" id="selectImage" src="{{asset('images/image_default.png')}}" alt="your image" />
+                 {% endif %}
+     </div>
+            </div>
+      </div>
+                         
+
+       </div>
+  {{ form_end(edit_form) }}
+
+    
+
 {% endblock %}
+
+{% block scriptForm %}
+    <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
+{% endblock %}
+
