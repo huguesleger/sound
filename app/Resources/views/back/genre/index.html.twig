@@ -87,8 +87,8 @@
                            <td><small>Créer le {{ genre.date|date ('j/m/y à H:i:s') }}</small></td>
                         <td><a>{{ genre.nom }}</a></td>
                         {#<td><a href="{{ path('genre_show', { 'id': genre.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>#}
-                        <td> <a href="{{ path('genre_edit', { 'id': genre.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                          <a href="{{ path('genre_delete', { 'id': genre.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a></td>
+                        <td> <a href="{{ path('genre_edit', { 'id': genre.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil-square-o no-mg-right"></i> Editer </a>
+                          <a href="{{ path('genre_delete', { 'id': genre.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a></td>
                       </tr>
                        {% endfor %}
                     </tbody>

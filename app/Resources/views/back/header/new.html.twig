@@ -3,11 +3,11 @@
 
     {% block content %}
     <div class="row">  
-        <div class="col-md-6 col-xs-12">
+        <div class="col-md-8 col-xs-8">
             <div class="x_panel">
                 <div class="x_title">
-                <h2>Header creation</h2>
-                <a class="btn btn-dark btn-xs back-list" href="{{ path('header_index') }}">Back to the list</a>
+                <h2>Header style creation</h2>
+                <a class="btn btn-dark btn-xs back-list" href="{{ path('header_index') }}"><i class="fa fa-reply" aria-hidden="true"></i>Retour header</a>
                 <div class="clearfix"></div>
                 </div>
                     <div class="x_content">
@@ -15,6 +15,8 @@
                     {{ form_start(form) }}
                     {{ form_errors(form) }}
                     {#<p>1-sélectionner votre texte pour un slide</p>#}
+                      {{ form_row(form.styleDefault) }}
+                      <div class="ln_solid"></div>
                         <div class="form-group">
                         <label for="appbundle_header_headerTexte">Phrase d'accroche</label>  
                         {{form_widget(form.headerTexte)}}</div>
@@ -32,6 +34,7 @@
                         
                         {{form_row(form.image)}}
                          <p><small>* champ obligatoire</small></p>
+                        <p><small>* taille max: 900 Ko</small></p>
                      
                         <img class="default-picture" id="selectImage" src="{{asset('images/image_default.png')}}" alt="your image" />
                         </div>
@@ -39,38 +42,46 @@
                         
             </div>
                         <div class="form-group btn-right">
-                            <button type="submit" class="btn btn-success">Enregistrer</button>
+                            <button type="submit" class="btn btn-success"><i class="fa fa-download" aria-hidden="true"></i>Enregistrer</button>
                          </div>
         </div>             
-                <div class="col-md-3 col-xs-12">
-                    <div class="x_panel">
-                        <div class="x_title">
-                        <h2>Style</h2>
-                        <div class="clearfix"></div>
-                        </div>
-                        <div class="x_content">
-                        <br>    
-                        {{ form_row(form.styleDefault) }}
-                        </div>
-                    </div>              
-                  
-                </div> 
-                    
-                    <div class="col-md-3 col-xs-12">
-                        <div class="x_panel">
-                            <div class="x_title">
-                            <h2>Aide</h2>
-                             <ul class="nav navbar-right panel_toolbox">
-                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-                        </ul>
-                            <div class="clearfix"></div>
-                            </div>
-                            <div class="x_content">
-                            <br>    
-                           wech
-                            </div>
-                        </div>  
-                    </div>   
+    <div class="col-md-4 col-xs-4">
+              <div class="x_panel">
+                <div class="x_title">
+                 <h2>Aide</h2>   
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <ul class="list-unstyled msg_list">
+                  <li>
+                    <span class="message">
+                    <h3>1-Style</h3>
+                    Définissez le style d'apparence de votre header.
+                    <br> - pour avoir la pochette vinyl cocher style par defaut.
+                    <br> - pour avoir le slider ne cocher pas la case.
+                    </span>
+                  </li>
+                  <li>
+                    <span class="message">
+                    <h3>2-Phrase d'accroche</h3>
+                    Choisissez le nombre de phrase d'accroche à afficher selon le style défini.
+                    <br> - pour le style par defaut, séléctionnez de 1 à 3 phrases max.
+                    <br> - pour le style slider, séléctionnez 1 phrase par slide ajouté.
+                    </span>
+                  </li> 
+                  <li>
+                    <span class="message">
+                    <h3>3-Image</h3>
+                     - pour le style par defaut, le format optimal est: 456px X 456px.
+                     <br> - pour le style slider, le format optimal est: min 1920px de large et max 790px de haut.
+                    </span>
+                  </li>                    
+                </ul>
+
+              </div>
+            </div>
+   </div>                                           
+                     
     </div>
     {{ form_end(form) }}
     {% endblock %}

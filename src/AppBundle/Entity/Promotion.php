@@ -40,8 +40,8 @@ class Promotion
      *
      * @ORM\Column(name="image", type="string", length=255, nullable=true)
      * @File(mimeTypes={"image/jpeg", "image/png"},
-     * maxSize = "800k",
-     * maxSizeMessage = "La taille maximum autorisée est de (800ko).")
+     * maxSize = "500k",
+     * maxSizeMessage = "La taille maximum autorisée est de (500ko).")
      */
     private $image;
 

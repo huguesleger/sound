@@ -89,9 +89,9 @@
                         <td><small>Créer le {{ label.date|date ('j/m/y à H:i:s') }}</small></td>   
                         <td>{{ label.nom }}</td>
                         {#<td><a href="{{ path('label_show', { 'id': label.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>#}
-                        <td>{#{{ render(controller('AppBundle:Label:edit',{'id':label.id})) }}#}<a href="{{ path('label_edit', { 'id': label.id }) }}"  class="btn btn-info btn-xs" id="EditLabel"  {#data-toggle="modal"  data-target="#myModal{{ label.id }} "#}><i class="fa fa-pencil"></i> Edit </a>
+                        <td>{#{{ render(controller('AppBundle:Label:edit',{'id':label.id})) }}#}<a href="{{ path('label_edit', { 'id': label.id }) }}"  class="btn btn-info btn-xs" id="EditLabel"  {#data-toggle="modal"  data-target="#myModal{{ label.id }} "#}><i class="fa fa-pencil-square-o no-mg-right"></i> Editer </a>
                          
-                          <a href="{{ path('label_delete', { 'id': label.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a></td>
+                          <a href="{{ path('label_delete', { 'id': label.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a></td>
                       </tr>
                        {% endfor %}
                     </tbody>

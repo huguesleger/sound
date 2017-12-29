@@ -1,44 +1,22 @@
 {% extends ':back:templateAdmin.html.twig' %}
 
   {% block content %}
-{#    <h1>Imagemobiles list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Image</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for imageMobile in imageMobiles %}
-            <tr>
-                <td><a href="{{ path('imagemobile_show', { 'id': imageMobile.id }) }}">{{ imageMobile.id }}</a></td>
-                <td>{{ imageMobile.image }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('imagemobile_show', { 'id': imageMobile.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('imagemobile_edit', { 'id': imageMobile.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('imagemobile_new') }}">Create a new imageMobile</a>
-        </li>
-    </ul>#}
-
+      
+                {% for imageMobile in imageMobiles[0:]  %}
+                    {% if loop.index >=2 and imageMobile.publier == true %}
+                    <div id="info-mobile">
+                        <div class="info-header">
+                            <div class="alert alert-success  alert-dismissible fade in" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                <strong>Attention !</strong> vous avez plusieurs images en statut publié. Seule la plus récente est en ligne.
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    {% endif %}
+                {% endfor %}
          <div class="">
-               {% for imageMobile in imageMobiles[0:] %}
+{#               {% for imageMobile in imageMobiles[0:] %}
                    {% if loop.index >=2 and imageMobile.publier == true %}
                         <div class="col-md-12">
                 <div class="alert alert-warning  alert-dismissible fade in" role="alert">
@@ -49,10 +27,10 @@
                     </div>
                         {% else %}
                         {% endif %}
-                         {% endfor %}
+                         {% endfor %}#}
           <div class="page-title">
             <div class="title_left">
-                <h3>Image Mobile</h3>
+                <h3>Header <small>version mobile</small></h3>
             </div>
                 <span class="btn-title-left col-md-2">
                     <a class="btn btn-dark btn-sm" href="{{ path('imagemobile_new') }}">Ajouter</a></span>
@@ -96,8 +74,8 @@
                               {% else %}
                                   <span class="label label-warning">Brouillon</span>
                               {% endif %}
-                              <p class="btn-right"><a href="{{ path('imagemobile_edit', { 'id': imageMobile.id }) }}" class="btn btn-info btn"><i class="fa fa-pencil"></i> Edit </a>
-                                 <a href="{{ path('imagemobile_delete', { 'id': imageMobile.id }) }}" class="btn btn-danger btn"><i class="fa fa-trash-o"></i> Delete </a></p>
+                              <p class="btn-right"><a href="{{ path('imagemobile_edit', { 'id': imageMobile.id }) }}" class="btn btn-info btn-sm"><i class="fa fa-pencil-square-o no-mg-right"></i> Editer </a>
+                                 <a href="{{ path('imagemobile_delete', { 'id': imageMobile.id }) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a></p>
                             </div>
                           </div>
                         </div>

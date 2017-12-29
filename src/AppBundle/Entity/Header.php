@@ -30,8 +30,8 @@ class Header
      *
      * @ORM\Column(name="image", type="string", length=255, nullable= true)
      * @File(mimeTypes={"image/jpeg", "image/png"},
-     * maxSize = "1024k",
-     * maxSizeMessage = "La taille maximum autorisée est de (1024ko).")
+     * maxSize = "900k",
+     * maxSizeMessage = "La taille maximum autorisée est de (900ko).")
      */
     private $image;
 

@@ -3,16 +3,12 @@
   {% block content %}
      
 
-      
-    <h1>Header edit</h1>
-
-    
       <div class="row">  
-   <div class="col-md-6 col-xs-12">
+   <div class="col-md-12 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
-                    <h2>Edit sound</h2>
-                    <a class="btn btn-dark btn-xs back-list" href="{{ path('header_index') }}">Back to the list</a>
+                    <h2>Edit header style</h2>
+                    <a class="btn btn-dark btn-xs back-list" href="{{ path('header_index') }}"><i class="fa fa-reply" aria-hidden="true"></i>Retour header</a>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -21,95 +17,35 @@
       {#  {{ form_widget(edit_form) }}#}
       
          {{ form_row(edit_form.styleDefault) }}
+                     <div class="ln_solid"></div>
          <label for="appbundle_header_headerTexte">Phrase d'accroche</label>  
          {{ form_widget(edit_form.headerTexte) }}
           <p><small>* champ obligatoire</small></p>
-                         
-                </div>
-              </div>
-            </div>
-     
-             
-      <div class="col-md-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Image upload</h2>
-                 <ul class="nav navbar-right panel_toolbox">
-                    
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  <br>
- 
-      <label for="appbundle_header_image" class="input-label">
+                <label for="appbundle_header_image" class="input-label">
           <i class="fa fa-upload"></i>Select fichier</label>
           {{form_widget(edit_form.image)}}
            <p><small>* champ obligatoire</small></p>
        
                 <img id="selectImage" src="{{asset('uploads/header/')~header.image}}" alt="your image" />
                 
-     </div>
-            </div>
-      </div>
-                         
-                <div class="col-md-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Options</h2>
-                 <ul class="nav navbar-right panel_toolbox">
-                    
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
+                
                 </div>
-                <div class="x_content">
-                  <br>
-                  
-                          
-                           
-                         
-                            <div class="ln_solid"></div>
-                               
-                           
-
-                </div>
+                
               </div>
-                            
-                                   
-                            <div class="form-group btn-right">
-                        <button type="submit" class="btn btn-success">Mettre à jour</button>
+                                            <div class="form-group btn-right">
+                        <button type="submit" class="btn btn-success"><i class="fa fa-upload" aria-hidden="true"></i>Mettre à jour</button>
                       </div>
-
-
             </div>
+     
+                         
 
        </div>
                          
-
-     <div class="col-md-4 col-sm-3 col-xs-12 profile_left"> 
-                                  <a href="{{ path('headertexte_index') }}">Edit texte</a>
-                            </div>
                                 
       
-        {#<input type="submit" value="Edit" />#}
     {{ form_end(edit_form) }}
-    
-           
-{#
-    <ul>
-        <li>
-            <a href="{{ path('header_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>#}
+   
+          
 {% endblock %}
 {% block scriptForm %}
     <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>

@@ -155,9 +155,9 @@
                         <td>{{ present.texte|truncate(80, false, ' ...') }}</td>
                     
                         <td>{% if present.publier %}<span type="button" class="label label-success">Publié</span>{% else %}<span class="label label-warning">Brouillon</span>{% endif %}</td>
-                        <td><a href="{{ path('present_show', { 'id': present.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
-                          <a href="{{ path('present_edit', { 'id': present.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                          <a href="{{ path('present_delete', { 'id': present.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a></td>
+                        <td><a href="{{ path('present_show', { 'id': present.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder-open-o no-mg-right"></i> Apperçu </a>
+                          <a href="{{ path('present_edit', { 'id': present.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil-square-o no-mg-right"></i> Editer </a>
+                          <a href="{{ path('present_delete', { 'id': present.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a></td>
                       </tr>
                        {% endfor %}
                         
@@ -208,9 +208,9 @@
                             <td>{{ service.description|truncate(80, true, ' ...') }}</td>
                     
                         <td> {% if service.publier %}<span type="button" class="label label-success">Publié</span>{% else %}<span class="label label-warning">Brouillon</span>{% endif %}</td>
-                        <td><a href="{{ path('service_show', { 'id': service.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
-                          <a href="{{ path('service_edit', { 'id': service.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                          <a href="{{ path('service_delete', { 'id': service.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a></td>
+                        <td><a href="{{ path('service_show', { 'id': service.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder-open-o no-mg-right"></i> Apperçu</a>
+                          <a href="{{ path('service_edit', { 'id': service.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil-square-o no-mg-right"></i> Editer</a>
+                          <a href="{{ path('service_delete', { 'id': service.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o no-mg-right"></i> Supprimer</a></td>
                       </tr>
                        {% endfor %}
                            
@@ -262,9 +262,9 @@
                             {% else %}<img src="{{asset('images/turntable-default.jpg')}}"class="avatar"><small class="col-md-6 ">image par defaut</small>{% endif %}</td>
                             <td>{{ promotion.texte|truncate(80, false, ' ...') }}</td>
                             <td>{% if promotion.publier %}<span type="button" class="label label-success">Publié</span>{% else %}<span class="label label-warning">Brouillon</span>{% endif %}</td>
-                            <td><a href="{{ path('promotion_show', { 'id': promotion.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
-                             <a href="{{ path('promotion_edit', { 'id': promotion.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                             <a href="{{ path('promotion_delete', { 'id': promotion.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a></td>
+                            <td><a href="{{ path('promotion_show', { 'id': promotion.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder-open-o no-mg-right"></i> Apperçu</a>
+                             <a href="{{ path('promotion_edit', { 'id': promotion.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil-square-o no-mg-right"></i> Editer</a>
+                             <a href="{{ path('promotion_delete', { 'id': promotion.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o no-mg-right"></i> Supprimer</a></td>
                       </tr>
                        {% endfor %}
                     </tbody>

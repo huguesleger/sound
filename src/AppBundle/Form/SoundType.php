@@ -28,9 +28,12 @@ class SoundType extends AbstractType
                 ->add('morceau', FileType::class, array('data_class' => null,'required' => false, 'label'=>false))
                 ->add('image', FileType::class, array('data_class' => null,'required' => false, 'label'=>false))
                 ->add('label')
-                ->add('link',null, array ('label'=>'Lien SoundCloud','required' => false))
-                ->add('linkSpotify',null, array ('label'=>'Lien Spotify','required' => false))
-                ->add('linkDeezer',null, array ('label'=>'Lien Deezer','required' => false))
+                ->add('link',null,array('attr'=> array(
+                      'placeholder' => 'copiez l\'url complète')), array ('label'=>'Lien SoundClound','required' => false))
+                ->add('linkSpotify',null,array('attr'=> array(
+                      'placeholder' => 'copiez l\'url complète')), array ('label'=>'Lien Spotify','required' => false))
+                ->add('linkDeezer',null,array('attr'=> array(
+                      'placeholder' => 'copiez l\'url complète')), array ('label'=>'Lien Deezer','required' => false))
                 ->add('genre', null, array('attr'=>array('class'=>'select2_multiple')))
                 ->add('publier', null, array('attr'=> array('class'=> 'js-switch')));
     }

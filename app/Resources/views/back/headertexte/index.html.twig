@@ -103,8 +103,8 @@
                            <td><small>Créer le {{ headerTexte.date|date ('j/m/y à H:i:s') }}</small></td>
                         <td><a>{{ headerTexte.texte }}</a></td>
                         <td>{{ headerTexte.animationTexte}}</td>
-                        <td><a href="{{ path('headertexte_edit', { 'id': headerTexte.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                          <a href="{{ path('headertexte_delete', { 'id': headerTexte.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a></td>
+                        <td><a href="{{ path('headertexte_edit', { 'id': headerTexte.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil-square-o no-mg-right"></i> Editer </a>
+                          <a href="{{ path('headertexte_delete', { 'id': headerTexte.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a></td>
                       </tr>
                        {% endfor %}
                     </tbody>

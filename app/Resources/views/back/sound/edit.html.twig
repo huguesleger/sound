@@ -54,7 +54,7 @@
               <div class="x_panel">
                 <div class="x_title">
                     <h2>Edit sound</h2>
-                    <a class="btn btn-dark btn-xs back-list" href="{{ path('sound_index') }}">Back to the list</a>
+                    <a class="btn btn-dark btn-xs back-list" href="{{ path('sound_index') }}"><i class="fa fa-reply" aria-hidden="true"></i>Retour musiques</a>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -132,7 +132,8 @@
       <div class="col-md-6 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
-                  <h2>Image upload</h2>
+                  <h2>Image</h2>
+                  
                  <ul class="nav navbar-right panel_toolbox">
                     
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -147,6 +148,7 @@
           <i class="fa fa-upload"></i>Select fichier</label>
           {{form_widget(edit_form.image)}}
            <p><small>* format optimal: 220px X 220px</small></p>
+           <p><small>* taille max: 300 Ko</small></p>
                           {% if sound.image != null%}
                 <img id="selectImage" src="{{asset('uploads/image/')~sound.image}}" alt="your image" />
                 {% else %}
@@ -187,7 +189,7 @@
                             
                                    
                             <div class="form-group btn-right">
-                        <button type="submit" class="btn btn-success">Mettre à jour</button>
+                        <button type="submit" class="btn btn-success"><i class="fa fa-upload" aria-hidden="true"></i>Mettre à jour</button>
                       </div>
 
 

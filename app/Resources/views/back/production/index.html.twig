@@ -108,8 +108,8 @@
                         <td>{% if production.texte == true %}{{ production.texte }}{% else %}pas de texte{% endif %}</td>
                     
                         <td>{% if production.publier %}<span type="button" class="label label-success">Publié</span>{% else %}<span class="label label-warning">Brouillon</span>{% endif %}</td>
-                         <td><a href="{{ path('production_edit', { 'id': production.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                          <a href="{{ path('production_delete', { 'id': production.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a></td>
+                         <td><a href="{{ path('production_edit', { 'id': production.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil-square-o no-mg-right"></i> Editer</a>
+                          <a href="{{ path('production_delete', { 'id': production.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a></td>
                       </tr>
                        {% endfor %}
                     </tbody>
