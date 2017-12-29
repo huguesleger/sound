@@ -84,9 +84,9 @@
 
                         <div class="mtop20">
                          {% if promotion.publier == 0%}
-                        {#  <a href="{{path("publier_promotion",{"id":promotion.id})}}" class="btn btn-sm btn-success">Publier</a>#}
+                          <a href="{{path("publier_promotion",{"id":promotion.id})}}" class="btn btn-sm btn-success">Publier</a>
                           {% else %}
-                          {# <a href="{{path("publier_promotion",{"id":promotion.id})}}" class="btn btn-sm btn-warning">Brouillon</a> #}  
+                           <a href="{{path("publier_promotion",{"id":promotion.id})}}" class="btn btn-sm btn-warning">Brouillon</a>   
                           {% endif %}
                           <a href="{{ path('promotion_edit', { 'id': promotion.id }) }}" class="btn btn-sm btn-info">Editer</a>
                           <a href="{{ path('promotion_delete', { 'id': promotion.id }) }}" class="btn btn-sm btn-danger">Supprimer</a>

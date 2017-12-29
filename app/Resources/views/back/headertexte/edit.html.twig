@@ -2,7 +2,7 @@
 
   {% block content %}
 
-    <h1>Headertexte edit</h1>
+{#    <h1>Headertexte edit</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
@@ -22,4 +22,59 @@
 {% endblock %}
 {% block scriptForm %}
     <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
+{% endblock %}
+#}
+
+<div class="row">  
+   <div class="col-md-6 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                 <h2>Phrase d'accroche edit</h2>   
+                    <a class="btn btn-dark btn-xs back-list" href="{{ path('headertexte_index') }}">Back to the list</a>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <br>
+                    {{ form_start(edit_form) }}
+                     
+                    {{ form_row(edit_form.texte) }}
+                    <p><small>* champ obligatoire</small></p>
+                    {{ form_row(edit_form.animationTexte) }}
+                    <p><small>* champ obligatoire</small></p>
+
+              </div>
+                    <div class="form-group btn-right">
+                        <button type="submit" class="btn btn-success">Enregistrer</button>
+                    </div>
+            </div>
+   </div>
+ 
+                       <div class="col-md-6 col-xs-12">
+              <div class="x_panel">
+
+                <div class="x_content">
+    <div class="bs-docs-section">
+            <div class="wrap">
+   <span id="animationSandbox" style="display: block;" class=""><h1 class="txt-center">Animation Demo</h1></span>
+  </div>
+        
+   <button class="btn btn-primary js--triggerAnimation">Rejouer l'animation</button>  
+
+    </div> 
+              </div>
+            </div>
+   </div>
+
+                         
+          
+          
+       </div>
+ {{ form_end(edit_form) }}
+                             
+{% endblock %}
+
+
+
+{% block scriptForm %}
+<script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>  
 {% endblock %}

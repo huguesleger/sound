@@ -171,4 +171,44 @@ class PromotionController extends Controller
             ->getForm()
         ;
     }
+    
+    
+    /**
+    * delete a promotion list
+    * @Route("/{id}/delete", name="promotion_delete")
+    */
+    public function deletePromotiontList($id) {
+        $em = $this->getDoctrine()->getManager();
+        $promotion = $em->find('AppBundle:Promotion', $id);
+        
+        $this->addFlash('delete',
+                             null );
+        
+        $em->remove($promotion);
+        $em->flush();
+        
+       return $this->redirectToRoute('section_index');
+    }
+    
+     /**
+     * @Route("/admin/publier/{id}", name="publier_promotion")
+     */
+     public function publierPromotion($id){
+        $em = $this->getDoctrine()->getEntityManager();
+        $promotion = $em->find('AppBundle:Promotion', $id);
+        $this->createForm(promotionType::class, $promotion);
+        
+        if($promotion->getPublier() == 0) {
+             $promotion->setPublier(1);
+        }else {
+              $promotion->setPublier(0);
+        }
+
+          
+         $em->merge($promotion);
+         $em->flush();
+          $this->addFlash('update',
+                             null );
+         return $this->redirectToRoute('promotion_show', array('id' => $promotion->getId()));
+     }    
 }

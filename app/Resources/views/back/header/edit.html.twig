@@ -21,7 +21,9 @@
       {#  {{ form_widget(edit_form) }}#}
       
          {{ form_row(edit_form.styleDefault) }}
-         {{ form_row(edit_form.headerTexte) }}
+         <label for="appbundle_header_headerTexte">Phrase d'accroche</label>  
+         {{ form_widget(edit_form.headerTexte) }}
+          <p><small>* champ obligatoire</small></p>
                          
                 </div>
               </div>
@@ -45,7 +47,7 @@
       <label for="appbundle_header_image" class="input-label">
           <i class="fa fa-upload"></i>Select fichier</label>
           {{form_widget(edit_form.image)}}
-     
+           <p><small>* champ obligatoire</small></p>
        
                 <img id="selectImage" src="{{asset('uploads/header/')~header.image}}" alt="your image" />
                 

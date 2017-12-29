@@ -62,7 +62,7 @@ class Promotion
      */
     private $name;
     
-     /**
+    /**
     *
     * @var DateTime
     * @ORM\Column(name="date", type="datetime")

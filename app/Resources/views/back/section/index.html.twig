@@ -130,8 +130,9 @@
                     <thead>
                       <tr>
                         <th style="width: 1%">#</th>
+                        <th style="width: 14%">Date</th>
                         <th style="width: 12%">Nom</th>
-                        <th style="width: 20%">Image</th>
+                        <th style="width: 15%">Image</th>
                         <th>Description</th>
                         <th>Status</th>
                         <th style="width: 20%">Actions</th>
@@ -144,8 +145,8 @@
 
                             {% if nb >= 2 and present.publier == true %}<tr class="alert-dark">{% else %}<tr> {% endif %}  
                            <td class="icon-section"><i class=" {% if nb >= 2 and  present.publier == true  %}fa fa-grav white {% else %}fa fa-grav blue{% endif %}" aria-hidden="true"></i></td>
-                        <td>{% if present.name != null %}{{present.name }}{% else %}Aucune section{% endif %}<br/>
-                          <small>Créer le {{ present.date|date ('j/m/y à H:i:s') }}</small></td>
+                           <td><small>Créer le {{ present.date|date ('j/m/y à H:i:s') }}</small></td>
+                        <td>{% if present.name != null %}{{present.name }}{% else %}Aucune section{% endif %}</td>
                         {% if present.image !=null %}
                         <td><img src="{{asset('uploads/image/')~present.image}}" class="avatar"></td>
                        {% else %}
@@ -186,8 +187,9 @@
                     <thead>
                       <tr>
                         <th style="width: 1%">#</th>
+                        <th style="width: 14%">Date</th>
                         <th style="width: 12%">Nom</th>
-                        <th style="width: 20%">Image</th>
+                        <th style="width: 15%">Image</th>
                         <th>Description</th>
                         <th>Status</th>
                         <th style="width: 20%">Actions</th>
@@ -199,12 +201,11 @@
                        
                         {% for service in services  %}
                       <tr>  
-                           <td class="icon-section"><i class="fa fa-th blue" aria-hidden="true"></i></td>
-                        <td>{% if service.name != null %}{{service.name }}{% else %}Aucune section{% endif %}<br/>
-                          <small>Créer le {{ service.date|date ('j/m/y à H:i:s') }}</small></td>
- 
-                        <td><img src="{{asset('images/item/')~service.icon~'.png'}}" class="avatar"><small class="col-md-6">{{service.icon}}</small></td>
-                        <td>{{ service.description|truncate(80, true, ' ...') }}</td>
+                            <td class="icon-section"><i class="fa fa-th blue" aria-hidden="true"></i></td>
+                            <td><small>Créer le {{ service.date|date ('j/m/y à H:i:s') }}</small></td>
+                            <td>{% if service.name != null %}{{service.name }}{% else %}Aucune section{% endif %}</td>
+                            <td><img src="{{asset('images/item/')~service.icon~'.png'}}" class="avatar"><small class="col-md-6">{{service.icon}}</small></td>
+                            <td>{{ service.description|truncate(80, true, ' ...') }}</td>
                     
                         <td> {% if service.publier %}<span type="button" class="label label-success">Publié</span>{% else %}<span class="label label-warning">Brouillon</span>{% endif %}</td>
                         <td><a href="{{ path('service_show', { 'id': service.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
@@ -239,8 +240,9 @@
                     <thead>
                       <tr>
                         <th style="width: 1%">#</th>
+                        <th style="width: 14%">Nom</th>
                         <th style="width: 12%">Nom</th>
-                        <th style="width: 20%">Image</th>
+                        <th style="width: 15%">Image</th>
                         <th>Description</th>
                         <th>Status</th>
                         <th style="width: 20%">Actions</th>
@@ -253,18 +255,16 @@
                          {% for promotion in promotions[0:]  %}
                       <tr>  
                             {% if nbPromo >= 2 and  promotion.publier == true  %}<tr class="alert-dark">{% else %}{% endif %}  
-                           <td class="icon-section"><i class=" {% if nbPromo >= 2 and  promotion.publier == true   %}fa fa-info-circle white {% else %}fa fa-info-circle blue{% endif %}" aria-hidden="true"></i></td>
-                        <td>{% if promotion.name != null %}{{promotion.name }}{% else %}Aucune section{% endif %} <br />
-                         <small>Créer le {{ promotion.date|date ('j/m/y à H:i:s') }}</small></td>
-                                              
-                        <td>{% if promotion.image != null %}<img src="{{asset('uploads/image/')~promotion.image}}" class="avatar">
-                         {% else %}<img src="{{asset('images/turntable-default.jpg')}}"class="avatar"><small class="col-md-6 ">image par defaut</small>{% endif %}</td>
-                        <td>{{ promotion.texte|truncate(80, false, ' ...') }}</td>
-                    
-                        <td> {% if promotion.publier %}<span type="button" class="label label-success">Publié</span>{% else %}<span class="label label-warning">Brouillon</span>{% endif %}</td>
-                        <td><a href="{{ path('promotion_show', { 'id': promotion.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
-                          <a href="{{ path('promotion_edit', { 'id': promotion.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                          <a href="{{ path('promotion_delete', { 'id': promotion.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a></td>
+                            <td class="icon-section"><i class=" {% if nbPromo >= 2 and  promotion.publier == true   %}fa fa-info-circle white {% else %}fa fa-info-circle blue{% endif %}" aria-hidden="true"></i></td>
+                            <td><small>Créer le {{ promotion.date|date ('j/m/y à H:i:s') }}</small></td>
+                            <td>{% if promotion.name != null %}{{promotion.name }}{% else %}Aucune section{% endif %}</td>                     
+                            <td>{% if promotion.image != null %}<img src="{{asset('uploads/image/')~promotion.image}}" class="avatar">
+                            {% else %}<img src="{{asset('images/turntable-default.jpg')}}"class="avatar"><small class="col-md-6 ">image par defaut</small>{% endif %}</td>
+                            <td>{{ promotion.texte|truncate(80, false, ' ...') }}</td>
+                            <td>{% if promotion.publier %}<span type="button" class="label label-success">Publié</span>{% else %}<span class="label label-warning">Brouillon</span>{% endif %}</td>
+                            <td><a href="{{ path('promotion_show', { 'id': promotion.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
+                             <a href="{{ path('promotion_edit', { 'id': promotion.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                             <a href="{{ path('promotion_delete', { 'id': promotion.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a></td>
                       </tr>
                        {% endfor %}
                     </tbody>

@@ -15,7 +15,10 @@ class ProductionType extends AbstractType
     {
         $builder
                 ->add('titre',null, array('data_class' => null,'required' => false))
-                ->add('texte',null, array('data_class' => null,'required' => false))
+                ->add('texte',null, array('attr'=> array(
+                      'placeholder' => 'votre présentation ...',
+                      'rows'=>3,
+                      'onkeyup'=>'saisieProdIntro(this.value);')))
                 ->add('publier', null, array('attr'=> array('class'=> 'js-switch')));
     }
     

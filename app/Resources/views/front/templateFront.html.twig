@@ -59,7 +59,7 @@
                 <ul class="social-icon">
                     {% for social in socials %}
                     <li class="">
-                        <a href="{{'http://'~social.url}}" target="new"><i class="social-round social-round-dark fa {{'fa-'~social.nom}}" aria-hidden="true"></i></a>
+                        <a href="{{social.url}}" target="new"><i class="social-round social-round-dark fa {{'fa-'~social.nom}}" aria-hidden="true"></i></a>
                     </li>
                       {% endfor %}
                 </ul>

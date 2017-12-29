@@ -2,6 +2,11 @@
 
 
 //////general////////
+
+.site_title img {
+    width: 28px;
+}
+
 .btn-right {
     float: right;
 }
@@ -191,7 +196,15 @@
 ///////header style///////////////
 
 
-
+.wrap {
+    overflow: hidden;
+    min-height: 20vh;
+    
+}
+#animationSandbox {
+    padding-top: 20px;
+    font-family: $font_extra;
+}
 
 .info-header {
     position: absolute;

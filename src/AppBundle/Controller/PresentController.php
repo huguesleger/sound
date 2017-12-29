@@ -177,7 +177,7 @@ class PresentController extends Controller
         ;
     }
     
-     /**
+    /**
     * delete a present list
     * @Route("/{id}/delete", name="present_delete")
     */
@@ -212,7 +212,7 @@ class PresentController extends Controller
 //     }
     
     
-         /**
+     /**
      * @Route("/admin/publier/{id}", name="publier_present")
      */
      public function publierPresent($id){

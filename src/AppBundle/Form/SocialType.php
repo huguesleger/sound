@@ -15,8 +15,9 @@ class SocialType extends AbstractType
     {
         $builder
                 ->add('nom',null, array('attr'=> array(
-                      'placeholder' => 'ex: facebook...')))
-                ->add('url');
+                      'placeholder' => 'facebook, twitter, ...')))
+                ->add('url',null, array('attr'=> array(
+                      'placeholder' => 'copiez l\'url complète')));
     }
     
     /**

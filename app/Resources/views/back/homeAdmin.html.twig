@@ -57,10 +57,14 @@
               </div>
               <div class="x_content">
                   <div class="col-md-6">
-                <h4>Bonjour, {{ app.user.username }}</h4>
+               {# <h4>Bonjour, {{ app.user.username }}</h4>#}
+               <br>
                 {% if nbTotal == 0 %}
                     <p>Lancez-vous, créer votre premier morceau</p>{% else %}{% endif %}
                    <a href="{{ path('sound_new') }}"><button type="button" class="btn btn-info btn-lg">Ajouter un morceau</button></a>
+                   <br>
+                   <br>
+                   <p><small>* Ajouter en 1er vos genres musicaux, labels.</small></p>
                 </div>
                     <div class="col-md-6 text-right">
                         <img src="{{asset('images/pochette-disc.png')}}"/>

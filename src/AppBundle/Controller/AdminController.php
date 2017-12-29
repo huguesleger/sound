@@ -10,7 +10,6 @@ namespace AppBundle\Controller;
 
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
@@ -22,7 +21,6 @@ class AdminController extends Controller {
     
     /**
      * @Route("/admin", name="admin_index");
-     * @Template(":back:index.html.twig");
      */ 
     public function homeAdmin(){
         
@@ -40,7 +38,7 @@ class AdminController extends Controller {
         $stats  = $em->getRepository('AppBundle:Sound')->findByPublier(1,array('date'=>'DESC'),3);
         $genre = $em->getRepository('AppBundle:Genre')->findAll();
         
-        return $this->render('back/index.html.twig', array(
+        return $this->render('back/homeAdmin.html.twig', array(
             'sounds' => $sounds,
             'stats' => $stats,
             'genre'=> $genre,

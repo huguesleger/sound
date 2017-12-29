@@ -163,4 +163,27 @@ class ServiceController extends Controller
        return $this->redirectToRoute('section_index');
     }
     
+    
+     /**
+     * @Route("/admin/publier/{id}", name="publier_service")
+     */
+     public function publierService($id){
+        $em = $this->getDoctrine()->getEntityManager();
+        $service = $em->find('AppBundle:Service', $id);
+        $this->createForm(serviceType::class, $service);
+        
+        if($service->getPublier() == 0) {
+             $service->setPublier(1);
+        }else {
+              $service->setPublier(0);
+        }
+
+          
+         $em->merge($service);
+         $em->flush();
+          $this->addFlash('update',
+                             null );
+         return $this->redirectToRoute('service_show', array('id' => $service->getId()));
+     }
+    
 }

@@ -2,7 +2,9 @@
 
 namespace AppBundle\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Production
@@ -32,6 +34,9 @@ class Production
      * @var string
      *
      * @ORM\Column(name="texte", type="text", nullable=true)
+     * @Assert\Length(
+     *  max = 320,
+     *  maxMessage = "le texte doit avoir maximum {{ limit }} caratères")
      */
     private $texte;
     
@@ -41,6 +46,18 @@ class Production
      * @ORM\Column(name="publier", type="boolean")
      */
     private $publier;
+    
+    /**
+    *
+    * @var DateTime
+    * @ORM\Column(name="date", type="datetime")
+    */
+    private $date;
+    
+       public function __construct()
+    {
+        $this->date = new DateTime();
+    }    
 
 
     /**
@@ -124,5 +141,29 @@ class Production
     {
         return $this->publier;
     }
+    
+    /**
+     * Set date
+     *
+     * @param DateTime $date
+     *
+     * @return Promotion
+     */
+     public function setDate(DateTime $date) {
+        $this->date = $date;
+        
+        return $this;
+    }
+    
+    
+    /**
+     * Get date
+     *
+     * @return DateTime
+     */
+    public function getDate() {
+        return $this->date;
+    }
+    
 }
 

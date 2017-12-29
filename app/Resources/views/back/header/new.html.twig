@@ -18,6 +18,7 @@
                         <div class="form-group">
                         <label for="appbundle_header_headerTexte">Phrase d'accroche</label>  
                         {{form_widget(form.headerTexte)}}</div>
+                         <p><small>* champ obligatoire</small></p>
                         <br> 
                        {#   <p>2-sélectionner votre image pour un slide</p>   #}
                         <div class="x_title">
@@ -29,7 +30,8 @@
                         <label for="appbundle_header_image" class="input-label">
                         <i class="fa fa-upload"></i>Select fichier</label>
                         
-                        {{form_row(form.image)}} 
+                        {{form_row(form.image)}}
+                         <p><small>* champ obligatoire</small></p>
                      
                         <img class="default-picture" id="selectImage" src="{{asset('images/image_default.png')}}" alt="your image" />
                         </div>

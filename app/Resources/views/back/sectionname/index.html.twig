@@ -66,18 +66,13 @@
 
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
-                <div class="x_title">
-                  <h2>Mes noms de section</h2>
-                  
-                  <div class="clearfix"></div>
-                </div>
                 <div class="x_content">
                  
                   <table class="table table-striped projects">
                     <thead>
                       <tr>
                         <th style="width: 5%">#</th>
-                        {#<th style="width: 12%">Icon</th>#}
+                        <th style="width: 20%">Date</th>
                         <th style="width: 30%">Nom</th>
                         <th style="width: 20%">Actions</th>
                       </tr>
@@ -90,9 +85,8 @@
                            <td> {% set counter = ( counter | default(0) ) + 1 %}
                            <small> {{ counter }}</small></td>
                        {#<td><i class="fa fa-list" aria-hidden="true"></i></td>#}
-                        <td><a>{{ sectionName.name }}</a>
-                        <br />
-                          <small>Créer le {{ sectionName.date|date ('j/m/y à H:i:s') }}</small></td>
+                        <td><small>Créer le {{ sectionName.date|date ('j/m/y à H:i:s') }}</small></td>  
+                        <td><a>{{ sectionName.name }}</a></td>
                         {#<td><a href="{{ path('sectionname_show', { 'id': sectionName.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>#}
                         <td><a href="{{ path('sectionname_edit', { 'id': sectionName.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
                           <a href="{{ path('sectionname_delete', { 'id': sectionName.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a></td>

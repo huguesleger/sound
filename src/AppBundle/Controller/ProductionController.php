@@ -3,9 +3,13 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Production;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Form;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Production controller.
@@ -25,16 +29,19 @@ class ProductionController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $productions = $em->getRepository('AppBundle:Production')->findAll();
+        $locationRepo = $em->getRepository('AppBundle:Production');
+        $nb = $locationRepo->getNbPublishProd();
 
         return $this->render('back/production/index.html.twig', array(
             'productions' => $productions,
+            'nb' => $nb,
         ));
     }
 
     /**
      * Creates a new production entity.
      *
-     * @Route("/new", name="production_new")
+     * @Route("/", name="production_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -44,11 +51,15 @@ class ProductionController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('succes',
+                             null );
             $em = $this->getDoctrine()->getManager();
             $em->persist($production);
             $em->flush();
+            $response = new Response();
+            $response->headers->set('Content-Type', 'application/json');
 
-            return $this->redirectToRoute('production_show', array('id' => $production->getId()));
+            return $this->redirectToRoute('production_index',array( new JsonResponse($response)));
         }
 
         return $this->render('back/production/new.html.twig', array(
@@ -86,6 +97,8 @@ class ProductionController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+             $this->addFlash('update',
+                             null );
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('production_edit', array('id' => $production->getId()));
@@ -95,6 +108,8 @@ class ProductionController extends Controller
             'production' => $production,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+             $this->addFlash('error',
+                             null )
         ));
     }
 
@@ -123,7 +138,7 @@ class ProductionController extends Controller
      *
      * @param Production $production The production entity
      *
-     * @return \Symfony\Component\Form\Form The form
+     * @return Form The form
      */
     private function createDeleteForm(Production $production)
     {
@@ -133,4 +148,21 @@ class ProductionController extends Controller
             ->getForm()
         ;
     }
+    
+    /**
+    * delete a production list
+    * @Route("/{id}/delete", name="production_delete")
+    */
+    public function deleteProductionList($id) {
+        $em = $this->getDoctrine()->getManager();
+        $production = $em->find('AppBundle:Production', $id);
+        
+        $this->addFlash('delete',
+                             null );
+        
+        $em->remove($production);
+        $em->flush();
+        
+       return $this->redirectToRoute('production_index');
+    }    
 }

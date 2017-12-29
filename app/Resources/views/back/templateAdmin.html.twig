@@ -9,7 +9,8 @@
         <div class="left_col scroll-view">
 
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Tableau de bord</span></a>
+            <a href="{{path('admin_index')}}" class="site_title"><i><img src="{{asset ('images/min-logo-white.png')}}"/></i> <span>Tableau de bord</span></a>
+{#            <a class="icon-logo site_title"><span><img src="{{asset ('images/min-logo-white.png')}}"/>Tableau de bord</span></a>#}
           </div>
           <div class="clearfix"></div>
 
@@ -47,8 +48,8 @@
                     </li>
                     <li><a href="{{path('genre_index')}}">Genres musicaux</a>
                     </li>
-                    <li><a href="{{path('sectionname_index')}}">Noms des sections</a>
-                    </li>
+                    {#<li><a href="{{path('sectionname_index')}}">Noms des sections</a>
+                    </li>#}
                     
                    
                     
@@ -72,6 +73,7 @@
                  <li><a><i class="fa fa-laptop"></i> Pages <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                    {# <li><a href="{{path('homepage_index')}}">HomePage</a></li>#}
+                   <li><a href="{{path('sectionname_index')}}">Noms des sections</a></li>
                     <li><a href="{{path('section_index')}}">Home page</a></li>
                     <li><a href="{{path('production_index')}}">Production</a></li>
                    {# <li><a href="{{path('style_index')}}">Styles</a></li>#}
@@ -87,7 +89,7 @@
                   <ul class="nav child_menu" style="display: none">
                     
                     <li><a href="{{path('header_index')}}">Style</a></li>
-                    <li><a href="{{path('headertexte_index')}}">Texte d'intro</a></li>
+                    <li><a href="{{path('headertexte_index')}}">Phrase d'accroche</a></li>
                     <li><a href="{{path('imagemobile_index')}}">Image Mobile</a></li>
                   </ul>
                 </li>
@@ -230,7 +232,7 @@
           {% endblock %}
      {% block footer %}
         <footer>
-          <div class="copyright-info col-md-10">
+          <div class="copyright-info col-md-10 col-sm-10">
             <p class="pull-right">Easy Music Project - &copy {{ "now"|date('Y')}} Tous droits réservés</p>
           </div>
           <div class="clearfix"></div>

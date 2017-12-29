@@ -519,6 +519,7 @@ padding-top: 15px;
  {
   -webkit-transform: scale(1.15);
           transform: scale(1.15);
+          opacity: 1;
 }
 .audio-player.is-playing .audio-player__cover {
   opacity: 0.35;
@@ -532,6 +533,15 @@ padding-top: 15px;
   -webkit-transform: translateY(50px);
           transform: translateY(50px);
 }
+
+.audio-player:hover .audio-player__control {
+    opacity: 1;
+}
+
+.audio-player.is-playing .audio-player__control:focus {
+    opacity: 1;
+}
+
 .audio-player__cover {
   position: absolute;
   top: 0;
@@ -573,6 +583,7 @@ padding-top: 15px;
   border: none;
   background: none;
   cursor: pointer;
+  opacity: 0;
 }
 .audio-player__control:focus {
   outline: none;
@@ -651,6 +662,7 @@ padding-top: 15px;
           transform: translateY(-50px);
           
 }
+
 
 @media screen and(max-width: 1023px){
 .audio-players {

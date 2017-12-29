@@ -26,7 +26,10 @@
                         <h4 class="modal-title" id="myModalSocial">Social creation</h4>
                       </div>
                       <div class="modal-body">
-                       {{ form_widget(form) }}
+                       {{ form_row(form.nom) }}
+                       <p><small>* champ obligatoire</small></p>
+                        {{ form_row(form.url) }}
+                       <p><small>* champ obligatoire</small></p>                        
                       </div>
                       <div class="modal-footer">
                       <button type="submit" class="btn btn-success">Enregistrer</button>

@@ -10,4 +10,19 @@ namespace AppBundle\Repository;
  */
 class ProductionRepository extends \Doctrine\ORM\EntityRepository
 {
+         public function getNbPublishProd() {
+      
+        $qb = $this->createQueryBuilder('pr');
+  
+
+        $qb
+                        ->select('COUNT(pr)')
+                        ->where('pr.publier = 1');
+                        
+                        return $qb
+                        ->getQuery()
+                        ->getSingleScalarResult();
+  
+    } 
+    
 }

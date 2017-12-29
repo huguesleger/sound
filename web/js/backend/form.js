@@ -322,6 +322,19 @@ $(function(){
    $('<div id="write">600 caracatère(s) disponible(s)</div>').insertAfter('#appbundle_present_texte'); 
 });
 
+////////////////////////compte caractere saisi texte intro production///////////////
+///  
+
+   function saisieProdIntro(textes)
+{
+    var restants = 320-textes.length;
+    document.getElementById('write').innerHTML=restants + "&nbsp;caractère(s)&nbsp;disponible(s)";
+}
+
+$(function(){
+   $('<div id="write">320 caracatère(s) disponible(s)</div>').insertAfter('#appbundle_production_texte'); 
+});
+
 
      
               $(document).ready(function(){
@@ -342,6 +355,14 @@ $('#AddLabel').click(function(){
        $(document).ready(function(){
 $('#AddGenre').click(function(){
     $('#Genre').modal({
+        show:true  
+    });   
+});
+    });
+    
+           $(document).ready(function(){
+$('#AddProdIntro').click(function(){
+    $('#ProdIntro').modal({
         show:true  
     });   
 });

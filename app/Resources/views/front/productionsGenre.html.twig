@@ -137,13 +137,13 @@
                                     <p>écoutez sur :</p>
                                    {% endif %}   
                                   {% if sound.link !=null %}
-                                  <a href="http://{{ sound.link }}"><img src="{{asset('images/soundcloud.png')}}" class="soundcloud-link"></a>
+                                  <a href="{{ sound.link }}"><img src="{{asset('images/soundcloud.png')}}" class="soundcloud-link"></a>
                                   {% endif %}
                                   {% if sound.linkSpotify !=null %}
-                                  <a href="http://{{ sound.linkSpotify }}"><img src="{{asset('images/spotify.png')}}" class="spotify-link"></a>
+                                  <a href="{{ sound.linkSpotify }}"><img src="{{asset('images/spotify.png')}}" class="spotify-link"></a>
                                    {% endif %}
                                    {% if sound.linkDeezer !=null %}
-                                  <a href="http://{{ sound.linkDeezer }}"><img src="{{asset('images/deezer.png')}}" class="deezer-link"></a>
+                                  <a href="{{ sound.linkDeezer }}"><img src="{{asset('images/deezer.png')}}" class="deezer-link"></a>
                                   {% endif %}
                           </div>
                           </div>
