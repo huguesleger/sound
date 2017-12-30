@@ -361,6 +361,103 @@ $('#AddGenre').click(function(){
     });
     
            $(document).ready(function(){
+$('#SuppMorceau').click(function(){
+    $('#SuppSound #appbundle_sound_id').modal({
+        show:true  
+    });   
+});
+    });
+    
+           $(document).ready(function(){
+$('#SuppLabel').click(function(){
+    $('#SuppLabel #appbundle_label_id').modal({
+        show:true  
+    });   
+});
+    });
+
+           $(document).ready(function(){
+$('#SuppGenre').click(function(){
+    $('#SuppGenre #appbundle_genre_id').modal({
+        show:true  
+    });   
+});
+    });
+    
+           $(document).ready(function(){
+$('#SuppTitleSection').click(function(){
+    $('#SuppTitle #appbundle_sectionname_id').modal({
+        show:true  
+    });   
+});
+    });
+    
+           $(document).ready(function(){
+$('#SuppPresent').click(function(){
+    $('#SuppPresent #appbundle_present_id').modal({
+        show:true  
+    });   
+});
+    });       
+  
+           $(document).ready(function(){
+$('#SuppService').click(function(){
+    $('#SuppService #appbundle_service_id').modal({
+        show:true  
+    });   
+});
+    });
+    
+    
+           $(document).ready(function(){
+$('#SuppPromo').click(function(){
+    $('#SuppPromo #appbundle_promotion_id').modal({
+        show:true  
+    });   
+});
+    });
+    
+           $(document).ready(function(){
+$('#SuppProdInfo').click(function(){
+    $('#SuppProdInfo #appbundle_production_id').modal({
+        show:true  
+    });   
+});
+    });
+    
+           $(document).ready(function(){
+$('#SuppHeader').click(function(){
+    $('#SuppHeader #appbundle_header_id').modal({
+        show:true  
+    });   
+});
+    });
+    
+           $(document).ready(function(){
+$('#SuppPhrase').click(function(){
+    $('#SuppPhrase #appbundle_headertexte_id').modal({
+        show:true  
+    });   
+});
+    });
+    
+           $(document).ready(function(){
+$('#SuppImgMobile').click(function(){
+    $('#SuppImgMobile #appbundle_imagemobile_id').modal({
+        show:true  
+    });   
+});
+    });
+    
+           $(document).ready(function(){
+$('#SuppSocial').click(function(){
+    $('#SuppSocial #appbundle_social_id').modal({
+        show:true  
+    });   
+});
+    });       
+
+           $(document).ready(function(){
 $('#AddProdIntro').click(function(){
     $('#ProdIntro').modal({
         show:true  

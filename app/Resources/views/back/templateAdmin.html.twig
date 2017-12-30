@@ -130,19 +130,16 @@
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
+                  <li><a href="{{ path('home') }}" target="new"> Voir le site</a>
+                  </li> 
                   <li><a href="{{ path('fos_user_profile_show') }}">  Profile</a>
                   </li>
-                   {# <li><a href="{{ path('fos_user_profile_edit') }}">  Edit</a>
-                  </li>#}
-                 {# <li>
-                    <a href="javascript:;">Help</a>
-                  </li>#}
                   <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out pull-right"></i> Déconnexion</a>
                   </li>
                 </ul>
               </li>
 
-              <li role="presentation" class="dropdown">
+{#              <li role="presentation" class="dropdown">
                 <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                   <i class="fa fa-envelope-o"></i>
                   <span class="badge bg-green">2</span>
@@ -187,7 +184,7 @@
                     </div>
                   </li>
                 </ul>
-              </li>
+              </li>#}
 
             </ul>
           </nav>

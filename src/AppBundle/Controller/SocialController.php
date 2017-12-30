@@ -148,4 +148,21 @@ class SocialController extends Controller
             ->getForm()
         ;
     }
+    
+       /**
+    * delete a social list
+    * @Route("/{id}/delete", name="social_delete")
+    */
+    public function deleteSocialList($id) {
+        $em = $this->getDoctrine()->getManager();
+        $social = $em->find('AppBundle:Social', $id);
+        
+        $this->addFlash('delete',
+                             null );
+        
+        $em->remove($social);
+        $em->flush();
+        
+       return $this->redirectToRoute('social_index');
+    } 
 }

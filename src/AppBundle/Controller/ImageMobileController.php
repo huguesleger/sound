@@ -174,4 +174,21 @@ class ImageMobileController extends Controller
             ->getForm()
         ;
     }
+    
+        /**
+    * delete a imageMobile list
+    * @Route("/{id}/delete", name="imagemobile_delete")
+    */
+    public function deleteImageMobileList($id) {
+        $em = $this->getDoctrine()->getManager();
+        $imageMobile = $em->find('AppBundle:ImageMobile', $id);
+        
+        $this->addFlash('delete',
+                             null );
+        
+        $em->remove($imageMobile);
+        $em->flush();
+        
+       return $this->redirectToRoute('imagemobile_index');
+    }
 }

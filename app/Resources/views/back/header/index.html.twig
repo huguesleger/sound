@@ -53,7 +53,7 @@
                         </small> </h2>
                             <div class="nav navbar-right panel_toolbox">
                             <a href="{{ path('header_edit', { 'id': header.id }) }}" class="btn btn-info btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Editer</a>
-                            <a href="{{ path('header_delete', { 'id': header.id }) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i>Supprimer</a>
+                            <a data-toggle="modal" href="#SuppHeader_{{ header.id }}" class="btn btn-danger btn-sm"id="SuppHeader"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a>
                             </div>
                         <div class="clearfix"></div>
                         </div>
@@ -107,7 +107,7 @@
                             {% set counter = ( counter | default(0) ) + 1 %}
                                 <div class="">
                             <a href="{{ path('header_edit', { 'id': header.id }) }}" class="btn btn-info btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Editer</a>
-                            <a href="{{ path('header_delete', { 'id': header.id }) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i>Supprimer</a>
+                            <a data-toggle="modal" href="#SuppHeader_{{ header.id }}" class="btn btn-danger btn-sm"id="SuppHeader"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a>
                                 <p class="nb-img">slide {{ counter }}</p>
                                 </div>
                             {% else %}  
@@ -149,7 +149,34 @@
                             </div>
                         </div>
                     </div>                                     
-                </div>            
+                </div>
+                                    
+                    {% for header in headers %}
+                      <div class="x_content">
+  <div class="modal fade bs-example-modal-lg" id="SuppHeader_{{ header.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                  <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+
+                      <div class="modal-header">
+                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Suppression</h4>
+                      </div>
+                      <div class="modal-body">
+                         Vous êtes sûr de vouloir supprimer cet élément ?
+                      </div>
+                      <div class="modal-footer">
+                          <ul class="modal-btn">
+                              <li><a class="btn btn-primary btn-sm" data-dismiss="modal"><i class="fa fa-trash-o no-mg-right"></i> Non </a></li>
+                              <li><a href="{{ path('header_delete', { 'id': header.id }) }}" class="btn btn-success btn-sm"><i class="fa fa-trash-o no-mg-right"></i> Oui </a></li>
+                          </ul>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                      </div>
+                    {% endfor %}
+                    
             </div>
         </div>   
     {% endblock %}

@@ -59,6 +59,15 @@
     margin-right: 0;
 }
 
+.modal-btn {
+    padding-left: 0;
+    text-align: center;
+    li {
+    display: inline-block;
+    list-style: none;
+    }
+}
+
 
 /////// input type file /////
 #appbundle_sound_morceau{

@@ -31,9 +31,9 @@ class User extends BaseUser
  
     /**
      * @Assert\File(
-     *     maxSize = "500k",
-     *     mimeTypes = {"image/jpeg", "image/gif", "image/png", "image/tiff"},
-     *     maxSizeMessage = "The maxmimum allowed file size is 500ko.",
+     *     maxSize = "150k",
+     *     mimeTypes = {"image/jpeg", "image/png"},
+     *     maxSizeMessage = "The maxmimum allowed file size is 150ko.",
      *     mimeTypesMessage = "Only the filetypes image are allowed.")
      */
     protected $avatar;

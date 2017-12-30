@@ -89,7 +89,7 @@
                         <td><a>{{ sectionName.name }}</a></td>
                         {#<td><a href="{{ path('sectionname_show', { 'id': sectionName.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>#}
                         <td><a href="{{ path('sectionname_edit', { 'id': sectionName.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil-square-o no-mg-right"></i> Editer </a>
-                          <a href="{{ path('sectionname_delete', { 'id': sectionName.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a></td>
+                         <a data-toggle="modal" href="#SuppTitle_{{ sectionName.id }}" class="btn btn-danger btn-xs"id="SuppTitleSection"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a></td>
                       </tr>
                        {% endfor %}
                     </tbody>
@@ -97,7 +97,31 @@
                 </div>
               </div>
             </div>
+                    {% for sectionName in sectionNames %}
+                      <div class="x_content">
+  <div class="modal fade bs-example-modal-lg" id="SuppTitle_{{ sectionName.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                  <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
 
+                      <div class="modal-header">
+                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Suppression</h4>
+                      </div>
+                      <div class="modal-body">
+                         Vous êtes sûr de vouloir supprimer cet élément ?
+                      </div>
+                      <div class="modal-footer">
+                          <ul class="modal-btn">
+                              <li><a class="btn btn-primary btn-sm" data-dismiss="modal"><i class="fa fa-trash-o no-mg-right"></i> Non </a></li>
+                              <li><a href="{{ path('sectionname_delete', { 'id': sectionName.id }) }}" class="btn btn-success btn-sm"><i class="fa fa-trash-o no-mg-right"></i> Oui </a></li>
+                          </ul>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                      </div>
+                    {% endfor %}
                 </div>
                     
                    </div>   

@@ -144,4 +144,21 @@ class HeaderTexteController extends Controller
             ->getForm()
         ;
     }
+    
+        /**
+    * delete a headerTexte list
+    * @Route("/{id}/delete", name="headertexte_delete")
+    */
+    public function deleteHeaderTexteList($id) {
+        $em = $this->getDoctrine()->getManager();
+        $headerTexte = $em->find('AppBundle:HeaderTexte', $id);
+        
+        $this->addFlash('delete',
+                             null );
+        
+        $em->remove($headerTexte);
+        $em->flush();
+        
+       return $this->redirectToRoute('headertexte_index');
+    }
 }
