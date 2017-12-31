@@ -11,7 +11,17 @@ body {
     position: fixed;  
 }
 
+.error {
+    background: $color_secondary;
+}
 
+.error-number {
+  font-weight: 600;
+  font-family: $font;
+}
+.col-middle {
+  font-family: $font_title;
+}
 /////////structure//////////
 
 

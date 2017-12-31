@@ -4,7 +4,7 @@
 
 
 
-    
+      {% block nav %}
      <div class="main-icon" id="Hamb">
             <span class="hamb"></span>
      </div>
@@ -18,6 +18,7 @@
         <a class="navbar-brand" href="{{ path('home') }}"><span class="name-light">Easy</span> Music Project</a>       
     </div>
                 </div>
+          {% block navSite %}
          <div class="bg-nav-mobile" id="">
         <ul class="nav navbar-nav navbar-right">
             <li><a href="{{ path('home') }}">Home</a></li>
@@ -29,9 +30,10 @@
         </ul>
         
          </div>
+                {% endblock %} 
             </div>
         </nav>
-
+  {% endblock %} 
     
     <!--------------------------
     | Page Content Here |
@@ -47,7 +49,7 @@
                
             </div>
         </div>   
-        
+          {% block footer %}  
         <footer class="footer">
         <div class="credit">
  {#           {% set date = ( date | default('j/m/y') ) %}#}
@@ -68,7 +70,7 @@
 
         </div>
     </footer>
-    
+      {% endblock %} 
     
     <div class="border">
         <div class="frame-top"></div>

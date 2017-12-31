@@ -290,9 +290,9 @@ body.nav-md .container.body .right_col {
   width: 100%;
   padding: 0
 }
-.navbar-nav>li>a, .navbar-brand, .navbar-nav>li>a {
+/*.navbar-nav>li>a, .navbar-brand, .navbar-nav>li>a {
   color: #fff !important;
-}
+}*/
 .navbar-brand, .navbar-nav>li>a {
   margin-bottom: 5px
 }
@@ -558,12 +558,12 @@ li.current-page {
 li.current-page a {
   color: #1ABB9C !important
 }
-.navbar-brand, .navbar-nav>li>a {
+/*.navbar-brand, .navbar-nav>li>a {
   font-weight: 500;
   color: #ECF0F1 !important;
   margin-left: 0 !important;
   line-height: 32px;
-}
+}*/
 .site_title {
   text-overflow: ellipsis;
   overflow: hidden;
@@ -1006,12 +1006,13 @@ td span {
 }
 .col-middle {
   margin-top: 5%;
+  color: #fff;
 }
 .mid_center {
-  width: 370px;
+  width: 470px;
   margin: 0 auto;
   text-align: center;
-  padding: 10px 20px;
+  padding: 50px 20px;
 }
 h3.degrees {
   font-size: 22px;
