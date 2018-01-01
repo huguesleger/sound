@@ -212,16 +212,18 @@
 }
 
 
-@media (max-width: 768px){
+/*@media (max-width: 768px){
 .navbar-nav>li>a {
     padding-top: 20px;
     padding-bottom: 0;
 }
-}
+}*/
 
 @media (min-width: 768px){
 .navbar-nav>li>a {
     padding-top: 10px;
+    padding-bottom: 0;
+    
 }
 }
 

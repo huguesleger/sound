@@ -54,7 +54,6 @@
         </li>
     </ul>#}
    <div class="row">
-   <div class="col-md-12">
               <div class="x_panel">
                 <div class="x_title">
                   <h2>Détail morceau</h2>
@@ -64,15 +63,15 @@
 
                 <div class="x_content">
 
-                  <div class="col-md-7 col-sm-9 col-xs-12">
-                      <div class="col-md-4">
+                  <div class="col-md-7 col-sm-12 col-xs-12">
+                      <div class="col-md-4 col-sm-4">
                       <img src="{{asset('uploads/image/')~sound.image}}"class="audio-player"/>
                       </div>
                     
                    <audio id="audio">
                     <source src="{{asset('uploads/music/')~sound.morceau}}">
                     </audio>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-5">
     <div class="audio-player-admin show-sound">
 
             <div class="info">
@@ -112,7 +111,7 @@
 
                   </div>
                     
-                    <div class="col-md-12">
+                    <div class="col-md-12 col-sm-3">
                         <div class="ln_solid"></div>
                         {% for sound in sound.genre %}
                             <h2>Genre(s) Associé(s)</h2>
@@ -122,7 +121,7 @@
                   </div>
 
                   <!-- start project-detail sidebar -->
-                  <div class="col-md-5 col-sm-3 col-xs-12">
+                  <div class="col-md-5 col-sm-12 col-xs-12">
 
                     <section class="panel">
 
@@ -191,7 +190,6 @@
 
                 </div>
               </div>
-            </div>
                       <div class="x_content">
   <div class="modal fade bs-example-modal-lg" id="SuppSound_{{ sound.id }}" tabindex="-1" role="dialog" aria-hidden="true">
                   <div class="modal-dialog modal-sm">

@@ -2,6 +2,60 @@
 
 
 //////general////////
+@media screen and(max-width: 767px){
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 4px;
+}
+
+
+.dataTables_filter {
+    width: 65%;
+    float: none;
+}
+
+.nav-sm .x_panel {
+    padding-left: 0;
+    overflow: hidden;
+}
+
+.alert {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.panel_toolbox {
+    float: left;
+}
+
+/*#datatable>thead>tr>th:nth-child(3){
+    display: none;
+}
+
+#datatable>tbody>tr>td:nth-child(4){
+    display: none;
+}
+
+#datatable>thead>tr>th:nth-child(5){
+    display: none;
+}
+
+#datatable>thead>tr>th:nth-child(6){
+    display: none;
+}
+
+
+#datatable>thead>tr>th:nth-child(7){
+    display: none;
+}*/
+
+}
+
+.bs-docs-section {
+    text-align: center;
+}
+
+.list-unstyled{
+    word-wrap: break-word;
+}
 
 .site_title img {
     width: 28px;
@@ -244,13 +298,19 @@
     border-color: rgba(38, 185, 154, 1);    
     }
 
+@media screen and(max-width: 767px){
+.background-pochette {
+    display: none;
+}
+}    
 
-
+@media screen and(min-width: 768px){
 .background-pochette {
     position: relative;
-
+}
 }
 
+@media screen and(min-width: 768px){
 .img-pochette-min {
    position: absolute;
    width: 286px;
@@ -260,6 +320,7 @@
    opacity: 0.8;
    border-top-left-radius: 2px;
    border-top-right-radius: 2px;
+}
 }
 
 
@@ -289,6 +350,7 @@
 
 .caption {
     background: transparent;
+    word-wrap: break-word;
 }
 
 .nb-img {

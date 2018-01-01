@@ -40,13 +40,15 @@ audio{
     flex-direction: column;
     justify-content: space-around;
     transition:all 0.2s;
-    width:20vw;
+/*    width:20vw;*/
     margin-top: -20px;
     background:white;
     box-sizing: border-box;
     @media screen and (max-width: 560px){
         width:90vw;
         background:white;
+        margin-left: -25px;
+        margin-top: 10px;
     }
 }
 

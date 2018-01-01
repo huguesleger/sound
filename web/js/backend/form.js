@@ -598,5 +598,128 @@ $('#AddSocial').click(function(){
       });
       
 
-  
-         
+      $(document).ready(function(){
+             var windowWidth = $(window).innerWidth();
+              if(windowWidth <= 767){
+            $('#datatable thead tr th:nth-child(7)').remove();                  
+            $('#datatable tbody tr td:nth-child(7)').remove();
+            
+            $('#datatable thead tr th:nth-child(6)').remove();                  
+            $('#datatable tbody tr td:nth-child(6)').remove();
+            
+            $('#datatable thead tr th:nth-child(5)').remove();                  
+            $('#datatable tbody tr td:nth-child(5)').remove();
+            
+            $('#datatable thead tr th:nth-child(3)').remove();                  
+            $('#datatable tbody tr td:nth-child(3)').remove();
+            
+            $('#datatable thead tr th:nth-child(2)').remove();                  
+            $('#datatable tbody tr td:nth-child(2)').remove();
+ 
+            $('#datatable thead tr th:nth-child(1)').remove();                  
+            $('#datatable tbody tr td:nth-child(1)').remove();
+            
+             //section present/////////////////////////////////
+            $('#Section-pres thead tr th:nth-child(5)').remove();                  
+            $('#Section-pres tbody tr td:nth-child(5)').remove();
+ 
+            $('#Section-pres thead tr th:nth-child(3)').remove();                  
+            $('#Section-pres tbody tr td:nth-child(3)').remove();
+            
+            $('#Section-pres thead tr th:nth-child(2)').remove();                  
+            $('#Section-pres tbody tr td:nth-child(2)').remove();
+            
+            $('#Section-pres thead tr th:nth-child(1)').remove();                  
+            $('#Section-pres tbody tr td:nth-child(1)').remove();            
+            
+            //section service/////////////////////////////////
+            $('#Section-serv thead tr th:nth-child(5)').remove();                  
+            $('#Section-serv tbody tr td:nth-child(5)').remove();
+ 
+            $('#Section-serv thead tr th:nth-child(3)').remove();                  
+            $('#Section-serv tbody tr td:nth-child(3)').remove();
+            
+            $('#Section-serv thead tr th:nth-child(2)').remove();                  
+            $('#Section-serv tbody tr td:nth-child(2)').remove();
+            
+            $('#Section-serv thead tr th:nth-child(1)').remove();                  
+            $('#Section-serv tbody tr td:nth-child(1)').remove(); 
+            
+            //section production/////////////////////////////////
+            $('#Section-prod thead tr th:nth-child(5)').remove();                  
+            $('#Section-prod tbody tr td:nth-child(5)').remove();
+ 
+            $('#Section-prod thead tr th:nth-child(3)').remove();                  
+            $('#Section-prod tbody tr td:nth-child(3)').remove();
+            
+            $('#Section-prod thead tr th:nth-child(2)').remove();                  
+            $('#Section-prod tbody tr td:nth-child(2)').remove();
+            
+            $('#Section-prod thead tr th:nth-child(1)').remove();                  
+            $('#Section-prod tbody tr td:nth-child(1)').remove();
+            
+            // title production///////////////////////////////////
+            $('#Title-prod thead tr th:nth-child(5)').remove();                  
+            $('#Title-prod tbody tr td:nth-child(5)').remove();
+            
+            $('#Title-prod thead tr th:nth-child(2)').remove();                  
+            $('#Title-prod tbody tr td:nth-child(2)').remove();
+            
+            $('#Title-prod thead tr th:nth-child(1)').remove();                  
+            $('#Title-prod tbody tr td:nth-child(1)').remove();
+            
+            // anim phrase accroche///////////////////////////////////
+            $('#Phrase-anim thead tr th:nth-child(2)').remove();                  
+            $('#Phrase-anim tbody tr td:nth-child(2)').remove();
+            
+            $('#Phrase-anim thead tr th:nth-child(1)').remove();                  
+            $('#Phrase-anim tbody tr td:nth-child(1)').remove();
+            
+            // social///////////////////////////////////
+            $('#Social-table thead tr th:nth-child(3)').remove();                  
+            $('#Social-table tbody tr td:nth-child(3)').remove();
+            
+            $('#Social-table thead tr th:nth-child(1)').remove();                  
+            $('#Social-table tbody tr td:nth-child(1)').remove();
+            
+             // label///////////////////////////////////
+            $('#Label-table thead tr th:nth-child(2)').remove();                  
+            $('#Label-table tbody tr td:nth-child(2)').remove();
+            
+            // genre///////////////////////////////////
+            $('#Genre-table thead tr th:nth-child(2)').remove();                  
+            $('#Genre-table tbody tr td:nth-child(2)').remove();
+            
+            // section title///////////////////////////////////
+            $('#Section-title thead tr th:nth-child(2)').remove();                  
+            $('#Section-title tbody tr td:nth-child(2)').remove();
+      }
+      
+              if(windowWidth >= 768 && windowWidth <= 1024){
+
+            
+            $('#datatable thead tr th:nth-child(5)').remove();                  
+            $('#datatable tbody tr td:nth-child(5)').remove();
+
+            
+      }
+       }); 
+       
+       //ajoute class img-responsive style header sm-device
+             $(document).ready(function(){
+             var windowWidth = $(window).innerWidth();
+              if(windowWidth <= 767){
+                $('.img-pochette-min').addClass('img-responsive'); 
+              }else {
+                $('.img-pochette-min').removeClass('img-responsive');
+              }
+          });
+          
+                    $(window).resize(function(){
+             var windowWidth = $(window).innerWidth();
+              if(windowWidth <= 767){
+                $('.img-pochette-min').addClass('img-responsive'); 
+              }else {
+                $('.img-pochette-min').removeClass('img-responsive');
+              }
+          });

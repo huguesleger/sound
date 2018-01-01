@@ -51,20 +51,20 @@
                             <i class="fa fa-circle no-activate" aria-hidden="true"></i>Non activer
                                 {% endif %}
                         </small> </h2>
-                            <div class="nav navbar-right panel_toolbox">
+                            <div class="panel_toolbox">
                             <a href="{{ path('header_edit', { 'id': header.id }) }}" class="btn btn-info btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Editer</a>
                             <a data-toggle="modal" href="#SuppHeader_{{ header.id }}" class="btn btn-danger btn-sm"id="SuppHeader"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a>
                             </div>
                         <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-                            <div class="col-md-4 col-sm-3 col-xs-12 profile_left">
+                            <div class="col-md-6 col-sm-6 col-xs-12 profile_left">
                                 <div class="background-pochette">
                                 <img src="{{asset('images/pochette_background_min.png')}}" alt="your image" />  
                                 </div>
                                 <img src="{{asset('uploads/header/')~header.image}}" class="img-pochette-min" alt="your image" />
                             </div>
-                            <div class="col-md-6 col-sm-3 col-xs-12">                         
+                            <div class="col-md-6 col-sm-12 col-xs-12">                         
                                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">                                                
                                     <ol class="carousel-indicators indicator-back">
                                      {% for header in header.headerTexte [0:] %}
@@ -76,7 +76,7 @@
                                     <div class="carousel-inner" role="listbox">                           
                                     {% for header in header.headerTexte[0:] %}                                 
                                         <div class="item{%if loop.index == 1%} active {%endif%}">                          
-                                        <h3 class="txt-carousel animated-demo {{ header.animationTexte}}">{{ header.texte }}</h3>
+                                        <h3 class="txt-carousel-back animated-demo {{ header.animationTexte}}">{{ header.texte }}</h3>
                                         <a class="edit-carousel" href="{{ path('headertexte_edit', { 'id': header.id }) }}">Editer texte</a>                        
                                         </div>
                                     {% endfor %}
@@ -92,16 +92,16 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">                               
                         <div class="x_title">
-                        <h2>Style Carousel |</h2>
+                        <h2>Style Carousel |
                         {% for header in headers %}
-                        <h2><small>{% if header.styleDefault == null %} {% set counter = ( counter | default(0) ) + 1 %}
+                        <small>{% if header.styleDefault == null %} {% set counter = ( counter | default(0) ) + 1 %}
                         <i class="fa fa-circle animated infinite pulse" aria-hidden="true"></i>Slide {{ counter }} activer
                         {% else %}                                   
                         <i class="fa fa-circle no-activate" aria-hidden="true"></i>Non activer                                 
                         {% endif %}
                         </small> </h2>
                         {% endfor %}
-                            <div class="nav navbar-right panel_toolbox">
+                            <div class="panel_toolbox">
                             {% for header in headers %}
                             {% if header.styleDefault ==null %}
                             {% set counter = ( counter | default(0) ) + 1 %}
