@@ -4,9 +4,9 @@
 
 namespace AppBundle\Controller\Front;
 
-
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Swift_Message;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -179,16 +179,53 @@ class FrontController  extends Controller {
      /**
      * @Route("/contact", name= "contact");
      */
-    public function contact(){
+    public function contactAction(Request $request){
         
         $em = $this->getDoctrine()->getManager();
         $socials = $em->getRepository('AppBundle:Social')->findAll();
+
+           if ($request->getMethod()=='POST')
+      {
         
-        return $this->render('front/contact.html.twig',array(
-            'socials'=> $socials,
-        ));
+          
+          $nom = $request->get('nom');
+          $email = $request->get('email');
+          $message = $request->get('message');
+          
+          
+
+       
+          
+        $contact = Swift_Message::newInstance();
+        $contact->toString();
+        $contact->setSubject($nom);
+        $contact->setFrom($email);
+        $contact->setTo('contact@easymusicproject.com');
+        $contact->setReplyTo($email);
+        $contact->setBody($message);
+                    
+    $this->get('mailer')->send($contact);
+    
+        
+    $this->addFlash(
+            'succesmail',
+            'Email envoyé avec succés'
+        );
+    
+        
+}
+
+ return $this->render('front/contact.html.twig',
+
+                array(
+
+                    'socials'=> $socials,
+
+                ));
     }
     
 
+    
+    
 }
 

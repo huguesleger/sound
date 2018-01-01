@@ -15,7 +15,7 @@
             <path d="M1382.78,3879.29c-20.73,15.59-38.41,15.59-59.15,0-13.52-10.17-25.06-10.17-38.57,0-20.54,15.44-37.29,15.44-57.83,0-13.67-10.28-22.9-10.28-36.58,0l-5.64-7.54c16.62-12.5,30.59-13,47.87,0,16.29,12.25,28.31,13.7,46.54,0,17.28-13,33.34-12.42,49.86,0,16.95,12.75,30.25,13.25,47.86,0,17.29-13,28.59-13,45.87,0l-5.64,7.54C1403.48,3868.84,1396.68,3868.84,1382.78,3879.29Z" transform="translate(-1185 -3862)"/>
             </svg>
               <p>Pour toute demande contactez-moi, je vous répond au plus vite.</p>
-          </div>
+          </div>   
           <div class="form-contact">
                        {# <form action="{{path('contact')}}" id="contact" method="POST" class="contact-form-mail">
                             <div class="form-group-mail">
@@ -43,19 +43,26 @@
                         </form>#}
                         <form method="POST" action="{{path('contact')}}">
                           <ul class="contact-form col-md-12 col-lg-6">
+                            {% for flash_message in app.session.flashBag.get('succesmail') %}                 
+                             <div class="alert alert-success">
+                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                 {{ flash_message }}
+                             </div>
+
+                         {% endfor %} 
                             <li>
                               <div class="col-md-12">
-                                <input name="name" placeholder="Nom" required="required" size="8" type="text">
+                                <input name="nom" placeholder="Nom" required="required" type="text">
                               </div>
 
                               <div class="col-md-12">
-                                <input name="email" placeholder="Email" required="required" size="8" type="email">
+                                <input name="email" placeholder="Email" required="required" type="email">
                               </div>
                             </li>
                             
                              <li>
                               <div class="col-md-12">
-                                  <textarea placeholder="Votre message ..." required="required" rows="8" type="text"></textarea>
+                                  <textarea name="message" placeholder="Votre message ..." required="required" rows="8" type="text"></textarea>
                               </div>
                             </li>
                             
@@ -69,7 +76,9 @@
                           </ul>
                         </form>
 
-                        <span id="msg_all"></span>
+                          <span id="msg_all">
+                              
+                          </span>                      
                     </div>
           </div>
           </div>
