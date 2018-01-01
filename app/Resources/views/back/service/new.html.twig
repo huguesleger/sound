@@ -1,101 +1,63 @@
-{% extends ':back:templateAdmin.html.twig' %}
+    {% extends ':back:templateAdmin.html.twig' %}
 
-  {% block content %}
-{#    <h1>Section 2 creation</h1>
+        {% block content %}
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-        
-        <div id="iconService"><img src="#"</div>
-    {{ form_end(form) }}
+            <div class="row">  
+                <div class="col-md-6 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                        <h2>Section création</h2>   
+                        <a class="btn btn-dark btn-xs back-list" href="{{ path('section_index') }}"><i class="fa fa-reply" aria-hidden="true"></i>Retour sections</a>
+                        <div class="clearfix"></div>
+                        </div>
+                        
+                        <div class="x_content">
+                            <br>
+                            {{ form_start(form) }}
+                            {{ form_errors(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('section_index') }}">Back to the list</a>
-        </li>
-    </ul>
-            
-    <div class="bs-docs-section">
-          <h1 id="glyphicons" class="page-header">Icons disponibles</h1>
-                    <div class="bs-glyphicons">
-                      <ul class="bs-glyphicons-list">
-                           {% for icon in icons %}
-                        <li>
-                          <span class="glyphicon"><img src="{{asset('images/item/')~icon.nom~'.png'}}"></span>
-                          <span class="glyphicon-class">{{ icon.nom }}</span>
-                        </li>
-                         {% endfor %}
-                      </ul>
+                            {{ form_row(form.name) }}
+                            {{ form_row(form.titre) }}
+                            {{ form_row(form.description) }}
+                            {{ form_row(form.icon) }}
+                            <div class="ln_solid"></div>
+                            {{ form_row(form.publier) }}
+                        </div>
+                        
+                        <div class="form-group btn-right">
+                            <button type="submit" class="btn btn-success"><i class="fa fa-download" aria-hidden="true"></i>Enregistrer</button>
+                        </div>
                     </div>
-
-    </div>  
-               #}          
- 
-<div class="row">  
-   <div class="col-md-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                 <h2>Section création</h2>   
-                    <a class="btn btn-dark btn-xs back-list" href="{{ path('section_index') }}"><i class="fa fa-reply" aria-hidden="true"></i>Retour sections</a>
-                  <div class="clearfix"></div>
                 </div>
-                <div class="x_content">
-                  <br>
-                    {{ form_start(form) }}
-                    {{ form_errors(form) }}
-                     
-                    {{ form_row(form.name) }}
-                    {{ form_row(form.titre) }}
-                    {{ form_row(form.description) }}
-                    {{ form_row(form.icon) }}
-                    <div class="ln_solid"></div>
-                    {{ form_row(form.publier) }}
-                     
-           
-
-              </div>
-                    <div class="form-group btn-right">
-                        <button type="submit" class="btn btn-success"><i class="fa fa-download" aria-hidden="true"></i>Enregistrer</button>
+                
+                <div class="col-md-6 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Icon disponible</h2>   
+                            <div class="clearfix"></div>
+                        </div>
+                        
+                        <div class="x_content">
+                            <div class="bs-docs-section">
+                                <div class="bs-glyphicons">
+                                    <ul class="bs-glyphicons-list">
+                                    {% for icon in icons %}
+                                        <li>
+                                        <span class="glyphicon"><img src="{{asset('images/item/')~icon.nom~'.png'}}"></span>
+                                        <span class="glyphicon-class">{{ icon.nom }}</span>
+                                        </li>
+                                    {% endfor %}
+                                    </ul>
+                                </div>
+                            </div> 
+                        </div>
                     </div>
-            </div>
-   </div>
- 
-                       <div class="col-md-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                 <h2>Icon disponible</h2>   
- 
-                  <div class="clearfix"></div>
                 </div>
-                <div class="x_content">
-    <div class="bs-docs-section">
-                    <div class="bs-glyphicons">
-                      <ul class="bs-glyphicons-list">
-                           {% for icon in icons %}
-                        <li>
-                          <span class="glyphicon"><img src="{{asset('images/item/')~icon.nom~'.png'}}"></span>
-                          <span class="glyphicon-class">{{ icon.nom }}</span>
-                        </li>
-                         {% endfor %}
-                      </ul>
-                    </div>
-
-    </div> 
-              </div>
             </div>
-   </div>
+        {{ form_end(form) }}
 
-                         
-          
-          
-       </div>
- {{ form_end(form) }}
-                             
-{% endblock %}
+        {% endblock %}
 
-
-
-{% block scriptForm %}
-<script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>  
-{% endblock %}
+    {% block scriptForm %}
+        <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>  
+    {% endblock %}

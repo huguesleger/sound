@@ -1,134 +1,81 @@
-{% extends ':back:templateAdmin.html.twig' %}
+    {% extends ':back:templateAdmin.html.twig' %}
 
-  {% block content %}
-  {#  <h1>Socials list</h1>
+        {% block content %}
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Url</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for social in socials %}
-            <tr>
-                <td><a href="{{ path('social_show', { 'id': social.id }) }}">{{ social.id }}</a></td>
-                <td>{{ social.nom }}</td>
-                <td>{{ social.url }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('social_show', { 'id': social.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('social_edit', { 'id': social.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('social_new') }}">Create a new social</a>
-        </li>
-    </ul>#}
-  
-  
-    <div class="">
-           
-           
-           
-          <div class="page-title">
+            <div class="page-title">
             <div class="title_left">
-                <h3>Réseaux sociaux</h3>
+            <h3>Réseaux sociaux</h3>
             </div>
-               <span class="btn-title-left col-md-2">
-                   <a class="btn btn-dark btn-sm" id="AddSocial">Ajouter</a>{{ render(controller('AppBundle:Social:new')) }}</span>
-
-       </div>
-          <div class="clearfix"></div>
-
- 
-          
-                <div class="row">
-
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <div class="x_panel">
-                <div class="x_content">
-                 
-                  <table class="table table-striped" id="Social-table">
-                    <thead>
-                      <tr>
-                        <th style="width: 5%">#</th>
-                        {#<th style="width: 12%">Icon</th>#}
-                        <th style="width: 12%">Icon</th>
-                        <th style="width: 12%">Social</th>
-                         <th style="width: 20%">Url</th>
-                        <th style="width: 20%">Actions</th>
-                      </tr>
-                    </thead>
-
-
-                    <tbody>
-                        {% for social in socials %}
-                      <tr>  
-                           <td> {% set counter = ( counter | default(0) ) + 1 %}
-                           <small> {{ counter }}</small></td>
-                       {#<td><i class="fa fa-list" aria-hidden="true"></i></td>#}
-                            <td><i class="fa fa-{{ social.nom }} social-round" aria-hidden="true"></i></td>
-                           <td>{{ social.nom }}</td>
-                           <td>{{ social.url }}</td>
-                        <td><a href="{{ path('social_edit', { 'id': social.id }) }}"  class="btn btn-info btn-xs"><i class="fa fa-pencil-square-o no-mg-right"></i> Editer </a>
-                         
-                         <a data-toggle="modal" href="#SuppSocial_{{ social.id }}" class="btn btn-danger btn-xs"id="SuppSocial"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a></td>
-                      </tr>
-                       {% endfor %}
-                    </tbody>
-                  </table>
-
-                </div>
-              </div>
+            <span class="btn-title-left col-md-2">
+            <a class="btn btn-dark btn-sm" id="AddSocial">Ajouter</a>{{ render(controller('AppBundle:Social:new')) }}</span>
             </div>
-                    
-                    {% for social in socials %}
-                      <div class="x_content">
-  <div class="modal fade bs-example-modal-lg" id="SuppSocial_{{ social.id }}" tabindex="-1" role="dialog" aria-hidden="true">
-                  <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
+            <div class="clearfix"></div>
+        
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_content">            
+                            <table class="table table-striped" id="Social-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 5%">#</th>
+                                        <th style="width: 12%">Icon</th>
+                                        <th style="width: 12%">Social</th>
+                                        <th style="width: 20%">Url</th>
+                                        <th style="width: 20%">Actions</th>
+                                    </tr>
+                                </thead>
 
-                      <div class="modal-header">
-                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Suppression</h4>
-                      </div>
-                      <div class="modal-body">
-                         Vous êtes sûr de vouloir supprimer cet élément ?
-                      </div>
-                      <div class="modal-footer">
-                          <ul class="modal-btn">
-                              <li><a class="btn btn-primary btn-sm" data-dismiss="modal"><i class="fa fa-trash-o no-mg-right"></i> Non </a></li>
-                              <li><a href="{{ path('social_delete', { 'id': social.id }) }}" class="btn btn-success btn-sm"><i class="fa fa-trash-o no-mg-right"></i> Oui </a></li>
-                          </ul>
-                      </div>
-
+                                <tbody>
+                                {% for social in socials %}
+                                    <tr>  
+                                        <td> {% set counter = ( counter | default(0) ) + 1 %}
+                                        <small> {{ counter }}</small></td>
+                                        <td><i class="fa fa-{{ social.nom }} social-round" aria-hidden="true"></i></td>
+                                        <td>{{ social.nom }}</td>
+                                        <td>{{ social.url }}</td>
+                                        <td><a href="{{ path('social_edit', { 'id': social.id }) }}"  class="btn btn-info btn-xs"><i class="fa fa-pencil-square-o no-mg-right"></i> Editer </a>                      
+                                        <a data-toggle="modal" href="#SuppSocial_{{ social.id }}" class="btn btn-danger btn-xs"id="SuppSocial"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a></td>
+                                    </tr>
+                                {% endfor %}
+                                
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                  </div>
                 </div>
-                      </div>
-                    {% endfor %}
-                </div>
-                    
-                   </div>  
-  
-  
-  
-{% endblock %}
 
-{% block scriptForm %}
-      <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
-{% endblock %}
+                {% for social in socials %}
+                    <div class="x_content">
+                        <div class="modal fade bs-example-modal-lg" id="SuppSocial_{{ social.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Suppression</h4>
+                                    </div>
+                                    
+                                    <div class="modal-body">
+                                        Vous êtes sûr de vouloir supprimer cet élément ?
+                                    </div>
+                                    
+                                    <div class="modal-footer">
+                                        <ul class="modal-btn">
+                                            <li><a class="btn btn-primary btn-sm" data-dismiss="modal"><i class="fa fa-trash-o no-mg-right"></i> Non </a></li>
+                                            <li><a href="{{ path('social_delete', { 'id': social.id }) }}" class="btn btn-success btn-sm"><i class="fa fa-trash-o no-mg-right"></i> Oui </a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                    </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        {% endblock %}
+
+    {% block scriptForm %}
+        <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
+    {% endblock %}

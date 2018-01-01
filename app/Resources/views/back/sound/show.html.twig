@@ -1,222 +1,159 @@
-{% extends ':back:templateAdmin.html.twig' %}
+    {% extends ':back:templateAdmin.html.twig' %}
 
-  {% block content %}
-   {# <h1>Sound</h1>
-
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ sound.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ sound.titre }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ sound.description }}</td>
-            </tr>
-             <tr>
-                <th>Morceau</th>
-                <td>{{ sound.morceau }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td>{{ sound.image }}</td>
-            </tr>
-            <tr>
-                <th>Annee</th>
-                <td>{% if sound.annee %}{{ sound.annee|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Auteur</th>
-                <td>{{ sound.auteur }}</td>
-            </tr>
-            <tr>
-                <th>Publier</th>
-                <td>{% if sound.publier %}Yes{% else %}No{% endif %}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('sound_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('sound_edit', { 'id': sound.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>#}
-   <div class="row">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Détail morceau</h2>
-                   <a class="btn btn-dark btn-xs back-list" href="{{ path('sound_index') }}"><i class="fa fa-reply" aria-hidden="true"></i>Retour musiques</a>
-                  <div class="clearfix"></div>
-                </div>
-
-                <div class="x_content">
-
-                  <div class="col-md-7 col-sm-12 col-xs-12">
-                      <div class="col-md-4 col-sm-4">
-                      <img src="{{asset('uploads/image/')~sound.image}}"class="audio-player"/>
-                      </div>
-                    
-                   <audio id="audio">
-                    <source src="{{asset('uploads/music/')~sound.morceau}}">
-                    </audio>
-                    <div class="col-md-6 col-sm-5">
-    <div class="audio-player-admin show-sound">
-
-            <div class="info">
-                    <h3> <span id="selectName">{{sound.morceau}}</span></h3>
-                    <p id="timeleft">00:00</p>
-                    <div class="progressbar_slide">
-                            <div class="progressbar_range"></div>
+        {% block content %}
+            
+            <div class="row">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Détail morceau</h2>
+                        <a class="btn btn-dark btn-xs back-list" href="{{ path('sound_index') }}"><i class="fa fa-reply" aria-hidden="true"></i>Retour musiques</a>
+                        <div class="clearfix"></div>
                     </div>
-            </div>
-            <div class="controls">
-                    <div class="controls_plays">
-
-                            <svg id="prev_btn" viewBox="0 0 24.5 23.6">
-                                    <polygon points="0,11.8 13.5,0 13.5,10.7 24.5,0 24.5,23.6 13.5,12.9 13.5,23.6 "/>
-                            </svg>
-
-                            <svg id="plays_btn" viewBox="0 0 24.5 30.9">
-                                    <g id="play_btn">
+                        
+                    <div class="x_content">
+                        <div class="col-md-7 col-sm-12 col-xs-12">
+                            <div class="col-md-4 col-sm-4">
+                            <img src="{{asset('uploads/image/')~sound.image}}"class="audio-player"/>
+                            </div> 
+                            
+                            <audio id="audio">
+                            <source src="{{asset('uploads/music/')~sound.morceau}}">
+                            </audio>
+                            
+                            <div class="col-md-6 col-sm-5">
+                                <div class="audio-player-admin show-sound">
+                                    <div class="info">
+                                        <h3> <span id="selectName">{{sound.morceau}}</span></h3>
+                                        <p id="timeleft">00:00</p>
+                                        <div class="progressbar_slide">
+                                             <div class="progressbar_range"></div>
+                                        </div>
+                                    </div>
+                                    <div class="controls">
+                                        <div class="controls_plays">
+                                            <svg id="prev_btn" viewBox="0 0 24.5 23.6">
+                                            <polygon points="0,11.8 13.5,0 13.5,10.7 24.5,0 24.5,23.6 13.5,12.9 13.5,23.6 "/>
+                                            </svg>
+                                            <svg id="plays_btn" viewBox="0 0 24.5 30.9">
+                                            <g id="play_btn">
                                             <path d="M0,30.9L0,0l24.5,15.4L0,30.9z"/>
-                                    </g>
-                                    <g id="pause_btn">
+                                            </g>
+                                            <g id="pause_btn">
                                             <rect x="0" y="0" width="8.2" height="30.9"/>
                                             <rect x="16.2" y="0" width="8.2" height="30.9"/>
-                                    </g>
-                            </svg>
-
-                            <svg id="next_btn" viewBox="0 0 24.5 23.6">
-                                    <polygon points="25,11.8 11.5,0 11.5,10.7 0.5,0 0.5,23.6 11.5,12.9 11.5,23.6 "/>
-                            </svg>
-
+                                            </g>
+                                            </svg>
+                                            <svg id="next_btn" viewBox="0 0 24.5 23.6">
+                                            <polygon points="25,11.8 11.5,0 11.5,10.7 0.5,0 0.5,23.6 11.5,12.9 11.5,23.6 "/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                            
+                            <div class="col-md-12 col-sm-3">
+                            <div class="ln_solid"></div>
+                            
+                            {% for sound in sound.genre %}
+                                <h2>Genre(s) Associé(s)</h2>
+                                <span type="button" class="label label-genre">{{sound.nom }}</span>
+                            {% endfor %}
+                            </div>
+                        </div>
+                            
+                        <!-- start project-detail sidebar -->
+                        <div class="col-md-5 col-sm-12 col-xs-12">
+                            <section class="panel">
+                                <div class="x_title">
+                                <h2>Description du morceau</h2>
+                                <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="panel-body">
+                                    <h3 class="green"><i class="fa icon-cd"></i>{{ sound.titre }}</h3>
+                                    <p>{{ sound.description }}</p>
+                                <br>
+                                
+                                    <div class="project_detail">
+                                        <p class="title">Artist</p>
+                                        <p>{{ sound.auteur }}</p>
+                                        <p class="title">Année du morceau</p>
+                                        <p>{{ sound.annee|date ('Y') }}</p>
+                                        {% if sound.label != null %}
+                                        <p class="title">Label Compagnie</p>
+                                        <p>{{ sound.label }}</p>
+                                        {% endif %}
+                                    </div>
+                                    
+                                <br>
+                                    <h5>Morceau info</h5>
+                                        <ul class="list-unstyled project_files">
+                                            <li><i class="fa fa-calendar-o"></i>crée le {{ sound.date|date ('j/m/y à H:i:s')  }}</a>
+                                            </li>
+                                            {% if sound.link != null %}
+                                            <li><i class="fa fa-link"></i>soundcloud: <a href="http://{{ sound.link }}" target="blank">{{ sound.link }}</a>
+                                            </li>
+                                            {% endif %}
+                                            {% if sound.linkSpotify != null %}
+                                            <li><i class="fa fa-link"></i>spotify: <a href="http://{{ sound.linkSpotify }}" target="blank">{{ sound.linkSpotify }}</a>
+                                            </li>
+                                            {% endif %}
+                                            {% if sound.linkDeezer != null %}
+                                            <li><i class="fa fa-link"></i>deezer: <a href="http://{{ sound.linkDeezer }}" target="blank">{{ sound.linkDeezer }}</a>
+                                            </li>
+                                            {% endif %}
+                                             <li><i class="fa fa-volume-up"></i>{{ sound.stat }} écoute(s)</a>
+                                            </li>
+                                            <li><i class="fa fa-file-audio-o"></i>{{ sound.morceau }}</a>
+                                            </li>
+                                            <li><i class="fa fa-picture-o"></i>{{ sound.image }}</a>
+                                            </li>
+                                        </ul>
+                                <br>
+                                    <div class="mtop20">
+                                        {% if sound.publier == 0%}
+                                        <a href="{{path("publier_sound",{"id":sound.id})}}" class="btn btn-sm btn-success">Publier</a>
+                                        {% else %}
+                                        <a href="{{path("publier_sound",{"id":sound.id})}}" class="btn btn-sm btn-warning">Brouillon</a>   
+                                        {% endif %}
+                                        <a href="{{ path('sound_edit', { 'id': sound.id }) }}" class="btn btn-sm btn-info">Editer</a>
+                                        <a data-toggle="modal" href="#SuppSound_{{ sound.id }}" class="btn btn-danger btn-sm"id="SuppMorceau"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <!-- end project-detail sidebar -->
                     </div>
-
+                </div>
+            
+                <div class="x_content">
+                    <div class="modal fade bs-example-modal-lg" id="SuppSound_{{ sound.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Suppression</h4>
+                                </div>
+                                
+                                <div class="modal-body">
+                                    Vous êtes sûr de vouloir supprimer cet élément ?
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <ul class="modal-btn">
+                                        <li><a class="btn btn-primary btn-sm" data-dismiss="modal"><i class="fa fa-trash-o no-mg-right"></i> Non </a></li>
+                                        <li><a href="{{ path('sound_delete', { 'id': sound.id }) }}" class="btn btn-success btn-sm"><i class="fa fa-trash-o no-mg-right"></i> Oui </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                    
             </div>
+        
+        {% endblock %}
 
-    </div>
-
-
-                  </div>
-                    
-                    <div class="col-md-12 col-sm-3">
-                        <div class="ln_solid"></div>
-                        {% for sound in sound.genre %}
-                            <h2>Genre(s) Associé(s)</h2>
-                           <span type="button" class="label label-genre">{{sound.nom }}</span>
-                                  {% endfor %}
-                    </div>
-                  </div>
-
-                  <!-- start project-detail sidebar -->
-                  <div class="col-md-5 col-sm-12 col-xs-12">
-
-                    <section class="panel">
-
-                      <div class="x_title">
-                        <h2>Description du morceau</h2>
-                        <div class="clearfix"></div>
-                      </div>
-                      <div class="panel-body">
-                        <h3 class="green"><i class="fa icon-cd"></i>{{ sound.titre }}</h3>
-
-                        <p>{{ sound.description }}</p>
-                        <br>
-
-                        <div class="project_detail">
-                          <p class="title">Artist</p>
-                          <p>{{ sound.auteur }}</p>
-                            <p class="title">Année du morceau</p>
-                          <p>{{ sound.annee|date ('Y') }}</p>
-                           {% if sound.label != null %}
-                          <p class="title">Label Compagnie</p>
-                          <p>{{ sound.label }}</p>
-                          {% endif %}
-                        </div>
-
-                        <br>
-                        <h5>Morceau info</h5>
-                        <ul class="list-unstyled project_files">
-                          <li><i class="fa fa-calendar-o"></i>crée le {{ sound.date|date ('j/m/y à H:i:s')  }}</a>
-                          </li>
-                           {% if sound.link != null %}
-                           <li><i class="fa fa-link"></i>soundcloud: <a href="http://{{ sound.link }}" target="blank">{{ sound.link }}</a>
-                          </li>
-                          {% endif %}
-                          {% if sound.linkSpotify != null %}
-                              <li><i class="fa fa-link"></i>spotify: <a href="http://{{ sound.linkSpotify }}" target="blank">{{ sound.linkSpotify }}</a>
-                          </li>
-                          {% endif %}
-                           {% if sound.linkDeezer != null %}
-                               <li><i class="fa fa-link"></i>deezer: <a href="http://{{ sound.linkDeezer }}" target="blank">{{ sound.linkDeezer }}</a>
-                          </li>
-                          {% endif %}
-                            <li><i class="fa fa-volume-up"></i>{{ sound.stat }} écoute(s)</a>
-                          </li>
-                          <li><i class="fa fa-file-audio-o"></i>{{ sound.morceau }}</a>
-                          </li>
-                          <li><i class="fa fa-picture-o"></i>{{ sound.image }}</a>
-                          </li>
-                        </ul>
-                        <br>
-
-                        <div class="mtop20">
-                            {% if sound.publier == 0%}
-                          <a href="{{path("publier_sound",{"id":sound.id})}}" class="btn btn-sm btn-success">Publier</a>
-                          {% else %}
-                           <a href="{{path("publier_sound",{"id":sound.id})}}" class="btn btn-sm btn-warning">Brouillon</a>   
-                          {% endif %}
-                          <a href="{{ path('sound_edit', { 'id': sound.id }) }}" class="btn btn-sm btn-info">Editer</a>
-                           <a data-toggle="modal" href="#SuppSound_{{ sound.id }}" class="btn btn-danger btn-sm"id="SuppMorceau"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a>
-                        </div>
-                      </div>
-
-                    </section>
-
-                  </div>
-                  <!-- end project-detail sidebar -->
-
-                </div>
-              </div>
-                      <div class="x_content">
-  <div class="modal fade bs-example-modal-lg" id="SuppSound_{{ sound.id }}" tabindex="-1" role="dialog" aria-hidden="true">
-                  <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
-
-                      <div class="modal-header">
-                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Suppression</h4>
-                      </div>
-                      <div class="modal-body">
-                         Vous êtes sûr de vouloir supprimer cet élément ?
-                      </div>
-                      <div class="modal-footer">
-                          <ul class="modal-btn">
-                              <li><a class="btn btn-primary btn-sm" data-dismiss="modal"><i class="fa fa-trash-o no-mg-right"></i> Non </a></li>
-                              <li><a href="{{ path('sound_delete', { 'id': sound.id }) }}" class="btn btn-success btn-sm"><i class="fa fa-trash-o no-mg-right"></i> Oui </a></li>
-                          </ul>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-                      </div>                    
-       </div>
-{% endblock %}
-{% block scriptForm %}
-<script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/backend/playerMusic.js')}}"></script>
-   
-{% endblock %}
+    {% block scriptForm %}
+        <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/backend/playerMusic.js')}}"></script>
+    {% endblock %}

@@ -1,340 +1,319 @@
-{% extends ':back:templateAdmin.html.twig' %}
+    {% extends ':back:templateAdmin.html.twig' %}
 
-  {% block content %}
-    
-    <div class="">
-
-          <div class="page-title">
-            <div class="title_left">
-                <h3>Ressources</h3>
+        {% block content %}
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>Ressources</h3>
+                </div>
             </div>
+        <div class="clearfix"></div>
 
-       </div>
-          <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Pochettes</h2>                
+                            <div class="clearfix"></div>
+                            </div>
+                        
+                        <div class="x_content">
+                            <div class="row">
+                                <div class="col-sm-4 col-md-3">
+                                    <div class="thumbnail">
+                                        <img src="{{asset('images/pochette-logo.jpg')}}" class="img-responsive">    
+                                    </div>
 
-                <div class="row">
+                                    <div class="panel-body">
+                                        <ul class="list-unstyled project_files">
+                                            <li><a href=""><i class="fa fa-file-o"></i>pochette-logo</a>
+                                            </li>
+                                            <li><a href=""><i class="fa fa-arrows-alt"></i>514px X 514px</a>
+                                            </li>
+                                            <li><a href=""><i class="fa fa-picture-o"></i>jpeg</a>
+                                            </li>
+                                            </li>
+                                        </ul>
+                                        <br>
+                                        
+                                    <div class="mtop20">
+                                        <a href="{{asset('images/pochette-logo.jpg')}}"download="pochette-logo" class="btn btn-info btn"><i class="fa fa-download"></i> Télécharger </a>
+                                    </div>
+                                    </div>
+                                    
+                                </div>
 
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Pochettes</h2>
-                  
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                 <div class="row">
+                                <div class="col-sm-4 col-md-3">
+                                    <div class="thumbnail">
+                                        <img src="{{asset('images/pochette-dark-logo.jpg')}}" class="img-responsive">   
+                                    </div>
 
+                                    <div class="panel-body">
+                                        <ul class="list-unstyled project_files">
+                                            <li><a href=""><i class="fa fa-file-o"></i>pochette-dark-logo</a>
+                                            </li>
+                                            <li><a href=""><i class="fa fa-arrows-alt"></i>514px X 514px</a>
+                                            </li>
+                                            <li><a href=""><i class="fa fa-picture-o"></i>jpeg</a>
+                                            </li>
+                                            </li>
+                                        </ul>
+                                    <br>
+                                    
+                                    <div class="mtop20">
+                                        <a href="{{asset('images/pochette-dark-logo.jpg')}}"download="pochette-dark-logo" class="btn btn-info btn"><i class="fa fa-download"></i> Télécharger </a>
+                                    </div>
+                                    </div>
+                                    
+                                </div> 
+                            
+                                <div class="col-sm-4 col-md-3">
+                                    <div class="thumbnail">
+                                        <img src="{{asset('images/pochette-1.jpg')}}" class="img-responsive">    
+                                    </div>
 
-                        <div class="col-sm-4 col-md-3">
-                          <div class="thumbnail">
-                            <img src="{{asset('images/pochette-logo.jpg')}}" class="img-responsive">
-     
-                          </div>
+                                    <div class="panel-body">
+                                        <ul class="list-unstyled project_files">
+                                            <li><a href=""><i class="fa fa-file-o"></i>pochette-1</a>
+                                            </li>
+                                            <li><a href=""><i class="fa fa-arrows-alt"></i>514px X 514px</a>
+                                            </li>
+                                            <li><a href=""><i class="fa fa-picture-o"></i>jpeg</a>
+                                            </li>
+                                            </li>
+                                        </ul>
+                                    <br>
+                                    
+                                    <div class="mtop20">
+                                        <a href="{{asset('images/pochette-1.jpg')}}"download="pochette-1" class="btn btn-info btn"><i class="fa fa-download"></i> Télécharger </a>
+                                    </div>
+                                    </div>
+                                    
+                                </div> 
+                            
+                                <div class="col-sm-4 col-md-3">
+                                    <div class="thumbnail">
+                                        <img src="{{asset('images/pochette-brazz.jpg')}}" class="img-responsive">    
+                                    </div>
 
-                      <div class="panel-body">
-                        <ul class="list-unstyled project_files">
-                          <li><a href=""><i class="fa fa-file-o"></i>pochette-logo</a>
-                          </li>
-                          <li><a href=""><i class="fa fa-arrows-alt"></i>514px X 514px</a>
-                          </li>
-                          <li><a href=""><i class="fa fa-picture-o"></i>jpeg</a>
-                          </li>
-                          </li>
-                        </ul>
-                        <br>
-
-                        <div class="mtop20">
-                        <a href="{{asset('images/pochette-logo.jpg')}}"download="pochette-logo" class="btn btn-info btn"><i class="fa fa-download"></i> Télécharger </a>
+                                    <div class="panel-body">
+                                        <ul class="list-unstyled project_files">
+                                            <li><a href=""><i class="fa fa-file-o"></i>pochette-brazz</a>
+                                            </li>
+                                            <li><a href=""><i class="fa fa-arrows-alt"></i>507px X 507px</a>
+                                            </li>
+                                            <li><a href=""><i class="fa fa-picture-o"></i>jpeg</a>
+                                            </li>
+                                            </li>
+                                        </ul>
+                                    <br>
+                                    
+                                    <div class="mtop20">
+                                        <a href="{{asset('images/pochette-brazz.jpg')}}"download="pochette-brazz" class="btn btn-info btn"><i class="fa fa-download"></i> Télécharger </a>
+                                    </div>
+                                    </div>
+                                    
+                                </div>  
+                            
+                            </div>
                         </div>
-                      </div>
+                    </div>
+
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Logo</h2>                 
+                            <div class="clearfix"></div>
                         </div>
                         
-                        <div class="col-sm-4 col-md-3">
-                          <div class="thumbnail">
-                            <img src="{{asset('images/pochette-dark-logo.jpg')}}" class="img-responsive">
-     
-                          </div>
+                    <div class="x_content">
+                    <div class="row">
+                    <div class="col-sm-4 col-md-3">
+                    <div class="thumbnail">
+                    <img src="{{asset('images/big-logo.png')}}" class="img-responsive">     
+                    </div>
 
-                      <div class="panel-body">
-                        <ul class="list-unstyled project_files">
-                          <li><a href=""><i class="fa fa-file-o"></i>pochette-dark-logo</a>
-                          </li>
-                          <li><a href=""><i class="fa fa-arrows-alt"></i>514px X 514px</a>
-                          </li>
-                          <li><a href=""><i class="fa fa-picture-o"></i>jpeg</a>
-                          </li>
-                          </li>
-                        </ul>
+                    <div class="panel-body">
+                    <ul class="list-unstyled project_files">
+                    <li><a href=""><i class="fa fa-file-o"></i>big-logo</a>
+                    </li>
+                    <li><a href=""><i class="fa fa-arrows-alt"></i>163px X 187px</a>
+                    </li>
+                    <li><a href=""><i class="fa fa-picture-o"></i>png</a>
+                    </li>
+                    </li>
+                    </ul>
+                    <br>
+                    <div class="mtop20">
+                    <a href="{{asset('images/big-logo.png')}}"download="big-logo" class="btn btn-info btn"><i class="fa fa-download"></i> Télécharger </a>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="col-sm-4 col-md-3">
+                    <div class="thumbnail bg-dark">
+                      <img src="{{asset('images/big-logo-white.png')}}" class="img-responsive">     
+                    </div>
+
+                        <div class="panel-body">
+                            <ul class="list-unstyled project_files">
+                                <li><a href=""><i class="fa fa-file-o"></i>big-logo-white</a>
+                                </li>
+                                <li><a href=""><i class="fa fa-arrows-alt"></i>163px X 187px</a>
+                                </li>
+                                <li><a href=""><i class="fa fa-picture-o"></i>png</a>
+                                </li>
+                                </li>
+                            </ul>
                         <br>
-
-                        <div class="mtop20">
-                        <a href="{{asset('images/pochette-dark-logo.jpg')}}"download="pochette-dark-logo" class="btn btn-info btn"><i class="fa fa-download"></i> Télécharger </a>
-                        </div>
-                      </div>
-                        </div>                        
-                        <div class="col-sm-4 col-md-3">
-                          <div class="thumbnail">
-                            <img src="{{asset('images/pochette-1.jpg')}}" class="img-responsive">
-     
-                          </div>
-
-                      <div class="panel-body">
-                        <ul class="list-unstyled project_files">
-                          <li><a href=""><i class="fa fa-file-o"></i>pochette-1</a>
-                          </li>
-                          <li><a href=""><i class="fa fa-arrows-alt"></i>514px X 514px</a>
-                          </li>
-                          <li><a href=""><i class="fa fa-picture-o"></i>jpeg</a>
-                          </li>
-                          </li>
-                        </ul>
-                        <br>
-
-                        <div class="mtop20">
-                        <a href="{{asset('images/pochette-1.jpg')}}"download="pochette-1" class="btn btn-info btn"><i class="fa fa-download"></i> Télécharger </a>
-                        </div>
-                      </div>
-                        </div>  
-                        <div class="col-sm-4 col-md-3">
-                          <div class="thumbnail">
-                            <img src="{{asset('images/pochette-brazz.jpg')}}" class="img-responsive">
-     
-                          </div>
-
-                      <div class="panel-body">
-                        <ul class="list-unstyled project_files">
-                          <li><a href=""><i class="fa fa-file-o"></i>pochette-brazz</a>
-                          </li>
-                          <li><a href=""><i class="fa fa-arrows-alt"></i>507px X 507px</a>
-                          </li>
-                          <li><a href=""><i class="fa fa-picture-o"></i>jpeg</a>
-                          </li>
-                          </li>
-                        </ul>
-                        <br>
-
-                        <div class="mtop20">
-                        <a href="{{asset('images/pochette-brazz.jpg')}}"download="pochette-brazz" class="btn btn-info btn"><i class="fa fa-download"></i> Télécharger </a>
-                        </div>
-                      </div>
-                        </div>                          
-                </div>
-                </div>
-              </div>
                         
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Logo</h2>
-                  
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                 <div class="row">
-
-
-                        <div class="col-sm-4 col-md-3">
-                          <div class="thumbnail">
-                            <img src="{{asset('images/big-logo.png')}}" class="img-responsive">
-     
-                          </div>
-
-                      <div class="panel-body">
-                        <ul class="list-unstyled project_files">
-                          <li><a href=""><i class="fa fa-file-o"></i>big-logo</a>
-                          </li>
-                          <li><a href=""><i class="fa fa-arrows-alt"></i>163px X 187px</a>
-                          </li>
-                          <li><a href=""><i class="fa fa-picture-o"></i>png</a>
-                          </li>
-                          </li>
-                        </ul>
-                        <br>
-
                         <div class="mtop20">
-                        <a href="{{asset('images/big-logo.png')}}"download="big-logo" class="btn btn-info btn"><i class="fa fa-download"></i> Télécharger </a>
+                            <a href="{{asset('images/big-logo-white.png')}}"download="big-logo-white" class="btn btn-info btn"><i class="fa fa-download"></i> Télécharger </a>
                         </div>
-                      </div>
-                        </div>
-                        <div class="col-sm-4 col-md-3">
-                          <div class="thumbnail bg-dark">
-                            <img src="{{asset('images/big-logo-white.png')}}" class="img-responsive">
-     
-                          </div>
-
-                      <div class="panel-body">
-                        <ul class="list-unstyled project_files">
-                          <li><a href=""><i class="fa fa-file-o"></i>big-logo-white</a>
-                          </li>
-                          <li><a href=""><i class="fa fa-arrows-alt"></i>163px X 187px</a>
-                          </li>
-                          <li><a href=""><i class="fa fa-picture-o"></i>png</a>
-                          </li>
-                          </li>
-                        </ul>
-                        <br>
-
-                        <div class="mtop20">
-                        <a href="{{asset('images/big-logo-white.png')}}"download="big-logo-white" class="btn btn-info btn"><i class="fa fa-download"></i> Télécharger </a>
-                        </div>
-                      </div>
                         </div>
                         
-                        <div class="col-sm-4 col-md-3">
-                          <div class="thumbnail">
-                            <img src="{{asset('images/min-logo.png')}}" class="img-responsive">
-     
-                          </div>
-
-                      <div class="panel-body">
-                        <ul class="list-unstyled project_files">
-                          <li><a href=""><i class="fa fa-file-o"></i>min-logo</a>
-                          </li>
-                          <li><a href=""><i class="fa fa-arrows-alt"></i>33px X 38px</a>
-                          </li>
-                          <li><a href=""><i class="fa fa-picture-o"></i>png</a>
-                          </li>
-                          </li>
-                        </ul>
-                        <br>
-
-                        <div class="mtop20">
-                        <a href="{{asset('images/min-logo.png')}}"download="min-logo" class="btn btn-info btn"><i class="fa fa-download"></i> Télécharger </a>
                         </div>
-                      </div>
-                        </div> 
-                        <div class="col-sm-4 col-md-3">
-                          <div class="thumbnail bg-dark">
-                            <img src="{{asset('images/min-logo-white.png')}}" class="img-responsive">
-     
-                          </div>
 
-                      <div class="panel-body">
-                        <ul class="list-unstyled project_files">
-                          <li><a href=""><i class="fa fa-file-o"></i>min-logo-white</a>
-                          </li>
-                          <li><a href=""><i class="fa fa-arrows-alt"></i>33px X 38px</a>
-                          </li>
-                          <li><a href=""><i class="fa fa-picture-o"></i>png</a>
-                          </li>
-                          </li>
-                        </ul>
-                        <br>
+                            <div class="col-sm-4 col-md-3">
+                                <div class="thumbnail">
+                                  <img src="{{asset('images/min-logo.png')}}" class="img-responsive">   
+                                </div>
 
-                        <div class="mtop20">
-                        <a href="{{asset('images/min-logo-white.png')}}"download="min-logo-white" class="btn btn-info btn"><i class="fa fa-download"></i> Télécharger </a>
+                                <div class="panel-body">
+                                    <ul class="list-unstyled project_files">
+                                        <li><a href=""><i class="fa fa-file-o"></i>min-logo</a>
+                                        </li>
+                                        <li><a href=""><i class="fa fa-arrows-alt"></i>33px X 38px</a>
+                                        </li>
+                                        <li><a href=""><i class="fa fa-picture-o"></i>png</a>
+                                        </li>
+                                        </li>
+                                    </ul>
+                                <br>
+                                
+                                <div class="mtop20">
+                                    <a href="{{asset('images/min-logo.png')}}"download="min-logo" class="btn btn-info btn"><i class="fa fa-download"></i> Télécharger </a>
+                                </div>
+                                </div>
+                                
+                            </div>
+                                
+                            <div class="col-sm-4 col-md-3">
+                                <div class="thumbnail bg-dark">
+                                    <img src="{{asset('images/min-logo-white.png')}}" class="img-responsive">     
+                                </div>
+
+                                <div class="panel-body">
+                                    <ul class="list-unstyled project_files">
+                                        <li><a href=""><i class="fa fa-file-o"></i>min-logo-white</a>
+                                        </li>
+                                        <li><a href=""><i class="fa fa-arrows-alt"></i>33px X 38px</a>
+                                        </li>
+                                        <li><a href=""><i class="fa fa-picture-o"></i>png</a>
+                                        </li>
+                                        </li>
+                                    </ul>
+                                <br>
+                                
+                                <div class="mtop20">
+                                    <a href="{{asset('images/min-logo-white.png')}}"download="min-logo-white" class="btn btn-info btn"><i class="fa fa-download"></i> Télécharger </a>
+                                </div>
+                                </div>
+                            </div> 
+                                
                         </div>
-                      </div>
-                        </div>   
-                        
-                </div>
-                </div>
-              </div> 
-                        
- 
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Carte de visite</h2>
-                  
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                 <div class="row">
-
-
-                        <div class="col-sm-4 col-md-4">
-                          <div class="thumbnail">
-                            <img src="{{asset('images/carte-visite-dark-verso.jpg')}}" class="img-responsive">
-     
-                          </div>
-
-                      <div class="panel-body">
-                        <ul class="list-unstyled project_files">
-                          <li><a href=""><i class="fa fa-file-o"></i>carte-visite-dark-verso</a>
-                          </li>
-                          <li><a href=""><i class="fa fa-arrows-alt"></i>84mm X 55mm</a>
-                          </li>
-                          <li><a href=""><i class="fa fa-picture-o"></i>jpg</a>
-                          </li>
-                          </li>
-                        </ul>
-                        <br>
-
-                        <div class="mtop20">
-                        <a href="{{asset('images/carte-visite-dark-verso.jpg')}}"download="carte-visite-dark-verso" class="btn btn-info btn"><i class="fa fa-download"></i> Télécharger </a>
                         </div>
-                      </div>
-                        </div>
-                        <div class="col-sm-4 col-md-4">
-                          <div class="thumbnail">
-                            <img src="{{asset('images/carte-visite-grey-verso.jpg')}}" class="img-responsive">
-     
-                          </div>
+                    </div> 
 
-                      <div class="panel-body">
-                        <ul class="list-unstyled project_files">
-                          <li><a href=""><i class="fa fa-file-o"></i>carte-visite-grey-verso</a>
-                          </li>
-                          <li><a href=""><i class="fa fa-arrows-alt"></i>84mm X 55mm</a>
-                          </li>
-                          <li><a href=""><i class="fa fa-picture-o"></i>jpg</a>
-                          </li>
-                          </li>
-                        </ul>
-                        <br>
-
-                        <div class="mtop20">
-                        <a href="{{asset('carte-visite-grey-verso.jpg')}}"download="carte-visite-grey-verso" class="btn btn-info btn"><i class="fa fa-download"></i> Télécharger </a>
-                        </div>
-                      </div>
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Carte de visite</h2>               
+                            <div class="clearfix"></div>
                         </div>
                         
-                        <div class="col-md-3 col-sm-3 col-xs-12">
+                        <div class="x_content">
+                            <div class="row">
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="thumbnail">
+                                        <img src="{{asset('images/carte-visite-dark-verso.jpg')}}" class="img-responsive">   
+                                    </div>
 
-                    <section class="panel">
+                                    <div class="panel-body">
+                                        <ul class="list-unstyled project_files">
+                                            <li><a href=""><i class="fa fa-file-o"></i>carte-visite-dark-verso</a>
+                                            </li>
+                                            <li><a href=""><i class="fa fa-arrows-alt"></i>84mm X 55mm</a>
+                                            </li>
+                                            <li><a href=""><i class="fa fa-picture-o"></i>jpg</a>
+                                            </li>
+                                            </li>
+                                        </ul>
+                                    <br>
+                                    
+                                    <div class="mtop20">
+                                        <a href="{{asset('images/carte-visite-dark-verso.jpg')}}"download="carte-visite-dark-verso" class="btn btn-info btn"><i class="fa fa-download"></i> Télécharger </a>
+                                    </div>
+                                    </div>
+                                    
+                                </div>
+                            
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="thumbnail">
+                                        <img src="{{asset('images/carte-visite-grey-verso.jpg')}}" class="img-responsive">     
+                                    </div>
 
-                      <div class="panel-body">
-                        <h3 class="green"><i class="fa fa-address-card-o"></i>Imprimer</h3>
+                                    <div class="panel-body">
+                                        <ul class="list-unstyled project_files">
+                                            <li><a href=""><i class="fa fa-file-o"></i>carte-visite-grey-verso</a>
+                                            </li>
+                                            <li><a href=""><i class="fa fa-arrows-alt"></i>84mm X 55mm</a>
+                                            </li>
+                                            <li><a href=""><i class="fa fa-picture-o"></i>jpg</a>
+                                            </li>
+                                            </li>
+                                        </ul>
+                                    <br>
+                                    
+                                    <div class="mtop20">
+                                        <a href="{{asset('carte-visite-grey-verso.jpg')}}"download="carte-visite-grey-verso" class="btn btn-info btn"><i class="fa fa-download"></i> Télécharger </a>
+                                    </div>
+                                    </div>
+                                    
+                                </div>
 
-                        <p>Pensez à imprimer vos cartes de visites !
-                        Télecharger le verso de votre choix et créer le recto avec vos informations (Nom, prenom, email, etc...) directement en ligne.
-                        Vous trouverez ci dessous une liste de site pour imprimer vos cartes de visites.</p>
-                        <br>
-                        <div class="project_detail">
-                        <p class="title">www.moo.com</p>
-                        <br>
-                        <ul class="list-unstyled project_files">
-                          <li >Qualité : <i class="fa fa-star"></i></li>
-                          <li>prix : 50 cartes/26.39 <i class="fa fa-euro"></i> TTC</li>
-                          <li>lien : <a href="https://www.moo.com/bascule/fr/pixel?id=8bd9d2122d3e4032b6c9ee2bd161144f" target="blank">https://www.moo.com/bascule/fr/pixel?id=8bd9d2122d3e4032b6c9ee2bd161144f </a></li>
-                        </ul>
-                      </div>
-                        <br>
-                        <div class="project_detail">
-                        <p class="title">www.vistaprint.fr</p>
-                        <br>
-                        <ul class="list-unstyled project_files">
-                          <li>Qualité : <i class="fa fa-star-half-o"></i></li>
-                          <li>prix : 100 cartes/18.00 <i class="fa fa-euro"></i> TTC</li>
-                          <li>lien : <a href="https://www.vistaprint.fr/studio.aspx?template=1186658_BDY&xnav=Business+Card+Detail+Page" target="blank">https://www.vistaprint.fr/studio.aspx?template=1186658_BDY&xnav=Business+Card+Detail+Page</a></li>
-                        </ul>
-                      </div>
-                        
-                      </div>     
-                    </section>
-
-                  </div>
-                        
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <section class="panel">
+                                        <div class="panel-body">
+                                            <h3 class="green"><i class="fa fa-address-card-o"></i>Imprimer</h3>
+                                            <p>Pensez à imprimer vos cartes de visites !
+                                            Télecharger le verso de votre choix et créer le recto avec vos informations (Nom, prenom, email, etc...) directement en ligne.
+                                            Vous trouverez ci dessous une liste de site pour imprimer vos cartes de visites.</p>
+                                            <br>
+                                            <div class="project_detail">
+                                            <p class="title">www.moo.com</p>
+                                            <br>
+                                                <ul class="list-unstyled project_files">
+                                                    <li >Qualité : <i class="fa fa-star"></i></li>
+                                                    <li>prix : 50 cartes/26.39 <i class="fa fa-euro"></i> TTC</li>
+                                                    <li>lien : <a href="https://www.moo.com/bascule/fr/pixel?id=8bd9d2122d3e4032b6c9ee2bd161144f" target="blank">https://www.moo.com/bascule/fr/pixel?id=8bd9d2122d3e4032b6c9ee2bd161144f </a></li>
+                                                </ul>
+                                            </div>
+                                            <br>
+                                            <div class="project_detail">
+                                            <p class="title">www.vistaprint.fr</p>
+                                            <br>
+                                                    <ul class="list-unstyled project_files">
+                                                    <li>Qualité : <i class="fa fa-star-half-o"></i></li>
+                                                    <li>prix : 100 cartes/18.00 <i class="fa fa-euro"></i> TTC</li>
+                                                    <li>lien : <a href="https://www.vistaprint.fr/studio.aspx?template=1186658_BDY&xnav=Business+Card+Detail+Page" target="blank">https://www.vistaprint.fr/studio.aspx?template=1186658_BDY&xnav=Business+Card+Detail+Page</a></li>
+                                                </ul>
+                                            </div>                     
+                                        </div>     
+                                    </section>
+                                </div>
+                                    
+                            </div>
+                        </div>
+                    </div> 
                 </div>
-                </div>
-              </div> 
-                      
-                        
-            </div>
 
-                </div>
-                    
-                   </div>      
-      
-      
-  {% endblock %}  
+            </div>    
+        {% endblock %}  
 

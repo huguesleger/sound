@@ -1,288 +1,206 @@
-{% extends ':back:templateAdmin.html.twig' %}
+    {% extends ':back:templateAdmin.html.twig' %}
 
 
-  {% block content %}
-          <div class="row top_tiles">
-              
-         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-              <div class="tile-stats">
-                <div class="icon"><i class="fa fa-desktop" aria-hidden="true"></i>
-                </div>
-                   
-                  
-                <div class="count">{{ nb }}</div>
-                
-                <h3>Musique</h3>
-                {% if nb == 0 %}
-                    <p>Aucun morceaux en ligne</p>{% else %}<p>Morceaux en ligne</p>{% endif %}
-              </div>
-            </div>
-
-          
-
-         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-              <div class="tile-stats">
-                <div class="icon"><i class="fa fa-diamond" aria-hidden="true"></i>
-                </div>
-                <div class="count">{{ nbLabel }}</div>
-
-                <h3>Label</h3>
-                {% if nb == 0 %}
-                <p>Aucun morceaux labelisés</p>{% else %}<p>Morceaux labelisés</p>{% endif %}
-              </div>
-            </div>
-
-                
-         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-              <div class="tile-stats">
-                <div class="icon"><i class="fa fa-database" aria-hidden="true"></i>
-                </div>
-                <div class="count">{{ nbTotal }}</div>
-
-                <h3>Total</h3>
-                {% if nb == 0 %}
-                <p>Aucun morceaux</p>{% else %}<p>Tous les morceaux</p>{% endif %}
-              </div>
-            </div>
-                
-          </div>
-
-      <div class="row">
-   <div class="col-md-6 col-sm-6 col-xs-12">
-            <div class="x_panel tile">
-              <div class="x_title">
-                <h2>Bienvenue !</h2>
-               
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                  <div class="col-md-6">
-               {# <h4>Bonjour, {{ app.user.username }}</h4>#}
-               <br>
-                {% if nbTotal == 0 %}
-                    <p>Lancez-vous, créer votre premier morceau</p>{% else %}{% endif %}
-                   <a href="{{ path('sound_new') }}"><button type="button" class="btn btn-info btn-lg">Ajouter un morceau</button></a>
-                   <br>
-                   <br>
-                   <p><small>* Ajouter en 1er vos genres musicaux, labels.</small></p>
-                </div>
-                    <div class="col-md-6 text-right">
-                        <img src="{{asset('images/pochette-disc.png')}}"/>
-                    </div>
-                 
-                        
-                
-
-              </div>
-            </div>          
-                </div>
-
-                                <div class="col-md-6 col-sm-12 col-xs-12">
-            <div class="x_panel tile">
-              <div class="x_title">
-                <h2>Stats</h2>
-               
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                <div class="widget_summary">
-                  <div class="w_left w_25">
-                    {% if nb == 0 %} 
-                    <span>Aucune données</span>{% else %}<span>Temps d'écoute éstimé en Mn</span>{% endif %}
-                    
-                  </div>
-                  <div class="w_center w_55"> 
-                    <div class="progress">
-                      <div class="progress-bar bg-green" id="" role="progressbar" data-transitiongoal="{{ nb * 45/60 }}" aria-valuemax="100">
-                        <span class="sr-only"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="w_right w_20">
-                      <span class="count">{{ nb * 45/60 }}</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
-                
-                 <div class="widget_summary">
-                  <div class="w_left w_25">
-                      {% if nbGenre == 0 %} 
-                    <span>Aucune données</span>{% else %}<span>Genres musicaux</span>{% endif %}
-                    
-                  </div>
-                  <div class="w_center w_55"> 
-                    <div class="progress">
-                      <div class="progress-bar bg-blue-sky" id="" role="progressbar" data-transitiongoal="{{ nbGenre  }}" aria-valuemax="100">
-                        <span class="sr-only"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="w_right w_20">
-                    <span class="count">{{ nbGenre  }}</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
-                  
-                <div class="widget_summary">
-                  <div class="w_left w_25">
-                     {% if nbBrouillon == 0 %} 
-                    <span>Aucune données</span>{% else %}<span>Morceaux en status brouillon</span>{% endif %}
-                    
-                  </div>
-                  <div class="w_center w_55"> 
-                    <div class="progress">
-                      <div class="progress-bar bg-orange" id="" role="progressbar" data-transitiongoal="{{ nbBrouillon  }}" aria-valuemax="100">
-                        <span class="sr-only"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="w_right w_20">
-                    <span class="count">{{ nbBrouillon  }}</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
-                  
-              
-                    
-                   
-                        
-                            
-              </div>
-            </div>        
-          </div>   
-
-      </div>                
-                
-         
-                
-                
-                
-                
-                <div class="row">
- 
-                    
-
-                  
-
-                    
-              {#   <div class="col-md-6 col-sm-6 col-xs-12">
-            <div class="x_panel tile fixed_height_320">
-              <div class="x_title">
-                <h2>App Versions</h2>
-               
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                <h4>App Usage across versions</h4>
+        {% block content %}
             
-
-              </div>
-            </div>          
-                </div>#}
-                    
-                 <div class="col-md-6 col-sm-6 col-xs-12">
-            <div class="x_panel tile">
-              <div class="x_title">
-                <h2>Morceaux récents</h2>
-               
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                {#<h4>Mes ajouts récents</h4>#}
-                 {% if nb == 0 %}
-                   <p> Aucune données</p>
-                {% endif %}   
-                {% for sound in sounds %}
-            <article class="media event">
-                    <div class="pull-left date">
-                      <p class="month">{{ sound.date|date ('M') }}</p>
-                      <p class="day">{{ sound.date|date ('j') }}</p>
+            <div class="row top_tiles">  
+                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="tile-stats">
+                        <div class="icon"><i class="fa fa-desktop" aria-hidden="true"></i>
+                        </div>  
+                         <div class="count">{{ nb }}</div>            
+                         <h3>Musique</h3>
+                        {% if nb == 0 %}
+                        <p>Aucun morceaux en ligne</p>{% else %}<p>Morceaux en ligne</p>{% endif %}
                     </div>
-                    <div class="media-body">
-                      <a class="title" href="{{ path('sound_show', { 'id': sound.id }) }}">{{ sound.titre }}</a>
-                      <p>{{ sound.description|truncate(80, false, ' ...') }}</p>
-                    </div>
-                  </article>
-                  {% endfor %}
-              </div>
-            </div>          
                 </div>
 
-              {#
-               <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="x_panel tile">
-              <div class="x_title">
-                <h2>Aide</h2>
-               
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                <h4>Meilleur écoute</h4>
-           
+                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="tile-stats">
+                        <div class="icon"><i class="fa fa-diamond" aria-hidden="true"></i>
+                        </div>
+                        <div class="count">{{ nbLabel }}</div>
+                        <h3>Label</h3>
+                        {% if nb == 0 %}
+                        <p>Aucun morceaux labelisés</p>{% else %}<p>Morceaux labelisés</p>{% endif %}
+                    </div>
+                </div>
 
-                {{nbStat }}
-                {% for sound in sounds %}
-                    {% if sound.stat == nbStat %}
-                {{sound.titre }}
-                {% endif %}
-               {% endfor %}
-              </div>
-            </div>          
-                </div> #} 
-              
-              <div class="col-md-3 col-sm-6 col-xs-12">
-                      <div class="x_panel ui-ribbon-container fixed_height_390">
+                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="tile-stats">
+                        <div class="icon"><i class="fa fa-database" aria-hidden="true"></i>
+                        </div>
+                        <div class="count">{{ nbTotal }}</div>
+                        <h3>Total</h3>
+                        {% if nb == 0 %}
+                        <p>Aucun morceaux</p>{% else %}<p>Tous les morceaux</p>{% endif %}
+                    </div>
+                </div>             
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="x_panel tile">
                         <div class="x_title">
-                          <h2>Top morceau</h2>
-                          <div class="clearfix"></div>
+                            <h2>Bienvenue !</h2>          
+                            <div class="clearfix"></div>
                         </div>
+                        
                         <div class="x_content">
+                            <div class="col-md-6">
+                                <br>
+                                {% if nbTotal == 0 %}
+                                <p>Lancez-vous, créer votre premier morceau</p>{% else %}{% endif %}
+                                <a href="{{ path('sound_new') }}"><button type="button" class="btn btn-info btn-lg">Ajouter un morceau</button></a>
+                                <br>
+                                <br>
+                                <p><small>* Ajouter en 1er vos genres musicaux, labels.</small></p>
+                            </div>
+                                
+                            <div class="col-md-6 text-right">
+                                <img src="{{asset('images/pochette-disc.png')}}"/>
+                            </div>
 
-{#                          <div style="text-align: center; margin-bottom: 17px">
-                            <span class="chart" data-percent="{% if nbStat >=1  %}{{nbStat }}{% else %}{% endif %}">
-                            <span class="percent">{% if nbStat >= 1 %}{{nbStat }}{% else %}{% endif %}</span><i class="fa fa-volume-up" aria-hidden="true"></i>
-                            <canvas height="95" width="95"></canvas></span>
-                          </div>#}
-                 <div class="widget_summary">
-
-                  <div class="col-md-9 col-sm-12 col-xs-12"> 
-                    <div class="progress">
-                      <div class="{% if nbStat >=50 %}progress-bar bg-hulk{% else %}progress-bar bg-green{% endif %}" id="" role="progressbar" data-transitiongoal="{% if nbStat >=1  %}{{nbStat }}{% else %}{% endif %}" aria-valuemax="100">
-                        <span class="sr-only"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-1">
-                      <span class="count">{% if nbStat >=1  %}{{nbStat }}{% else %}{% endif %}</span>
-                  </div>
-                    <div class="col-md-1">
-                      <i class="fa fa-volume-up" aria-hidden="true"></i>
-                  </div>
+                        </div>
+                    </div>          
+                </div>
+             
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="x_panel tile">
+                            <div class="x_title">
+                            <h2>Stats</h2>              
+                            <div class="clearfix"></div>
+                        </div>
+                        
+                        <div class="x_content">
+                            <div class="widget_summary">
+                                <div class="w_left w_25">
+                                {% if nb == 0 %} 
+                                <span>Aucune données</span>{% else %}<span>Temps d'écoute éstimé en Mn</span>{% endif %}                   
+                                </div>
+                                <div class="w_center w_55"> 
+                                    <div class="progress">
+                                        <div class="progress-bar bg-green" id="" role="progressbar" data-transitiongoal="{{ nb * 45/60 }}" aria-valuemax="100">
+                                        <span class="sr-only"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="w_right w_20">
+                                <span class="count">{{ nb * 45/60 }}</span>
+                            </div>
+                            <div class="clearfix"></div>
+                            </div>    
+                            
+                            <div class="widget_summary">
+                                <div class="w_left w_25">
+                                {% if nbGenre == 0 %} 
+                                <span>Aucune données</span>{% else %}<span>Genres musicaux</span>{% endif %}      
+                                </div>
+                                <div class="w_center w_55"> 
+                                    <div class="progress">
+                                        <div class="progress-bar bg-blue-sky" id="" role="progressbar" data-transitiongoal="{{ nbGenre  }}" aria-valuemax="100">
+                                        <span class="sr-only"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w_right w_20">
+                                <span class="count">{{ nbGenre  }}</span>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>       
+                            
+                            <div class="widget_summary">
+                                <div class="w_left w_25">
+                                {% if nbBrouillon == 0 %} 
+                                <span>Aucune données</span>{% else %}<span>Morceaux en status brouillon</span>{% endif %}                   
+                                </div>
+                                <div class="w_center w_55"> 
+                                    <div class="progress">
+                                        <div class="progress-bar bg-orange" id="" role="progressbar" data-transitiongoal="{{ nbBrouillon  }}" aria-valuemax="100">
+                                        <span class="sr-only"></span>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="w_right w_20">
+                                <span class="count">{{ nbBrouillon  }}</span>
+                                </div>
+                            <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>        
+                </div>  
+            
+            </div> 
+        
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="x_panel tile">
+                        <div class="x_title">
+                            <h2>Morceaux récents</h2>           
+                            <div class="clearfix"></div>
+                        </div>
+                        
+                        <div class="x_content">
+                            {% if nb == 0 %}
+                            <p> Aucune données</p>
+                            {% endif %}   
+                            {% for sound in sounds %}
+                                <article class="media event">
+                                    <div class="pull-left date">
+                                         <p class="month">{{ sound.date|date ('M') }}</p>
+                                         <p class="day">{{ sound.date|date ('j') }}</p>
+                                    </div>
+                                <div class="media-body">
+                                    <a class="title" href="{{ path('sound_show', { 'id': sound.id }) }}">{{ sound.titre }}</a>
+                                    <p>{{ sound.description|truncate(80, false, ' ...') }}</p>
+                                </div>
+                                </article>
+                        {% endfor %}
+                        </div>
+                    </div>          
                 </div>
 
-                          <h2 class="name_title"> {% if nbStat == 0 %}Aucune donnée{% endif %}</h2>
-                          <p class="text-center">{% for sound in stats %}{% if sound.stat == nbStat and nbStat >= 1 %}<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>le morceau {{sound.titre }} à était écouté {{nbStat }} fois {% endif %}{% endfor %}</p>
-
-                          <div class="divider"></div>
-                          <br>
-                          <h5>Infos</h5>
-                          <br>
-                          <p> {% for sound in stats %}{% if sound.stat == nbStat and nbStat > 1 %}<i class="fa fa-file-audio-o" aria-hidden="true"></i>{{sound.morceau }}{% endif %}{% endfor %}</p>
-                          <p> {% for sound in stats %}{% if sound.stat == nbStat and nbStat > 1 %}<i class="fa fa-user-o" aria-hidden="true"></i>Artist: {{sound.auteur }}{% endif %}{% endfor %}</p>
-                          <p> {% for sound in stats %}{% if sound.stat == nbStat and nbStat > 1 %}<i class="fa fa-calendar-o" aria-hidden="true"></i>Crée le: {{sound.date|date ('j/m/y')}}{% endif %}{% endfor %}</p>
-                          <p> {% for sound in stats %}{% if sound.stat == nbStat and sound.label !=null and nbStat > 1 %}<i class="fa fa-diamond" aria-hidden="true"></i>Label: {{sound.label }}{% endif %}{% endfor %}</p>
-                          <p> {% for sound in stats %}{% if sound.stat == nbStat and nbStat > 1 %} {% for sound in sound.genre %}<i class="fa icon-cd" aria-hidden="true"></i>Genre: {{sound.nom }}{% endfor %}{% endif %}{% endfor %}</p>
-                          
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="x_panel ui-ribbon-container fixed_height_390">
+                        <div class="x_title">
+                            <h2>Top morceau</h2>
+                            <div class="clearfix"></div>
                         </div>
-                      </div>
-                    </div>
-              
-              
-                    
-                    
-                    </div>
-   {% endblock %}
-          {% block scriptForm %}
-<script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
+                        
+                        <div class="x_content">
+                            <div class="widget_summary">
+                                <div class="col-md-9 col-sm-12 col-xs-12"> 
+                                    <div class="progress">
+                                        <div class="{% if nbStat >=50 %}progress-bar bg-hulk{% else %}progress-bar bg-green{% endif %}" id="" role="progressbar" data-transitiongoal="{% if nbStat >=1  %}{{nbStat }}{% else %}{% endif %}" aria-valuemax="100">
+                                        <span class="sr-only"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                <span class="count">{% if nbStat >=1  %}{{nbStat }}{% else %}{% endif %}</span>
+                                </div>
+                                <div class="col-md-1">
+                                <i class="fa fa-volume-up" aria-hidden="true"></i>
+                                </div>
+                            </div>
 
- {% endblock %}
+                            <h2 class="name_title"> {% if nbStat == 0 %}Aucune donnée{% endif %}</h2>
+                            <p class="text-center">{% for sound in stats %}{% if sound.stat == nbStat and nbStat >= 1 %}<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>le morceau {{sound.titre }} à était écouté {{nbStat }} fois {% endif %}{% endfor %}</p>
+                            <div class="divider"></div>
+                            <br>
+                            <h5>Infos</h5>
+                            <br>
+                            <p> {% for sound in stats %}{% if sound.stat == nbStat and nbStat > 1 %}<i class="fa fa-file-audio-o" aria-hidden="true"></i>{{sound.morceau }}{% endif %}{% endfor %}</p>
+                            <p> {% for sound in stats %}{% if sound.stat == nbStat and nbStat > 1 %}<i class="fa fa-user-o" aria-hidden="true"></i>Artist: {{sound.auteur }}{% endif %}{% endfor %}</p>
+                            <p> {% for sound in stats %}{% if sound.stat == nbStat and nbStat > 1 %}<i class="fa fa-calendar-o" aria-hidden="true"></i>Crée le: {{sound.date|date ('j/m/y')}}{% endif %}{% endfor %}</p>
+                            <p> {% for sound in stats %}{% if sound.stat == nbStat and sound.label !=null and nbStat > 1 %}<i class="fa fa-diamond" aria-hidden="true"></i>Label: {{sound.label }}{% endif %}{% endfor %}</p>
+                            <p> {% for sound in stats %}{% if sound.stat == nbStat and nbStat > 1 %} {% for sound in sound.genre %}<i class="fa icon-cd" aria-hidden="true"></i>Genre: {{sound.nom }}{% endfor %}{% endif %}{% endfor %}</p>                   
+                        </div>
+                    </div>
+                </div>      
+            </div>
+        {% endblock %}
+
+    {% block scriptForm %}
+        <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
+    {% endblock %}

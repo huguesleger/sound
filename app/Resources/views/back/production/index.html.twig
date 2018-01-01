@@ -1,158 +1,97 @@
-{% extends ':back:templateAdmin.html.twig' %}
+    {% extends ':back:templateAdmin.html.twig' %}
 
-  {% block content %}
-{#    <h1>Productions list</h1>
+        {% block content %}
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Texte</th>
-                <th>Publier</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for production in productions %}
-            <tr>
-                <td><a href="{{ path('production_show', { 'id': production.id }) }}">{{ production.id }}</a></td>
-                <td>{{ production.titre }}</td>
-                <td>{{ production.texte }}</td>
-                <td> {% if production.publier %}<span type="button" class="label label-success">Publié</span>{% else %}<span class="label label-warning">Brouillon</span>{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('production_show', { 'id': production.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('production_edit', { 'id': production.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            {% for production in productions[0:]%}
+            {% if nb >= 2 and loop.index == 1 %}
 
-    <ul>
-        <li>
-            <a href="{{ path('production_new') }}">Create a new production</a>
-        </li>
-    </ul>
-{% endblock %}#}
-             {% for production in productions[0:]  %}
-                    {#{% if loop.index >= 2 and present.publier == true %}#}
-                    {% if nb >= 2 and loop.index == 1 %}
-                        <div id="info-present">
-                        <div class="info-header">
-                <div class="alert alert-success  alert-dismissible fade in" role="alert">
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
-                  </button>
-                  <strong>Attention !</strong> vous avez plusieurs intros production en statut publié. Seule la plus récente est en ligne.
-                </div>
-                    </div>
+                <div id="info-present">
+                    <div class="info-header">
+                        <div class="alert alert-success  alert-dismissible fade in" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                            </button>
+                            <strong>Attention !</strong> vous avez plusieurs intros production en statut publié. Seule la plus récente est en ligne.
                         </div>
-                        {% else %}
-                        {% endif %}
-                         {% endfor %}
-   
-       <div class="">
-           
-           
-           
-          <div class="page-title">
-            <div class="title_left">
-                <h3>Production intro</h3>
-                 </div>
-                  <span class="btn-title-left col-md-2">
-                   <a class="btn btn-dark btn-sm" id="AddProdIntro">Ajouter</a>{{ render(controller('AppBundle:Production:new')) }}</span>
-           
-
-       </div>
-          <div class="clearfix"></div>
-
- 
-          
-                <div class="row">
-
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <div class="x_panel">
-{#                <div class="x_title">
-                  <h2>Mes genres musicaux</h2>
-                  
-                  <div class="clearfix"></div>
-                </div>#}
-                <div class="x_content">
-                 
-                  <table class="table table-striped projects" id="Title-prod">
-                    <thead>
-                      <tr>
-                        <th style="width: 1%">#</th>
-                        {#<th style="width: 12%">Icon</th>#}
-                        <th style="width: 12%">Date</th>
-                        <th style="width: 12%">Titre</th>
-                        <th style="width: 35%">Texte</th>
-                        <th style="width: 10%">Status</th>
-                        <th style="width: 20%">Actions</th>
-                      </tr>
-                    </thead>
-
-
-                    <tbody>
-                        {% for production in productions[0:] %}
-                      {% if nb >= 2 and production.publier == true %}<tr class="alert-dark">{% else %}<tr> {% endif %}  
-                        <td class="icon-section"><i class=" {% if nb >= 2 and  production.publier == true  %}fa fa-font white {% else %}fa fa-font blue{% endif %}" aria-hidden="true"></i></td>
-                        <td><small>Créer le {{ production.date|date ('j/m/y à H:i:s') }}</small></td>
-                        <td>{% if production.titre == true %}{{production.titre }}{% else %}pas de titre{% endif %} <br/></td>
-                        <td>{% if production.texte == true %}{{ production.texte }}{% else %}pas de texte{% endif %}</td>
-                    
-                        <td>{% if production.publier %}<span type="button" class="label label-success">Publié</span>{% else %}<span class="label label-warning">Brouillon</span>{% endif %}</td>
-                         <td><a href="{{ path('production_edit', { 'id': production.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil-square-o no-mg-right"></i> Editer</a>
-                         <a data-toggle="modal" href="#SuppProdInfo_{{ production.id }}" class="btn btn-danger btn-xs"id="SuppProdInfo"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a></td>
-                      </tr>
-                       {% endfor %}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-
-                    {% for production in productions %}
-                      <div class="x_content">
-  <div class="modal fade bs-example-modal-lg" id="SuppProdInfo_{{ production.id }}" tabindex="-1" role="dialog" aria-hidden="true">
-                  <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
-
-                      <div class="modal-header">
-                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Suppression</h4>
-                      </div>
-                      <div class="modal-body">
-                         Vous êtes sûr de vouloir supprimer cet élément ?
-                      </div>
-                      <div class="modal-footer">
-                          <ul class="modal-btn">
-                              <li><a class="btn btn-primary btn-sm" data-dismiss="modal"><i class="fa fa-trash-o no-mg-right"></i> Non </a></li>
-                              <li><a href="{{ path('production_delete', { 'id': production.id }) }}" class="btn btn-success btn-sm"><i class="fa fa-trash-o no-mg-right"></i> Oui </a></li>
-                          </ul>
-                      </div>
-
                     </div>
-                  </div>
                 </div>
-                      </div>
-                    {% endfor %}
-                    
+            {% else %}
+            {% endif %}
+            {% endfor %}
+
+            <div class="page-title">
+                <div class="title_left">
+                <h3>Production intro</h3>
                 </div>
-                    
-                   </div>   
-                       
-                
-{% endblock %}
+                <span class="btn-title-left col-md-2">
+                <a class="btn btn-dark btn-sm" id="AddProdIntro">Ajouter</a>{{ render(controller('AppBundle:Production:new')) }}</span>          
+            </div>
+            <div class="clearfix"></div>
 
-{% block scriptForm %}
-{#     <script type="text/javascript" src="{{asset('js/backend/form/form_notification.js')}}"></script>#}
-      <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_content">                           
+                            <table class="table table-striped projects" id="Title-prod">
+                                <thead>
+                                    <tr>
+                                    <th style="width: 1%">#</th>
+                                    <th style="width: 12%">Date</th>
+                                    <th style="width: 12%">Titre</th>
+                                    <th style="width: 35%">Texte</th>
+                                    <th style="width: 10%">Status</th>
+                                    <th style="width: 20%">Actions</th>
+                                    </tr>
+                                </thead>
 
-{% endblock %}
+                                <tbody>
+                                    {% for production in productions[0:] %}
+                                    {% if nb >= 2 and production.publier == true %}<tr class="alert-dark">{% else %}<tr> {% endif %}  
+                                    <td class="icon-section"><i class=" {% if nb >= 2 and  production.publier == true  %}fa fa-font white {% else %}fa fa-font blue{% endif %}" aria-hidden="true"></i></td>
+                                    <td><small>Créer le {{ production.date|date ('j/m/y à H:i:s') }}</small></td>
+                                    <td>{% if production.titre == true %}{{production.titre }}{% else %}pas de titre{% endif %} <br/></td>
+                                    <td>{% if production.texte == true %}{{ production.texte }}{% else %}pas de texte{% endif %}</td>                  
+                                    <td>{% if production.publier %}<span type="button" class="label label-success">Publié</span>{% else %}<span class="label label-warning">Brouillon</span>{% endif %}</td>
+                                    <td><a href="{{ path('production_edit', { 'id': production.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil-square-o no-mg-right"></i> Editer</a>
+                                    <a data-toggle="modal" href="#SuppProdInfo_{{ production.id }}" class="btn btn-danger btn-xs"id="SuppProdInfo"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                                </table>
+                        </div>
+                    </div>
+                </div>
+
+                {% for production in productions %}
+                    <div class="x_content">
+                        <div class="modal fade bs-example-modal-lg" id="SuppProdInfo_{{ production.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                                     <h4 class="modal-title" id="myModalLabel">Suppression</h4>
+                                    </div>
+                                    
+                                    <div class="modal-body">
+                                       Vous êtes sûr de vouloir supprimer cet élément ?
+                                    </div>
+                                    
+                                    <div class="modal-footer">
+                                        <ul class="modal-btn">
+                                        <li><a class="btn btn-primary btn-sm" data-dismiss="modal"><i class="fa fa-trash-o no-mg-right"></i> Non </a></li>
+                                        <li><a href="{{ path('production_delete', { 'id': production.id }) }}" class="btn btn-success btn-sm"><i class="fa fa-trash-o no-mg-right"></i> Oui </a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div> 
+        {% endblock %}
+
+    {% block scriptForm %}
+        <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
+    {% endblock %}

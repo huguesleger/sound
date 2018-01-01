@@ -1,138 +1,73 @@
 {% extends ':back:templateAdmin.html.twig' %}
 
-{#  {% block content %}
-    <h1>Genres list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for genre in genres %}
-            <tr>
-                <td><a href="{{ path('genre_show', { 'id': genre.id }) }}">{{ genre.id }}</a></td>
-                <td>{{ genre.nom }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('genre_show', { 'id': genre.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('genre_edit', { 'id': genre.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('genre_new') }}">Create a new genre</a>
-        </li>
-    </ul>
-{% endblock %}#}
-
- {% block content %}
-      
-
-
-   
-      
-       <div class="">
-           
-           
-           
-          <div class="page-title">
-            <div class="title_left">
-                <h3>Genre Musical</h3>
-                 </div>
-                  <span class="btn-title-left col-md-2">
-                   <a class="btn btn-dark btn-sm" id="AddGenre">Ajouter</a>{{ render(controller('AppBundle:Genre:new')) }}</span>
-           
-
-       </div>
-          <div class="clearfix"></div>
-
- 
-          
-                <div class="row">
-
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <div class="x_panel">
+{% block content %}
+    <div class="page-title">
+        <div class="title_left">
+        <h3>Genre Musical</h3>
+        </div>
+    <span class="btn-title-left col-md-2">
+    <a class="btn btn-dark btn-sm" id="AddGenre">Ajouter</a>{{ render(controller('AppBundle:Genre:new')) }}</span>
+    </div>
+<div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
                 <div class="x_content">
-                 
-                  <table class="table table-striped projects" id="Genre-table">
+                    <table class="table table-striped projects" id="Genre-table">
                     <thead>
-                      <tr>
-                        <th style="width: 5%">#</th>
-                        <th style="width: 20%">Date</th>
-                        <th style="width: 30%">Nom</th>
-                        <th style="width: 20%">Actions</th>
-                      </tr>
+                        <tr>
+                            <th style="width: 5%">#</th>
+                            <th style="width: 20%">Date</th>
+                            <th style="width: 30%">Nom</th>
+                            <th style="width: 20%">Actions</th>
+                        </tr>
                     </thead>
 
-
                     <tbody>
-                        {% for genre in genres %}
-                      <tr>  
-                           <td> {% set counter = ( counter | default(0) ) + 1 %}
-                           <small> {{ counter }}</small></td>
-                       {#<td><i class="fa fa-list" aria-hidden="true"></i></td>#}
-                           <td><small>Créer le {{ genre.date|date ('j/m/y à H:i:s') }}</small></td>
-                        <td><a>{{ genre.nom }}</a></td>
-                        {#<td><a href="{{ path('genre_show', { 'id': genre.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>#}
-                        <td> <a href="{{ path('genre_edit', { 'id': genre.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil-square-o no-mg-right"></i> Editer </a>
-                         <a data-toggle="modal" href="#SuppGenre_{{ genre.id }}" class="btn btn-danger btn-xs"id="SuppGenre"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a></td>
-
-                      </tr>
-                       {% endfor %}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
                     {% for genre in genres %}
-                      <div class="x_content">
-  <div class="modal fade bs-example-modal-lg" id="SuppGenre_{{ genre.id }}" tabindex="-1" role="dialog" aria-hidden="true">
-                  <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
-
-                      <div class="modal-header">
-                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Suppression</h4>
-                      </div>
-                      <div class="modal-body">
-                         Vous êtes sûr de vouloir supprimer cet élément ?
-                      </div>
-                      <div class="modal-footer">
-                          <ul class="modal-btn">
-                              <li><a class="btn btn-primary btn-sm" data-dismiss="modal"><i class="fa fa-trash-o no-mg-right"></i> Non </a></li>
-                              <li><a href="{{ path('genre_delete', { 'id': genre.id }) }}" class="btn btn-success btn-sm"><i class="fa fa-trash-o no-mg-right"></i> Oui </a></li>
-                          </ul>
-                      </div>
-
+                        <tr>  
+                            <td> {% set counter = ( counter | default(0) ) + 1 %}
+                            <small> {{ counter }}</small></td>
+                            <td><small>Créer le {{ genre.date|date ('j/m/y à H:i:s') }}</small></td>
+                            <td><a>{{ genre.nom }}</a></td>
+                            <td> <a href="{{ path('genre_edit', { 'id': genre.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil-square-o no-mg-right"></i> Editer </a>
+                             <a data-toggle="modal" href="#SuppGenre_{{ genre.id }}" class="btn btn-danger btn-xs"id="SuppGenre"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    {% for genre in genres %}
+    <div class="x_content">
+        <div class="modal fade bs-example-modal-lg" id="SuppGenre_{{ genre.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Suppression</h4>
                     </div>
-                  </div>
+                    <div class="modal-body">
+                    Vous êtes sûr de vouloir supprimer cet élément ?
+                    </div>
+                    <div class="modal-footer">
+                        <ul class="modal-btn">
+                            <li><a class="btn btn-primary btn-sm" data-dismiss="modal"><i class="fa fa-trash-o no-mg-right"></i> Non </a></li>
+                            <li><a href="{{ path('genre_delete', { 'id': genre.id }) }}" class="btn btn-success btn-sm"><i class="fa fa-trash-o no-mg-right"></i> Oui </a></li>
+                        </ul>
+                    </div>
                 </div>
-                      </div>
-                    {% endfor %}                    
+            </div>
+       </div>
+    </div>
+    {% endfor %}                    
+    </div>                
 
-                </div>
-                    
-                   </div>   
-                       
-                
+
 {% endblock %}
 
 {% block scriptForm %}
-{#     <script type="text/javascript" src="{{asset('js/backend/form/form_notification.js')}}"></script>#}
-      <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
-
+    <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
 {% endblock %}
 

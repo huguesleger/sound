@@ -1,134 +1,87 @@
-{% extends ':back:templateAdmin.html.twig' %}
+    {% extends ':back:templateAdmin.html.twig' %}
 
-  {% block content %}
-{#    <h1>Present</h1>
-
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ present.id }}</td>
-            </tr>
-            <tr>
-                <th>Texte</th>
-                <td>{{ present.texte }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td>{{ present.image }}</td>
-            </tr>
-            <tr>
-                <th>Publier</th>
-                <td>{% if present.publier %}Yes{% else %}No{% endif %}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('section_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('present_edit', { 'id': present.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>#}
-
-   <div class="row">
-   <div class="col-md-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Section détail</h2>
-                   <a class="btn btn-dark btn-xs back-list" href="{{ path('section_index') }}"><i class="fa fa-reply" aria-hidden="true"></i>Retour sections</a>
-                  <div class="clearfix"></div>
-                </div>
-
-                <div class="x_content">
-
-                  <!-- start project-detail sidebar -->
-                  <div class="col-md-5 col-sm-12 col-xs-12">
-
-                    <section class="panel">
-
-                      <div class="panel-body">
-                        <h3 class="green"><i class="fa fa-grav"></i>{{ present.name }}</h3>
-                        <br>
-                        <p>{{ present.texte }}</p>
-                        <br>
-                        
-                    {% if present.image != null%}
-                         <p>Votre image</p>
-                        <br>
-                         <div class="col-md-12 padd-b-md">
-                  <img src="{{asset('uploads/image/'~present.image)}}" alt="{{present.name}}" class="col-md-6"/>
-                  
-                         </div>
-                  {% else %}
-                      <p>Image par defaut</p>
-                  <img src="{{asset('images/pochette-disc.png')}}" alt="icon">
-                  {% endif %}
-                        <br>
-                        <h5>Info</h5>
-                        <ul class="list-unstyled project_files">
-                          <li><i class="fa fa-calendar-o"></i>crée le {{ present.date|date ('j/m/y à H:i:s')  }}</a>
-                          </li>
-                          <li><i class="fa fa-picture-o"></i>{% if present.image != null%}{{ present.image }} {% else %}pochette-disc.png{% endif %}
-                          </li>
-                          <li>{% if present.publier %}<i class="fa fa-check-square-o"></i>Publier: oui{% else %}<i class="fa fa-square-o"></i>Publier: non{% endif %}
-                          </li>
-                        </ul>
-                        <br>
-
-                        <div class="mtop20">
-                         {% if present.publier == 0%}
-                          <a href="{{path("publier_present",{"id":present.id})}}" class="btn btn-sm btn-success">Publier</a>
-                          {% else %}
-                           <a href="{{path("publier_present",{"id":present.id})}}" class="btn btn-sm btn-warning">Brouillon</a>   
-                          {% endif %}
-                          <a href="{{ path('present_edit', { 'id': present.id }) }}" class="btn btn-sm btn-info">Editer</a>
-                         <a data-toggle="modal" href="#SuppPresent_{{ present.id }}" class="btn btn-danger btn-sm"id="SuppPresent"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a>
-                        </div>
-                      </div>
-
-                    </section>
-
-                  </div>
-                        
-
-
-       
-                  <!-- end project-detail sidebar -->
-
-                </div>
-              </div>
-            </div>
-                      <div class="x_content">
-  <div class="modal fade bs-example-modal-lg" id="SuppPresent_{{ present.id }}" tabindex="-1" role="dialog" aria-hidden="true">
-                  <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
-
-                      <div class="modal-header">
-                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Suppression</h4>
-                      </div>
-                      <div class="modal-body">
-                         Vous êtes sûr de vouloir supprimer cet élément ?
-                      </div>
-                      <div class="modal-footer">
-                          <ul class="modal-btn">
-                              <li><a class="btn btn-primary btn-sm" data-dismiss="modal"><i class="fa fa-trash-o no-mg-right"></i> Non </a></li>
-                              <li><a href="{{ path('present_delete', { 'id': present.id }) }}" class="btn btn-success btn-sm"><i class="fa fa-trash-o no-mg-right"></i> Oui </a></li>
-                          </ul>
-                      </div>
-
+    {% block content %}
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Section détail</h2>
+                        <a class="btn btn-dark btn-xs back-list" href="{{ path('section_index') }}"><i class="fa fa-reply" aria-hidden="true"></i>Retour sections</a>
+                        <div class="clearfix"></div>
                     </div>
-                  </div>
-                </div>
-                      </div>                        
-       </div>
 
-{% endblock %}
+                    <div class="x_content">
+                    <!-- start project-detail sidebar -->
+                        <div class="col-md-5 col-sm-12 col-xs-12">
+                            <section class="panel">
+                                <div class="panel-body">
+                                <h3 class="green"><i class="fa fa-grav"></i>{{ present.name }}</h3>
+                                    <br>
+                                    <p>{{ present.texte }}</p>
+                                    <br>
+                                    {% if present.image != null%}
+                                    <p>Votre image</p>
+                                    <br>
+                                    <div class="col-md-12 padd-b-md">
+                                    <img src="{{asset('uploads/image/'~present.image)}}" alt="{{present.name}}" class="col-md-6"/>
+                                </div>
+                                {% else %}
+                                    <p>Image par defaut</p>
+                                    <img src="{{asset('images/pochette-disc.png')}}" alt="icon">
+                                {% endif %}
+                                    <br>
+                                    <h5>Info</h5>
+                                    <ul class="list-unstyled project_files">
+                                    <li><i class="fa fa-calendar-o"></i>crée le {{ present.date|date ('j/m/y à H:i:s')  }}</a>
+                                    </li>
+                                    <li><i class="fa fa-picture-o"></i>{% if present.image != null%}{{ present.image }} {% else %}pochette-disc.png{% endif %}
+                                    </li>
+                                    <li>{% if present.publier %}<i class="fa fa-check-square-o"></i>Publier: oui{% else %}<i class="fa fa-square-o"></i>Publier: non{% endif %}
+                                    </li>
+                                    </ul>
+                                    <br>
+                                    <div class="mtop20">
+                                        {% if present.publier == 0%}
+                                        <a href="{{path("publier_present",{"id":present.id})}}" class="btn btn-sm btn-success">Publier</a>
+                                        {% else %}
+                                        <a href="{{path("publier_present",{"id":present.id})}}" class="btn btn-sm btn-warning">Brouillon</a>   
+                                        {% endif %}
+                                        <a href="{{ path('present_edit', { 'id': present.id }) }}" class="btn btn-sm btn-info">Editer</a>
+                                        <a data-toggle="modal" href="#SuppPresent_{{ present.id }}" class="btn btn-danger btn-sm"id="SuppPresent"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    <!-- end project-detail sidebar -->
+                    </div>
+                </div>
+            </div>
+        
+            <div class="x_content">
+                <div class="modal fade bs-example-modal-lg" id="SuppPresent_{{ present.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Suppression</h4>
+                            </div>
+                            
+                            <div class="modal-body">
+                                Vous êtes sûr de vouloir supprimer cet élément ?
+                            </div>
+                            
+                            <div class="modal-footer">
+                                <ul class="modal-btn">
+                                <li><a class="btn btn-primary btn-sm" data-dismiss="modal"><i class="fa fa-trash-o no-mg-right"></i> Non </a></li>
+                                <li><a href="{{ path('present_delete', { 'id': present.id }) }}" class="btn btn-success btn-sm"><i class="fa fa-trash-o no-mg-right"></i> Oui </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>                        
+        </div>
+
+    {% endblock %}

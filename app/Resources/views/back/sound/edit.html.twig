@@ -1,208 +1,138 @@
-{% extends ':back:templateAdmin.html.twig' %}
+    {% extends ':back:templateAdmin.html.twig' %}
 
-{#  {% block content %}
-    <h1>Sound edit</h1>
-
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        
-        
-    <div class="form-upload">
-      
-      <label for="appbundle_sound_morceau" class="input-label">
-          <i class="fa fa-upload"></i>Select fichier</label>
-          {{sound.morceau}}
-         
-          
-     </div>
-        
-        
-        
-        
-        
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('sound_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
-{% endblock %}
-#}
-
-{% block content %}
-    
- {#     {% for message in app.flashes('update') %}
-      <div id="update">
-      </div>
-      {% endfor %}
-      
-      {% for message in app.flashes('erreur') %}
-      <div id="error">
-      </div>
-      {% endfor %}#}
-    
-    
-   <div class="row">  
-   <div class="col-md-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                    <h2>Edit sound</h2>
-                    <a class="btn btn-dark btn-xs back-list" href="{{ path('sound_index') }}"><i class="fa fa-reply" aria-hidden="true"></i>Retour musiques</a>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  <br>
-                   {{ form_start(edit_form) }}
-                    
-                   
-                           {{ form_row(edit_form.titre) }}
-                            <p><small>* champ obligatoire</small></p>
-                           {{ form_row(edit_form.description) }}
-                     
-         <div class="form-group"><label>Année de création</label>{{form_widget(edit_form.annee)}}<span class="fa fa-calendar-o form-control-feedback left"></span></div>
-
-                    
-                           {{ form_row(edit_form.auteur) }}
-                            <p><small>* champ obligatoire</small></p>
-                           <div class="form-group">
-                           <label>Musique</label>
-                           </div>
-        <div class="form-upload col-md-6">
-            <div class="row">
-      <label for="appbundle_sound_morceau" class="input-label">
-          <i class="fa fa-upload"></i>Select fichier</label>
-          {{form_widget(edit_form.morceau)}}
-         {# <span id="selectName">{{sound.morceau}}</span>   #}
-          <p><small>* champ obligatoire</small></p>
-         </div>
-         </div>
-                   <audio id="audio">
-	<source src="{{asset('uploads/music/')~sound.morceau}}">
-</audio>
-
-<div class="col-md-6 col-sm-8">
-<div class="audio-player-admin">
-
-	<div class="info">
-		<h3> <span id="selectName">{{sound.morceau}}</span></h3>
-		<p id="timeleft">00:00</p>
-		<div class="progressbar_slide">
-			<div class="progressbar_range"></div>
-		</div>
-	</div>
-	<div class="controls">
-		<div class="controls_plays">
-
-			<svg id="prev_btn" viewBox="0 0 24.5 23.6">
-				<polygon points="0,11.8 13.5,0 13.5,10.7 24.5,0 24.5,23.6 13.5,12.9 13.5,23.6 "/>
-			</svg>
-
-			<svg id="plays_btn" viewBox="0 0 24.5 30.9">
-				<g id="play_btn">
-					<path d="M0,30.9L0,0l24.5,15.4L0,30.9z"/>
-				</g>
-				<g id="pause_btn">
-					<rect x="0" y="0" width="8.2" height="30.9"/>
-					<rect x="16.2" y="0" width="8.2" height="30.9"/>
-				</g>
-			</svg>
-
-			<svg id="next_btn" viewBox="0 0 24.5 23.6">
-				<polygon points="25,11.8 11.5,0 11.5,10.7 0.5,0 0.5,23.6 11.5,12.9 11.5,23.6 "/>
-			</svg>
-
-		</div>
-	
-	</div>
-
-</div>
-</div>
-                </div>
-              </div>
-            </div>
-     
-             
-      <div class="col-md-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Image</h2>
-                  
-                 <ul class="nav navbar-right panel_toolbox">
-                    
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  <br>
- 
-      <label for="appbundle_sound_image" class="input-label">
-          <i class="fa fa-upload"></i>Select fichier</label>
-          {{form_widget(edit_form.image)}}
-           <p><small>* format optimal: 220px X 220px</small></p>
-           <p><small>* taille max: 300 Ko</small></p>
-                          {% if sound.image != null%}
-                <img id="selectImage" src="{{asset('uploads/image/')~sound.image}}" alt="your image" />
-                {% else %}
-                 <img class="default-picture border-img" id="selectImage" src="{{asset('images/pochette-logo.jpg')}}" alt="your image" />
-                 {% endif %}
-     </div>
-            </div>
-      </div>
-                         
+        {% block content %}
+            
+            <div class="row">  
                 <div class="col-md-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Options</h2>
-                 <ul class="nav navbar-right panel_toolbox">
-                    
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  <br>
-                  
-                            {#{{ form_row(edit_form.labeliser) }}
-                            {{ form_row(edit_form.nonLabeliser) }}#}
-                           
-                           {{ form_row(edit_form.label) }}
-                            {{ form_row(edit_form.link) }}
-                            {{ form_row(edit_form.linkSpotify) }}
-                            {{ form_row(edit_form.linkDeezer) }}
-                            {{ form_row(edit_form.genre) }}
-                            <div class="ln_solid"></div>
-                               
-                           {{ form_row(edit_form.publier) }}
-
-                </div>
-              </div>
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Edit sound</h2>
+                            <a class="btn btn-dark btn-xs back-list" href="{{ path('sound_index') }}"><i class="fa fa-reply" aria-hidden="true"></i>Retour musiques</a>
+                            <div class="clearfix"></div>
+                        </div>
                             
-                                   
-                            <div class="form-group btn-right">
+                        <div class="x_content">
+                            <br>
+                            {{ form_start(edit_form) }}        
+                            {{ form_row(edit_form.titre) }}
+                            <p><small>* champ obligatoire</small></p>
+                            {{ form_row(edit_form.description) }}
+
+                            <div class="form-group"><label>Année de création</label>{{form_widget(edit_form.annee)}}<span class="fa fa-calendar-o form-control-feedback left"></span></div>
+                            {{ form_row(edit_form.auteur) }}
+                            <p><small>* champ obligatoire</small></p>
+                            
+                            <div class="form-group">
+                                <label>Musique</label>
+                            </div>
+                            
+                            <div class="form-upload col-md-6">
+                                <div class="row">
+                                    <label for="appbundle_sound_morceau" class="input-label">
+                                    <i class="fa fa-upload"></i>Select fichier</label>
+                                    {{form_widget(edit_form.morceau)}}
+                                    <p><small>* champ obligatoire</small></p>
+                                </div>
+                            </div>
+                                    
+                        <audio id="audio">
+                            <source src="{{asset('uploads/music/')~sound.morceau}}">
+                        </audio>
+                        
+                            <div class="col-md-6 col-sm-8">
+                                <div class="audio-player-admin">
+                                    <div class="info">
+                                         <h3> <span id="selectName">{{sound.morceau}}</span></h3>
+                                         <p id="timeleft">00:00</p>
+                                        <div class="progressbar_slide">
+                                             <div class="progressbar_range"></div>
+                                        </div>
+                                    </div>
+                                    <div class="controls">
+                                        <div class="controls_plays">
+                                            <svg id="prev_btn" viewBox="0 0 24.5 23.6">
+                                            <polygon points="0,11.8 13.5,0 13.5,10.7 24.5,0 24.5,23.6 13.5,12.9 13.5,23.6 "/>
+                                            </svg>
+                                            <svg id="plays_btn" viewBox="0 0 24.5 30.9">
+                                            <g id="play_btn">
+                                            <path d="M0,30.9L0,0l24.5,15.4L0,30.9z"/>
+                                            </g>
+                                            <g id="pause_btn">
+                                            <rect x="0" y="0" width="8.2" height="30.9"/>
+                                            <rect x="16.2" y="0" width="8.2" height="30.9"/>
+                                            </g>
+                                            </svg>
+                                            <svg id="next_btn" viewBox="0 0 24.5 23.6">
+                                            <polygon points="25,11.8 11.5,0 11.5,10.7 0.5,0 0.5,23.6 11.5,12.9 11.5,23.6 "/>
+                                            </svg>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>   
+            
+                <div class="col-md-6 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Image</h2>                
+                                <ul class="nav navbar-right panel_toolbox">                  
+                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                                </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        
+                        <div class="x_content">
+                            <br>
+                            <label for="appbundle_sound_image" class="input-label">
+                            <i class="fa fa-upload"></i>Select fichier</label>
+                            {{form_widget(edit_form.image)}}
+                            <p><small>* format optimal: 220px X 220px</small></p>
+                            <p><small>* taille max: 300 Ko</small></p>
+                            {% if sound.image != null%}
+                            <img id="selectImage" src="{{asset('uploads/image/')~sound.image}}" alt="your image" />
+                            {% else %}
+                            <img class="default-picture border-img" id="selectImage" src="{{asset('images/pochette-logo.jpg')}}" alt="your image" />
+                            {% endif %}
+                        </div>
+                    </div>
+                </div> 
+                
+                <div class="col-md-6 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Options</h2>
+                                <ul class="nav navbar-right panel_toolbox">                
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        
+                    <div class="x_content">
+                        <br>
+                        {{ form_row(edit_form.label) }}
+                        {{ form_row(edit_form.link) }}
+                        {{ form_row(edit_form.linkSpotify) }}
+                        {{ form_row(edit_form.linkDeezer) }}
+                        {{ form_row(edit_form.genre) }}
+                        <div class="ln_solid"></div>                  
+                        {{ form_row(edit_form.publier) }}                            
+                    </div>
+                    
+                    </div>
+                    <div class="form-group btn-right">
                         <button type="submit" class="btn btn-success"><i class="fa fa-upload" aria-hidden="true"></i>Mettre à jour</button>
-                      </div>
-
-
+                    </div>
+                </div>
             </div>
 
-       </div>
-  {{ form_end(edit_form) }}
+        {{ form_end(edit_form) }}
+        {% endblock %}
 
-    
-
-{% endblock %}
-
-{% block scriptForm %}
-    <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
-     <script type="text/javascript" src="{{asset('js/backend/playerMusic.js')}}"></script>
-{% endblock %}
+    {% block scriptForm %}
+        <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/backend/playerMusic.js')}}"></script>
+    {% endblock %}

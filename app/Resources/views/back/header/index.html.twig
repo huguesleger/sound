@@ -1,186 +1,186 @@
-{% extends ':back:templateAdmin.html.twig' %}
+    {% extends ':back:templateAdmin.html.twig' %}
 
     {% block content %}
-        
-{#        {% for message in app.flashes('succes') %}
-      <div id="success">
-      </div>
-      {% endfor %}
-      
-      {% for message in app.flashes('delete') %}
-      <div id="delete">
-      </div>
-      {% endfor %}
-      
-      {% for message in app.flashes('erreur') %}
-      <div id="error">
-      </div>
-      {% endfor %}#}
+
+    {% for header in headers %}
+    {% if header.styleDefault !=null %}
+        <div id="info-head">
+            <div class="info-header">
+                <div class="alert alert-success  alert-dismissible fade in" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <strong>Supprimer !</strong> le header par defaut avant de créer le slider.
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    {% endfor %}
+
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Header</h3>
+            </div>
+            <span class="btn-title-left col-md-2"><a class="btn btn-dark btn-sm" href="{{ path('header_new') }}">Ajouter</a></span>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
 
         {% for header in headers %}
         {% if header.styleDefault !=null %}
-                    <div id="info-head">
-                        <div class="info-header">
-                            <div class="alert alert-success  alert-dismissible fade in" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                         <strong>Supprimer !</strong> le header par defaut avant de créer le slider.
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+
+                        <h2>Style par defaut |
+                        <small>{% if header.styleDefault %}
+                        <i class="fa fa-circle animated-demo infinite pulse" aria-hidden="true"></i>Activer
+                        {% else %}
+                        <i class="fa fa-circle no-activate" aria-hidden="true"></i>Non activer
+                        {% endif %}
+                        </small> </h2>
+
+                        <div class="panel_toolbox">
+                          <a href="{{ path('header_edit', { 'id': header.id }) }}" class="btn btn-info btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Editer</a>
+                          <a data-toggle="modal" href="#SuppHeader_{{ header.id }}" class="btn btn-danger btn-sm"id="SuppHeader"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="x_content">
+                        <div class="col-md-6 col-sm-6 col-xs-12 profile_left">
+                            <div class="background-pochette">
+                                <img src="{{asset('images/pochette_background_min.png')}}" alt="your image" />  
+                            </div>
+                                <img src="{{asset('uploads/header/')~header.image}}" class="img-pochette-min" alt="your image" />
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12">                         
+                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">                                                
+                                <ol class="carousel-indicators indicator-back">
+
+                                {% for header in header.headerTexte [0:] %}
+                                {% set counter = ( counter | default(0) ) + 1 %}
+                                <li data-target="#carousel-example-generic" data-slide-to="{{ counter-1 }}" class="{%if loop.index == 1%} active {%endif%}"></li>
+                                {% endfor %}
+
+                                </ol>
+                            <!-- Wrapper for slides -->
+                                <div class="carousel-inner" role="listbox"> 
+
+                                {% for header in header.headerTexte[0:] %}                                 
+                                    <div class="item{%if loop.index == 1%} active {%endif%}">                          
+                                        <h3 class="txt-carousel-back animated-demo {{ header.animationTexte}}">{{ header.texte }}</h3>
+                                        <a class="edit-carousel" href="{{ path('headertexte_edit', { 'id': header.id }) }}">Editer texte</a>                        
+                                    </div>
+                                {% endfor %}
+                                </div>
                             </div>
                         </div>
                     </div>
-        {% endif %}
-        {% endfor %}
-                
-        <div class="">
-            <div class="page-title">
-                <div class="title_left">
-                    <h3>Header</h3>
-                </div>
-                <span class="btn-title-left col-md-2"><a class="btn btn-dark btn-sm" href="{{ path('header_new') }}">Ajouter</a></span>
-                </div>
-            <div class="clearfix"></div>
-            <div class="row">
-                {% for header in headers %}
-                {% if header.styleDefault !=null %}
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="x_panel">
-                        <div class="x_title">
-                        <h2>Style par defaut |
-                        <small>{% if header.styleDefault %}
-                            <i class="fa fa-circle animated-demo infinite pulse" aria-hidden="true"></i>Activer
-                                {% else %}
-                            <i class="fa fa-circle no-activate" aria-hidden="true"></i>Non activer
-                                {% endif %}
-                        </small> </h2>
-                            <div class="panel_toolbox">
-                            <a href="{{ path('header_edit', { 'id': header.id }) }}" class="btn btn-info btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Editer</a>
-                            <a data-toggle="modal" href="#SuppHeader_{{ header.id }}" class="btn btn-danger btn-sm"id="SuppHeader"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a>
-                            </div>
-                        <div class="clearfix"></div>
-                        </div>
-                        <div class="x_content">
-                            <div class="col-md-6 col-sm-6 col-xs-12 profile_left">
-                                <div class="background-pochette">
-                                <img src="{{asset('images/pochette_background_min.png')}}" alt="your image" />  
-                                </div>
-                                <img src="{{asset('uploads/header/')~header.image}}" class="img-pochette-min" alt="your image" />
-                            </div>
-                            <div class="col-md-6 col-sm-12 col-xs-12">                         
-                                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">                                                
-                                    <ol class="carousel-indicators indicator-back">
-                                     {% for header in header.headerTexte [0:] %}
-                                        {% set counter = ( counter | default(0) ) + 1 %}
-                                    <li data-target="#carousel-example-generic" data-slide-to="{{ counter-1 }}" class="{%if loop.index == 1%} active {%endif%}"></li>
-                                     {% endfor %}
-                                    </ol>
-                                    <!-- Wrapper for slides -->
-                                    <div class="carousel-inner" role="listbox">                           
-                                    {% for header in header.headerTexte[0:] %}                                 
-                                        <div class="item{%if loop.index == 1%} active {%endif%}">                          
-                                        <h3 class="txt-carousel-back animated-demo {{ header.animationTexte}}">{{ header.texte }}</h3>
-                                        <a class="edit-carousel" href="{{ path('headertexte_edit', { 'id': header.id }) }}">Editer texte</a>                        
-                                        </div>
-                                    {% endfor %}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>                                      
-                </div>
-                {% else %}  
-                {% endif %}  
-                {% endfor %}    
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="x_panel">                               
-                        <div class="x_title">
-                        <h2>Style Carousel |
-                        {% for header in headers %}
+
+                </div>                                      
+            </div>
+        {% else %}  
+        {% endif %}  
+        {% endfor %}    
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">                               
+                    <div class="x_title">
+                        
+                    <h2>Style Carousel |
+                    {% for header in headers %}
                         <small>{% if header.styleDefault == null %} {% set counter = ( counter | default(0) ) + 1 %}
-                        <i class="fa fa-circle animated infinite pulse" aria-hidden="true"></i>Slide {{ counter }} activer
+                            <i class="fa fa-circle animated infinite pulse" aria-hidden="true"></i>Slide {{ counter }} activer
                         {% else %}                                   
-                        <i class="fa fa-circle no-activate" aria-hidden="true"></i>Non activer                                 
+                            <i class="fa fa-circle no-activate" aria-hidden="true"></i>Non activer                                 
                         {% endif %}
                         </small> </h2>
                         {% endfor %}
-                            <div class="panel_toolbox">
-                            {% for header in headers %}
-                            {% if header.styleDefault ==null %}
-                            {% set counter = ( counter | default(0) ) + 1 %}
-                                <div class="">
-                            <a href="{{ path('header_edit', { 'id': header.id }) }}" class="btn btn-info btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Editer</a>
-                            <a data-toggle="modal" href="#SuppHeader_{{ header.id }}" class="btn btn-danger btn-sm"id="SuppHeader"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a>
-                                <p class="nb-img">slide {{ counter }}</p>
-                                </div>
-                            {% else %}  
-                            {% endif %}  
-                            {% endfor %}
-                            </div>
+                        
+                        <div class="panel_toolbox">
+                        {% for header in headers %}
+                        {% if header.styleDefault ==null %}
+                        {% set counter = ( counter | default(0) ) + 1 %}
+                        
+                        <div class="">
+                        <a href="{{ path('header_edit', { 'id': header.id }) }}" class="btn btn-info btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Editer</a>
+                        <a data-toggle="modal" href="#SuppHeader_{{ header.id }}" class="btn btn-danger btn-sm"id="SuppHeader"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a>
+                        <p class="nb-img">slide {{ counter }}</p>
+                        </div>
+                        {% else %}  
+                        {% endif %}  
+                        {% endfor %}
+                        
+                        </div>
                         <div class="clearfix"></div>
-                        </div>
-                        <div class="x_content">                            
-                            <div class="col-md-12">
-                                <div id="carousel-example-generic-3" class="carousel slide big-carousel" data-ride="carousel">
-                                <!-- Indicators -->
-                                    <ol class="carousel-indicators big-indic-pos">
-                                     {% for header in headers %}
-                                    {% if header.styleDefault ==null and  header.image [0:] %}
-                                        {% set counter = ( counter | default(0) ) + 1 %}
-                                    <li data-target="#carousel-example-generic-3" data-slide-to="{{ counter-1 }}" class="{%if loop.index == 1%} active {%endif%}"></li>
-                                    {% endif %} 
-                                     {% endfor %}
-                                    </ol>
+                    </div>
+                        
+                    <div class="x_content">                            
+                        <div class="col-md-12">
+                            <div id="carousel-example-generic-3" class="carousel slide big-carousel" data-ride="carousel">
+                            <!-- Indicators -->
+                                <ol class="carousel-indicators big-indic-pos">
+                                 {% for header in headers %}
+                                {% if header.styleDefault ==null and  header.image [0:] %}
+                                {% set counter = ( counter | default(0) ) + 1 %}
+                                <li data-target="#carousel-example-generic-3" data-slide-to="{{ counter-1 }}" class="{%if loop.index == 1%} active {%endif%}"></li>
+                                {% endif %} 
+                                 {% endfor %}
+                                </ol>
                                 <!-- Wrapper for slides -->
-                                    <div class="carousel-inner" role="listbox">
-                                    {% for header in headers %}
-                                    {% if header.styleDefault ==null and  header.image [0:] %} 
-                                        <div class="item{%if loop.index == 1%} active {%endif%}">
-                                          <div class="opaque"></div> 
-                                        <img src="{{asset('uploads/header/')~header.image}}">
-                                        {% for header in header.headerTexte%}
-                                        <div class="carousel-caption">          
-                                        <h3 class="txt-carousel animated-demo {{ header.animationTexte}}">{{ header.texte }}</h3>
-                                        <a class="btn btn-info btn-sm animated-demo fadeIn" href="{{ path('headertexte_edit', { 'id': header.id }) }}">Editer texte</a>
-                                        </div>
-                                        </div>
-                                    {% endfor %}
-                                    {% endif %}         
-                                    {% endfor %}    
+                                <div class="carousel-inner" role="listbox">
+                                    
+                                {% for header in headers %}
+                                {% if header.styleDefault ==null and  header.image [0:] %} 
+                                    <div class="item{%if loop.index == 1%} active {%endif%}">
+                                    <div class="opaque"></div> 
+                                    <img src="{{asset('uploads/header/')~header.image}}">
+                                    {% for header in header.headerTexte%}
+                                    <div class="carousel-caption">          
+                                    <h3 class="txt-carousel animated-demo {{ header.animationTexte}}">{{ header.texte }}</h3>
+                                    <a class="btn btn-info btn-sm animated-demo fadeIn" href="{{ path('headertexte_edit', { 'id': header.id }) }}">Editer texte</a>
                                     </div>
-                                </div> 
+                                    </div>
+                                {% endfor %}
+                                {% endif %}         
+                                {% endfor %}
+                                
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>                                     
+            </div>
+
+            {% for header in headers %}
+                <div class="x_content">
+                    <div class="modal fade bs-example-modal-lg" id="SuppHeader_{{ header.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Suppression</h4>
+                                </div>
+                                
+                                <div class="modal-body">
+                                Vous êtes sûr de vouloir supprimer cet élément ?
+                                </div>
+
+                                <div class="modal-footer">
+                                    <ul class="modal-btn">
+                                    <li><a class="btn btn-primary btn-sm" data-dismiss="modal"><i class="fa fa-trash-o no-mg-right"></i> Non </a></li>
+                                    <li><a href="{{ path('header_delete', { 'id': header.id }) }}" class="btn btn-success btn-sm"><i class="fa fa-trash-o no-mg-right"></i> Oui </a></li>
+                                    </ul>
+                                </div>
+
                             </div>
                         </div>
-                    </div>                                     
-                </div>
-                                    
-                    {% for header in headers %}
-                      <div class="x_content">
-  <div class="modal fade bs-example-modal-lg" id="SuppHeader_{{ header.id }}" tabindex="-1" role="dialog" aria-hidden="true">
-                  <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
-
-                      <div class="modal-header">
-                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Suppression</h4>
-                      </div>
-                      <div class="modal-body">
-                         Vous êtes sûr de vouloir supprimer cet élément ?
-                      </div>
-                      <div class="modal-footer">
-                          <ul class="modal-btn">
-                              <li><a class="btn btn-primary btn-sm" data-dismiss="modal"><i class="fa fa-trash-o no-mg-right"></i> Non </a></li>
-                              <li><a href="{{ path('header_delete', { 'id': header.id }) }}" class="btn btn-success btn-sm"><i class="fa fa-trash-o no-mg-right"></i> Oui </a></li>
-                          </ul>
-                      </div>
-
                     </div>
-                  </div>
                 </div>
-                      </div>
-                    {% endfor %}
-                    
-            </div>
-        </div>   
+            {% endfor %}
+
+        </div> 
     {% endblock %}
 
     {% block scriptForm %}
-    <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
     {% endblock %}

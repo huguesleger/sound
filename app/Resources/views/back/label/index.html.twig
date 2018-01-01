@@ -1,140 +1,77 @@
 {% extends ':back:templateAdmin.html.twig' %}
 
-{#  {% block content %}
-    <h1>Labels list</h1>
+    {% block content %}
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for label in labels %}
-            <tr>
-                <td><a href="{{ path('label_show', { 'id': label.id }) }}">{{ label.id }}</a></td>
-                <td>{{ label.nom }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('label_show', { 'id': label.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('label_edit', { 'id': label.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('label_new') }}">Create a new label</a>
-        </li>
-    </ul>
-{% endblock %}#}
-
- {% block content %}
-      
-
-      {#{% for message in app.flashes('succes') %}
-      <div id="success">
-      </div>
-      {% endfor %}#}
-   
-      
-       <div class="">
-           
-           
-           
-          <div class="page-title">
+        <div class="page-title">
             <div class="title_left">
                 <h3>Label</h3>
             </div>
-               <span class="btn-title-left col-md-2">
-                   <a class="btn btn-dark btn-sm" id="AddLabel">Ajouter</a>{{ render(controller('AppBundle:Label:new')) }}</span>
-
-       </div>
-          <div class="clearfix"></div>
-
- 
-          
-                <div class="row">
-
+            <span class="btn-title-left col-md-2">
+            <a class="btn btn-dark btn-sm" id="AddLabel">Ajouter</a>{{ render(controller('AppBundle:Label:new')) }}</span>
+        </div>
+     <div class="clearfix"></div> 
+     
+        <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-              <div class="x_panel">
-                <div class="x_content">
-                 
-                  <table class="table table-striped"id="Label-table">
-                    <thead>
-                      <tr>
-                        <th style="width: 5%">#</th>
-                        <th style="width: 20%">Date</th>
-                        <th style="width: 30%">Nom</th>
-                        <th style="width: 20%">Actions</th>
-                      </tr>
-                    </thead>
+                <div class="x_panel">
+                    <div class="x_content">
+                        <table class="table table-striped"id="Label-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 5%">#</th>
+                                    <th style="width: 20%">Date</th>
+                                    <th style="width: 30%">Nom</th>
+                                    <th style="width: 20%">Actions</th>
+                                </tr>
+                            </thead>
 
-
-                    <tbody>
-                        {% for label in labels %}
-                      <tr>  
-                           <td> {% set counter = ( counter | default(0) ) + 1 %}
-                           <small> {{ counter }}</small></td>
-                       {#<td><i class="fa fa-list" aria-hidden="true"></i></td>#}
-                        <td><small>Créer le {{ label.date|date ('j/m/y à H:i:s') }}</small></td>   
-                        <td>{{ label.nom }}</td>
-                        {#<td><a href="{{ path('label_show', { 'id': label.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>#}
-                        <td>{#{{ render(controller('AppBundle:Label:edit',{'id':label.id})) }}#}<a href="{{ path('label_edit', { 'id': label.id }) }}"  class="btn btn-info btn-xs" id="EditLabel"  {#data-toggle="modal"  data-target="#myModal{{ label.id }} "#}><i class="fa fa-pencil-square-o no-mg-right"></i> Editer </a>
-                         
-                          {#<a href="{{ path('label_delete', { 'id': label.id }) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a></td>#}
-                          <a data-toggle="modal" href="#SuppLabel_{{ label.id }}" class="btn btn-danger btn-xs"id="SuppLabel"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a></td>
-                      </tr>
-                       {% endfor %}
-                    </tbody>
-                  </table>
-
-                </div>
-              </div>
-            </div>
-                    {% for label in labels %}
-                      <div class="x_content">
-  <div class="modal fade bs-example-modal-lg" id="SuppLabel_{{ label.id }}" tabindex="-1" role="dialog" aria-hidden="true">
-                  <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
-
-                      <div class="modal-header">
-                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Suppression</h4>
-                      </div>
-                      <div class="modal-body">
-                         Vous êtes sûr de vouloir supprimer cet élément ?
-                      </div>
-                      <div class="modal-footer">
-                          <ul class="modal-btn">
-                              <li><a class="btn btn-primary btn-sm" data-dismiss="modal"><i class="fa fa-trash-o no-mg-right"></i> Non </a></li>
-                              <li><a href="{{ path('label_delete', { 'id': label.id }) }}" class="btn btn-success btn-sm"><i class="fa fa-trash-o no-mg-right"></i> Oui </a></li>
-                          </ul>
-                      </div>
-
+                            <tbody>
+                                {% for label in labels %}
+                                    <tr>  
+                                        <td> {% set counter = ( counter | default(0) ) + 1 %}
+                                        <small> {{ counter }}</small></td>
+                                        <td><small>Créer le {{ label.date|date ('j/m/y à H:i:s') }}</small></td>   
+                                        <td>{{ label.nom }}</td>           
+                                        <td><a href="{{ path('label_edit', { 'id': label.id }) }}"  class="btn btn-info btn-xs" id="EditLabel"><i class="fa fa-pencil-square-o no-mg-right"></i> Editer </a>
+                                        <a data-toggle="modal" href="#SuppLabel_{{ label.id }}" class="btn btn-danger btn-xs"id="SuppLabel"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a></td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
                     </div>
-                  </div>
                 </div>
-                      </div>
-                    {% endfor %}
+            </div>
+            {% for label in labels %}
+                <div class="x_content">
+                    <div class="modal fade bs-example-modal-lg" id="SuppLabel_{{ label.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Suppression</h4>
+                                </div>
+                                
+                                <div class="modal-body">
+                                    Vous êtes sûr de vouloir supprimer cet élément ?
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <ul class="modal-btn">
+                                        <li><a class="btn btn-primary btn-sm" data-dismiss="modal"><i class="fa fa-trash-o no-mg-right"></i> Non </a></li>
+                                        <li><a href="{{ path('label_delete', { 'id': label.id }) }}" class="btn btn-success btn-sm"><i class="fa fa-trash-o no-mg-right"></i> Oui </a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                    
-                   </div>   
-                       
-                
-{% endblock %}
+            {% endfor %}
+            
+        </div>
+    {% endblock %}
 
-{% block scriptForm %}
-{#     <script type="text/javascript" src="{{asset('js/backend/form/form_notification.js')}}"></script>#}
-      <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
-
-{% endblock %}
+    {% block scriptForm %}
+        <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
+    {% endblock %}

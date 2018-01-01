@@ -1,365 +1,330 @@
-{% extends ':back:templateAdmin.html.twig' %}
+    {% extends ':back:templateAdmin.html.twig' %}
 
-{#  {% block content %}
-      
-        {% for present in presents %}
-            {{ present.name }}
-            {{ present.texte }}
-            {{ present.image }}
-            {{ present.publier }}
-            <a href="{{ path('present_edit', { 'id': present.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-           
-        {% endfor %}
-        
-        {% for service in services %}
-            {{ service.name }}
-            {{ service.titre }}
-            {{ service.description }}
-            {{ service.image }}
-            {{ service.publier }}
-            <a href="{{ path('service_edit', { 'id': service.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-           
-        {% endfor %}    
-        
-         <a href="{{ path('present_new') }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Ajouter present </a>
-         <a href="{{ path('service_new') }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Ajouter service</a>
-      
-      
-  {% endblock %}#}
+        {% block content %}
 
+            {% for present in presents[0:]  %}
+            {% if nb >= 2 and loop.index == 1 %}
 
-  {% block content %}
-
-         {% for present in presents[0:]  %}
-                    {#{% if loop.index >= 2 and present.publier == true %}#}
-                    {% if nb >= 2 and loop.index == 1 %}
-                        <div id="info-present">
-                        <div class="info-header">
-                <div class="alert alert-success  alert-dismissible fade in" role="alert">
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
-                  </button>
-                  <strong>Attention !</strong> vous avez plusieurs sections présentation en statut publié. Seule la plus récente est en ligne.
-                </div>
-                    </div>
+                <div id="info-present">
+                    <div class="info-header">
+                        <div class="alert alert-success  alert-dismissible fade in" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                            </button>
+                            <strong>Attention !</strong> vous avez plusieurs sections présentation en statut publié. Seule la plus récente est en ligne.
                         </div>
-                        {% else %}
-                        {% endif %}
-                         {% endfor %}
-          
-         {% for promotion in promotions[0:]  %}
-                    {% if nbPromo >= 2 and loop.index == 1   %}
-                        <div id="info-promo">
-                        <div class="info-header">
-                <div class="alert alert-promo alert-success  alert-dismissible fade in" role="alert">
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
-                  </button>
-                  <strong>Attention !</strong> vous avez plusieurs sections promotion en statut publier. Seule la plus récente est en ligne.
-                </div>
                     </div>
-                        </div>
-                        {% else %}
-                        {% endif %}
-                         {% endfor %}
-       <div class="">
-           
-           
-           
-       {# <div class="page-title">
-            <div class="title_left">
-                <h3>Sections</h3>
-                <span class="btn-title-left"><a class="btn btn-dark btn-sm" href="{{ path('present_new') }}">Ajouter</a></span>
-            </div>
-
-       </div>#}
-
-           {% for sectionName in sectionNames  %}
-               {% set counter = ( counter | default(0) ) + 1 %}
-               {% if sectionName and counter == 1%}
-
-            <div class="col-md-4 col-sm-4 col-xs-12">
-                <div class="btn-section-add">
-            <small class="name-section-create">Section</small>
-           <h2 class="txt-bold">{{sectionName.name }}<i class="fa fa-grav blue" aria-hidden="true"></i></h2>
-            <span class="btn-title-left"><a class="btn btn-dark btn-sm" href="{{ path('present_new') }}">Ajouter</a></span>
-             </div>
-                   </div>
-          {% endif %}
-          
-        
-           {% if sectionName and counter == 2 %}
-               <div class="col-md-4 col-sm-4 col-xs-12">
-                   <div class="btn-section-add">
-             <small class="name-section-create">Section</small>
-           <h2 class="txt-bold">{{sectionName.name }}<i class="fa fa-th blue" aria-hidden="true"></i></h2>
-            <span class="btn-title-left"><a class="btn btn-dark btn-sm" href="{{ path('service_new') }}">Ajouter</a></span>
-            </div>
-               </div>
-               {% endif %}
-             {% if sectionName and counter == 3 %}
-                   <div class="col-md-4 col-sm-4 col-xs-12">
-                       <div class="btn-section-add">
-              <small class="name-section-create">Section</small>
-            <h2 class="txt-bold">{{sectionName.name }}<i class="fa fa-info-circle blue" aria-hidden="true"></i></h2>
-            <span class="btn-title-left"><a class="btn btn-dark btn-sm" href="{{ path('promotion_new') }}">Ajouter</a></span>
-             </div>
-                   </div>
+                </div>
+            {% else %}
             {% endif %}
-            
             {% endfor %}
- 
-          <div class="clearfix"></div>
 
- 
-          
-                <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  {% for sectionName in sectionNames %}
-                  {% set counter = ( counter | default(0) ) + 1 %}
-                  {% if sectionName and counter == 1%}   
-                  <h2>Section {{sectionName.name }}</h2>
-                  {% endif %}
-                  {% endfor %}
-                  <div class="clearfix"></div>
+            {% for promotion in promotions[0:]  %}
+            {% if nbPromo >= 2 and loop.index == 1   %}
+
+                <div id="info-promo">
+                    <div class="info-header">
+                        <div class="alert alert-promo alert-success  alert-dismissible fade in" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                            </button>
+                            <strong>Attention !</strong> vous avez plusieurs sections promotion en statut publier. Seule la plus récente est en ligne.
+                        </div>
+                    </div>
                 </div>
-                  
-                <div class="x_content">
-                 
-                  <table class="table table-striped projects" id="Section-pres">
-                    <thead>
-                      <tr>
-                        <th style="width: 1%">#</th>
-                        <th style="width: 14%">Date</th>
-                        <th style="width: 12%">Nom</th>
-                        <th style="width: 15%">Image</th>
-                        <th>Description</th>
-                        <th>Status</th>
-                        <th style="width: 20%">Actions</th>
-                      </tr>
-                    </thead>
+            {% else %}
+            {% endif %}
+            {% endfor %}
 
+            {% for sectionName in sectionNames  %}
+            {% set counter = ( counter | default(0) ) + 1 %}
+                {% if sectionName and counter == 1%}
 
-                    <tbody>
-                        {% for present in presents[0:]  %}
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="btn-section-add">
+                            <small class="name-section-create">Section</small>
+                            <h2 class="txt-bold">{{sectionName.name }}<i class="fa fa-grav blue" aria-hidden="true"></i></h2>
+                            <span class="btn-title-left"><a class="btn btn-dark btn-sm" href="{{ path('present_new') }}">Ajouter</a></span>
+                        </div>
+                    </div>
+                {% endif %}
 
-                            {% if nb >= 2 and present.publier == true %}<tr class="alert-dark">{% else %}<tr> {% endif %}  
-                           <td class="icon-section"><i class=" {% if nb >= 2 and  present.publier == true  %}fa fa-grav white {% else %}fa fa-grav blue{% endif %}" aria-hidden="true"></i></td>
-                           <td><small>Créer le {{ present.date|date ('j/m/y à H:i:s') }}</small></td>
-                        <td>{% if present.name != null %}{{present.name }}{% else %}Aucune section{% endif %}</td>
-                        {% if present.image !=null %}
-                        <td><img src="{{asset('uploads/image/')~present.image}}" class="avatar"></td>
-                       {% else %}
-                       <td><img src="{{asset('images/pochette-disc.png')}}" class="avatar"><small class="col-md-6 ">image par defaut</small></td>
-                        {% endif %}
-                        <td>{{ present.texte|truncate(80, false, ' ...') }}</td>
-                    
-                        <td>{% if present.publier %}<span type="button" class="label label-success">Publié</span>{% else %}<span class="label label-warning">Brouillon</span>{% endif %}</td>
-                        <td><a href="{{ path('present_show', { 'id': present.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder-open-o no-mg-right"></i> Apperçu </a>
-                          <a href="{{ path('present_edit', { 'id': present.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil-square-o no-mg-right"></i> Editer </a>
-                           <a data-toggle="modal" href="#SuppPresent_{{ present.id }}" class="btn btn-danger btn-xs"id="SuppPresent"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a></td>
-                      </tr>
-                       {% endfor %}
-                        
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
+                {% if sectionName and counter == 2 %}
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="btn-section-add">
+                            <small class="name-section-create">Section</small>
+                            <h2 class="txt-bold">{{sectionName.name }}<i class="fa fa-th blue" aria-hidden="true"></i></h2>
+                            <span class="btn-title-left"><a class="btn btn-dark btn-sm" href="{{ path('service_new') }}">Ajouter</a></span>
+                        </div>
+                    </div>
+                {% endif %}
 
-                </div>
+                {% if sectionName and counter == 3 %}
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="btn-section-add">
+                            <small class="name-section-create">Section</small>
+                            <h2 class="txt-bold">{{sectionName.name }}<i class="fa fa-info-circle blue" aria-hidden="true"></i></h2>
+                            <span class="btn-title-left"><a class="btn btn-dark btn-sm" href="{{ path('promotion_new') }}">Ajouter</a></span>
+                        </div>
+                    </div>
+                {% endif %}         
+            {% endfor %}
 
-                <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  {% for sectionName in sectionNames %}
-                  {% set counter = ( counter | default(0) ) + 1 %}
-                  {% if sectionName and counter == 2%}   
-                  <h2>Section {{sectionName.name }}</h2>
-                  {% endif %}
-                  {% endfor %}
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                 
-                  <table class="table table-striped projects"id="Section-serv">
-                    <thead>
-                      <tr>
-                        <th style="width: 1%">#</th>
-                        <th style="width: 14%">Date</th>
-                        <th style="width: 12%">Nom</th>
-                        <th style="width: 15%">Image</th>
-                        <th>Description</th>
-                        <th>Status</th>
-                        <th style="width: 20%">Actions</th>
-                      </tr>
-                    </thead>
+        <div class="clearfix"></div>
 
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
 
-                    <tbody>
-                       
-                        {% for service in services  %}
-                      <tr>  
-                            <td class="icon-section"><i class="fa fa-th blue" aria-hidden="true"></i></td>
-                            <td><small>Créer le {{ service.date|date ('j/m/y à H:i:s') }}</small></td>
-                            <td>{% if service.name != null %}{{service.name }}{% else %}Aucune section{% endif %}</td>
-                            <td><img src="{{asset('images/item/')~service.icon~'.png'}}" class="avatar"><small class="col-md-6">{{service.icon}}</small></td>
-                            <td>{{ service.description|truncate(80, true, ' ...') }}</td>
-                    
-                        <td> {% if service.publier %}<span type="button" class="label label-success">Publié</span>{% else %}<span class="label label-warning">Brouillon</span>{% endif %}</td>
-                        <td><a href="{{ path('service_show', { 'id': service.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder-open-o no-mg-right"></i> Apperçu</a>
-                          <a href="{{ path('service_edit', { 'id': service.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil-square-o no-mg-right"></i> Editer</a>
-                          <a data-toggle="modal" href="#SuppService_{{ service.id }}" class="btn btn-danger btn-xs"id="SuppService"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a></td>
-                      </tr>
-                       {% endfor %}
-                           
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
+                            {% for sectionName in sectionNames %}
+                            {% set counter = ( counter | default(0) ) + 1 %}
+                                {% if sectionName and counter == 1%} 
 
-                </div>
-                       
-                <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  {% for sectionName in sectionNames %}
-                  {% set counter = ( counter | default(0) ) + 1 %}
-                  {% if sectionName and counter == 3 %}   
-                  <h2>Section {{sectionName.name }}</h2>
-                  {% endif %}
-                  {% endfor %}
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                 
-                  <table class="table table-striped projects" id="Section-prod">
-                    <thead>
-                      <tr>
-                        <th style="width: 1%">#</th>
-                        <th style="width: 14%">Nom</th>
-                        <th style="width: 12%">Nom</th>
-                        <th style="width: 15%">Image</th>
-                        <th>Description</th>
-                        <th>Status</th>
-                        <th style="width: 20%">Actions</th>
-                      </tr>
-                    </thead>
+                                <h2>Section {{sectionName.name }}</h2>
+                                {% endif %}
+                            {% endfor %}
 
+                        <div class="clearfix"></div>
+                        </div> 
 
-                    <tbody>
-  
-                         {% for promotion in promotions[0:]  %}
-                      <tr>  
-                            {% if nbPromo >= 2 and  promotion.publier == true  %}<tr class="alert-dark">{% else %}{% endif %}  
-                            <td class="icon-section"><i class=" {% if nbPromo >= 2 and  promotion.publier == true   %}fa fa-info-circle white {% else %}fa fa-info-circle blue{% endif %}" aria-hidden="true"></i></td>
-                            <td><small>Créer le {{ promotion.date|date ('j/m/y à H:i:s') }}</small></td>
-                            <td>{% if promotion.name != null %}{{promotion.name }}{% else %}Aucune section{% endif %}</td>                     
-                            <td>{% if promotion.image != null %}<img src="{{asset('uploads/image/')~promotion.image}}" class="avatar">
-                            {% else %}<img src="{{asset('images/turntable-default.jpg')}}"class="avatar"><small class="col-md-6 ">image par defaut</small>{% endif %}</td>
-                            <td>{{ promotion.texte|truncate(80, false, ' ...') }}</td>
-                            <td>{% if promotion.publier %}<span type="button" class="label label-success">Publié</span>{% else %}<span class="label label-warning">Brouillon</span>{% endif %}</td>
-                            <td><a href="{{ path('promotion_show', { 'id': promotion.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder-open-o no-mg-right"></i> Apperçu</a>
-                             <a href="{{ path('promotion_edit', { 'id': promotion.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil-square-o no-mg-right"></i> Editer</a>
-                             <a data-toggle="modal" href="#SuppPromo_{{ promotion.id }}" class="btn btn-danger btn-xs"id="SuppPromo"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a></td>
-                      </tr>
-                       {% endfor %}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
+                        <div class="x_content">            
+                            <table class="table table-striped projects" id="Section-pres">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 1%">#</th>
+                                        <th style="width: 14%">Date</th>
+                                        <th style="width: 12%">Nom</th>
+                                        <th style="width: 15%">Image</th>
+                                        <th>Description</th>
+                                        <th>Status</th>
+                                        <th style="width: 20%">Actions</th>
+                                    </tr>
+                                </thead>
 
-                    {% for present in presents %}
-                      <div class="x_content">
-  <div class="modal fade bs-example-modal-lg" id="SuppPresent_{{ present.id }}" tabindex="-1" role="dialog" aria-hidden="true">
-                  <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
+                                <tbody>
+                                {% for present in presents[0:]  %}
 
-                      <div class="modal-header">
-                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Suppression</h4>
-                      </div>
-                      <div class="modal-body">
-                         Vous êtes sûr de vouloir supprimer cet élément ?
-                      </div>
-                      <div class="modal-footer">
-                          <ul class="modal-btn">
-                              <li><a class="btn btn-primary btn-sm" data-dismiss="modal"><i class="fa fa-trash-o no-mg-right"></i> Non </a></li>
-                              <li><a href="{{ path('present_delete', { 'id': present.id }) }}" class="btn btn-success btn-sm"><i class="fa fa-trash-o no-mg-right"></i> Oui </a></li>
-                          </ul>
-                      </div>
+                                    {% if nb >= 2 and present.publier == true %}<tr class="alert-dark">{% else %}<tr> {% endif %}  
+                                    <td class="icon-section"><i class=" {% if nb >= 2 and  present.publier == true  %}fa fa-grav white {% else %}fa fa-grav blue{% endif %}" aria-hidden="true"></i></td>
+                                    <td><small>Créer le {{ present.date|date ('j/m/y à H:i:s') }}</small></td>
+                                    <td>{% if present.name != null %}{{present.name }}{% else %}Aucune section{% endif %}</td>
+
+                                    {% if present.image !=null %}
+                                    <td><img src="{{asset('uploads/image/')~present.image}}" class="avatar"></td>
+                                    {% else %}
+                                    <td><img src="{{asset('images/pochette-disc.png')}}" class="avatar"><small class="col-md-6 ">image par defaut</small></td>
+                                    {% endif %}
+
+                                    <td>{{ present.texte|truncate(80, false, ' ...') }}</td>                   
+                                    <td>{% if present.publier %}<span type="button" class="label label-success">Publié</span>{% else %}<span class="label label-warning">Brouillon</span>{% endif %}</td>
+                                    <td><a href="{{ path('present_show', { 'id': present.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder-open-o no-mg-right"></i> Apperçu </a>
+                                    <a href="{{ path('present_edit', { 'id': present.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil-square-o no-mg-right"></i> Editer </a>
+                                    <a data-toggle="modal" href="#SuppPresent_{{ present.id }}" class="btn btn-danger btn-xs"id="SuppPresent"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a></td>
+                                    </tr>
+                                {% endfor %} 
+
+                                </tbody>
+                            </table>
+                        </div>
 
                     </div>
-                  </div>
                 </div>
-                      </div>
-                    {% endfor %} 
-                    
-                    {% for service in services %}
-                      <div class="x_content">
-  <div class="modal fade bs-example-modal-lg" id="SuppService_{{ service.id }}" tabindex="-1" role="dialog" aria-hidden="true">
-                  <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
+            </div>
 
-                      <div class="modal-header">
-                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Suppression</h4>
-                      </div>
-                      <div class="modal-body">
-                         Vous êtes sûr de vouloir supprimer cet élément ?
-                      </div>
-                      <div class="modal-footer">
-                          <ul class="modal-btn">
-                              <li><a class="btn btn-primary btn-sm" data-dismiss="modal"><i class="fa fa-trash-o no-mg-right"></i> Non </a></li>
-                              <li><a href="{{ path('service_delete', { 'id': service.id }) }}" class="btn btn-success btn-sm"><i class="fa fa-trash-o no-mg-right"></i> Oui </a></li>
-                          </ul>
-                      </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
 
+                        {% for sectionName in sectionNames %}
+                        {% set counter = ( counter | default(0) ) + 1 %}
+                            {% if sectionName and counter == 2%}   
+
+                            <h2>Section {{sectionName.name }}</h2>
+                            {% endif %}
+                        {% endfor %}
+
+                        <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">               
+                            <table class="table table-striped projects"id="Section-serv">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 1%">#</th>
+                                        <th style="width: 14%">Date</th>
+                                        <th style="width: 12%">Nom</th>
+                                        <th style="width: 15%">Image</th>
+                                        <th>Description</th>
+                                        <th>Status</th>
+                                        <th style="width: 20%">Actions</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                {% for service in services  %}
+                                <tr>  
+                                    <td class="icon-section"><i class="fa fa-th blue" aria-hidden="true"></i></td>
+                                    <td><small>Créer le {{ service.date|date ('j/m/y à H:i:s') }}</small></td>
+                                    <td>{% if service.name != null %}{{service.name }}{% else %}Aucune section{% endif %}</td>
+                                    <td><img src="{{asset('images/item/')~service.icon~'.png'}}" class="avatar"><small class="col-md-6">{{service.icon}}</small></td>
+                                    <td>{{ service.description|truncate(80, true, ' ...') }}</td>
+
+                                    <td> {% if service.publier %}<span type="button" class="label label-success">Publié</span>{% else %}<span class="label label-warning">Brouillon</span>{% endif %}</td>
+                                    <td><a href="{{ path('service_show', { 'id': service.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder-open-o no-mg-right"></i> Apperçu</a>
+                                    <a href="{{ path('service_edit', { 'id': service.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil-square-o no-mg-right"></i> Editer</a>
+                                    <a data-toggle="modal" href="#SuppService_{{ service.id }}" class="btn btn-danger btn-xs"id="SuppService"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a></td>
+                                    </tr>
+                                {% endfor %} 
+
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                  </div>
                 </div>
-                      </div>
-                    {% endfor %}
- 
-                    {% for promotion in promotions %}
-                      <div class="x_content">
-  <div class="modal fade bs-example-modal-lg" id="SuppPromo_{{ promotion.id }}" tabindex="-1" role="dialog" aria-hidden="true">
-                  <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
 
-                      <div class="modal-header">
-                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Suppression</h4>
-                      </div>
-                      <div class="modal-body">
-                         Vous êtes sûr de vouloir supprimer cet élément ?
-                      </div>
-                      <div class="modal-footer">
-                          <ul class="modal-btn">
-                              <li><a class="btn btn-primary btn-sm" data-dismiss="modal"><i class="fa fa-trash-o no-mg-right"></i> Non </a></li>
-                              <li><a href="{{ path('promotion_delete', { 'id': promotion.id }) }}" class="btn btn-success btn-sm"><i class="fa fa-trash-o no-mg-right"></i> Oui </a></li>
-                          </ul>
-                      </div>
+            </div>
 
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+
+                        {% for sectionName in sectionNames %}
+                        {% set counter = ( counter | default(0) ) + 1 %}
+                            {% if sectionName and counter == 3 %}   
+                            <h2>Section {{sectionName.name }}</h2>
+
+                            {% endif %}
+                        {% endfor %}
+
+                        <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">
+                            <table class="table table-striped projects" id="Section-prod">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 1%">#</th>
+                                        <th style="width: 14%">Nom</th>
+                                        <th style="width: 12%">Nom</th>
+                                        <th style="width: 15%">Image</th>
+                                        <th>Description</th>
+                                        <th>Status</th>
+                                        <th style="width: 20%">Actions</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                {% for promotion in promotions[0:]  %}
+                                    <tr>  
+                                    {% if nbPromo >= 2 and  promotion.publier == true  %}<tr class="alert-dark">{% else %}{% endif %}  
+                                    <td class="icon-section"><i class=" {% if nbPromo >= 2 and  promotion.publier == true   %}fa fa-info-circle white {% else %}fa fa-info-circle blue{% endif %}" aria-hidden="true"></i></td>
+                                    <td><small>Créer le {{ promotion.date|date ('j/m/y à H:i:s') }}</small></td>
+                                    <td>{% if promotion.name != null %}{{promotion.name }}{% else %}Aucune section{% endif %}</td>                     
+                                    <td>{% if promotion.image != null %}<img src="{{asset('uploads/image/')~promotion.image}}" class="avatar">
+                                    {% else %}<img src="{{asset('images/turntable-default.jpg')}}"class="avatar"><small class="col-md-6 ">image par defaut</small>{% endif %}</td>
+                                    <td>{{ promotion.texte|truncate(80, false, ' ...') }}</td>
+                                    <td>{% if promotion.publier %}<span type="button" class="label label-success">Publié</span>{% else %}<span class="label label-warning">Brouillon</span>{% endif %}</td>
+                                    <td><a href="{{ path('promotion_show', { 'id': promotion.id }) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder-open-o no-mg-right"></i> Apperçu</a>
+                                     <a href="{{ path('promotion_edit', { 'id': promotion.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil-square-o no-mg-right"></i> Editer</a>
+                                     <a data-toggle="modal" href="#SuppPromo_{{ promotion.id }}" class="btn btn-danger btn-xs"id="SuppPromo"><i class="fa fa-trash-o no-mg-right"></i> Supprimer </a></td>
+                                    </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                  </div>
                 </div>
-                      </div>
-                    {% endfor %}
-                    
-                </div>                       
-                       
-                    
-                   </div>   
-                       
-                
-{% endblock %}
 
-{% block scriptForm %}
-      <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
+                {% for present in presents %}
+                    <div class="x_content">
+                        <div class="modal fade bs-example-modal-lg" id="SuppPresent_{{ present.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
 
-{% endblock %}
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Suppression</h4>
+                                    </div>
+                                    
+                                    <div class="modal-body">
+                                        Vous êtes sûr de vouloir supprimer cet élément ?
+                                    </div>
+                                    
+                                    <div class="modal-footer">
+                                        <ul class="modal-btn">
+                                            <li><a class="btn btn-primary btn-sm" data-dismiss="modal"><i class="fa fa-trash-o no-mg-right"></i> Non </a></li>
+                                            <li><a href="{{ path('present_delete', { 'id': present.id }) }}" class="btn btn-success btn-sm"><i class="fa fa-trash-o no-mg-right"></i> Oui </a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %} 
+
+                {% for service in services %}
+                    <div class="x_content">
+                        <div class="modal fade bs-example-modal-lg" id="SuppService_{{ service.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Suppression</h4>
+                                    </div>
+                                    
+                                    <div class="modal-body">
+                                        Vous êtes sûr de vouloir supprimer cet élément ?
+                                    </div>
+                                    
+                                    <div class="modal-footer">
+                                        <ul class="modal-btn">
+                                            <li><a class="btn btn-primary btn-sm" data-dismiss="modal"><i class="fa fa-trash-o no-mg-right"></i> Non </a></li>
+                                            <li><a href="{{ path('service_delete', { 'id': service.id }) }}" class="btn btn-success btn-sm"><i class="fa fa-trash-o no-mg-right"></i> Oui </a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                {% for promotion in promotions %}
+                    <div class="x_content">
+                        <div class="modal fade bs-example-modal-lg" id="SuppPromo_{{ promotion.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Suppression</h4>
+                                    </div>
+                                    
+                                    <div class="modal-body">
+                                        Vous êtes sûr de vouloir supprimer cet élément ?
+                                    </div>
+                                    
+                                    <div class="modal-footer">
+                                        <ul class="modal-btn">
+                                            <li><a class="btn btn-primary btn-sm" data-dismiss="modal"><i class="fa fa-trash-o no-mg-right"></i> Non </a></li>
+                                            <li><a href="{{ path('promotion_delete', { 'id': promotion.id }) }}" class="btn btn-success btn-sm"><i class="fa fa-trash-o no-mg-right"></i> Oui </a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>                                                           
+        {% endblock %}
+
+    {% block scriptForm %}
+        <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
+    {% endblock %}

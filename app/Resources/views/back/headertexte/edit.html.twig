@@ -1,80 +1,54 @@
-{% extends ':back:templateAdmin.html.twig' %}
+    {% extends ':back:templateAdmin.html.twig' %}
 
-  {% block content %}
+    {% block content %}
 
-{#    <h1>Headertexte edit</h1>
+        <div class="row">  
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Phrase d'accroche edit</h2>   
+                        <a class="btn btn-dark btn-xs back-list" href="{{ path('headertexte_index') }}"><i class="fa fa-reply" aria-hidden="true"></i>Retour phrases</a>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                    <br>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('headertexte_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
-{% endblock %}
-{% block scriptForm %}
-    <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
-{% endblock %}
-#}
-
-<div class="row">  
-   <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                 <h2>Phrase d'accroche edit</h2>   
-                    <a class="btn btn-dark btn-xs back-list" href="{{ path('headertexte_index') }}"><i class="fa fa-reply" aria-hidden="true"></i>Retour phrases</a>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  <br>
                     {{ form_start(edit_form) }}
-                     
+
                     {{ form_row(edit_form.texte) }}
                     <p><small>* champ obligatoire</small></p>
+
                     {{ form_row(edit_form.animationTexte) }}
                     <p><small>* champ obligatoire</small></p>
 
-              </div>
+                    </div>
+
                     <div class="form-group btn-right">
                         <button type="submit" class="btn btn-success"><i class="fa fa-upload" aria-hidden="true"></i>Mettre à jour</button>
                     </div>
+                </div>
             </div>
-   </div>
- 
-                       <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="x_panel">
 
-                <div class="x_content">
-    <div class="bs-docs-section">
-            <div class="wrap">
-   <span id="animationSandbox" style="display: block;" class=""><h1 class="txt-center">Animation Demo</h1></span>
-  </div>
-        
-   <button class="btn btn-primary js--triggerAnimation">Rejouer l'animation</button>  
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_content">
+                        <div class="bs-docs-section">
+                            <div class="wrap">
+                                <span id="animationSandbox" style="display: block;" class=""><h1 class="txt-center">Animation Demo</h1></span>
+                            </div>
 
-    </div> 
-              </div>
+                            <button class="btn btn-primary js--triggerAnimation">Rejouer l'animation</button>  
+
+                        </div> 
+                    </div>
+                </div>
             </div>
-   </div>
 
-                         
-          
-          
-       </div>
- {{ form_end(edit_form) }}
-                             
-{% endblock %}
+        </div>
+    {{ form_end(edit_form) }}
 
+    {% endblock %}
 
-
-{% block scriptForm %}
-<script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>  
-{% endblock %}
+    {% block scriptForm %}
+        <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>  
+    {% endblock %}
