@@ -17,23 +17,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class PresentController extends Controller
 {
-//    /**
-//     * Lists all present entities.
-//     *
-//     * @Route("/", name="present_index")
-//     * @Method("GET")
-//     */
-//    public function indexAction()
-//    {
-//        $em = $this->getDoctrine()->getManager();
-//
-//        $presents = $em->getRepository('AppBundle:Present')->findAll();
-//
-//        return $this->render('back/present/index.html.twig', array(
-//            'presents' => $presents,
-//        ));
-//    }
-
     /**
      * Creates a new present entity.
      *
@@ -193,25 +176,7 @@ class PresentController extends Controller
         
        return $this->redirectToRoute('section_index');
     }
-    
-//     /**
-//     * add a view present select for publish is true
-//     * @Route("/publish/{id}", name="present_publish")
-//     */
-//     public function publishPresent($id){
-//         $em = $this->getDoctrine()->getManager();
-//         $present = $em->find('AppBundle:Present', $id);
-//         $this->createForm(PresentType::class, $present);
-//         
-//         $present->setPublier(1);
-//         
-//         $em->merge($present);
-//         $em->flush();
-//         return $this->redirectToRoute('section_index');
-//        
-//     }
-    
-    
+     
      /**
      * @Route("/admin/publier/{id}", name="publier_present")
      */

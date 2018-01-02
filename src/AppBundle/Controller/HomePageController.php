@@ -38,10 +38,6 @@ class HomePageController extends Controller {
         ));
     }
     
-
-
-
-        
     }
     
     

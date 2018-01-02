@@ -30,7 +30,6 @@ class FrontController  extends Controller {
         $em = $this->getDoctrine()->getManager();
 
         $headers = $em->getRepository('AppBundle:Header')->findAll();
-//        $headerTextes = $em->getRepository('AppBundle:HeaderTexte')->findAll();
         $imageMobiles = $em->getRepository('AppBundle:ImageMobile')->findByPublier(1,array('date'=>'DESC'),1);
         $presents = $em->getRepository('AppBundle:Present')->findByPublier(1,array('date'=>'DESC'),1);
         $services = $em->getRepository('AppBundle:Service')->findByPublier(1,array('date'=>'ASC'),9);
@@ -39,7 +38,6 @@ class FrontController  extends Controller {
 
         return $this->render('front/index.html.twig', array(
             'headers' => $headers,
-//            'headerTextes' => $headerTextes,
             'imageMobiles'=> $imageMobiles,
             'presents'=> $presents,
             'services'=> $services,
@@ -170,12 +168,6 @@ class FrontController  extends Controller {
         ));
     }
     
-
-        
-
-   
-   
-    
      /**
      * @Route("/contact", name= "contact");
      */
@@ -188,13 +180,9 @@ class FrontController  extends Controller {
       {
         
           
-          $nom = $request->get('nom');
-          $email = $request->get('email');
-          $message = $request->get('message');
-          
-          
-
-       
+        $nom = $request->get('nom');
+        $email = $request->get('email');
+        $message = $request->get('message');
           
         $contact = Swift_Message::newInstance();
         $contact->toString();

@@ -18,23 +18,6 @@ use Symfony\Component\HttpFoundation\Request;
 class PromotionController extends Controller
 {
     /**
-     * Lists all promotion entities.
-     *
-     * @Route("/", name="promotion_index")
-     * @Method("GET")
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $promotions = $em->getRepository('AppBundle:Promotion')->findAll();
-
-        return $this->render('back/promotion/index.html.twig', array(
-            'promotions' => $promotions,
-        ));
-    }
-
-    /**
      * Creates a new promotion entity.
      *
      * @Route("/new", name="promotion_new")

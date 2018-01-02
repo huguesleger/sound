@@ -15,24 +15,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 class ServiceController extends Controller
 {
     /**
-     * Lists all service entities.
-     *
-     * @Route("/", name="service_index")
-     * @Method("GET")
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $services = $em->getRepository('AppBundle:Service')->findAll();
-
-        return $this->render('back/service/index.html.twig', array(
-            'services' => $services,
-            
-        ));
-    }
-
-    /**
      * Creates a new service entity.
      *
      * @Route("/new", name="service_new")

@@ -51,67 +51,6 @@ class AdminController extends Controller {
         ));
         
     }
-     
-//    /**
-//     * @Route("/admin", name="index_genre");
-//     */ 
-//    public function homeGenre($nom){
-//         $em = $this->getDoctrine()->getManager();
-//       $genres = $em->getRepository('AppBundle:Genre')->findByNom($nom);
-//       // ici on recupere tous les sons par genre
-//       $sounds = $em->getRepository('AppBundle:Sound')->getSoundsWithGenre($genres);
-//       
-//       return $this->render('back/index.html.twig', array(
-//            'genres'=> $genres,
-//            'sounds'=> $sounds,
-//            
-//        ));
-//    }
-    
-    
-//    /**
-//     * @Route("/admin", name= "indexgenre");
-//     */
-//    public function homeGenres($id){
-//        
-//       $em = $this->getDoctrine()->getManager();
-//       $genres = $em->find('AppBundle:Genre', $id);
-//       // ici on recupere tous les sons par genre
-//       $sounds = $em->getRepository('AppBundle:Sound')->getSoundsWithGenre($genres);
-//        // je recupere paginator
-//       
-//       return $this->render('front/productionsGenre.html.twig', array(
-//            'genres'=> $genres,
-//            'sounds'=> $sounds,
-//            
-//        ));
-//    }
-    
-//    /**
-//     * @Route("/admin/aide", name= "aide");
-//     */    
-//     public function aideSite(){
-//        return $this->render('back/aide.html.twig');
-//    }
-    
-    
-//    /**
-//    * @Route("/admin", name= "stat_show");
-//    */ 
-//    public function getStat($id) {
-//        
-//    $em = $this->getDoctrine()->getManager();
-//    $sound = $locationRepository = $em->getRepository('AppBundle:Sound',$id);
-//    $nbStat = $locationRepository->getNbStat();
-//    
-//  
-//     
-//    return $this->render('back/index.html.twig', array(
-//            'nbStat'=> $nbStat,
-//            'sound'=> $sound,
-//            
-//        ));
-//    }
     
      /**
      * @Route("/admin/ressources", name= "ressources");
