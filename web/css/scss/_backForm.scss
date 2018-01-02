@@ -25,28 +25,18 @@
 .panel_toolbox {
     float: left;
 }
-
-/*#datatable>thead>tr>th:nth-child(3){
-    display: none;
 }
 
-#datatable>tbody>tr>td:nth-child(4){
-    display: none;
+@media screen and(max-width: 1023px){
+ .side-menu {
+    margin-top: 0;
+}   
 }
 
-#datatable>thead>tr>th:nth-child(5){
-    display: none;
+@media screen and(min-width: 1024px){
+.side-menu {
+    margin-top: 100px;
 }
-
-#datatable>thead>tr>th:nth-child(6){
-    display: none;
-}
-
-
-#datatable>thead>tr>th:nth-child(7){
-    display: none;
-}*/
-
 }
 
 .bs-docs-section {

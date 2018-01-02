@@ -1,216 +1,175 @@
-{% extends ':front:templateFront.html.twig' %}
+    {% extends ':front:templateFront.html.twig' %}
 
+        {% block content %}
+        <body class="productions">
 
-  {% block content %}
-      
+            <div class="app">
+                <div class="container-prod mg-top" id="prod">
+                    
+                    {% block search %}
+                        <div class="searching">
+                            <div class="search col-lg-2 col-md-4 col-sm-5">
 
-      
-      
-         <body class="productions">
+                                <form class="" method="post" action="{{ path('productionsrecherche')}}">
+                                    <div class="input-group">
+                                        <input type="search" class="form-control" placeholder="Rechercher un titre, artiste ..." name="motcle">
+                                        <span class="input-group-btn">
+                                        <button class="btn btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                        </span>
+                                    </div><!-- /input-group -->
+                                </form> 
+                            </div>
 
-          <div class="app">
-              <div class="container-prod mg-top" id="prod">
-              {% block search %}
-                 {#{{ render(controller("AppBundle:Front:recherche")) }}#}
-             {#    {{ render(controller('AppBundle:Recherche:recherche')) }}#}
-                  <div class="searching">
-                      <div class="search col-lg-2 col-md-4 col-sm-5">
-                            
-                            <form class="" method="post" action="{{ path('productionsrecherche')}}">
-                        <div class="input-group">
-                          <input type="search" class="form-control" placeholder="Rechercher un titre, artiste ..." name="motcle">
-                          <span class="input-group-btn">
-                              <button class="btn btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
-                          </span>
-                        </div><!-- /input-group -->
-                         </form>
-                          
-                      </div>
-                      <div class="genres-mobile">
-                          <ul>
-                               <li><a class="nav-style-genres" href="{{ path('productions')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-                              {% for genre in genres %}                                  
-                              <li><a class="nav-style-genres" href="{{ path('productionsgenre', { 'nom': genre.nom }) }}">{{genre.nom}}</a></li>
-                              {% endfor %}
-                          </ul>
-                      </div>
-                      <div class="genres col-lg-3 col-lg-offset-3 col-md-5 col-sm-7">
-                          
-                          <h3 class="title-rubrique"><a class="nav-style-genres" href="{{ path('productions')}}"><i class="fa fa-home" aria-hidden="true"></i></a>catégories<span class="genres-rubrique">genres musicaux</span></h3>
-                          
-                         <div class="main-icon-genre" id="">
-                            <span class="hamb-genre"></span>
-                         </div>
-                      </div>
-                       
-                      
-                  </div>
-                          <div class="wraper">
-                              <div class="container nav-genres">
-                                  <ul class="">
-                                      
-                                      {% if genres  %}
-                                           <li><a class="nav-style-genres" href="{{ path('productions')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-                                      {% for genre in genres %}
-                                       
-                                        <li><a class="nav-style-genres" href="{{ path('productionsgenre', { 'nom': genre.nom }) }}">{{genre.nom}}</a></li>
-                                        
-                                       {% endfor %}
-                                        {% else %}
-                                            <li>Aucun genres musicaux pour le moment ...</li>
-                                       {% endif %}
+                            <div class="genres-mobile">
+                                <ul>
+                                    <li><a class="nav-style-genres" href="{{ path('productions')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
 
-                                  </ul>
-                                  
-                              </div>
-                          </div> 
+                                    {% for genre in genres %}                                  
+                                    <li><a class="nav-style-genres" href="{{ path('productionsgenre', { 'nom': genre.nom }) }}">{{genre.nom}}</a></li>
+                                    {% endfor %}
 
-              {% endblock %}
-              
-              {% block productions %}
-                  <div class="push-prod">
-                    {% for production in productions %}
-                    {% if production.titre != null and production.texte != null %}    
-                   <div class="title-section">
-                           <h2>{{ production.titre }}</h2>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="wave-title" viewBox="0 0 238 29">
-                    <path d="M1382.78,3879.29c-20.73,15.59-38.41,15.59-59.15,0-13.52-10.17-25.06-10.17-38.57,0-20.54,15.44-37.29,15.44-57.83,0-13.67-10.28-22.9-10.28-36.58,0l-5.64-7.54c16.62-12.5,30.59-13,47.87,0,16.29,12.25,28.31,13.7,46.54,0,17.28-13,33.34-12.42,49.86,0,16.95,12.75,30.25,13.25,47.86,0,17.29-13,28.59-13,45.87,0l-5.64,7.54C1403.48,3868.84,1396.68,3868.84,1382.78,3879.29Z" transform="translate(-1185 -3862)"/>
-                    </svg>
-                    </div>
-                    <div class="container txt-section intro-production">
-                        <p class="txt-center">{{ production.texte }}</p>
-                    </div>
-                    {% elseif  production.titre != null and production.texte == null %}
-                        <div class="title-section">
-                           <h2>{{ production.titre }}</h2>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="wave-title" viewBox="0 0 238 29">
-                    <path d="M1382.78,3879.29c-20.73,15.59-38.41,15.59-59.15,0-13.52-10.17-25.06-10.17-38.57,0-20.54,15.44-37.29,15.44-57.83,0-13.67-10.28-22.9-10.28-36.58,0l-5.64-7.54c16.62-12.5,30.59-13,47.87,0,16.29,12.25,28.31,13.7,46.54,0,17.28-13,33.34-12.42,49.86,0,16.95,12.75,30.25,13.25,47.86,0,17.29-13,28.59-13,45.87,0l-5.64,7.54C1403.48,3868.84,1396.68,3868.84,1382.78,3879.29Z" transform="translate(-1185 -3862)"/>
-                    </svg>
-                    </div>
-                    {% elseif production.titre == null and production.texte != null %}
-                        <div class="title-section"></div>
-                    <div class="container txt-section intro-production">
-                    <p class="txt-center">{{ production.texte }}</p>
-                    </div>
-                    {% else %}
-                    {% endif %}
-                    {% endfor %}
-
-                  
-                  <div id="searching">
-                      <div class="container sound">
-                  {% for sound in pagination %}
-                   
-                      <div class="background-mobile{% if loop.index is divisible by(2)%} {% else %} color-white{% endif %}">
-                      <div class="col-md-12 padd-b-md">
-                          
-                      <div class="col-md-6 padd-b-md">
-                          <div class="line-sound">
-                              {% if sound.annee != null %}
-                                  <small class="crea-year">Réalisation / {{ sound.annee|date ('Y') }}</small>
-                              {#<small>{{ sound.annee|date ('Y') }}</small>#}
-                              {% else %}
-                                  <div class="icon-vynil"><i class="fa icon-cd"></i></div>
-                              {% endif %}
-                              <div class="line-seperate">
-                              </div>
-                          </div>
-                        {#  <div class="vignette">
-                              <img src="{{asset('uploads/image/')~sound.image}}" class="" alt=" {{ sound.image }}" />  
-                          </div>#}
-              {#                             <audio id="audio">
-                                <source src="{{asset('uploads/music/')~sound.morceau}}">
-                        </audio>#}
-              
+                                </ul>
+                            </div>
                         
+                            <div class="genres col-lg-3 col-lg-offset-3 col-md-5 col-sm-7">                         
+                                <h3 class="title-rubrique"><a class="nav-style-genres" href="{{ path('productions')}}"><i class="fa fa-home" aria-hidden="true"></i></a>catégories<span class="genres-rubrique">genres musicaux</span></h3>                         
+                                <div class="main-icon-genre">
+                                <span class="hamb-genre"></span>
+                                </div>
+                            </div>                     
+                        </div>
 
-                    <ul class="audio-players">
-                    <li>
-                      <div class="audio-player js-audio-player">
-                        <button class="audio-player__control js-control" id="{{sound.id}}">
-                           
-                          <div class="audio-player__control-icon"></div>
-                          <div class="audio-player__control-icon2"></div>
-                            
-                        </button>
+                        <div class="wraper">
+                            <div class="container nav-genres">
+                                <ul>                                   
+                                    {% if genres  %}
+                                    <li><a class="nav-style-genres" href="{{ path('productions')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
 
-                                
-                        {#<h4 class="audio-player__title">Audio Clip One</h4>#}
-                        <audio preload="auto" id="audio {{sound.id}}">
-                          <source src="{{asset('uploads/music/')~sound.morceau}}"/>
-                        </audio>
-                                                  {% if sound.image != null%}
-                <img class="audio-player__cover" src="{{asset('uploads/image/')~sound.image}}"alt="{{sound.titre}}"/>
-                {% else %}
-                  <img class="audio-player__cover" src="{{asset('images/pochette-logo.jpg')}}" alt="pochette-emp" />
-                 {% endif %}
-                      </div>
-                    </li>
-                    </ul>
-                     
-                      </div>
-                      <div class="col-md-6 content-sound">
-                              <label class="title-sound">{{ sound.titre }}<span id="clicks"></span></label>
-                              <small class="artist">Artist(s):<span class="artist-name"> {{ sound.auteur }}</span></small>
-                          <div class="desc-sound">
-                              <p class="">{{ sound.description }}</p>
-                          </div>
-                           <svg xmlns="http://www.w3.org/2000/svg" class="wave-title" viewBox="0 0 238 29">
-                            <path d="M1382.78,3879.29c-20.73,15.59-38.41,15.59-59.15,0-13.52-10.17-25.06-10.17-38.57,0-20.54,15.44-37.29,15.44-57.83,0-13.67-10.28-22.9-10.28-36.58,0l-5.64-7.54c16.62-12.5,30.59-13,47.87,0,16.29,12.25,28.31,13.7,46.54,0,17.28-13,33.34-12.42,49.86,0,16.95,12.75,30.25,13.25,47.86,0,17.29-13,28.59-13,45.87,0l-5.64,7.54C1403.48,3868.84,1396.68,3868.84,1382.78,3879.29Z" transform="translate(-1185 -3862)"/>
-                            </svg>
-                             {% if sound.label !=null %}
-                                  <p class="label-sound"><i class="fa fa-volume-up" aria-hidden="true"></i><span>Label : </span>{{ sound.label }}</p>
-                                 {% endif %} 
-                          <div class="link-sound">
-                              <div class="icon-link-sound">
-                                  {% if sound.label != null %}
-                                    <p>écoutez sur :</p>
-                                   {% endif %}   
-                                  {% if sound.link !=null %}
-                                  <a href="{{ sound.link }}"><img src="{{asset('images/soundcloud.png')}}" class="soundcloud-link"></a>
-                                  {% endif %}
-                                  {% if sound.linkSpotify !=null %}
-                                  <a href="{{ sound.linkSpotify }}"><img src="{{asset('images/spotify.png')}}" class="spotify-link"></a>
-                                   {% endif %}
-                                   {% if sound.linkDeezer !=null %}
-                                  <a href="{{ sound.linkDeezer }}"><img src="{{asset('images/deezer.png')}}" class="deezer-link"></a>
-                                  {% endif %}
-                          </div>
-                          </div>
-                      </div>
-                    </div>
-                   
-                   {#   {{ sound.description }}
-                      {{ sound.titre }}
-                      {{ sound.auteur }}
-                      {{ sound.label }}
-                      {{ sound.image }}
-                      {{ sound.morceau }}
-                      {{ sound.annee|date ('j/m/y à H:i:s') }}
-                      {{ sound.link }}
-                      {{ sound.linkSpotify }}
-                      {{ sound.linkDeezer }}#}
-               
-                   </div>
- 
-                  {% endfor %}
-                  </div>
-                  </div>
-                   
+                                    {% for genre in genres %}
+                                    <li><a class="nav-style-genres" href="{{ path('productionsgenre', { 'nom': genre.nom }) }}">{{genre.nom}}</a></li>
+                                    {% endfor %}
 
-                   <div id="pagination" class="navigation txt-center">{{ knp_pagination_render(pagination) }}</div>
-                  </div>
-              {% endblock %}
-          </div>
-          </div>
-          {% endblock %}
-          {% block scriptForm %}
+                                    {% else %}
+                                    <li>Aucun genres musicaux pour le moment ...</li>
+                                {% endif %}
 
-<script type="text/javascript" src="{{asset('js/front/player.js')}}"></script>
-{#<script>
-    $( function()
-    {
-        $( 'audio' ).audioPlayer();
-    });
-</script>#}
- {% endblock %}
+                                </ul>                           
+                            </div>
+                        </div> 
+                    {% endblock %}
+
+                    {% block productions %}
+                        <div class="push-prod">
+
+                            {% for production in productions %}
+                                {% if production.titre != null and production.texte != null %}    
+                                    <div class="title-section">
+                                        <h2>{{ production.titre }}</h2>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="wave-title" viewBox="0 0 238 29">
+                                        <path d="M1382.78,3879.29c-20.73,15.59-38.41,15.59-59.15,0-13.52-10.17-25.06-10.17-38.57,0-20.54,15.44-37.29,15.44-57.83,0-13.67-10.28-22.9-10.28-36.58,0l-5.64-7.54c16.62-12.5,30.59-13,47.87,0,16.29,12.25,28.31,13.7,46.54,0,17.28-13,33.34-12.42,49.86,0,16.95,12.75,30.25,13.25,47.86,0,17.29-13,28.59-13,45.87,0l-5.64,7.54C1403.48,3868.84,1396.68,3868.84,1382.78,3879.29Z" transform="translate(-1185 -3862)"/>
+                                        </svg>
+                                    </div>
+                                    <div class="container txt-section intro-production">
+                                        <p class="txt-center">{{ production.texte }}</p>
+                                    </div>
+                                {% elseif  production.titre != null and production.texte == null %}
+                                    <div class="title-section">
+                                        <h2>{{ production.titre }}</h2>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="wave-title" viewBox="0 0 238 29">
+                                        <path d="M1382.78,3879.29c-20.73,15.59-38.41,15.59-59.15,0-13.52-10.17-25.06-10.17-38.57,0-20.54,15.44-37.29,15.44-57.83,0-13.67-10.28-22.9-10.28-36.58,0l-5.64-7.54c16.62-12.5,30.59-13,47.87,0,16.29,12.25,28.31,13.7,46.54,0,17.28-13,33.34-12.42,49.86,0,16.95,12.75,30.25,13.25,47.86,0,17.29-13,28.59-13,45.87,0l-5.64,7.54C1403.48,3868.84,1396.68,3868.84,1382.78,3879.29Z" transform="translate(-1185 -3862)"/>
+                                        </svg>
+                                    </div>
+                                {% elseif production.titre == null and production.texte != null %}
+                                    <div class="title-section"></div>
+                                    <div class="container txt-section intro-production">
+                                        <p class="txt-center">{{ production.texte }}</p>
+                                    </div>
+                                {% else %}
+                                {% endif %}
+                            {% endfor %}
+
+                            <div id="searching">
+                                <div class="container sound">
+
+                                    {% for sound in pagination %}                  
+                                        <div class="background-mobile{% if loop.index is divisible by(2)%} {% else %} color-white{% endif %}">
+                                            <div class="col-md-12 padd-b-md">                        
+                                                <div class="col-md-6 padd-b-md">
+                                                    <div class="line-sound">
+                                                        {% if sound.annee != null %}
+                                                        <small class="crea-year">Réalisation / {{ sound.annee|date ('Y') }}</small>
+                                                        {% else %}
+                                                        <div class="icon-vynil"><i class="fa icon-cd"></i></div>
+                                                        {% endif %}
+                                                    <div class="line-seperate"></div>
+                                                    </div>
+                                                    
+                                                    <ul class="audio-players">
+                                                        <li>
+                                                            <div class="audio-player js-audio-player">
+                                                                <button class="audio-player__control js-control" id="{{sound.id}}">
+                                                                    <div class="audio-player__control-icon"></div>
+                                                                    <div class="audio-player__control-icon2"></div>
+                                                                </button>
+
+                                                                <audio preload="auto" id="audio {{sound.id}}">
+                                                                <source src="{{asset('uploads/music/')~sound.morceau}}"/>
+                                                                </audio>
+                                                                {% if sound.image != null%}
+                                                                    <img class="audio-player__cover" src="{{asset('uploads/image/')~sound.image}}"alt="{{sound.titre}}"/>
+                                                                {% else %}
+                                                                    <img class="audio-player__cover" src="{{asset('images/pochette-logo.jpg')}}" alt="pochette-emp" />
+                                                                {% endif %}
+                                                            </div>
+                                                        </li>
+                                                    </ul>                  
+                                                </div>
+
+                                                <div class="col-md-6 content-sound">
+                                                    <label class="title-sound">{{ sound.titre }}<span id="clicks"></span></label>
+                                                    <small class="artist">Artist(s):<span class="artist-name"> {{ sound.auteur }}</span></small>
+                                                    <div class="desc-sound">
+                                                        <p>{{ sound.description }}</p>
+                                                    </div>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="wave-title" viewBox="0 0 238 29">
+                                                    <path d="M1382.78,3879.29c-20.73,15.59-38.41,15.59-59.15,0-13.52-10.17-25.06-10.17-38.57,0-20.54,15.44-37.29,15.44-57.83,0-13.67-10.28-22.9-10.28-36.58,0l-5.64-7.54c16.62-12.5,30.59-13,47.87,0,16.29,12.25,28.31,13.7,46.54,0,17.28-13,33.34-12.42,49.86,0,16.95,12.75,30.25,13.25,47.86,0,17.29-13,28.59-13,45.87,0l-5.64,7.54C1403.48,3868.84,1396.68,3868.84,1382.78,3879.29Z" transform="translate(-1185 -3862)"/>
+                                                    </svg>
+                                                    {% if sound.label !=null %}
+                                                    <p class="label-sound"><i class="fa fa-volume-up" aria-hidden="true"></i><span>Label : </span>{{ sound.label }}</p>
+                                                    {% endif %} 
+                                                    <div class="link-sound">
+                                                        <div class="icon-link-sound">
+                                                            {% if sound.label != null %}
+                                                            <p>écoutez sur :</p>
+                                                            {% endif %}   
+                                                            {% if sound.link !=null %}
+                                                            <a href="{{ sound.link }}"><img src="{{asset('images/soundcloud.png')}}" class="soundcloud-link"></a>
+                                                            {% endif %}
+                                                            {% if sound.linkSpotify !=null %}
+                                                            <a href="{{ sound.linkSpotify }}"><img src="{{asset('images/spotify.png')}}" class="spotify-link"></a>
+                                                            {% endif %}
+                                                            {% if sound.linkDeezer !=null %}
+                                                            <a href="{{ sound.linkDeezer }}"><img src="{{asset('images/deezer.png')}}" class="deezer-link"></a>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                        <div id="pagination" class="navigation txt-center">{{ knp_pagination_render(pagination) }}</div>
+
+                        </div>
+                    {% endblock %}
+                
+                </div>
+            </div>
+        {% endblock %}
+
+{% block scriptForm %}
+        <script type="text/javascript" src="{{asset('js/front/player.js')}}"></script>
+    {% endblock %}

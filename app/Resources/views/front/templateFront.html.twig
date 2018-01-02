@@ -1,83 +1,78 @@
-{% extends 'baseFront.html.twig' %}
+    {% extends 'baseFront.html.twig' %}
 
-{% block body %}
+    {% block body %}
 
-
-
-      {% block nav %}
-     <div class="main-icon" id="Hamb">
+        {% block nav %}
+            <div class="main-icon" id="Hamb">
             <span class="hamb"></span>
-     </div>
-
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-             
-            <div class="logo">
-                <a class="icon-logo" href="{{ path('home') }}"><span><img src="{{asset ('images/min-logo.png')}}"alt="logo"/></span></a>
-        <a class="navbar-brand" href="{{ path('home') }}"><span class="name-light">Easy</span> Music Project</a>       
-    </div>
-                </div>
-          {% block navSite %}
-         <div class="bg-nav-mobile" id="">
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="{{ path('home') }}">Home</a></li>
-            <li><a href="{{ path('productions')}}">Productions</a></li>
-            <li><a href="{{ path('contact')}}">Contact</a></li>
-              <svg xmlns="http://www.w3.org/2000/svg" class="wave-nav" id="waveNavMobile" viewBox="0 0 238 29">
-            <path d="M1382.78,3879.29c-20.73,15.59-38.41,15.59-59.15,0-13.52-10.17-25.06-10.17-38.57,0-20.54,15.44-37.29,15.44-57.83,0-13.67-10.28-22.9-10.28-36.58,0l-5.64-7.54c16.62-12.5,30.59-13,47.87,0,16.29,12.25,28.31,13.7,46.54,0,17.28-13,33.34-12.42,49.86,0,16.95,12.75,30.25,13.25,47.86,0,17.29-13,28.59-13,45.87,0l-5.64,7.54C1403.48,3868.84,1396.68,3868.84,1382.78,3879.29Z" transform="translate(-1185 -3862)"/>
-            </svg>
-        </ul>
-        
-         </div>
-                {% endblock %} 
             </div>
-        </nav>
-  {% endblock %} 
-    
+            
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">      
+                    <div class="logo">
+                    <a class="icon-logo" href="{{ path('home') }}"><span><img src="{{asset ('images/min-logo.png')}}"alt="logo"/></span></a>
+                    <a class="navbar-brand" href="{{ path('home') }}"><span class="name-light">Easy</span> Music Project</a>       
+                    </div>
+                    </div>
+                    
+                    {% block navSite %}
+                        <div class="bg-nav-mobile" id="">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="{{ path('home') }}">Home</a></li>
+                                <li><a href="{{ path('productions')}}">Productions</a></li>
+                                <li><a href="{{ path('contact')}}">Contact</a></li>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="wave-nav" id="waveNavMobile" viewBox="0 0 238 29">
+                                <path d="M1382.78,3879.29c-20.73,15.59-38.41,15.59-59.15,0-13.52-10.17-25.06-10.17-38.57,0-20.54,15.44-37.29,15.44-57.83,0-13.67-10.28-22.9-10.28-36.58,0l-5.64-7.54c16.62-12.5,30.59-13,47.87,0,16.29,12.25,28.31,13.7,46.54,0,17.28-13,33.34-12.42,49.86,0,16.95,12.75,30.25,13.25,47.86,0,17.29-13,28.59-13,45.87,0l-5.64,7.54C1403.48,3868.84,1396.68,3868.84,1382.78,3879.29Z" transform="translate(-1185 -3862)"/>
+                                </svg>
+                            </ul>   
+                        </div>
+                    {% endblock %} 
+                </div>
+            </nav>
+        {% endblock %} 
+
     <!--------------------------
     | Page Content Here |
     -------------------------->
-  {% block content %}  
-  {% endblock %}     
+    {% block content %}  
+    {% endblock %}     
     <!--------------------------
     | End Content Here |
     -------------------------->
         <div class="to-top">
             <div id="back-to-top">
-                <a class="btn-top"><i class="fa fa-long-arrow-up" aria-hidden="true"></i> <p class="txt-scroll">Top</p></a>
-               
+                <a class="btn-top"><i class="fa fa-long-arrow-up" aria-hidden="true"></i> <p class="txt-scroll">Top</p></a>               
             </div>
-        </div>   
-          {% block footer %}  
-        <footer class="footer">
-        <div class="credit">
- {#           {% set date = ( date | default('j/m/y') ) %}#}
-            <p class="copy">EMP &copy {{ "now"|date('Y')}}  Tous droits réservés  <i class="fa fa-grav" aria-hidden="true"></i></p>
-                  <div class="social">
-                <a class="email" href="mailto:contact@easymusicproject.com"><p> <svg xmlns="http://www.w3.org/2000/svg" class="wave-footer" viewBox="0 0 238 29">
-                                <path d="M1382.78,3879.29c-20.73,15.59-38.41,15.59-59.15,0-13.52-10.17-25.06-10.17-38.57,0-20.54,15.44-37.29,15.44-57.83,0-13.67-10.28-22.9-10.28-36.58,0l-5.64-7.54c16.62-12.5,30.59-13,47.87,0,16.29,12.25,28.31,13.7,46.54,0,17.28-13,33.34-12.42,49.86,0,16.95,12.75,30.25,13.25,47.86,0,17.29-13,28.59-13,45.87,0l-5.64,7.54C1403.48,3868.84,1396.68,3868.84,1382.78,3879.29Z" transform="translate(-1185 -3862)"/>
-                                </svg>Contactez-moi</p></a>
-                <ul class="social-icon">
-                    {% for social in socials %}
-                    <li class="">
-                        <a href="{{social.url}}" target="new"><i class="social-round social-round-dark fa {{'fa-'~social.nom}}" aria-hidden="true"></i></a>
-                    </li>
-                      {% endfor %}
-                </ul>
+        </div> 
+    
+        {% block footer %}  
+            <footer class="footer">
+                <div class="credit">
+                    <p class="copy">EMP &copy {{ "now"|date('Y')}}  Tous droits réservés  <i class="fa fa-grav" aria-hidden="true"></i></p>
+                        <div class="social">
+                            <a class="email" href="mailto:contact@easymusicproject.com"><p> <svg xmlns="http://www.w3.org/2000/svg" class="wave-footer" viewBox="0 0 238 29">
+                            <path d="M1382.78,3879.29c-20.73,15.59-38.41,15.59-59.15,0-13.52-10.17-25.06-10.17-38.57,0-20.54,15.44-37.29,15.44-57.83,0-13.67-10.28-22.9-10.28-36.58,0l-5.64-7.54c16.62-12.5,30.59-13,47.87,0,16.29,12.25,28.31,13.7,46.54,0,17.28-13,33.34-12.42,49.86,0,16.95,12.75,30.25,13.25,47.86,0,17.29-13,28.59-13,45.87,0l-5.64,7.54C1403.48,3868.84,1396.68,3868.84,1382.78,3879.29Z" transform="translate(-1185 -3862)"/>
+                            </svg>Contactez-moi</p></a>
+                                <ul class="social-icon">
+                                    {% for social in socials %}
+                                    <li>
+                                    <a href="{{social.url}}" target="new"><i class="social-round social-round-dark fa {{'fa-'~social.nom}}" aria-hidden="true"></i></a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                        </div>
+                    <p class="dev">Design & Dévelopement by <a class="author" href="http://www.hl-developerz.com"> hl-developerz</a></p> 
                 </div>
-                <p class="dev">Design & Dévelopement by <a class="author" href="http://www.hl-developerz.com"> hl-developerz</a></p> 
+            </footer>
+        {% endblock %} 
 
+        <div class="border">
+            <div class="frame-top"></div>
+            <div class="frame-right"></div>
+            <div class="frame-left"></div>
+            <div class="frame-bottom"></div>
         </div>
-    </footer>
-      {% endblock %} 
-    
-    <div class="border">
-        <div class="frame-top"></div>
-        <div class="frame-right"></div>
-        <div class="frame-left"></div>
-        <div class="frame-bottom"></div>
-    </div>
-    
-{% endblock %}    
+
+    {% endblock %}    
     
