@@ -111,7 +111,7 @@
                                     {% if present.image !=null %}
                                     <td><img src="{{asset('uploads/image/')~present.image}}" class="avatar"></td>
                                     {% else %}
-                                    <td><img src="{{asset('images/pochette-disc.png')}}" class="avatar"><small class="col-md-6 ">image par defaut</small></td>
+                                    <td><img src="{{asset('images/min-logo.png')}}" class="avatar"><small class="col-md-6 ">image par defaut</small></td>
                                     {% endif %}
 
                                     <td>{{ present.texte|truncate(80, false, ' ...') }}</td>                   
@@ -324,7 +324,3 @@
 
             </div>                                                           
         {% endblock %}
-
-    {% block scriptForm %}
-        <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
-    {% endblock %}

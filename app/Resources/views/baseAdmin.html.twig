@@ -8,12 +8,16 @@
         <title>{% block title %}Admin{% endblock %}</title>
         
         {% block stylesheets %}
-        <link rel="stylesheet" href="{{asset('vendor/bootstrap.min.css')}}"/>
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/min-logo.png')}}"/>
         <link rel="stylesheet" href="{{asset('vendor/font-awesome.min.css')}}"/>
         <link rel="stylesheet" href="{{asset('vendor/vynil-embedded.css')}}"/>
-        <link rel="stylesheet" href="{{asset('vendor/animate.css')}}"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"/>
+        
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
         <link rel="stylesheet" href="{{asset('css/gentelella/custom.css') }}" />
-        <link rel="stylesheet" href="{{asset('css/gentelella/maps/jquery-jvectormap-2.0.3.css') }}" />
         <link rel="stylesheet" href="{{asset('css/gentelella/icheck/flat/green.css') }}" />
         <link rel="stylesheet" href="{{asset('css/gentelella/floatexamples.css') }}" />
         <link rel="stylesheet" href="{{asset('css/gentelella/switchery/switchery.min.css') }}" />
@@ -41,15 +45,18 @@
         </div>
         {% block javascripts %}
         
-        <script type="text/javascript" src="{{asset('vendor/jquery.min.js')}}"></script>
-        <script type="text/javascript" src="{{asset('vendor/bootstrap.min.js')}}"></script>        
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+        
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
         <script type="text/javascript" src="{{asset('js/backend/gentelella/nprogress.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/backend/gentelella/progressbar/bootstrap-progressbar.min.js')}}"></script>
-        <script type="text/javascript" src="{{asset('js/backend/gentelella/nicescroll/jquery.nicescroll.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/backend/gentelella/icheck/icheck.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/backend/gentelella/moment/moment.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/backend/gentelella/datepicker/daterangepicker.js')}}"></script>
-        <script type="text/javascript" src="{{asset('js/backend/gentelella/chartjs/chart.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/backend/gentelella/flot/jquery.flot.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/backend/gentelella/flot/jquery.flot.pie.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/backend/gentelella/flot/jquery.flot.orderBars.js')}}"></script>       
@@ -59,10 +66,6 @@
         <script type="text/javascript" src="{{asset('js/backend/gentelella/flot/jquery.flot.stack.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/backend/gentelella/flot/curvedLines.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/backend/gentelella/flot/jquery.flot.resize.js')}}"></script>
-        <script type="text/javascript" src="{{asset('js/backend/gentelella/maps/jquery-jvectormap-2.0.3.min.js')}}"></script>
-        <script type="text/javascript" src="{{asset('js/backend/gentelella/maps/gdp-data.js')}}"></script>
-        <script type="text/javascript" src="{{asset('js/backend/gentelella/maps/jquery-jvectormap-world-mill-en.js')}}"></script>
-        <script type="text/javascript" src="{{asset('js/backend/gentelella/maps/jquery-jvectormap-us-aea-en.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/backend/gentelella/switchery/switchery.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/backend/gentelella/notify/pnotify.core.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/backend/gentelella/notify/pnotify.buttons.js')}}"></script>
@@ -71,8 +74,6 @@
         <script type="text/javascript" src="{{asset('js/backend/gentelella/datatables/dataTables.bootstrap.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/backend/gentelella/datatables/dataTables.buttons.min.js')}}"></script>       
         <script type="text/javascript" src="{{asset('js/backend/gentelella/datatables/buttons.bootstrap.min.js')}}"></script>
-        <script type="text/javascript" src="{{asset('js/backend/gentelella/datatables/jszip.min.js')}}"></script>
-        <script type="text/javascript" src="{{asset('js/backend/gentelella/datatables/pdfmake.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/backend/gentelella/datatables/vfs_fonts.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/backend/gentelella/datatables/buttons.html5.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/backend/gentelella/datatables/buttons.print.min.js')}}"></script>
@@ -82,15 +83,14 @@
         <script type="text/javascript" src="{{asset('js/backend/gentelella/datatables/dataTables.scroller.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/backend/gentelella/tags/jquery.tagsinput.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/backend/gentelella/select/select2.full.js')}}"></script>
-
         <script type="text/javascript" src="{{asset('js/backend/gentelella/custom.js')}}"></script>
-         
-        
-        
+        <script type="text/javascript" src="{{asset('js/backend/form.min.js')}}"></script> 
+
         {% endblock %}
         
         {% block scriptForm %}
         {% endblock %}
+        
     </body>
 </html>
 
