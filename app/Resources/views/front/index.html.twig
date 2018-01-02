@@ -4,7 +4,15 @@
         <body class="home-page">
             <!---preloader---->
             <div id="hola">
-                <div id="svg"></div>
+                <div class="icon test" id="svg">
+                <svg class="loader rotate" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         width="128px" height="128px" viewBox="0 0 128 128" enable-background="new 0 0 128 128" xml:space="preserve">
+                <circle id="circle" fill="#ffffff" stroke="#ffffff" stroke-width="3" stroke-miterlimit="10" cx="64" cy="64" r="32"/>
+                <path id="arc1" fill="none" stroke="#ffffff" stroke-width="3" stroke-miterlimit="10" d="M18.864,64c0-24.949,20.188-45.136,45.136-45.136
+                         M109.137,64c0-24.948-20.188-45.135-45.137-45.135"/>
+                <path id="arc2" fill="none" stroke="#ffffff" stroke-width="3" stroke-miterlimit="10" d="M109.136,64c0,24.949-20.188,45.136-45.136,45.136
+                         M18.864,64c0,24.948,20.188,45.137,45.136,45.137"/>
+                </div>
             </div>
             
             <div class="app"> 
@@ -267,3 +275,8 @@
 
             </div>
         {% endblock %}  
+        
+        {% block scriptForm %}
+             <script type="text/javascript" src="{{asset('vendor/snap.min.js')}}"></script>
+            <script type="text/javascript" src="{{asset('js/front/loader.min.js')}}"></script>
+        {% endblock %}
