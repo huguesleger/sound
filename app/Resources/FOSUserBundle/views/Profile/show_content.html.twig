@@ -1,84 +1,46 @@
-{% trans_default_domain 'FOSUserBundle' %}
+    {% trans_default_domain 'FOSUserBundle' %}
 
+        {% block fos_user_content %}
 
-{% block fos_user_content %}
-    
-
-{#    
-<div class="fos_user_user_show">
-    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
-    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
-</div>#}
-
-
-        <div class="">
-          <div class="clearfix"></div>
-
-          <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Mon profil</h2>
-                  <a class="btn btn-dark btn-xs back-list" href="{{path('admin_index')}}"><i class="fa fa-reply" aria-hidden="true"></i>Retour home</a>
-                 {# <ul class="nav navbar-right panel_toolbox">
-                    <li><a href="#"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a>
-                        </li>
-                        <li><a href="#">Settings 2</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a href="#"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>#}
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-
-                  <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
-
-                    <div class="profile_img">
-
-                      <!-- end of image cropping -->
-                      <div id="crop-avatar">
-                        <!-- Current avatar -->
-                        <div class="avatar-view" title="Change the avatar">
-                          {#<img src="{{ asset( 'uploads/avatar/'~app.user.avatarPath) }}" alt="Avatar">#}
-                             {% if user.avatarPath == true  %}
-              <img src="{{ asset( 'uploads/avatar/'~user.avatarPath) }}" alt="Avatar" >
-              {% else %}
-                <img src="{{ asset( 'images/user-profile-picture.png') }}" alt="Avatar">
-              {% endif%}
+        <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Mon profil</h2>
+                            <a class="btn btn-dark btn-xs back-list" href="{{path('admin_index')}}"><i class="fa fa-reply" aria-hidden="true"></i>Retour home</a>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                                <div class="profile_img">
+                                <!-- end of image cropping -->
+                                    <div id="crop-avatar">
+                                    <!-- Current avatar -->
+                                        <div class="avatar-view" title="Change the avatar">
+                                            {% if user.avatarPath == true  %}
+                                            <img src="{{ asset( 'uploads/avatar/'~user.avatarPath) }}" alt="Avatar" >
+                                            {% else %}
+                                            <img src="{{ asset( 'images/user-profile-picture.png') }}" alt="Avatar">
+                                            {% endif%}
+                                        </div>
+                                    </div>
+                                    <h3>{{ user.username }}</h3>
+                                    <ul class="list-unstyled user_data">
+                                            <li><i class="fa fa-envelope-o user-profile-icon"></i>{{ user.email }}</li>
+                                            <li class="m-top-xs">
+                                            <i class="fa fa-external-link user-profile-icon"></i>
+                                            <a href="{{ path('home') }}" target="_blank">www.easymusicproject.com</a>
+                                        </li>
+                                    </ul>
+                                    <a href="{{ path('fos_user_profile_edit') }}" class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                                <br>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <h3>{{ user.username }}</h3>
-
-                    <ul class="list-unstyled user_data">
-                      <li><i class="fa fa-envelope-o user-profile-icon"></i>{{ user.email }}</li>
-                      <li class="m-top-xs">
-                        <i class="fa fa-external-link user-profile-icon"></i>
-                        <a href="{{ path('home') }}" target="_blank">www.easymusicproject.com</a>
-                      </li>
-                    </ul>
-
-                    <a href="{{ path('fos_user_profile_edit') }}" class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
-                     {# <a href="{{ path('full') }}" class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Supp avatar</a>#}
-                    <br>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
 
+        {% endblock fos_user_content %}
 
-
-
-
-
-    {% endblock fos_user_content %}
-   

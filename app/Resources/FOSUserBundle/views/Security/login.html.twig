@@ -1,47 +1,47 @@
-{% trans_default_domain 'FOSUserBundle' %}
-{% extends 'FOSUserBundle::layout.html.twig' %}
+    {% trans_default_domain 'FOSUserBundle' %}
+    {% extends 'FOSUserBundle::layout.html.twig' %}
 
-     {% block content %}
-{% block fos_user_content %}
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %} 
-    <div id="login" class="animate form">
-        <section class="login_content">
-     <form action="{{ path("fos_user_security_check") }}" method="POST">
-           {% if csrf_token %}
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-    {% endif %}
-    
-    <h1><img src="{{asset ('images/big-logo.png')}}" class="logo-connect"/></h1>
-            <div>
-              <input type="text" class="form-control" placeholder="{{ 'security.login.username'|trans }}" id="username" name="_username" value="{{ last_username }}" required="" />
-            </div>
-            <div>
-              <input type="password" class="form-control" placeholder="{{ 'security.login.password'|trans }}"  id="password" name="_password" required="" />
-            </div>
-            <div>
-             <p class="remember"><label for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever"> Se souvenir de moi</label></p>
-              <input type="submit" class="btn btn-dark submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />  
-              {#<a class="btn btn-default submit" href="index.html">Log in</a>#}
-              
-            </div>
-            <div class="clearfix"></div>
-            <div class="separator">
+        {% block content %}
+            {% block fos_user_content %}
+                
+            {% if error %} 
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %} 
+            
+                <div id="login" class="animate form">
+                    <section class="login_content">
+                        <form action="{{ path("fos_user_security_check") }}" method="POST">
+                            {% if csrf_token %}
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                            {% endif %}
 
-              <a href="{{ path("fos_user_resetting_request") }}" class="to_register">Mot de passe oublié ?</a>
-              <div class="clearfix"></div>
-              <br />
-              <div>
-{#                <h1><i class="fa fa-paw" style="font-size: 26px;"></i> Gentelella Alela!</h1>#}
-                <p><i class="fa fa-reply" aria-hidden="true"></i><a href="{{ path("home") }}">Retour au site</a></p>
-              </div>
-            </div>
-          </form>
-        <!-- form -->
-        </section>
-        <!-- content -->
-      </div>
-       
-    {% endblock fos_user_content %}
- {% endblock %}
+                            <h1><img src="{{asset ('images/big-logo.png')}}" class="logo-connect"/></h1>
+                            <div>
+                                <input type="text" class="form-control" placeholder="{{ 'security.login.username'|trans }}" id="username" name="_username" value="{{ last_username }}" required="" />
+                            </div>
+                            <div>
+                                <input type="password" class="form-control" placeholder="{{ 'security.login.password'|trans }}"  id="password" name="_password" required="" />
+                            </div>
+                            <div>
+                                <p class="remember"><label for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever"> Se souvenir de moi</label></p>
+                            <input type="submit" class="btn btn-dark submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />  
+
+                        </div>
+                            <div class="clearfix"></div>
+                            <div class="separator">
+
+                                <a href="{{ path("fos_user_resetting_request") }}" class="to_register">Mot de passe oublié ?</a>
+                                <div class="clearfix"></div>
+                                <br/>
+                                <div>
+                                <p><i class="fa fa-reply" aria-hidden="true"></i><a href="{{ path("home") }}">Retour au site</a></p>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- form -->
+                    </section>
+                    <!-- content -->
+                </div>
+
+            {% endblock fos_user_content %}
+        {% endblock %}

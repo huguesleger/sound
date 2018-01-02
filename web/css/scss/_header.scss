@@ -1,5 +1,3 @@
-/*@import "_variable.scss";*/
-
 .header {
     position: relative;
     width: 100%;
@@ -7,16 +5,7 @@
     background-color: $white;
 }
 
-
-
 @media screen and(min-width: 1200px){
-/*.header {
-    position: relative;
-    width: 100%;
-    height: auto;
-    background-color: $white;
-}*/
-
 #bg-header {
     width: 100%;
     height: 100vh;
@@ -34,14 +23,9 @@
 }
 
 @media screen and(max-width: 767px){
-
 #bg-header {
    display: none;
 }
-
-/*#header-mobile {
-   height: 50vh 
-}*/
 
 }
 

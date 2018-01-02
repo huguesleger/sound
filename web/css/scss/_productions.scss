@@ -87,11 +87,6 @@
 
 }
 
-
-
-
-
-
 ///////////
 ////////////
 
@@ -621,14 +616,6 @@ padding-top: 15px;
   margin: auto;
 }
 
-/*.anim-round {
-       -moz-animation: audio2 2.2s infinite ease-in-out;
-            -o-animation: audio2 2.2s infinite ease-in-out;
-            -webkit-animation: audio2 2.2s infinite ease-in-out;
-            animation: audio2 2.2s infinite ease-in-out;
-            
-}*/
-
 .audio-player__control-icon::after,
 .audio-player__control-icon::before {
   -webkit-transition: all 200ms;
@@ -735,18 +722,6 @@ padding-top: 15px;
 }
 
 ////////// no result search /////////
-
-/*.no-result {
-    float: none;
-    margin: auto;
-    text-align: center;
-}
-
-.alert-nofind {
-    color: #ffffff;
-    background-color: $color_primary;
-    border-color: $color_primary;
-}*/
 
 .no-result {
     font-family: $font_title;

@@ -1,13 +1,11 @@
 {% extends ':back:templateAdmin.html.twig' %}
 
-  {% block content %}
-{% block fos_user_content %}
-{% include "@FOSUser/Profile/edit_content.html.twig" %}
-{% endblock fos_user_content %}
+{% block content %}
+    {% block fos_user_content %}
+        {% include "@FOSUser/Profile/edit_content.html.twig" %}
+    {% endblock fos_user_content %}
 {% endblock %}
 
 {% block scriptForm %}
-{#     <script type="text/javascript" src="{{asset('js/backend/form/form_notification.js')}}"></script>#}
-      <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
-
+    <script type="text/javascript" src="{{asset('js/backend/form.js')}}"></script>
 {% endblock %}

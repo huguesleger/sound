@@ -1,41 +1,40 @@
-{% extends ':front:templateFront.html.twig' %}
-        {% block stylesheets %}
-         <link rel="stylesheet" type="text/css" href="{{asset('vendor/bootstrap.min.css')}}"/>
-         <link rel="stylesheet" type="text/css" href="{{asset('vendor/font-awesome.min.css')}}"/>
-         <link rel="stylesheet" type="text/css" href="{{ asset('css/gentelella/custom.css') }}" />
-         <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}"/>
-         {% endblock %}
+    {% extends ':front:templateFront.html.twig' %}
 
-         
-  {% block content %}
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{asset('vendor/bootstrap.min.css')}}"/>
+        <link rel="stylesheet" type="text/css" href="{{asset('vendor/font-awesome.min.css')}}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/gentelella/custom.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}"/>
+    {% endblock %}
 
-{% block navSite %}
-{% endblock %}  
-  <body class="error"> 
-  <div class="container body">
-    <div class="main_container">
-      <!-- page content -->
-      <div class="col-md-12">
-        <div class="col-middle">
-          <div class="text-center">
-            <h1 class="error-number">{{ status_code }}</h1>
-            <h2>Désolé mais nous n'avons pas pu trouver cette page</h2>
-            <p>Cette page que vous recherchez n'exsiste pas !</p>
-            <div class="mid_center">
-                <img src="{{asset('images/error404.png')}}" class="img-responsive" alt="404">
+        {% block content %}
+
+        {% block navSite %}
+        {% endblock %}
+        
+        <body class="error">
+            <div class="container body">
+                <div class="main_container">
+                    <div class="col-md-12">
+                        <div class="col-middle">
+                            <div class="text-center">
+                                <h1 class="error-number">{{ status_code }}</h1>
+                                <h2>Désolé mais nous n'avons pas pu trouver cette page</h2>
+                                <p>Cette page que vous recherchez n'exsiste pas !</p>
+                                <div class="mid_center">
+                                <img src="{{asset('images/error404.png')}}" class="img-responsive" alt="404">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <!-- /page content -->
-    </div>
-    <!-- footer content -->
-  </div>
-{% block footer %}                
-{% endblock %}
-{% endblock %}
-{% block javascripts %}
-<script type="text/javascript" src="{{asset('vendor/jquery.min.js')}}"></script>
-<script type="text/javascript" src="{{asset( 'js/front/main.js')}}"></script>
-{% endblock %}
+        {% block footer %}                
+        {% endblock %}
+        {% endblock %}
+    
+        {% block javascripts %}
+            <script type="text/javascript" src="{{asset('vendor/jquery.min.js')}}"></script>
+            <script type="text/javascript" src="{{asset( 'js/front/main.js')}}"></script>
+        {% endblock %}
 

@@ -21,24 +21,20 @@
 
 
 .carousel-inner>.active {
-/*    max-height: 690px;*/
    width: 100%;
 }
 
-/*.carousel-inner>.active>.txt-carousel {
-    max-height: 690px;
-}*/
 @media screen and(min-width: 764px) {
 .inner-default {
     width: 100%;
-display: none;
+    display: none;
 }
 }
 @media screen and(min-width: 1200px) {
 .-inner-default {
     width: 90%;
     left: 10%;
-display: none;
+    display: none;
 }
 }
 
@@ -104,11 +100,6 @@ display: none;
     margin-left: 0;
     width: 100%;
 }
-
-
-
-
-
 
 .edit-carousel{
     text-align: center;
