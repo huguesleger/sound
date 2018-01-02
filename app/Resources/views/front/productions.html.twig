@@ -7,7 +7,7 @@
                 <div class="container-prod mg-top" id="prod">
                     
                     {% block search %}
-                        <div class="searching">
+                        <div class="searching wow fadeInDown" data-wow-duration="400ms" data-wow-delay=" 200ms">
                             <div class="search col-lg-2 col-md-4 col-sm-5">
 
                                 <form class="" method="post" action="{{ path('productionsrecherche')}}">
@@ -63,13 +63,13 @@
 
                             {% for production in productions %}
                                 {% if production.titre != null and production.texte != null %}    
-                                    <div class="title-section">
+                                    <div class="title-section wow bounceInDown" data-wow-duration="800ms" data-wow-delay=" 400ms">
                                         <h2>{{ production.titre }}</h2>
                                         <svg xmlns="http://www.w3.org/2000/svg" class="wave-title" viewBox="0 0 238 29">
                                         <path d="M1382.78,3879.29c-20.73,15.59-38.41,15.59-59.15,0-13.52-10.17-25.06-10.17-38.57,0-20.54,15.44-37.29,15.44-57.83,0-13.67-10.28-22.9-10.28-36.58,0l-5.64-7.54c16.62-12.5,30.59-13,47.87,0,16.29,12.25,28.31,13.7,46.54,0,17.28-13,33.34-12.42,49.86,0,16.95,12.75,30.25,13.25,47.86,0,17.29-13,28.59-13,45.87,0l-5.64,7.54C1403.48,3868.84,1396.68,3868.84,1382.78,3879.29Z" transform="translate(-1185 -3862)"/>
                                         </svg>
                                     </div>
-                                    <div class="container txt-section intro-production">
+                                    <div class="container txt-section intro-production wow fadeIn" data-wow-duration="600ms" data-wow-delay=" 800ms">
                                         <p class="txt-center">{{ production.texte }}</p>
                                     </div>
                                 {% elseif  production.titre != null and production.texte == null %}
@@ -93,7 +93,7 @@
 
                                     {% for sound in pagination %}                  
                                         <div class="background-mobile{% if loop.index is divisible by(2)%} {% else %} color-white{% endif %}">
-                                            <div class="col-md-12 padd-b-md">                        
+                                            <div class="col-md-12 padd-b-md wow fadeIn" data-wow-duration="1000ms" data-wow-delay=" 600ms">                        
                                                 <div class="col-md-6 padd-b-md">
                                                     <div class="line-sound">
                                                         {% if sound.annee != null %}

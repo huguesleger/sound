@@ -256,8 +256,11 @@
             }
         });
     });
+    
+    //Initiat WOW JS
+    new WOW().init();
 
-}); ///////////// document read
+}); ///////////// document ready
 
     $(window).resize(function(){                
     var windowWidth = $(window).innerWidth();

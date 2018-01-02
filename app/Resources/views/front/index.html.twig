@@ -188,7 +188,7 @@
                                 {% endif %}
                                 </div>
                             
-                            <div class="txt-section present padd-section" id="Txt">
+                            <div class="txt-section present padd-section wow fadeInLeft" data-wow-duration="600ms" data-wow-delay=" 600ms" id="Txt" >
                                 <p class="txt-center"> {{present.texte}}</p>
                             </div>
                             {% endfor %}  
@@ -196,7 +196,7 @@
                     {% endblock %}
 
                     {% block services %}    
-                        <section class="bg-section-white padd-b-md" id="service">
+                        <section class="bg-section-white padd-b-md wow fadeIn" data-wow-duration="600ms" data-wow-delay=" 800ms" id="service">
                             <div class="title-section services"> 
                             {% for service in services [0:] %}       
                             {%if loop.index == 1%}<h2>{{service.name}}</h2>{% endif %}
@@ -230,12 +230,12 @@
                             <section class="promo">
                             {% for promotion in promotions %}
                                     <div class="bg-section promotion">
-                                        <div class="img-promo img-promo-divide">
+                                        <div class="img-promo img-promo-divide wow bounceInRight" data-wow-duration="800ms" data-wow-delay=" 1000ms">
                                         {% if promotion.image != null %}<img src="{{asset('uploads/image/')~promotion.image}}"class="img-responsive" alt="{{promotion.image}}">
                                         {% else %}<img src="{{asset('images/turntable-default.jpg')}}" class="img-responsive" alt="platine-vinyle"{% endif %}> 
                                         </div>
                                         
-                                        <div class="container content-divide">
+                                        <div class="container content-divide wow bounceInLeft" data-wow-duration="800ms" data-wow-delay=" 1000ms">
                                             <div class="col-lg-6 icon-content">
                                                 <img src="{{asset('images/people.png')}}" class="icon-promo">
                                                 <img src="{{asset('images/computer.png')}}" class="icon-promo"> 

@@ -7,7 +7,7 @@
                 <div class="container-prod mg-top" id="prod">
                     
                     {% block search %}
-                        <div class="searching">
+                        <div class="searching wow fadeInDown" data-wow-duration="400ms" data-wow-delay=" 200ms">
                             
                             <div class="search col-lg-2 col-md-4 col-sm-5">    
                             <form method="post" action="{{ path('productionsrecherche')}}">
@@ -59,7 +59,7 @@
                                     
                                     {% for sound in pagination %}                  
                                         <div class="background-mobile{% if loop.index is divisible by(2)%} {% else %} color-white{% endif %}">
-                                            <div class="col-md-12 padd-b-md">                         
+                                            <div class="col-md-12 padd-b-md wow fadeIn" data-wow-duration="1000ms" data-wow-delay=" 600ms">                         
                                                 <div class="col-md-6 padd-b-md">
                                                     <div class="line-sound">
                                                         {% if sound.annee != null %}
