@@ -4,10 +4,6 @@ var player = $('.js-audio-player');
 var playbackClass = 'is-playing';
 var fadeDuration = 500;
 
-
-
-
-
 player.each(function(index) {
   var $this = $(this);
    var id = 'audio-player-' + index;
@@ -19,11 +15,6 @@ player.each(function(index) {
     playback($this, $this.find('audio'));
     $this.find('.audio-player__control-icon').toggleClass('animate-audio1 ');
     $this.find('.audio-player__control-icon2').toggleClass('animate-audio2 ');
-
-   
-   
-   
-   
   });
   
   // Reset state once audio has finished playing
@@ -33,32 +24,20 @@ player.each(function(index) {
      $this.find('.audio-player__control-icon2').removeClass('animate-audio2 ');
 
   });
-  
-
-
-
-
-  
-  
 });
-
 
 function playback(player, audio) {
   if (audio[0].paused) {
     audio[0].play();
     audio.animate({ volume: 1 }, fadeDuration);
     player.addClass(playbackClass);
-    
-
+   
   } else {
     audio.animate({ volume: 0 }, fadeDuration, function() {
       audio[0].pause();
-
     });
-    player.removeClass(playbackClass);
-    
-  } 
-  
+    player.removeClass(playbackClass);   
+  }  
 }
 
 function resetPlayback(id) {
@@ -67,17 +46,12 @@ function resetPlayback(id) {
 
     if ($this.attr('id') !== id) {
       $this.find('audio').animate({ volume: 0 }, fadeDuration, function() {
-        $(this)[0].pause();
-        
+        $(this)[0].pause();       
       });
       $this.removeClass(playbackClass);
-    }
-    
-  }); 
-  
+    }   
+  });  
 }
-
-
 
 });
 

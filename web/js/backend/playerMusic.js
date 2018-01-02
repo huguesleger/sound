@@ -1,21 +1,9 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 $(document).ready(function(){
-// var for audio content
-
 var audio = document.getElementById('audio');
-
 
 // html5 function - toggle play/pause btn and audio
   
 $("#plays_btn").click(function() {
-
-
-   
     if (audio.paused === false) {
         audio.pause();
         $("#play_btn").show();
@@ -32,14 +20,10 @@ $('#prev_btn').click(function(){
      $("#play_btn").show();
         $("#pause_btn").hide();
 });
-
-
     
 });
 
-
 // function for timeline
-
 audio.addEventListener("timeupdate", function() {
 
     var currentTime = audio.currentTime,
@@ -48,10 +32,7 @@ audio.addEventListener("timeupdate", function() {
     $('.progressbar_range').stop(true, true).animate({'width': (currentTime + .25) / duration * 100 + '%'}, 250, 'linear');
 });
 
-
-
 // count function for timeleft
-
 audio.addEventListener("timeupdate", function() {
     var timeleft = document.getElementById('timeleft'),
         duration = parseInt( audio.duration ),
@@ -67,11 +48,8 @@ audio.addEventListener("timeupdate", function() {
     
     $('#timeleft').text("-"+m+":"+s);
     $('#timeSound').text(duration);
-    
-    
+       
 });
-
-
 
    }); 
     
